@@ -1,0 +1,14 @@
+GeoSim dataset
+=============
+
+The GeoSim dataset is licensed under the Creative Commons Attribution 4.0
+International License (CC BY 4.0).
+
+License text: https://creativecommons.org/licenses/by/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by/4.0/
+
+The dataset is published at https://huggingface.co/datasets/irenier/GeoSim
+(DOI: 10.57967/hf/11421).
+
+The code in this repository is licensed separately under the MIT License; see
+the repository-level LICENSE file.

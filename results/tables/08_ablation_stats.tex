@@ -1,0 +1,32 @@
+% Generated from the recorded paired ablation statistics.
+\begin{table}[H]
+\centering
+\small
+\caption{Paired B--C differences and $95\%$ paired trajectory-bootstrap
+intervals on \pone, in relative $L^2$ error (\%). $E_B-E_C$ reports the
+mean $\pm$ SD over the three paired training seeds, while the $95\%$
+intervals are trajectory-level paired bootstrap intervals ($10^{4}$
+resamples, one index set shared across models) conditioning on the trained
+checkpoints.}
+\label{tab:ablation_stats}
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular}{lccc}
+\toprule
+ & $\rho$ & $P$ & $T$\\
+\midrule
+$E_B-E_C$ & $(+7.21{\pm}1.48){\times}10^{-5}$ & $(-9.42{\pm}1.88){\times}10^{-5}$ & $(1.62{\pm}1.40){\times}10^{-3}$\\
+95\% traj.~boot. & $[1.16{\times}10^{-5},\,1.41{\times}10^{-4}]$ & $[-1.29{\times}10^{-4},\,-6.11{\times}10^{-5}]$ & $[9.70{\times}10^{-4},\,2.32{\times}10^{-3}]$\\
+\bottomrule
+\end{tabular}
+
+\vspace{4pt}
+
+\begin{tabular}{lccc}
+\toprule
+ & $\log_{10}\eta$ & $v_x$ & $v_y$\\
+\midrule
+$E_B-E_C$ & $(3.52{\pm}2.04){\times}10^{-3}$ & $(4.53{\pm}4.06){\times}10^{-2}$ & $(1.64{\pm}6.20){\times}10^{-2}$\\
+95\% traj.~boot. & $[1.99{\times}10^{-3},\,4.99{\times}10^{-3}]$ & $[-0.0895,\,0.248]$ & $[-0.0390,\,0.0858]$\\
+\bottomrule
+\end{tabular}
+\end{table}

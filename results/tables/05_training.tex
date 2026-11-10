@@ -1,0 +1,27 @@
+% Generated from the recorded run metadata.
+\begin{table}[htbp]
+\centering\scriptsize
+\caption{Configuration record. Width/depth and objective are summarized from the
+per-run configuration files kept alongside each checkpoint; total parameters are
+counted as $\sum\mathrm{numel}$ over \texttt{model\_state\_dict} of the selected
+checkpoint (for the independent-field baseline this is the \emph{sum of all six
+sub-networks}). Budget is training epochs and the batch size actually used.
+Seed IDs list the training seeds used in the reported short-window
+and ablation results; they differ between the two subsets, which are
+stated separately and not averaged.}
+\label{tab:training}
+\begin{tabularx}{\linewidth}{@{}lXXXXX@{}}
+\toprule
+Model & Width / depth & Total params & Objective & Budget / batch & Seed IDs\\
+\midrule
+FNO & width 48 / 4 Fourier layers, modes 24 & 10.64 M & MSE (per-frame) & 1000 ep, bs 32 & 0, 1, 2 (\pone),\newline 0 (\ptwo)\\
+GNOT & hidden 128 / 3 layers, 2 experts & 2.94 M & MSE (per-frame) & 2000 ep, bs 4 & 0, 1, 2 (\pone),\newline 0 (\ptwo)\\
+Independent MPNN & hidden 200 / 6 layers, 6 independent nets & 9.08 M & per-field relative $L^2$, equal weights & 2000 ep, bs 2 & 0, 1, 2 (\pone),\newline 0 (\ptwo)\\
+Transolver & hidden 256 / 5 layers, 8 heads & 7.08 M & MSE (per-frame) & 1000 ep, bs 4 & 0, 1, 2 (\pone),\newline 0 (\ptwo)\\
+MFGNO & hidden 512 / 6 layers, joint 6-field & 10.55 M & per-field relative $L^2$, equal weights & 2000 ep, bs 2 & 0, 1, 2 (\pone),\newline 0 (\ptwo)\\
+A control & hidden 200 / 6 layers, 6 independent nets & 9.08 M & per-field relative $L^2$, equal weights & 2000 ep, bs 2 & 0, 1, 2 (\pone),\newline 0 (\ptwo)\\
+B control & hidden 512 / 6 layers, zeroed difference slot & 10.55 M & per-field relative $L^2$, equal weights & 2000 ep, bs 2 & 0, 1, 2 (\pone),\newline 0 (\ptwo)\\
+C control & hidden 512 / 6 layers, full joint & 10.55 M & per-field relative $L^2$, equal weights & 2000 ep, bs 2 & 0, 1, 2 (\pone),\newline 0 (\ptwo)\\
+\bottomrule
+\end{tabularx}
+\end{table}

@@ -1,0 +1,225 @@
+{
+  "collected_at": "2026-09-22T21:13:46",
+  "wallclock_source": "sacct (job wall time, incl. TIMEOUT segments)",
+  "params_source": "sum(numel) over model_state_dict of *-best.pt",
+  "models": {
+    "FNO": {
+      "exp_id": "2026-09-17-fno-E01-plume1d-seed0",
+      "stage": "E01_main",
+      "external_baseline": true,
+      "width_depth": "width 48 / 4 Fourier layers, modes 24",
+      "objective": "MSE (per-frame)",
+      "params": 10636310,
+      "checkpoint": "plume1d_train_ds_128x128_phys1e6_first21_FNO-best.pt",
+      "train_hours": 2.386388888888889,
+      "job_segments": [
+        "3555178:2.39h/COMPLETED"
+      ],
+      "epochs": 1000,
+      "batch_size": 32,
+      "seed": 0,
+      "optimizer": {
+        "name": "Adam",
+        "lr": 0.0001,
+        "weight_decay": 0.0001
+      },
+      "scheduler": {
+        "name": "StepLR",
+        "step_size": 100,
+        "gamma": 0.5
+      },
+      "config_file": "2026-09-17-fno-E01-plume1d-seed0.yaml"
+    },
+    "GNOT": {
+      "exp_id": "2026-09-17-gnot-E01-plume1d-seed0",
+      "stage": "E01_main",
+      "external_baseline": true,
+      "width_depth": "hidden 128 / 3 layers, 2 experts",
+      "objective": "MSE (per-frame)",
+      "params": 2940994,
+      "checkpoint": "2026-09-17-gnot-E01-plume1d-seed0-best.pt",
+      "train_hours": 4.323333333333333,
+      "job_segments": [
+        "3555179:4.32h/COMPLETED"
+      ],
+      "epochs": 2000,
+      "batch_size": 4,
+      "seed": 0,
+      "optimizer": {
+        "lr": 0.0001,
+        "weight_decay": 1e-08
+      },
+      "scheduler": {
+        "step_size": 250,
+        "gamma": 0.7
+      },
+      "config_file": "2026-09-17-gnot-E01-plume1d-seed0.yaml"
+    },
+    "Transolver": {
+      "exp_id": "2026-09-17-transolver-E01-plume1d-seed0",
+      "stage": "E01_main",
+      "external_baseline": true,
+      "width_depth": "hidden 256 / 5 layers, 8 heads",
+      "objective": "MSE (per-frame)",
+      "params": 7084654,
+      "checkpoint": "Transolver_lr0.0001_bs4-best.pt",
+      "train_hours": 17.27722222222222,
+      "job_segments": [
+        "3555180:17.28h/COMPLETED"
+      ],
+      "epochs": 1000,
+      "batch_size": 4,
+      "seed": 0,
+      "optimizer": {
+        "name": "Adam",
+        "lr": 0.0001,
+        "weight_decay": 1e-08
+      },
+      "scheduler": {
+        "name": "StepLR",
+        "step_size": 100,
+        "gamma": 0.5
+      },
+      "config_file": "2026-09-17-transolver-E01-plume1d-seed0.yaml"
+    },
+    "Independent MPNN": {
+      "exp_id": "2026-09-17-mpnn-E02-A-plume1d-seed0",
+      "stage": "E02_ablation",
+      "external_baseline": false,
+      "width_depth": "hidden 200 / 6 layers, 6 independent nets",
+      "objective": "MSE, equal-field weights",
+      "params": 9076662,
+      "checkpoint": "2026-09-17-mpnn-E02-A-plume1d-seed0-best.pt",
+      "train_hours": 52.141111111111115,
+      "job_segments": [
+        "3544399:0.06h/FAILED",
+        "3544874:48.00h/TIMEOUT",
+        "3557782:4.08h/COMPLETED"
+      ],
+      "epochs": 2000,
+      "batch_size": 2,
+      "seed": 0,
+      "optimizer": {
+        "name": "Adam",
+        "lr": 0.0001,
+        "weight_decay": 1e-08
+      },
+      "scheduler": {
+        "name": "StepLR",
+        "step_size": 100,
+        "gamma": 0.8
+      },
+      "config_file": "2026-09-17-mpnn-E02-A-plume1d-seed0.yaml"
+    },
+    "MFGNO": {
+      "exp_id": "2026-09-17-mfgno-E02-C-equal-plume1d-seed0",
+      "stage": "E02_ablation",
+      "external_baseline": false,
+      "width_depth": "hidden 512 / 6 layers, joint 6-field",
+      "objective": "MSE, equal-field weights",
+      "params": 10551362,
+      "checkpoint": "2026-09-17-mfgno-E02-C-equal-plume1d-seed0-best.pt",
+      "train_hours": 33.24027777777778,
+      "job_segments": [
+        "3537179:33.24h/COMPLETED"
+      ],
+      "epochs": 2000,
+      "batch_size": 2,
+      "seed": 0,
+      "optimizer": {
+        "name": "Adam",
+        "lr": 0.0001,
+        "weight_decay": 1e-08
+      },
+      "scheduler": {
+        "name": "StepLR",
+        "step_size": 100,
+        "gamma": 0.8
+      },
+      "config_file": "2026-09-17-mfgno-E02-C-equal-plume1d-seed0.yaml"
+    },
+    "A control": {
+      "exp_id": "2026-09-17-mpnn-E02-A-plume1d-seed0",
+      "stage": "E02_ablation",
+      "external_baseline": false,
+      "width_depth": "hidden 200 / 6 layers, 6 independent nets",
+      "objective": "MSE, equal-field weights",
+      "params": 9076662,
+      "checkpoint": "2026-09-17-mpnn-E02-A-plume1d-seed0-best.pt",
+      "train_hours": 52.141111111111115,
+      "job_segments": [
+        "3544399:0.06h/FAILED",
+        "3544874:48.00h/TIMEOUT",
+        "3557782:4.08h/COMPLETED"
+      ],
+      "epochs": 2000,
+      "batch_size": 2,
+      "seed": 0,
+      "optimizer": {
+        "name": "Adam",
+        "lr": 0.0001,
+        "weight_decay": 1e-08
+      },
+      "scheduler": {
+        "name": "StepLR",
+        "step_size": 100,
+        "gamma": 0.8
+      },
+      "config_file": "2026-09-17-mpnn-E02-A-plume1d-seed0.yaml"
+    },
+    "B control": {
+      "exp_id": "2026-09-17-mfgno-E02-B-equal-plume1d-seed0",
+      "stage": "E02_ablation",
+      "external_baseline": false,
+      "width_depth": "hidden 512 / 6 layers, zeroed difference slot",
+      "objective": "MSE, equal-field weights",
+      "params": 10551362,
+      "checkpoint": "2026-09-17-mfgno-E02-B-equal-plume1d-seed0-best.pt",
+      "train_hours": 33.29555555555555,
+      "job_segments": [
+        "3537176:33.30h/COMPLETED"
+      ],
+      "epochs": 2000,
+      "batch_size": 2,
+      "seed": 0,
+      "optimizer": {
+        "name": "Adam",
+        "lr": 0.0001,
+        "weight_decay": 1e-08
+      },
+      "scheduler": {
+        "name": "StepLR",
+        "step_size": 100,
+        "gamma": 0.8
+      },
+      "config_file": "2026-09-17-mfgno-E02-B-equal-plume1d-seed0.yaml"
+    },
+    "C control": {
+      "exp_id": "2026-09-17-mfgno-E02-C-equal-plume1d-seed0",
+      "stage": "E02_ablation",
+      "external_baseline": false,
+      "width_depth": "hidden 512 / 6 layers, full joint",
+      "objective": "MSE, equal-field weights",
+      "params": 10551362,
+      "checkpoint": "2026-09-17-mfgno-E02-C-equal-plume1d-seed0-best.pt",
+      "train_hours": 33.24027777777778,
+      "job_segments": [
+        "3537179:33.24h/COMPLETED"
+      ],
+      "epochs": 2000,
+      "batch_size": 2,
+      "seed": 0,
+      "optimizer": {
+        "name": "Adam",
+        "lr": 0.0001,
+        "weight_decay": 1e-08
+      },
+      "scheduler": {
+        "name": "StepLR",
+        "step_size": 100,
+        "gamma": 0.8
+      },
+      "config_file": "2026-09-17-mfgno-E02-C-equal-plume1d-seed0.yaml"
+    }
+  }
+}

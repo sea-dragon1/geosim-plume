@@ -1,0 +1,3117 @@
+diff -ruN a/gausfast.c b/gausfast.c
+--- a/gausfast.c	2026-11-08 11:16:15.095148964 +0800
++++ b/gausfast.c	2026-11-08 11:16:15.103149004 +0800
+@@ -1,3 +1,4 @@
++#include <mkl.h>
+ /* ADD & SOLVE MATRIX BY ECONOMICAL FRONTAL GAUSS METHOD */
+ int gausmat3(int am, long int mcmax, long int mcmin)
+ /* wn[] - line koef numbers */
+diff -ruN a/headfast.c b/headfast.c
+--- a/headfast.c	2026-11-08 11:16:15.109149035 +0800
++++ b/headfast.c	2026-11-08 11:16:15.117149076 +0800
+@@ -87,8 +87,8 @@
+ double gx[MAXXLN],gy[MAXYLN];
+ double nu[MAXNOD],nd[MAXNOD],mu[MAXNOD],ep[MAXNOD],et[MAXNOD],ro[MAXNOD],dv[MAXNOD];
+ double nu0[MAXNOD],nd0[MAXNOD],ep0[MAXNOD],et0[MAXNOD],ro0[MAXNOD];
+-double tk[MAXNOD],cp[MAXNOD],kt[MAXNOD],ht[MAXNOD],rr[MAXNOD];
+-double cp0[MAXNOD],kt0[MAXNOD],ht0[MAXNOD],pr0[MAXNOD],prb[MAXNOD],prb0[MAXNOD],rr0[MAXNOD];
++double tk[MAXNOD],cp[MAXNOD],kt[MAXNOD],ht[MAXNOD];
++double cp0[MAXNOD],kt0[MAXNOD],ht0[MAXNOD],pr0[MAXNOD],prb[MAXNOD],prb0[MAXNOD];
+ double vx[MAXNOD],vy[MAXNOD];
+ double tk0[MAXNOD], tk1[MAXNOD], tk2[MAXNOD], tk3[MAXNOD];
+ double wa0[MAXNOD], wa1[MAXNOD];
+@@ -116,8 +116,8 @@
+ /* markn0[], markn1[], marks0[], marks1[] - viscosity and stress limits for individual rock types */
+ /* markro[], markaa[], markbb[], markcp[], markkt[], markkf[], markkv[], markht[] - ro,aro,bro,cp,kt, Tkt, Pkt, ht */
+ float markx[MAXMRK],marky[MAXMRK];
+-float markk[MAXMRK],markd[MAXMRK],markw[MAXMRK],markwt[MAXMRK],markex[MAXMRK],marke[MAXMRK],markdi[MAXMRK],markn[MAXMRK],markdt[MAXMRK],markpr[MAXMRK],markrr[MAXMRK],markrn[MAXMRK];
+-double markeii,marksii,markrat,markdis,nuplast,eiiplast,maxwater;
++float markk[MAXMRK],markd[MAXMRK],markw[MAXMRK],markwt[MAXMRK],markex[MAXMRK],marke[MAXMRK],markdi[MAXMRK],markn[MAXMRK],markdt[MAXMRK],markpr[MAXMRK],markecl[MAXMRK];
++double markeii,marksii,markrat,nuplast,eiiplast,maxwater;
+ char markt[MAXMRK],markv[MAXMRK];
+ double marknu[MAXTMR],markdh[MAXTMR],markdv[MAXTMR],markss[MAXTMR],markmm[MAXTMR];
+ double markll[MAXTMR],marka0[MAXTMR],marka1[MAXTMR],markb0[MAXTMR],markb1[MAXTMR],marke0[MAXTMR],marke1[MAXTMR];
+@@ -142,7 +142,7 @@
+ /* fl1out[] - output data Cur file name */
+ /* xn[], cn[] - high order FD cordinates and coefficients */
+ /* *fl - Streem for File Input/Output */
+-double vxy[20],errbuf[20],nunu[9][5],eps[100];
++double vxy[20],errbuf[20],nunu[9][5],eps[50];
+ char sa[250];
+ char fl1in[50],fl1out[50];
+ int fl1itp,fl1otp;
+@@ -248,6 +248,8 @@
+ /* gridmod - recalc grid parameters Y(1)/N(0) */
+ int cyc0max,movemod,tempmod,markmod,ratemod,gridmod;
+ double maxxystep,maxtkstep,maxtmstep,timestep,timesum,timedir,timebond;
++/* VelocityBC change */
++double vtimebeg,vtimeend,vkoefbeg,vkoefend;
+ /**/
+ /**/
+ /**/
+diff -ruN a/headjslab.c b/headjslab.c
+--- a/headjslab.c	2026-11-08 11:16:15.123149107 +0800
++++ b/headjslab.c	2026-11-08 11:16:15.130149142 +0800
+@@ -70,8 +70,8 @@
+ double gx[MAXXLN],gy[MAXYLN];
+ double nu[MAXNOD],nd[MAXNOD],mu[MAXNOD],ep[MAXNOD],et[MAXNOD],ro[MAXNOD],dv[MAXNOD];
+ double nu0[MAXNOD],nd0[MAXNOD],ep0[MAXNOD],et0[MAXNOD],ro0[MAXNOD];
+-double tk[MAXNOD],cp[MAXNOD],kt[MAXNOD],ht[MAXNOD],rr[MAXNOD];
+-double cp0[MAXNOD],kt0[MAXNOD],ht0[MAXNOD],pr0[MAXNOD],prb[MAXNOD],prb0[MAXNOD],rr0[MAXNOD];
++double tk[MAXNOD],cp[MAXNOD],kt[MAXNOD],ht[MAXNOD];
++double cp0[MAXNOD],kt0[MAXNOD],ht0[MAXNOD],pr0[MAXNOD],prb[MAXNOD],prb0[MAXNOD];
+ double vx[MAXNOD],vy[MAXNOD];
+ double tk0[MAXNOD], tk1[MAXNOD], tk2[MAXNOD], tk3[MAXNOD];
+ double wa0[MAXNOD], wa1[MAXNOD];
+@@ -98,8 +98,8 @@
+ /* markn0[], markn1[], marks0[], marks1[] - viscosity and stress limits for individual rock types */
+ /* markro[], markaa[], markbb[], markcp[], markkt[], markkf[], markkv[], markht[] - ro,aro,bro,cp,kt, Tkt, Pkt, ht */
+ float markx[MAXMRK],marky[MAXMRK];
+-float markk[MAXMRK],markd[MAXMRK],markw[MAXMRK],markwt[MAXMRK],markex[MAXMRK],marke[MAXMRK],markdi[MAXMRK],markn[MAXMRK],markdt[MAXMRK],markpr[MAXMRK],markrr[MAXMRK],markrn[MAXMRK];
+-double markeii,marksii,markrat,markdis,nuplast,eiiplast,maxwater;
++float markk[MAXMRK],markd[MAXMRK],markw[MAXMRK],markwt[MAXMRK],markex[MAXMRK],marke[MAXMRK],markdi[MAXMRK],markn[MAXMRK],markdt[MAXMRK],markpr[MAXMRK],markecl[MAXMRK];
++double markeii,marksii,markrat,nuplast,eiiplast,maxwater;
+ char markt[MAXMRK],markv[MAXMRK];
+ double marknu[MAXTMR],markdh[MAXTMR],markdv[MAXTMR],markss[MAXTMR],markmm[MAXTMR];
+ double markll[MAXTMR],marka0[MAXTMR],marka1[MAXTMR],markb0[MAXTMR],markb1[MAXTMR],marke0[MAXTMR],marke1[MAXTMR];
+@@ -126,7 +126,7 @@
+ /* fl1out[] - output data Cur file name */
+ /* xn[], cn[] - high order FD cordinates and coefficients */
+ /* *fl - Streem for File Input/Output */
+-double vxy[20],errbuf[20],nunu[9][5],eps[100];
++double vxy[20],errbuf[20],nunu[9][5],eps[50];
+ char sa[250];
+ char fl1in[50],fl1out[50];
+ int fl1itp,fl1otp;
+diff -ruN a/in2fast.c b/in2fast.c
+--- a/in2fast.c	2026-11-08 11:16:15.137149178 +0800
++++ b/in2fast.c	2026-11-08 11:16:15.144149214 +0800
+@@ -2,7 +2,7 @@
+ #include <math.h>
+ #include <stdlib.h>
+ #include <string.h>
+-#include <mkl.h>
++/*#include <mkl.h>*/
+ /*
+ #include <omp.h>
+ */
+@@ -34,8 +34,10 @@
+ double bx[4],by[4];
+ double cnst,koef,koef1,koef2,ival,ival1,akf,bkf;
+ /* T K in Edges of Grid */
+-double t[10];
++double t[10],eps1[10];
+ long int m10,m11,m20,m21,nshift,nshift1,nshift2;
++/*T box transition*/
++long int mx10,mx11,mx20,mx21,my10,my11,my20,my21,m30,m31,m40,m41;
+ /* Set pi value */
+ pival=2.0*asin(1.0);
+ /**/
+@@ -44,15 +46,15 @@
+ /* Load configuration from mode.t3c */
+ loadconf();
+ /**/
+-/**/
+-/*
+-for (ival=500.0;ival<1800.0;ival+=50.0)
+-	{
+-ival1=1.5;
+-markw[0]=0.2;markt[0]=29;
+-meltpart1(ival+273.15,ival1*1e+4,0);
+-	}
+-*/
++/* 熔融 */
++
++// for (ival=500.0;ival<1800.0;ival+=50.0)
++// 	{
++// ival1=1.5;
++// markw[0]=0.2;markt[0]=29;
++// meltpart1(ival+273.15,ival1*1e+4,0);
++// 	}
++
+ /**/
+ /* Open File mode.t3c */
+ fl1 = fopen("init.t3c","rt");
+@@ -840,30 +842,30 @@
+ 				}
+ 			break;
+ 			/**/
+-			/* Errosion surface definition */
+-			case 5:
+-			/* Regular rectangle */
+-			if (yn==0)
+-				{
+-				ival=gx[m11]-gx[m10];
+-				if(!ival) ival=1.0;
+-				ival1=gx[m1]-gx[m10];
+-				ep[m1]=ep[xnumx+m1]=cnst+(koef-cnst)*ival1/ival;
++			/* Errosion surface definition */
++			case 5:
++			/* Regular rectangle */
++			if (yn==0)
++				{
++				ival=gx[m11]-gx[m10];
++				if(!ival) ival=1.0;
++				ival1=gx[m1]-gx[m10];
++				ep[m1]=ep[xnumx+m1]=cnst+(koef-cnst)*ival1/ival;
+ 				}
+-			/* Irregular rectangle */
+-			if (yn==1 && x>=bx[0] && x<=bx[1])
+-				{
+-				ival=bx[1]-bx[0];
+-				if(!ival) ival=1.0;
+-				ival1=x-bx[0];
+-				ep[m1]=ep[xnumx+m1]=cnst+(koef-cnst)*ival1/ival;
++			/* Irregular rectangle */
++			if (yn==1 && x>=bx[0] && x<=bx[1])
++				{
++				ival=bx[1]-bx[0];
++				if(!ival) ival=1.0;
++				ival1=x-bx[0];
++				ep[m1]=ep[xnumx+m1]=cnst+(koef-cnst)*ival1/ival;
+ 				}
+-/*
+-printf("E  %e %e %e %e %e %e", ival,ival1,cnst,koef,ep[m1],ep[xnumx+m1]); getchar();
+-if(m1==xnumx-1 && m2==0) {printf("E  %ld %d %e %e %e ",m1,yn,bx[0],bx[1],x); getchar();}
+-*/
+-			break;
+-			/**/
++/*
++printf("E  %e %e %e %e %e %e", ival,ival1,cnst,koef,ep[m1],ep[xnumx+m1]); getchar();
++if(m1==xnumx-1 && m2==0) {printf("E  %ld %d %e %e %e ",m1,yn,bx[0],bx[1],x); getchar();}
++*/
++			break;
++			/**/
+ 			/**/
+ 			/**/
+ 			/* Hydration Upper  surface definition */
+@@ -1206,45 +1208,6 @@
+ /**/
+ /**/
+ /**/
+-/* Set initial marker weights */
+-/* Clear cell counters */
+-for (m1=0;m1<nodenum;m1++)
+-	{
+-	sol0[m1]=0;
+-	}
+-/* Compute number of markers in cells */
+-for (mm1=0;mm1<marknum;mm1++)
+-/* Check markers out of grid */
+-if(markx[mm1]>0 && marky[mm1]>0 && (double)(markx[mm1])<xsize && (double)(marky[mm1])<ysize && markt[mm1]<50)
+-	{
+-	/* Cell index */
+-	m1=(long int)(markx[mm1]/xstpx);
+-	if(m1<0) m1=0; if(m1>xnumx-2) m1=xnumx-2;
+-	m2=(long int)(marky[mm1]/ystpy);
+-	if(m2<0) m2=0; if(m2>ynumy-2) m2=ynumy-2;
+-	m3=m1*ynumy+m2;
+-	sol0[m3]+=1.0;
+-	}
+-/* Compute weights of markers in cells */
+-for (mm1=0;mm1<marknum;mm1++)
+-/* Check markers out of grid */
+-if(markx[mm1]>0 && marky[mm1]>0 && (double)(markx[mm1])<xsize && (double)(marky[mm1])<ysize && markt[mm1]<50)
+-	{
+-	/* Cell index */
+-	m1=(long int)(markx[mm1]/xstpx);
+-	if(m1<0) m1=0; if(m1>xnumx-2) m1=xnumx-2;
+-	m2=(long int)(marky[mm1]/ystpy);
+-	if(m2<0) m2=0; if(m2>ynumy-2) m2=ynumy-2;
+-	m3=m1*ynumy+m2;
+-	/* Compute marker weight */
+-	if(sol0[m3]>(double)(mnumx*mnumy)) markwt[mm1]=1.0-(double)(mnumx*mnumy)/sol0[m3];
+-/*
+-printf("%ld %ld %ld %ld   %e %e    %e %e   %e  %e",mm1,m1,m2,m3,markx[mm1],marky[mm1],xstpx,ystpy,sol0[m3],markwt[mm1]); getchar();
+-*/
+-	}
+-/**/
+-/**/
+-/**/
+ /* Initial distribution of Themperature Read, Set to Grid */
+ printf("Read distribution of temperature \n");
+ ffscanf1();
+@@ -1278,7 +1241,6 @@
+ 		ffscanf1(); t[4]=atof(sa);
+ 		ffscanf1(); t[5]=atof(sa);
+ 		ffscanf1(); t[6]=atof(sa);
+-		ffscanf1(); t[7]=atof(sa);
+ 		}
+ 	ffscanf1();
+ 	/**/
+@@ -1336,7 +1298,7 @@
+ 						{
+ 						/* Turcotte & Schubert, 2002: Cooling age T=T1-erfc()(T1-T0) */
+ 						ival=(gy[m2]-y1*ysize)/2.0/pow(t[6]*(t[4]+(t[5]-t[4])*x)*3.15576e+7,0.5);
+-						tk[m3]=(t[1]+t[7]*(gy[m2]-y1*ysize)+(t[3]-t[1])*x)-(1.0-erf(ival))*((t[1]-t[0])*(1.0-x)+(t[3]-t[2])*x);
++						tk[m3]=(t[1]+(t[3]-t[1])*x)-(1.0-erf(ival))*((t[1]-t[0])*(1.0-x)+(t[3]-t[2])*x);
+ /*
+ printf("%ld %ld %ld  %e %e   %e %e   %e",m1,m2,m3,gx[m1],gy[m2],x,y,tk[m3]);getchar();
+ */
+@@ -1345,7 +1307,7 @@
+ 						{
+ 						/* Transition 4->0 */
+ 						ival=(y*(by[1]-by[0])*ysize)/2.0/pow(t[6]*(t[4]+(t[5]-t[4])*x)*3.15576e+7,0.5);
+-						ival=t[1]+t[7]*(gy[m2]-y1*ysize)-(1.0-erf(ival))*(t[1]-t[0]);
++						ival=t[1]-(1.0-erf(ival))*(t[1]-t[0]);
+ 						tk[m3]=t[2]+y*(t[3]-t[2]);
+ 						tk[m3]=ival*(1.0-x)+tk[m3]*x;
+ 						}
+@@ -1353,11 +1315,37 @@
+ 						{
+ 						/* Transition 0->4 */
+ 						ival=(y*(by[3]-by[2])*ysize)/2.0/pow(t[6]*(t[4]+(t[5]-t[4])*x)*3.15576e+7,0.5);
+-						ival=t[3]+t[7]*(gy[m2]-y1*ysize)-(1.0-erf(ival))*(t[3]-t[2]);
++						ival=t[3]-(1.0-erf(ival))*(t[3]-t[2]);
+ 						tk[m3]=t[0]+y*(t[1]-t[0]);
+ 						tk[m3]=ival*x+tk[m3]*(1.0-x);
+ 						}
+-/*
++					if(yn==7)
++						{
++						/*Jie: Transition: linear interpolation */
++						tkcalc1(bx[0]*xsize,gy[m2],eps1); t[0]=eps1[0];
++                                                tkcalc1(bx[2]*xsize,gy[m2],eps1); t[1]=eps1[0];
++						tk[m3]=t[0]*(1-x)+t[1]*x;
++						/*
++						tkcalc1(bx[0]*xsize,by[0]*ysize,eps1); t[0]=eps1[0];
++						tkcalc1(bx[1]*xsize,by[1]*ysize,eps1); t[1]=eps1[0];
++						tkcalc1(bx[2]*xsize,by[2]*ysize,eps1); t[2]=eps1[0];
++						tkcalc1(bx[3]*xsize,by[3]*ysize,eps1); t[3]=eps1[0];
++						*/	
++						/*tk[m3]=(t[0]+y*(t[1]-t[0]))*(1.0-x)+(t[2]+y*(t[3]-t[2]))*x;*/
++						/*tk[m3]=t[0]*(1.0-x)*(1.0-y)+t[1]*(1.0-x)*y+t[2]*x*(1.0-y)+t[3]*x*y;*/
++						/* 
++  						mx10=m1serch(bx[0]*xsize); my10=m2serch(by[0]*ysize);
++						mx11=m1serch(bx[1]*xsize); my11=m2serch(by[1]*ysize);
++						mx20=m1serch(bx[2]*xsize); my20=m2serch(by[2]*ysize);
++						mx21=m1serch(bx[3]*xsize); my21=m2serch(by[3]*ysize);
++						m30=mx10*ynumy+my10; m31=mx11*ynumy+my11;
++						m40=mx20*ynumy+my20; m41=mx21*ynumy+my21;
++						                                                						
++						tk[m3]=(tk[m30]+y*(tk[m31]-tk[m30]))*(1.0-x)+(tk[m40]+y*(tk[m41]-tk[m40]))*x;
++						tk[m3]=tk[m30]*(1.0-x)*(1.0-y)+tk[m31]*(1.0-x)*y+tk[m40]*x*(1.0-y)+tk[m41]*x*y;
++						*/
++						}
++/*		
+ printf("%e %e %ld %ld %ld %e",x,y,m1,m2,m3,tk[m3]);getchar();
+ */
+ 					}
+diff -ruN a/loadjslab.c b/loadjslab.c
+--- a/loadjslab.c	2026-11-08 11:16:15.150149245 +0800
++++ b/loadjslab.c	2026-11-08 11:16:15.158149285 +0800
+@@ -128,18 +128,18 @@
+ /* End Load information from configuration file mode.t3c */
+ /**/
+ /* stop.yn file creation */
+-fl = fopen("stop.yn","wt");
++fl = fopen("database/stop.yn","wt");
+ fprintf(fl,"n \n");
+ fclose(fl);
+ /**/
+-return;
+ /*
++return;
+ */
+ /**/
+ /* Load thermodynamic database */
+ /* Dry peridotite */
+ /* RO - density */
+-fl = fopen("pdry_ro","rt");
++fl = fopen("database/pdry_ro","rt");
+ ffscanf();
+ ffscanf(); tknum=atoi(sa);
+ ffscanf(); pbnum=atoi(sa);
+@@ -163,7 +163,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("pdry_hh","rt");
++fl = fopen("database/pdry_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -180,7 +180,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("pdry_vp","rt");
++fl = fopen("database/pdry_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -193,7 +193,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("pdry_vs","rt");
++fl = fopen("database/pdry_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -204,7 +204,7 @@
+ /**/
+ /* Wet peridotite */
+ /* RO - density */
+-fl = fopen("pwet_ro","rt");
++fl = fopen("database/pwet_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -214,7 +214,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("pwet_hh","rt");
++fl = fopen("database/pwet_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -231,7 +231,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("pwet_vp","rt");
++fl = fopen("database/pwet_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -244,7 +244,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("pwet_vs","rt");
++fl = fopen("database/pwet_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -254,7 +254,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("pwet_wa","rt");
++fl = fopen("database/pwet_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -266,7 +266,7 @@
+ /**/
+ /* Molten peridotite */
+ /* RO - density */
+-fl = fopen("pmlt_ro","rt");
++fl = fopen("database/pmlt_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -276,7 +276,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("pmlt_hh","rt");
++fl = fopen("database/pmlt_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -293,7 +293,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("pmlt_vp","rt");
++fl = fopen("database/pmlt_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -307,7 +307,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("pmlt_vs","rt");
++fl = fopen("database/pmlt_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -317,7 +317,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("pmlt_wa","rt");
++fl = fopen("database/pmlt_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -329,7 +329,7 @@
+ /**/
+ /* Wet Gabbro */
+ /* RO - density */
+-fl = fopen("gwet_ro","rt");
++fl = fopen("database/gwet_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -339,7 +339,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("gwet_hh","rt");
++fl = fopen("database/gwet_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -356,7 +356,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("gwet_vp","rt");
++fl = fopen("database/gwet_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -366,7 +366,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("gwet_vs","rt");
++fl = fopen("database/gwet_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -376,7 +376,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("gwet_wa","rt");
++fl = fopen("database/gwet_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -388,7 +388,7 @@
+ /**/
+ /* Molten Gabbro */
+ /* RO - density */
+-fl = fopen("gmlt_ro","rt");
++fl = fopen("database/gmlt_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -398,7 +398,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("gmlt_hh","rt");
++fl = fopen("database/gmlt_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -415,7 +415,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("gmlt_vp","rt");
++fl = fopen("database/gmlt_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -425,7 +425,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("gmlt_vs","rt");
++fl = fopen("database/gmlt_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -435,7 +435,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("gmlt_wa","rt");
++fl = fopen("database/gmlt_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -447,7 +447,7 @@
+ /**/
+ /* Wet sediments */
+ /* RO - density */
+-fl = fopen("swet_ro","rt");
++fl = fopen("database/swet_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -457,7 +457,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("swet_hh","rt");
++fl = fopen("database/swet_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -474,7 +474,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("swet_vp","rt");
++fl = fopen("database/swet_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -484,7 +484,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("swet_vs","rt");
++fl = fopen("database/swet_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -494,7 +494,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("swet_wa","rt");
++fl = fopen("database/swet_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -506,7 +506,7 @@
+ /**/
+ /* Molten sediments */
+ /* RO - density */
+-fl = fopen("smlt_ro","rt");
++fl = fopen("database/smlt_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -516,7 +516,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("smlt_hh","rt");
++fl = fopen("database/smlt_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -533,7 +533,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("smlt_vp","rt");
++fl = fopen("database/smlt_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -543,7 +543,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("smlt_vs","rt");
++fl = fopen("database/smlt_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -553,7 +553,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("smlt_wa","rt");
++fl = fopen("database/smlt_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -565,7 +565,7 @@
+ /**/
+ /* Wet Basalt */
+ /* RO - density */
+-fl = fopen("bwet_ro","rt");
++fl = fopen("database/bwet_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -575,7 +575,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("bwet_hh","rt");
++fl = fopen("database/bwet_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -592,7 +592,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("bwet_vp","rt");
++fl = fopen("database/bwet_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -602,7 +602,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("bwet_vs","rt");
++fl = fopen("database/bwet_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -612,7 +612,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("bwet_wa","rt");
++fl = fopen("database/bwet_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -624,7 +624,7 @@
+ /**/
+ /* Molten Basalt */
+ /* RO - density */
+-fl = fopen("bmlt_ro","rt");
++fl = fopen("database/bmlt_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -634,7 +634,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("bmlt_hh","rt");
++fl = fopen("database/bmlt_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -651,7 +651,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("bmlt_vp","rt");
++fl = fopen("database/bmlt_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -661,7 +661,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("bmlt_vs","rt");
++fl = fopen("database/bmlt_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -671,7 +671,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("bmlt_wa","rt");
++fl = fopen("database/bmlt_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -684,7 +684,7 @@
+ /* Load global thermodynamic database */
+ /* Dry peridotite Xmg=0.895 */
+ /* RO - density */
+-fl = fopen("m895_ro","rt");
++fl = fopen("database/m895_ro","rt");
+ ffscanf();
+ ffscanf(); tknum1=atoi(sa);
+ ffscanf(); pbnum1=atoi(sa);
+@@ -702,7 +702,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("m895_hh","rt");
++fl = fopen("database/m895_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum1;n1++)
+ for (n2=0;n2<tknum1;n2++)
+@@ -712,7 +712,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("m895_vp","rt");
++fl = fopen("database/m895_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum1;n1++)
+ for (n2=0;n2<tknum1;n2++)
+@@ -722,7 +722,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("m895_vs","rt");
++fl = fopen("database/m895_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum1;n1++)
+ for (n2=0;n2<tknum1;n2++)
+@@ -734,7 +734,7 @@
+ /**/
+ /* Wet peridotite */
+ /* RO - density */
+-fl = fopen("morn_ro","rt");
++fl = fopen("database/morn_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum1;n1++)
+ for (n2=0;n2<tknum1;n2++)
+@@ -744,7 +744,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("morn_hh","rt");
++fl = fopen("database/morn_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum1;n1++)
+ for (n2=0;n2<tknum1;n2++)
+@@ -754,7 +754,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("morn_vp","rt");
++fl = fopen("database/morn_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum1;n1++)
+ for (n2=0;n2<tknum1;n2++)
+@@ -764,7 +764,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("morn_vs","rt");
++fl = fopen("database/morn_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum1;n1++)
+ for (n2=0;n2<tknum1;n2++)
+@@ -806,7 +806,147 @@
+ /**/
+ /**/
+ /**/
++/* Load in Text Format ---------------------------- */
++if(fl1itp==0)
++	{
++	fl = fopen(fl1in,"rt");
++	/**/
++	/* Grid Parameters */
++	ffscanf();xnumx=atoi(sa);
++	ffscanf();ynumy=atoi(sa);
++	ffscanf();mnumx=atoi(sa);
++	ffscanf();mnumy=atoi(sa);
++	ffscanf();marknum=atoi(sa);
++	ffscanf();xsize=atof(sa);
++	ffscanf();ysize=atof(sa);
++	ffscanf();pinit=atof(sa);
++	ffscanf();pkf[0]=atof(sa);
++	ffscanf();pkf[1]=atof(sa);
++	ffscanf();pkf[2]=atof(sa);
++	ffscanf();pkf[3]=atof(sa);
++	ffscanf();GXKOEF=atof(sa);
++	ffscanf();GYKOEF=atof(sa);
++	ffscanf();rocknum=atoi(sa);
++	ffscanf();bondnum=atoi(sa);
++	ffscanf();
++	ffscanf();timesum=atof(sa)*3.15576e+7;
++	/**/
++	/* Calc,Check Grid parameters */
++	gridcheck();
++	/**/
++	/* Rock Types information */
++	for (n1=0;n1<rocknum;n1++)
++		{
++		ffscanf();
++		ffscanf();markim[n1]=atoi(sa);;
++		ffscanf();markn0[n1]=atof(sa);;
++		ffscanf();markn1[n1]=atof(sa);;
++		ffscanf();marks0[n1]=atof(sa);;
++		ffscanf();marks1[n1]=atof(sa);;
++		ffscanf();marknu[n1]=atof(sa);;
++		ffscanf();markdh[n1]=atof(sa);;
++		ffscanf();markdv[n1]=atof(sa);;
++		ffscanf();markss[n1]=atof(sa);;
++		ffscanf();markmm[n1]=atof(sa);;
++		ffscanf();markll[n1]=atof(sa);;
++		ffscanf();marka0[n1]=atof(sa);;
++		ffscanf();marka1[n1]=atof(sa);;
++		ffscanf();markb0[n1]=atof(sa);;
++		ffscanf();markb1[n1]=atof(sa);;
++		ffscanf();marke0[n1]=atof(sa);;
++		ffscanf();marke1[n1]=atof(sa);;
++		ffscanf();markro[n1]=atof(sa);;
++		ffscanf();markbb[n1]=atof(sa);;
++		ffscanf();markaa[n1]=atof(sa);;
++		ffscanf();markcp[n1]=atof(sa);;
++		ffscanf();markkt[n1]=atof(sa);;
++		ffscanf();markkf[n1]=atof(sa);;
++		ffscanf();markkp[n1]=atof(sa);;
++		ffscanf();markht[n1]=atof(sa);;
++		}
++	/**/
++	/* Nodes information */
++	/* Vx,Vy,bondm[],ro[],nu[],ep[],et[],tk[],cp[],kt[],ht[] */
++	for (m1=0;m1<xnumx;m1++)
++	for (m2=0;m2<ynumy;m2++)
++		{
++		m3=m1*ynumy+m2;
++		ffscanf();
++		ffscanf();
++		ffscanf();pr[m3]=atof(sa);
++		ffscanf();vx[m3]=atof(sa);
++		ffscanf();vy[m3]=atof(sa);
++		ffscanf();bondm[m3*3+0]=atoi(sa);
++		ffscanf();bondm[m3*3+1]=atoi(sa);
++		ffscanf();bondm[m3*3+2]=atoi(sa);
++		ffscanf();exx[m3]=atof(sa);
++		ffscanf();eyy[m3]=atof(sa);
++		ffscanf();exy[m3]=atof(sa);
++		ffscanf();sxx[m3]=atof(sa);
++		ffscanf();syy[m3]=atof(sa);
++		ffscanf();sxy[m3]=atof(sa);
++		ffscanf();ro[m3]=atof(sa);
++		ffscanf();nu[m3]=atof(sa);
++		ffscanf();nd[m3]=atof(sa);
++		ffscanf();mu[m3]=atof(sa);
++		ffscanf();ep[m3]=atof(sa);
++		ffscanf();pr0[m3]=atof(sa);
++		ffscanf();prb[m3]=atof(sa);
++		ffscanf();et[m3]=atof(sa);
++		ffscanf();dv[m3]=atof(sa);
++		ffscanf();tk[m3]=atof(sa);
++		ffscanf();bondm[nodenum3+m3]=atoi(sa);
++		ffscanf();cp[m3]=atof(sa);
++		ffscanf();kt[m3]=atof(sa);
++		ffscanf();ht[m3]=atof(sa);
++		}
++	/**/
++	/* Gridlines positions */
++	for (m1=0;m1<xnumx;m1++)
++		{
++		ffscanf();
++		ffscanf();gx[m1]=atof(sa);
++		}
++	for (m2=0;m2<ynumy;m2++)
++		{
++		ffscanf();
++		ffscanf();gy[m2]=atof(sa);
++		}
++	/**/
++	/* Bondary Conditions Equations */
++	for (m1=1;m1<bondnum;m1++)
++		{
++		ffscanf();
++		ffscanf();bondv[m1][0]=atof(sa);
++		ffscanf();bondv[m1][1]=atof(sa);
++		ffscanf();bondv[m1][2]=atof(sa);
++		ffscanf();bondv[m1][3]=atof(sa);
++		ffscanf();bondn[m1][0]=atoi(sa);
++		ffscanf();bondn[m1][1]=atoi(sa);
++		ffscanf();bondn[m1][2]=atoi(sa);
++		}
++	/**/
++	/* Markers X,Y,types */
++	for (mm1=0;mm1<=marknum;mm1++)
++		{
++		ffscanf();markx[mm1]=atof(sa);
++		ffscanf();marky[mm1]=atof(sa);
++		ffscanf();markk[mm1]=atof(sa);
++		ffscanf();markd[mm1]=atof(sa);
++		ffscanf();markw[mm1]=atof(sa);
++		ffscanf();markecl[mm1]=atof(sa);
++		ffscanf();markex[mm1]=atof(sa);
++		ffscanf();markn[mm1]=atof(sa);
++		ffscanf();markpr[mm1]=atof(sa);
++		ffscanf();markt[mm1]=atoi(sa); 
++		}
++	}
++/* Load in Text Format ---------------------------- */
++/**/
++/**/
++/**/
+ /* Load in Binary Format ---------------------------- */
++else
+ 	{
+ 	fl = fopen(fl1in,"rb");
+ 	/**/
+@@ -902,11 +1042,10 @@
+ 		dv[m1]=(double)(iv[14]);
+ 		tk[m1]=(double)(iv[15]);
+ 		fread(&m2,szlong,1,fl);bondm[nodenum3+m1]=m2;
+-		fread(iv,szfloat,4,fl);
++		fread(iv,szfloat,3,fl);
+ 		cp[m1]=(double)(iv[0]);
+ 		kt[m1]=(double)(iv[1]);
+ 		ht[m1]=(double)(iv[2]);
+-		rr[m1]=(double)(iv[2]);
+ 		}
+ 	/**/
+ 	/* Gridlines positions */
+@@ -936,18 +1075,16 @@
+ 	/* Markers X,Y,types */
+ 	for (mm1=0;mm1<=marknum;mm1++)
+ 		{
+-		fread(iv,szfloat,11,fl);
++		fread(iv,szfloat,9,fl);
+ 		markx[mm1]=iv[0];
+ 		marky[mm1]=iv[1];
+ 		markk[mm1]=iv[2];
+ 		markd[mm1]=iv[3];
+ 		markw[mm1]=iv[4];
+-		markwt[mm1]=iv[5];
++		markecl[mm1]=iv[5];
+ 		markex[mm1]=iv[6];
+ 		markn[mm1]=iv[7];
+-		marke[mm1]=iv[8];
+-		markrr[mm1]=iv[9];
+-		markrn[mm1]=iv[10];
++		markpr[mm1]=iv[8];
+ 		fread(&nn1,1,1,fl);markt[mm1]=nn1;
+ 		}
+ 	}
+@@ -1281,7 +1418,7 @@
+ 			/* Molten Rocks */
+ 			if (mm2>20) 
+ 				{
+-				if (meltpart(mtk,mpb,(double)(markx[m3]),(double)(marky[m3]),m3,mm2));
++				if (meltpart(mtk,mpb,(double)(markx[m3]),(double)(marky[m3]),m3,mm2))
+ 					{
+ 					mro=eps[23];
+ 					mbb=eps[20];
+diff -ruN a/loadslab.c b/loadslab.c
+--- a/loadslab.c	2026-11-08 11:16:15.166149326 +0800
++++ b/loadslab.c	2026-11-08 11:16:15.173149362 +0800
+@@ -126,6 +126,11 @@
+ ffscanf();teclmax=atof(sa);
+ ffscanf();strainserp=atof(sa);
+ ffscanf();depthserp=atof(sa);
++/* Velocity conditions */
++ffscanf();vtimebeg=atof(sa);vtimebeg*=3.15576e+7;
++ffscanf();vtimeend=atof(sa);vtimeend*=3.15576e+7;
++ffscanf();vkoefbeg=atof(sa);
++ffscanf();vkoefend=atof(sa);
+ /*
+ printf("%e %e %e %e %e",tkpor,pbpor,vyfluid,vymelt,dmwamin);getchar();
+ */
+@@ -149,14 +154,14 @@
+ fprintf(fl,"n \n");
+ fclose(fl);
+ /**/
+-return fln3;
+ /*
++return fln3;
+ */
+ /**/
+ /* Load thermodynamic database */
+ /* Dry peridotite */
+ /* RO - density */
+-fl = fopen("pdry_ro","rt");
++fl = fopen("database/pdry_ro","rt");
+ ffscanf();
+ ffscanf(); tknum=atoi(sa);
+ ffscanf(); pbnum=atoi(sa);
+@@ -180,7 +185,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("pdry_hh","rt");
++fl = fopen("database/pdry_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -197,7 +202,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("pdry_vp","rt");
++fl = fopen("database/pdry_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -210,7 +215,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("pdry_vs","rt");
++fl = fopen("database/pdry_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -218,11 +223,11 @@
+ 	ffscanf(); td[n2][n1][0][3]=MAXV(0,atof(sa));
+ 	}
+ fclose(fl);
+-printf("pdry_vs OK \n");
++printf("database/pdry_vs OK \n");
+ /**/
+ /* Wet peridotite */
+ /* RO - density */
+-fl = fopen("pwet_ro","rt");
++fl = fopen("database/pwet_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -232,7 +237,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("pwet_hh","rt");
++fl = fopen("database/pwet_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -249,7 +254,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("pwet_vp","rt");
++fl = fopen("database/pwet_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -262,7 +267,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("pwet_vs","rt");
++fl = fopen("database/pwet_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -272,7 +277,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("pwet_wa","rt");
++fl = fopen("database/pwet_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -280,12 +285,12 @@
+ 	ffscanf(); td[n2][n1][1][4]=MAXV(0,atof(sa));
+ 	}
+ fclose(fl);
+-printf("pwet_wa OK \n");
++printf("database/pwet_wa OK \n");
+ /**/
+ /**/
+ /* Molten peridotite */
+ /* RO - density */
+-fl = fopen("pmlt_ro","rt");
++fl = fopen("database/pmlt_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -295,7 +300,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("pmlt_hh","rt");
++fl = fopen("database/pmlt_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -312,7 +317,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("pmlt_vp","rt");
++fl = fopen("database/pmlt_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -326,7 +331,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("pmlt_vs","rt");
++fl = fopen("database/pmlt_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -336,7 +341,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("pmlt_wa","rt");
++fl = fopen("database/pmlt_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -344,12 +349,12 @@
+ 	ffscanf(); td[n2][n1][2][4]=MAXV(0,atof(sa));
+ 	}
+ fclose(fl);
+-printf("pmlt_wa OK \n");
++printf("database/pmlt_wa OK \n");
+ /**/
+ /**/
+ /* Wet Gabbro */
+ /* RO - density */
+-fl = fopen("gwet_ro","rt");
++fl = fopen("database/gwet_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -359,7 +364,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("gwet_hh","rt");
++fl = fopen("database/gwet_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -376,7 +381,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("gwet_vp","rt");
++fl = fopen("database/gwet_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -386,7 +391,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("gwet_vs","rt");
++fl = fopen("database/gwet_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -396,20 +401,20 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("gwet_wa","rt");
++fl = fopen("database/gwet_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+ 	{
+ 	ffscanf(); td[n2][n1][3][4]=MAXV(0,atof(sa));
+ 	}
+-printf("gwet_wa OK \n");
++printf("database/gwet_wa OK \n");
+ fclose(fl);
+ /**/
+ /**/
+ /* Molten Gabbro */
+ /* RO - density */
+-fl = fopen("gmlt_ro","rt");
++fl = fopen("database/gmlt_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -419,7 +424,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("gmlt_hh","rt");
++fl = fopen("database/gmlt_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -436,7 +441,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("gmlt_vp","rt");
++fl = fopen("database/gmlt_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -446,7 +451,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("gmlt_vs","rt");
++fl = fopen("database/gmlt_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -456,7 +461,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("gmlt_wa","rt");
++fl = fopen("database/gmlt_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -464,12 +469,12 @@
+ 	ffscanf(); td[n2][n1][4][4]=MAXV(0,atof(sa));
+ 	}
+ fclose(fl);
+-printf("gmlt_wa OK \n");
++printf("database/gmlt_wa OK \n");
+ /**/
+ /**/
+ /* Wet sediments */
+ /* RO - density */
+-fl = fopen("swet_ro","rt");
++fl = fopen("database/swet_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -479,7 +484,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("swet_hh","rt");
++fl = fopen("database/swet_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -496,7 +501,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("swet_vp","rt");
++fl = fopen("database/swet_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -506,7 +511,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("swet_vs","rt");
++fl = fopen("database/swet_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -516,7 +521,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("swet_wa","rt");
++fl = fopen("database/swet_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -524,12 +529,12 @@
+ 	ffscanf(); td[n2][n1][5][4]=MAXV(0,atof(sa));
+ 	}
+ fclose(fl);
+-printf("swet_wa OK \n");
++printf("database/swet_wa OK \n");
+ /**/
+ /**/
+ /* Molten sediments */
+ /* RO - density */
+-fl = fopen("smlt_ro","rt");
++fl = fopen("database/smlt_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -539,7 +544,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("smlt_hh","rt");
++fl = fopen("database/smlt_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -556,7 +561,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("smlt_vp","rt");
++fl = fopen("database/smlt_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -566,7 +571,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("smlt_vs","rt");
++fl = fopen("database/smlt_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -576,7 +581,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("smlt_wa","rt");
++fl = fopen("database/smlt_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -584,12 +589,12 @@
+ 	ffscanf(); td[n2][n1][6][4]=MAXV(0,atof(sa));
+ 	}
+ fclose(fl);
+-printf("smlt_wa OK \n");
++printf("database/smlt_wa OK \n");
+ /**/
+ /**/
+ /* Wet Basalt */
+ /* RO - density */
+-fl = fopen("bwet_ro","rt");
++fl = fopen("database/bwet_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -599,7 +604,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("bwet_hh","rt");
++fl = fopen("database/bwet_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -616,7 +621,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("bwet_vp","rt");
++fl = fopen("database/bwet_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -626,7 +631,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("bwet_vs","rt");
++fl = fopen("database/bwet_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -636,7 +641,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("bwet_wa","rt");
++fl = fopen("database/bwet_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -644,12 +649,12 @@
+ 	ffscanf(); td[n2][n1][7][4]=MAXV(0,atof(sa));
+ 	}
+ fclose(fl);
+-printf("bwet_wa OK \n");
++printf("database/bwet_wa OK \n");
+ /**/
+ /**/
+ /* Molten Basalt */
+ /* RO - density */
+-fl = fopen("bmlt_ro","rt");
++fl = fopen("database/bmlt_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -659,7 +664,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("bmlt_hh","rt");
++fl = fopen("database/bmlt_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -676,7 +681,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("bmlt_vp","rt");
++fl = fopen("database/bmlt_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -686,7 +691,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("bmlt_vs","rt");
++fl = fopen("database/bmlt_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -696,7 +701,7 @@
+ fclose(fl);
+ /**/
+ /* Wa - water contents, wt% */
+-fl = fopen("bmlt_wa","rt");
++fl = fopen("database/bmlt_wa","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum;n1++)
+ for (n2=0;n2<tknum;n2++)
+@@ -704,7 +709,7 @@
+ 	ffscanf(); td[n2][n1][8][4]=MAXV(0,atof(sa));
+ 	}
+ fclose(fl);
+-printf("bmlt_wa OK \n");
++printf("database/bmlt_wa OK \n");
+ /**/
+ /**/
+ /*
+@@ -714,7 +719,7 @@
+ /* Load global thermodynamic database */
+ /* Dry peridotite Xmg=0.895 */
+ /* RO - density */
+-fl = fopen("m895_ro","rt");
++fl = fopen("database/m895_ro","rt");
+ ffscanf();
+ ffscanf(); tknum1=atoi(sa);
+ ffscanf(); pbnum1=atoi(sa);
+@@ -732,7 +737,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("m895_hh","rt");
++fl = fopen("database/m895_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum1;n1++)
+ for (n2=0;n2<tknum1;n2++)
+@@ -742,7 +747,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("m895_vp","rt");
++fl = fopen("database/m895_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum1;n1++)
+ for (n2=0;n2<tknum1;n2++)
+@@ -752,7 +757,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("m895_vs","rt");
++fl = fopen("database/m895_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum1;n1++)
+ for (n2=0;n2<tknum1;n2++)
+@@ -760,11 +765,11 @@
+ 	ffscanf(); td[n2][n1][9][3]=MAXV(0,atof(sa));
+ 	}
+ fclose(fl);
+-printf("m895_vs OK \n");
++printf("database/m895_vs OK \n");
+ /**/
+ /* Wet peridotite */
+ /* RO - density */
+-fl = fopen("morn_ro","rt");
++fl = fopen("database/morn_ro","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum1;n1++)
+ for (n2=0;n2<tknum1;n2++)
+@@ -774,7 +779,7 @@
+ fclose(fl);
+ /**/
+ /* H  - enthalpy */
+-fl = fopen("morn_hh","rt");
++fl = fopen("database/morn_hh","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum1;n1++)
+ for (n2=0;n2<tknum1;n2++)
+@@ -784,7 +789,7 @@
+ fclose(fl);
+ /**/
+ /* Vp - seismic velosity, km/s */
+-fl = fopen("morn_vp","rt");
++fl = fopen("database/morn_vp","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum1;n1++)
+ for (n2=0;n2<tknum1;n2++)
+@@ -794,7 +799,7 @@
+ fclose(fl);
+ /**/
+ /* Vs - seismic velosity, km/s */
+-fl = fopen("morn_vs","rt");
++fl = fopen("database/morn_vs","rt");
+ for (n1=0;n1<9;n1++) ffscanf();
+ for (n1=0;n1<pbnum1;n1++)
+ for (n2=0;n2<tknum1;n2++)
+@@ -802,7 +807,7 @@
+ 	ffscanf(); td[n2][n1][10][3]=MAXV(0,atof(sa));
+ 	}
+ fclose(fl);
+-printf("morn_vs OK \n");
++printf("database/morn_vs OK \n");
+ /**/
+ /**/
+ return fln3;
+@@ -837,7 +842,147 @@
+ /**/
+ /**/
+ /**/
++/* Load in Text Format ---------------------------- */
++if(fl1itp==0)
++	{
++	fl = fopen(fl1in,"rt");
++	/**/
++	/* Grid Parameters */
++	ffscanf();xnumx=atoi(sa);
++	ffscanf();ynumy=atoi(sa);
++	ffscanf();mnumx=atoi(sa);
++	ffscanf();mnumy=atoi(sa);
++	ffscanf();marknum=atoi(sa);
++	ffscanf();xsize=atof(sa);
++	ffscanf();ysize=atof(sa);
++	ffscanf();pinit=atof(sa);
++	ffscanf();pkf[0]=atof(sa);
++	ffscanf();pkf[1]=atof(sa);
++	ffscanf();pkf[2]=atof(sa);
++	ffscanf();pkf[3]=atof(sa);
++	ffscanf();GXKOEF=atof(sa);
++	ffscanf();GYKOEF=atof(sa);
++	ffscanf();rocknum=atoi(sa);
++	ffscanf();bondnum=atoi(sa);
++	ffscanf();
++	ffscanf();timesum=atof(sa)*3.15576e+7;
++	/**/
++	/* Calc,Check Grid parameters */
++	gridcheck();
++	/**/
++	/* Rock Types information */
++	for (n1=0;n1<rocknum;n1++)
++		{
++		ffscanf();
++		ffscanf();markim[n1]=atoi(sa);;
++		ffscanf();markn0[n1]=atof(sa);;
++		ffscanf();markn1[n1]=atof(sa);;
++		ffscanf();marks0[n1]=atof(sa);;
++		ffscanf();marks1[n1]=atof(sa);;
++		ffscanf();marknu[n1]=atof(sa);;
++		ffscanf();markdh[n1]=atof(sa);;
++		ffscanf();markdv[n1]=atof(sa);;
++		ffscanf();markss[n1]=atof(sa);;
++		ffscanf();markmm[n1]=atof(sa);;
++		ffscanf();markll[n1]=atof(sa);;
++		ffscanf();marka0[n1]=atof(sa);;
++		ffscanf();marka1[n1]=atof(sa);;
++		ffscanf();markb0[n1]=atof(sa);;
++		ffscanf();markb1[n1]=atof(sa);;
++		ffscanf();marke0[n1]=atof(sa);;
++		ffscanf();marke1[n1]=atof(sa);;
++		ffscanf();markro[n1]=atof(sa);;
++		ffscanf();markbb[n1]=atof(sa);;
++		ffscanf();markaa[n1]=atof(sa);;
++		ffscanf();markcp[n1]=atof(sa);;
++		ffscanf();markkt[n1]=atof(sa);;
++		ffscanf();markkf[n1]=atof(sa);;
++		ffscanf();markkp[n1]=atof(sa);;
++		ffscanf();markht[n1]=atof(sa);;
++		}
++	/**/
++	/* Nodes information */
++	/* Vx,Vy,bondm[],ro[],nu[],ep[],et[],tk[],cp[],kt[],ht[] */
++	for (m1=0;m1<xnumx;m1++)
++	for (m2=0;m2<ynumy;m2++)
++		{
++		m3=m1*ynumy+m2;
++		ffscanf();
++		ffscanf();
++		ffscanf();pr[m3]=atof(sa);
++		ffscanf();vx[m3]=atof(sa);
++		ffscanf();vy[m3]=atof(sa);
++		ffscanf();bondm[m3*3+0]=atoi(sa);
++		ffscanf();bondm[m3*3+1]=atoi(sa);
++		ffscanf();bondm[m3*3+2]=atoi(sa);
++		ffscanf();exx[m3]=atof(sa);
++		ffscanf();eyy[m3]=atof(sa);
++		ffscanf();exy[m3]=atof(sa);
++		ffscanf();sxx[m3]=atof(sa);
++		ffscanf();syy[m3]=atof(sa);
++		ffscanf();sxy[m3]=atof(sa);
++		ffscanf();ro[m3]=atof(sa);
++		ffscanf();nu[m3]=atof(sa);
++		ffscanf();nd[m3]=atof(sa);
++		ffscanf();mu[m3]=atof(sa);
++		ffscanf();ep[m3]=atof(sa);
++		ffscanf();et[m3]=atof(sa);
++		ffscanf();pr0[m3]=atof(sa);
++		ffscanf();prb[m3]=atof(sa);
++		ffscanf();dv[m3]=atof(sa);
++		ffscanf();tk[m3]=atof(sa);
++		ffscanf();bondm[nodenum3+m3]=atoi(sa);
++		ffscanf();cp[m3]=atof(sa);
++		ffscanf();kt[m3]=atof(sa);
++		ffscanf();ht[m3]=atof(sa);
++		}
++	/**/
++	/* Gridlines positions */
++	for (m1=0;m1<xnumx;m1++)
++		{
++		ffscanf();
++		ffscanf();gx[m1]=atof(sa);
++		}
++	for (m2=0;m2<ynumy;m2++)
++		{
++		ffscanf();
++		ffscanf();gy[m2]=atof(sa);
++		}
++	/**/
++	/* Bondary Conditions Equations */
++	for (m1=1;m1<bondnum;m1++)
++		{
++		ffscanf();
++		ffscanf();bondv[m1][0]=atof(sa);
++		ffscanf();bondv[m1][1]=atof(sa);
++		ffscanf();bondv[m1][2]=atof(sa);
++		ffscanf();bondv[m1][3]=atof(sa);
++		ffscanf();bondn[m1][0]=atoi(sa);
++		ffscanf();bondn[m1][1]=atoi(sa);
++		ffscanf();bondn[m1][2]=atoi(sa);
++		}
++	/**/
++	/* Markers X,Y,types */
++	for (mm1=0;mm1<=marknum;mm1++)
++		{
++		ffscanf();markx[mm1]=atof(sa);
++		ffscanf();marky[mm1]=atof(sa);
++		ffscanf();markk[mm1]=atof(sa);
++		ffscanf();markd[mm1]=atof(sa);
++		ffscanf();markw[mm1]=atof(sa);
++		ffscanf();markecl[mm1]=atof(sa);
++		ffscanf();markex[mm1]=atof(sa);
++		ffscanf();markn[mm1]=atof(sa);
++		ffscanf();markpr[mm1]=atof(sa);
++		ffscanf();markt[mm1]=atoi(sa); 
++		}
++	}
++/* Load in Text Format ---------------------------- */
++/**/
++/**/
++/**/
+ /* Load in Binary Format ---------------------------- */
++else
+ 	{
+ 	fl = fopen(fl1in,"rb");
+ 	/**/
+@@ -933,7 +1078,6 @@
+ 		fread(&ival0,szfloat,1,fl);cp[m1]=(double)(ival0);
+ 		fread(&ival0,szfloat,1,fl);kt[m1]=(double)(ival0);
+ 		fread(&ival0,szfloat,1,fl);ht[m1]=(double)(ival0);
+-		fread(&ival0,szfloat,1,fl);rr[m1]=(double)(ival0);
+ 		}
+ 	/**/
+ 	/* Gridlines positions */
+@@ -966,12 +1110,10 @@
+ 		fread(&ival0,szfloat,1,fl);markk[mm1]=ival0;
+ 		fread(&ival0,szfloat,1,fl);markd[mm1]=ival0;
+ 		fread(&ival0,szfloat,1,fl);markw[mm1]=ival0;
+-		fread(&ival0,szfloat,1,fl);markwt[mm1]=ival0;
++		fread(&ival0,szfloat,1,fl);markecl[mm1]=ival0;
+ 		fread(&ival0,szfloat,1,fl);markex[mm1]=ival0;
+ 		fread(&ival0,szfloat,1,fl);markn[mm1]=ival0;
+-		fread(&ival0,szfloat,1,fl);marke[mm1]=ival0;
+-		fread(&ival0,szfloat,1,fl);markrr[mm1]=ival0;
+-		fread(&ival0,szfloat,1,fl);markrn[mm1]=ival0;
++		fread(&ival0,szfloat,1,fl);markpr[mm1]=ival0;
+ 		fread(&nn1,1,1,fl);markt[mm1]=nn1;
+ /*
+ if(mm1>850) {printf("%ld %e %e %e %d",mm1,markx[mm1],marky[mm1],markk[mm1],markt[mm1]);getchar();}
+@@ -1010,7 +1152,93 @@
+ /**/
+ /**/
+ /**/
++/* Save data in text format ---------------------------- */
++if (fl1otp==0)
++	{
++	fl = fopen(fl1out,"wt");
++	/**/
++	/* Grid Parameters */
++	fprintf(fl,"%ld-xnumx\n",xnumx);
++	fprintf(fl,"%ld-ynumy\n",ynumy);
++	fprintf(fl,"%ld-mnumx\n",mnumx);
++	fprintf(fl,"%ld-mnumy\n",mnumy);
++	fprintf(fl,"%ld-marknum\n",marknum);
++	fprintf(fl,"% 9.8e-xsize\n",xsize);
++	fprintf(fl,"% 9.8e-ysize\n",ysize);
++	fprintf(fl,"% 9.8e-pinit\n",pinit);
++	fprintf(fl,"% 9.8e-p0\n",pkf[0]);
++	fprintf(fl,"% 9.8e-px\n",pkf[1]);
++	fprintf(fl,"% 9.8e-py\n",pkf[2]);
++	fprintf(fl,"% 9.8e-pxy\n",pkf[3]);
++	fprintf(fl,"% 9.8e-GXKOEF\n",GXKOEF);
++	fprintf(fl,"% 9.8e-GYKOEF\n",GYKOEF);
++	fprintf(fl,"%d-rocknum\n",rocknum);
++	fprintf(fl,"%ld-bondnum\n",bondnum);
++	fprintf(fl,"%d-n0cycle\n",n0+1);
++	fprintf(fl,"% 9.8e-timesum",timesum/3.15576e+7);
++	fprintf(fl,"\n\n\n");
++	/**/
++	/* Rock Types information */
++	for (n1=0;n1<rocknum;n1++)
++		{
++		fprintf(fl,"% 3d % 1d % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e\n",n1,markim[n1],markn0[n1],markn1[n1],marks0[n1],marks1[n1],marknu[n1],markdh[n1],markdv[n1],markss[n1],markmm[n1],markll[n1],marka0[n1],marka1[n1],markb0[n1],markb1[n1],marke0[n1],marke1[n1],markro[n1],markbb[n1],markaa[n1],markcp[n1],markkt[n1],markkf[n1],markkp[n1],markht[n1]);
++		}
++	fprintf(fl,"\n\n\n");
++	/**/
++	/* Nodes information */
++	/* Vx,Vy,bondm[],ro[],nu[],ep[],et[],tk[],cp[],kt[],ht[] */
++	for (m1=0;m1<xnumx;m1++)
++		{
++		for (m2=0;m2<ynumy;m2++)
++			{
++			m3=m1*ynumy+m2;
++			/* X, Y */
++			fprintf(fl,"% 5.4e % 5.4e ",gx[m1],gy[m2]);
++			/* P,Vx,Vy, Bond P,Vx,Vy */
++			fprintf(fl,"% 9.8e % 9.8e % 9.8e %ld %ld %ld ",pr[m3],vx[m3],vy[m3],bondm[m3*3+0],bondm[m3*3+1],bondm[m3*3+2]);
++			/* EPS, SIG */
++			fprintf(fl,"% 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e ",exx[m3],eyy[m3],exy[m3],sxx[m3],syy[m3],sxy[m3]);
++			/* ro, Nu koef */
++			fprintf(fl,"% 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e ",ro[m3],nu[m3],nd[m3],mu[m3],ep[m3],et[m3],dv[m3],pr0[m3],prb[m3]);
++			/* T, Bond T, Cp, Kt, Ht */
++			fprintf(fl,"% 9.8e %ld % 9.8e % 9.8e % 9.8e\n",tk[m3],bondm[nodenum3+m3],cp[m3],kt[m3],ht[m3]);
++			}
++		fprintf(fl,"\n");
++		}
++	fprintf(fl,"\n\n\n");
++	/**/
++	/* Gridlines positions */
++	for (m1=0;m1<xnumx;m1++)
++		{
++		fprintf(fl,"%ld % 9.8e\n",m1,gx[m1]);
++		}
++	fprintf(fl,"\n");
++	for (m2=0;m2<ynumy;m2++)
++		{
++		fprintf(fl,"%ld % 9.8e\n",m2,gy[m2]);
++		}
++	fprintf(fl,"\n\n\n");
++	/**/
++	/* Bondary Conditions Equations */
++	for (m1=1;m1<bondnum;m1++)
++		{
++		fprintf(fl,"%6ld % 9.8e % 9.8e % 9.8e % 9.8e %ld %ld %ld \n",m1,bondv[m1][0],bondv[m1][1],bondv[m1][2],bondv[m1][3],bondn[m1][0],bondn[m1][1],bondn[m1][2]);
++		}
++	fprintf(fl,"\n\n\n");
++	/**/
++	/* Markers X,Y,Type */
++	for (m1=0;m1<=marknum;m1++)
++		{
++		mm2=markt[m1];
++		fprintf(fl,"% 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e % 9.8e %d \n",markx[m1],marky[m1],markk[m1],markd[m1],markw[m1],markwt[m1],markex[m1],markn[m1],marke[m1],mm2);
++		}
++	}
++/* Save data in text format ---------------------------- */
++/**/
++/**/
++/**/
+ /* Save data in binary format ---------------------------- */
++else
+ 	{
+ 	fl = fopen(fl1out,"wb");
+ 	/**/
+@@ -1098,7 +1326,6 @@
+ 		ival0=(float)(cp[m1]);fwrite(&ival0,szfloat,1,fl);
+ 		ival0=(float)(kt[m1]);fwrite(&ival0,szfloat,1,fl);
+ 		ival0=(float)(ht[m1]);fwrite(&ival0,szfloat,1,fl);
+-		ival0=(float)(rr[m1]);fwrite(&ival0,szfloat,1,fl);
+ 		}
+ 	/**/
+ 	/* Gridlines positions */
+@@ -1131,12 +1358,10 @@
+ 		ival0=markk[mm1];fwrite(&ival0,szfloat,1,fl);
+ 		ival0=markd[mm1];fwrite(&ival0,szfloat,1,fl);
+ 		ival0=markw[mm1];fwrite(&ival0,szfloat,1,fl);
+-		ival0=markwt[mm1];fwrite(&ival0,szfloat,1,fl);
++		ival0=markecl[mm1];fwrite(&ival0,szfloat,1,fl);
+ 		ival0=markex[mm1];fwrite(&ival0,szfloat,1,fl);
+ 		ival0=markn[mm1];fwrite(&ival0,szfloat,1,fl);
+-		ival0=marke[mm1];fwrite(&ival0,szfloat,1,fl);
+-		ival0=markrr[mm1];fwrite(&ival0,szfloat,1,fl);
+-		ival0=markrn[mm1];fwrite(&ival0,szfloat,1,fl);
++		ival0=markpr[mm1];fwrite(&ival0,szfloat,1,fl);
+ 		nn1=markt[mm1];fwrite(&nn1,1,1,fl);
+ 		}
+ 	}
+diff -ruN a/markslab.c b/markslab.c
+--- a/markslab.c	2026-11-08 11:16:15.181149403 +0800
++++ b/markslab.c	2026-11-08 11:16:15.188149439 +0800
+@@ -17,13 +17,15 @@
+ for (mm1=0;mm1<marknum;mm1++) markdi[mm1]=0;
+ /**/
+ /* Hydration front progress, melt extraction  */
+-/*
+ if(timesum>1e+11)
+ 	{
+ 	for (mm1=0;mm1<marknum;mm1++) markv[mm1]=0;
+-	hydration2();
+-	meltextract();
++       	hydration2();
++       /*	meltextract();*/
++/*
++*/
+ 	}
++/*
+ */
+ /* Save number of markers */
+ marknum1=marknum;
+@@ -45,7 +47,6 @@
+ 	allintere((double)(markx[mm1]),(double)(marky[mm1]));
+ 	markeii=pow(0.5*(eps[6]*eps[6]+eps[8]*eps[8])+eps[4]*eps[4],0.5);
+ 	marksii=pow(0.5*(eps[7]*eps[7]+eps[9]*eps[9])+eps[5]*eps[5],0.5);
+-	markdis=eps[60];
+ 	/* Correct strain rate for numerical diffusion */
+ 	markrat=1.0;	
+ 	if(0==0 && markn[mm1]>0) markrat*=pow(0.5*marksii/markeii/markn[mm1],0.87);
+@@ -162,8 +163,6 @@
+ 			markt[mm1]=10;
+ 			markwt[mm1]=0;
+ 			markex[mm1]=0;
+-			markrr[mm1]=0;
+-			markrn[mm1]=0;
+ 			marke[mm1]=0;
+ 			}
+ /*
+@@ -209,14 +208,13 @@
+ 			markk[marknum1]=0;
+ 			markdt[marknum1]=0;
+ 			markpr[marknum1]=0;
++			markecl[marknum1]=0;
+ 			markn[marknum1]=0;
+ 			markd[marknum1]=-1.0;
+ 			markw[marknum1]=-1.0;
+ 			markdi[marknum1]=0;
+ 			markwt[marknum1]=0;
+ 			markex[marknum1]=0;
+-			markrr[marknum1]=0;
+-			markrn[marknum1]=0;
+ 			marke[marknum1]=0;
+ 			markv[marknum1]=0;
+ 			/* Add aditional markers counter */
+@@ -265,6 +263,7 @@
+ 		markk[mm1]=markk[marknum1];
+ 		markdt[mm1]=markdt[marknum1];
+ 		markpr[mm1]=markpr[marknum1];
++		markecl[mm1]=markecl[marknum1];
+ 		markn[mm1]=markn[marknum1];
+ 		markd[mm1]=markd[marknum1];
+ 		markw[mm1]=markw[marknum1];
+@@ -273,8 +272,6 @@
+ 		markdi[mm1]=markdi[marknum1];
+ 		markwt[mm1]=markwt[marknum1];
+ 		markex[mm1]=markex[marknum1];
+-		markrr[mm1]=markrr[marknum1];
+-		markrn[mm1]=markrn[marknum1];
+ 		marke[mm1]=marke[marknum1];
+ 		markv[mm1]=markv[marknum1];
+ 		}
+@@ -302,7 +299,7 @@
+ int mm2,yn,mm3,n1,n2;
+ long int mm1;
+ double swt,swt1,swt2,ddx,ddy,celdx,celdy;
+-double mnu,mro,mcp,mkt,mht,maa,mbb,mab,mab0,maa0,mbb0,mcp0,mkt0,mwa,dmwa,mro0,mroold,ival,ival0,xmelt;
++double mnu,mro,mcp,mkt,mht,maa,mbb,mab,mab0,maa0,mbb0,mcp0,mkt0,mwa,dmwa,mro0,mroold;
+ double anu,aro,acp,akt,aht,abb,markwlev;
+ double wnu,wro,wcp,wkt,wht,wbb,dywa;
+ /* TD Database variables */
+@@ -326,7 +323,8 @@
+ /* Layering on sediments */
+ m1=(long int)(timesum/sedimcyc);
+ m2=((long int)(m1/2))*2;
+-if(m2==m1) yn=3; else yn=4;
++/*Jie: only use rock 2*/
++if(m2==m1) yn=2; else yn=2;
+ /**/
+ /**/
+ /**/
+@@ -357,7 +355,6 @@
+ 	kt0[m1]=0;
+ 	ht0[m1]=0;
+ 	tk0[m1]=0;
+-	rr0[m1]=0;
+ 	sol0[m1]=0;
+ 	sol1[m1]=0;
+ 	sol0[nodenum+m1]=0;
+@@ -410,8 +407,8 @@
+ */
+ 	/**/
+ 	/* Rocks to rock+melt transformation */
+-/*
+ 	if(timesum>0) melting(mtk,mpb,mm1);
++/*
+ */
+ 	}
+ }
+@@ -433,7 +430,7 @@
+ 	mtk=(double)(markk[mm1]);
+ 	/**/
+ 	/* Serpentinize Lithospheric Mantle at the outer rise */
+-	if(mm2==9 && mtk<973.0 && ABSV(marke[mm1])>strainserp)
++	if(1==0 && mm2==9 && mtk<973.0 && ABSV(marke[mm1])>strainserp && markx[mm1]>0.8e+6 && markx[mm1]<1.6e+6)
+ 		{
+ 		/* Erosion level calc */
+ 		e=(markx[mm1]-gx[wn[0]])/(gx[wn[0]+1]-gx[wn[0]]);
+@@ -444,8 +441,6 @@
+ 			markw[mm1]=0;
+ 			markd[mm1]=-1.0;
+ 			markex[mm1]=0;
+-			markrr[mm1]=0;
+-			markrn[mm1]=0;
+ 			}
+ 		}
+ 	/**/
+@@ -456,15 +451,14 @@
+ 		markw[mm1]=0;
+ 		markd[mm1]=-1.0;
+ 		markex[mm1]=0;
+-		markrr[mm1]=0;
+-		markrn[mm1]=0;
+ 		}
+ 	/**/
+ 	/* Create crust and lithosphere at midocean ridges */
+-	if(0==0)
++	/*Jie: swtich off this weak buffer zone necking/spreading by 0==1. */
++	if(1==1 && markx[mm1]>1800000 || markx[mm1]<200000)
+ 	{
+ 	/* Create Lithosphere */
+-	if(mm2==10  && marky[mm1]<1e+5 && markk[mm1]<1573.0)
++	if(mm2==10  && marky[mm1]<9e+4 && markk[mm1]<1573.0)
+ 		{
+ 		markt[mm1]=mm2=9;
+ 		}
+@@ -474,20 +468,17 @@
+ 		markt[mm1]=mm2+=1;
+ 		}
+ 	/* Create Gabbroic crust */
+-	if(mm2==9 || mm2==10 || mm2==12 || mm2==29 || mm2==30 || mm2==32)
++	if(mm2==9 || mm2==10 || mm2==29 || mm2==30)
+ 		{
+ 		/* Erosion level calc */
+ 		e=(markx[mm1]-gx[wn[0]])/(gx[wn[0]+1]-gx[wn[0]]);
+ 		n=(e*ep[wn[0]+1]+(1.0-e)*ep[wn[0]]);
+-		if((marky[mm1]-n)<=7000.0 && markk[mm1]>1300.0)
++		if((marky[mm1]-n)<=7000.0)
+ 			{
+-			markt[mm1]=mm2=8;
++			markt[mm1]=mm2=28;
+ 			markw[mm1]=0;
+ 			markd[mm1]=-1.0;
+ 			markex[mm1]=0;
+-			marke[mm1]=0;
+-			markrr[mm1]=0;
+-			markrn[mm1]=0;
+ 			}
+ 		}
+ 	/* Create Basaltic crust */
+@@ -496,15 +487,12 @@
+ 		/* Erosion level calc */
+ 		e=(markx[mm1]-gx[wn[0]])/(gx[wn[0]+1]-gx[wn[0]]);
+ 		n=(e*ep[wn[0]+1]+(1.0-e)*ep[wn[0]]);
+-		if((marky[mm1]-n)<=2000.0)
++		if(0==1 && (marky[mm1]-n)<=2000.0)
+ 			{
+ 			markt[mm1]=mm2=7;
+ 			markw[mm1]=0;
+ 			markd[mm1]=-1.0;
+ 			markex[mm1]=0;
+-			marke[mm1]=0;
+-			markrr[mm1]=0;
+-			markrn[mm1]=0;
+ 			}
+ 		}
+ 	}
+@@ -512,9 +500,9 @@
+ 	/* Save old density */
+ 	mroold=markd[mm1];
+ 	/* Temperature reset for water/air */
+-/*
++
+ 	if(mm2<2) mtk=markk[mm1]=273.0; 
+-*/
++
+ 	mwa=0;
+ /*
+ printf("k %ld %d %e %e ",mm1,mm2,mtk,mpb);getchar();
+@@ -522,29 +510,24 @@
+ 	/**/
+ 	/* Viscosity calc */
+ 	mnu=markn[mm1];
+-	if(mnu<=0 || timesum==0) 
++	if(mnu<=0) 
+ 		{
+ 		markeii=pow(0.5*(eps[6]*eps[6]+eps[8]*eps[8])+eps[4]*eps[4],0.5);
+ 		marksii=pow(0.5*(eps[7]*eps[7]+eps[9]*eps[9])+eps[5]*eps[5],0.5);
+-		markdis=eps[60];
+ 		mnu=viscalc(mtk,mpb,(double)(markx[mm1]),(double)(marky[mm1]),mm1,mm2);
+ 		markn[mm1]=mnu;
+ 		}
+ 	/**/
+ 	/* Make Lithosphere */
+-	if (mtk<1300.0 && marky[mm1]<200000.0 && mm2==10) {mm2=9; markt[mm1]=9;}
+-	/* Make Asthenosphere */
+-/*
+-	if (mtk>1300.0 && marky[mm1]<200000.0 && mm2==12) {mm2=10; markt[mm1]=10;}
+-*/
++	/*Jie: switch off*/
++	/*if (mtk<1300.0 && marky[mm1]<100000.0 && mm2==10) {mm2=9; markt[mm1]=9;}*/
++	
+ 	/**/
+ 	/* Marker Properties */
+ 	mro0=mro=dencalc(mtk,mpb,(double)(markx[mm1]),(double)(marky[mm1]),mm2);
+ 	/* Eclogitization, St, Pv transitions in oceanic crust */
+         if(mm2==7 || mm2==8 )
+         {
+-	/* Set initial density coefficient */
+-	rokf=1.0;
+ 	/* Eclogitization Ito and Kennedy, 1971 */
+         /*basalt=>garnet granulite (Ga-In) transition*/
+         p_ga_in=-9222.0+mtk*14.0;
+@@ -556,18 +539,32 @@
+         if(p_pl_out<12000.0) p_pl_out=12000.0;
+         if(mpb>p_ga_in)
+                 {
++		rokf=0;
++		if(mtk>teclmin)
++			{
++			if(mtk>teclmax)
++       				{
++       				rokf=0.16;
++                          	}
++			else
++                           	{
++                            	rokf=0.16*(mtk-teclmin)/(teclmax-teclmin);
++                            	}
++                	}
+                 if(mpb>=p_pl_out)
+                    	{
+-                       	rokf*=1.16;
++                       	mro0=mro*=1.0+rokf;
++                         /*Jie: trace eclogite by markecl*/
++                        markecl[mm1] = 1;
+                         }
+                 else
+                         {
+-                        rokf*=1.0+0.16*(mpb-p_ga_in)/(p_pl_out-p_ga_in);
++                        mro0=mro*=(1.0+rokf*(mpb-p_ga_in)/(p_pl_out-p_ga_in));
+                         }
+                 }
+ 	/* Coe->St transition Gerya et al., 2004, PCM */
+         p_st_in=59100.0+mtk*22.6;
+-        if(mpb>p_st_in) rokf*=1.06;
++        if(mpb>p_st_in) mro0=mro*=1.06;
+ 	/* Pv transition, Mishin et al., 2008 with slope from Ito et al., 1990 */
+         /* Sp-out transition*/
+         p_sp_out=354000.0-mtk*40.0;
+@@ -575,85 +572,63 @@
+         p_pv_in=352000.0-mtk*40.0;
+         if(mpb>p_pv_in)
+                 {
++		rokf=0.08;
+                 if(mpb>=p_sp_out)
+                    	{
+-                       	rokf*=1.08;
++                       	mro0=mro*=1.0+rokf;
+                         }
+                 else
+                         {
+-                        rokf*=1.0+0.08*(mpb-p_pv_in)/(p_sp_out-p_pv_in);
++                        mro0=mro*=(1.0+rokf*(mpb-p_pv_in)/(p_sp_out-p_pv_in));
+                         }
+                 }
+-	/* Take into account kynetics */
+-	if(mtk<teclmax)
+-		{
+-		if(mtk<teclmin)
+-       			{
+-       			rokf=1.00;
+-                      	}
+-		else
+-                      	{
+-                       	rokf=1.0+(rokf-1.0)*(mtk-teclmin)/(teclmax-teclmin);
+-                       	}
+-                }
+-	/* Correct density */
+-        mro0=mro*=rokf;
++
+         }
+ 	/* Ol-Sp and Pv transitions in the mantle */
+ 	if(mm2>=9 && mm2<=14) 
+         {
+-	/* Set initial density coefficient */
+-	rokf=1.0;
+ 	/* Ol-Sp transition, Katsura & Ito, 1989 */
+         /* Ol-out transition*/
+         p_ol_out=91000.0+mtk*27.0;
+         /* Sp-in transition*/
+         p_sp_in=66000.0+mtk*39.0;
+         /*Limit width of Sp-Ol transition to 2 kbar */
+-        if(p_sp_in>p_ol_out-2000.0) p_sp_in=p_ol_out-2000.0;
++        /*Jie: switch off phase transition at 410 km
++	if(p_sp_in>p_ol_out-2000.0) p_sp_in=p_ol_out-2000.0;
+         if(mpb>p_sp_in)
+                 {
++		rokf=0.06;
+                 if(mpb>=p_ol_out)
+                    	{
+-                       	rokf*=1.06;
++                       	mro0=mro*=1.0+rokf;
+                         }
+                 else
+                         {
+-                        rokf*=1.0+0.06*(mpb-p_sp_in)/(p_ol_out-p_sp_in);
++                        mro0=mro*=(1.0+rokf*(mpb-p_sp_in)/(p_ol_out-p_sp_in));
+                         }
+                 }
++	*/
+ 	/* Pv transition, Ito et al., 1990 */
+         /* Sp-out transition*/
+         p_sp_out=304000.0-mtk*40.0;
+         /* Pv-in transition*/
+         p_pv_in=302000.0-mtk*40.0;
+-        if(mpb>p_pv_in)
++        /*Jie: switch off*/
++	/*
++	if(mpb>p_pv_in)
+                 {
++		rokf=0.11;
+                 if(mpb>=p_sp_out)
+                    	{
+-                       	rokf*=1.11;
++                       	mro0=mro*=1.0+rokf;
+                         }
+                 else
+                         {
+-                        rokf*=1.0+0.11*(mpb-p_pv_in)/(p_sp_out-p_pv_in);
++                        mro0=mro*=(1.0+rokf*(mpb-p_pv_in)/(p_sp_out-p_pv_in));
+                         }
+                 }
+-	/* Take into account kynetics */
+-	if(mtk<teclmax)
+-		{
+-		if(mtk<teclmin)
+-       			{
+-       			rokf=1.00;
+-                      	}
+-		else
+-                      	{
+-                       	rokf=1.0+(rokf-1.0)*(mtk-teclmin)/(teclmax-teclmin);
+-                       	}
+-                }
+-	/* Correct density */
+-        mro0=mro*=rokf;
++	*/
+         }
+-	/* Save properties */
+ 	mbb0=mbb=eps[20];
+ 	mab0=mab=eps[44];
+ 	maa0=maa=eps[45];
+@@ -669,11 +644,9 @@
+ */
+ 	/**/
+ 	/* Melted rocks */
+-	xmelt=0;
+ 	if (mm2>20) 
+ 		{
+ 		meltpart(mtk,mpb,(double)(markx[mm1]),(double)(marky[mm1]),mm1,mm2);
+-		xmelt=eps[21];
+ 		mro0=mro=eps[23];
+ 		mbb0=mbb=eps[20];
+ 		mab0=mab=eps[44];
+@@ -687,7 +660,7 @@
+ 	/**/
+ 	/* Thermodynamic database use for ro, Cp */
+ 	if (densimod>=2)
+-	if(mm2>1 && mm2!=5 && mm2!=6 && mm2!=25 && mm2!=26)
++	if(mm2>1 && mm2!=3 && mm2!=4 && mm2!=23 && mm2!=24  && mm2!=5 && mm2!=6 && mm2!=25 && mm2!=26)
+ 		{
+ 		/* Compute TD variables */
+ 		eps[47]=mkt;
+@@ -704,29 +677,17 @@
+ */
+ 		/**/
+ 		/* Molten rocks with extraction */
+-		if(mm2>20)
++		if(mm2>20 && markex[mm1]>0)
+ 			{
+ 			/* Compute TD variables */
+ 			tdbasecalc(mtk,mpb,mm2-20,mm1);
+-			/* Limit melt density */
+-			if(xmelt>0 && xmelt<=1)
+-				{
+-				ival0=markro[mm2]/markro[mm2-20];
+-				ival=(mro-eps[41]*(1.0-xmelt))/xmelt/eps[41];
+-				if(ival<ival0) mro=eps[41]*(1.0-xmelt)+eps[41]*ival0*xmelt;
+-				}
+-			/* Account for melt extraction */
+-			if(markex[mm1]>0)
+-				{
+-				ival0=xmelt-markex[mm1]; if(ival0<0) ival0=0;
+-				ival=0; if(xmelt>0) ival=ival0/xmelt;
+-				mro=mro*ival+eps[41]*(1.0-ival);
+-				mwa=mwa*ival+eps[42]*(1.0-ival);
+-				mcp=mcp*ival+eps[43]*(1.0-ival);
+-				mbb=mbb*ival+eps[20]*(1.0-ival);
+-				mab=mab*ival+eps[44]*(1.0-ival);
+-				mkt=mkt*ival+eps[47]*(1.0-ival);
+-				}
++			if(eps[41]-mro<300.0) eps[41]=mro+300.0;
++			mro=mro*(1.0-markex[mm1])+markex[mm1]*eps[41];
++			mwa=mwa*(1.0-markex[mm1])+markex[mm1]*eps[42];
++			mcp=mcp*(1.0-markex[mm1])+markex[mm1]*eps[43];
++			mbb=mbb*(1.0-markex[mm1])+markex[mm1]*eps[20];
++			mab=mab*(1.0-markex[mm1])+markex[mm1]*eps[44];
++			mkt=mkt*(1.0-markex[mm1])+markex[mm1]*eps[47];
+ 			}
+ 		/**/
+ 		/* Density && Water wt% save */
+@@ -873,7 +834,6 @@
+ 		cp0[m3]+=mcp*mro*swt;
+ 		kt0[m3]+=mkt*swt;
+ 		ht0[m3]+=mht*swt;
+-		rr0[m3]+=markrr[mm1]*swt;
+ 		sol0[m3]+=swt;
+ 		/* Mark rock marker use */
+ 		if(mm2>1) sol0[nodenum2+m3]=10.0;
+@@ -900,7 +860,7 @@
+ if(sol0[nodenum+m3])
+ 	{
+ 	/* Viscosity recalc check */
+-	if(mu[m3] && timesum<timebond) 
++	if(mu[m3] && timesum>timebond) 
+ 		{
+ 		if(mu[m3]>0) 
+ 			{
+@@ -938,7 +898,7 @@
+ if(sol1[nodenum+m3])
+ 	{
+ 	/* Viscosity recalc check */
+-	if(mu[m3] && timesum<timebond) 
++	if(mu[m3] && timesum>timebond) 
+ 		{
+ 		if(mu[m3]>0) 
+ 			{
+@@ -1003,7 +963,6 @@
+ 	cp[m3]=cp0[m3]/sol0[m3]/ro[m3];
+ 	kt[m3]=kt0[m3]/sol0[m3];
+ 	ht[m3]=ht0[m3]/sol0[m3];
+-	rr[m3]=rr0[m3]/sol0[m3];
+ 	/**/
+ 	/* Advective addition for T K in nodes recalc */
+ 	if (sol1[m3]) 
+@@ -1321,6 +1280,7 @@
+ 	/* Sediments, upper crust */
+ 	case 15:
+ 	case 35:
++	case 2:
+ 	case 3:
+ 	case 4:
+ 	case 5:
+@@ -1362,6 +1322,7 @@
+  	return;
+ 	/* Dry Peridotite */
+ 	case  9:
++	case 19:
+ 	case 10:
+ 	case 12:
+ 	case 29:
+@@ -1389,7 +1350,7 @@
+ /* mm2 - mark type */
+ {
+ /* Val buffer */
+-double xmelt=0,xmelt0=0,ival,ival1,dmpb,dmtk,epsin,sduct,nueff,smin,smax,nmin,nmax,cpadd=0;
++double xmelt=0,ival,ival1,dmpb,dmtk,epsin,sduct,nueff,smin,smax,nmin,nmax,cpadd=0;
+ long int m1;
+ double p_pl_out,p_ga_in,rokf,p_sp_in,p_ol_out,p_pv_in,p_sp_out,p_st_in;
+ /**/
+@@ -1398,7 +1359,6 @@
+ 	{
+ 	/* Calculate melt fraction */
+ 	meltpart1(mtk,mpb,mm1);
+-	xmelt0=eps[21];
+ 	xmelt=eps[21]-markex[mm1];if(xmelt<0) xmelt=0;
+ 	/**/
+ 	/* Standard adiabatic term: al=bro/(1+bro*(Tk-298.15)) */
+@@ -1444,7 +1404,9 @@
+ 			        if(mpb>=p_pl_out)
+                    			{
+ 			               	ival=1.0+rokf;
+-                       			}
++					 /*Jie: trace eclogite by markecl*/
++		                        markecl[mm1] = 1;
++					}
+                    		else
+                         		{
+                         		ival=(1.0+rokf*(mpb-p_ga_in)/(p_pl_out-p_ga_in));
+@@ -1484,7 +1446,8 @@
+         			/* Sp-in transition*/
+         			p_sp_in=66000.0+mtk*39.0;
+         			/*Limit width of Sp-Ol transition to 2 kbar */
+-        			if(p_sp_in>p_ol_out-2000.0) p_sp_in=p_ol_out-2000.0;
++        			/*Jie: switch off phase transition for melting
++				if(p_sp_in>p_ol_out-2000.0) p_sp_in=p_ol_out-2000.0;
+         			if(mpb>p_sp_in)
+                 			{
+ 					rokf=0.06;
+@@ -1497,11 +1460,14 @@
+                         			ival*=(1.0+rokf*(mpb-p_sp_in)/(p_ol_out-p_sp_in));
+                         			}
+                 			}
++				*/
+ 				/* Pv transition, Ito et al., 1990 */
+         			/* Sp-out transition*/
+         			p_sp_out=304000.0-mtk*40.0;
+         			/* Pv-in transition*/
+         			p_pv_in=302000.0-mtk*40.0;
++				/*Jie: switch off*/
++				/*
+         			if(mpb>p_pv_in)
+                 			{
+ 					rokf=0.11;
+@@ -1514,6 +1480,7 @@
+                         			ival*=(1.0+rokf*(mpb-p_pv_in)/(p_sp_out-p_pv_in));
+                         			}
+                 			}
++				*/	
+ 				eps[23]=xmelt*markro[mm2]*(1.0-markbb[mm2]*(mtk-298.15))*(1.0+markaa[mm2]*(mpb-1.0)*1e-3)+(1.0-xmelt)*ival*markro[mm2-20]*(1.0-markbb[mm2-20]*(mtk-298.15))*(1.0+markaa[mm2-20]*(mpb-1.0)*1e-3);
+         			}
+ 			else
+@@ -1562,7 +1529,6 @@
+ printf("Meltpart: %ld %d %e %e %e  %e %e %e %e %e %e",mm1,mm2,mtk,mpb,xmelt,eps[20],eps[22],eps[23],eps[24],eps[25],eps[26]);getchar();
+ */
+ 		}
+-	eps[21]=xmelt0;
+ 	return 1.0;
+ 	}
+ eps[20]=eps[21]=eps[22]=eps[23]=eps[24]=eps[25]=eps[26]=eps[44]=0;
+@@ -2153,7 +2119,6 @@
+ /* Buffer clear */
+ eps[4]=0;
+ eps[5]=0;
+-eps[60]=0;
+ /* Horizontal,Vertical limits for interpolation calc */
+ m1min=m10; if(m1min<1) m1min=1; if(m1min>xnumx-3) m1min=xnumx-3;
+ m1max=m1min+1+intermod; if(m1max>xnumx-2) m1max=xnumx-2;
+@@ -2166,7 +2131,7 @@
+ /* Interpolation weights calc  after Fornberg (1996) */
+ nodewt(m1min,m1max,m2min,m2max,x,y,0,0);
+ /**/
+-/* EPSxy,Dissipation Interpolate after interpolation weights */
++/* EPSxy Interpolate after interpolation weights */
+ for (m1=m1min;m1<=m1max;m1++)
+ for (m2=m2min;m2<=m2max;m2++)
+ 	{
+@@ -2175,7 +2140,6 @@
+ 	ival=cn[m1-m1min][1]*cn[m2-m2min][0];
+ 	eps[4]+=ival*exy[m3];
+ 	eps[5]+=ival*sxy[m3];
+-	eps[60]+=2.0*ival*sxy[m3]*exy[m3];
+ 	}
+ /* End SIGxy,EPSxy interpolation ------------------------ */
+ /**/
+@@ -2206,17 +2170,12 @@
+ 	{
+ 	/* Current node num, wt */
+ 	m3=m1*ynumy+m2;
+-	if(cn[m1-m1min][1]<0) cn[m1-m1min][1]=0;
+-	if(cn[m1-m1min][1]>1.0) cn[m1-m1min][1]=1.0;
+-	if(cn[m2-m2min][0]<0) cn[m2-m2min][0]=0;
+-	if(cn[m2-m2min][0]>1.0) cn[m2-m2min][0]=1.0;
+ 	ival=cn[m1-m1min][1]*cn[m2-m2min][0];
+ 	eps[6]+=ival*exx[m3];
+ 	eps[7]+=ival*sxx[m3];
+ 	eps[8]+=ival*eyy[m3];
+ 	eps[9]+=ival*syy[m3];
+ 	eps[10]+=ival*pr[m3];
+-	eps[60]+=ival*(sxx[m3]*exx[m3]+syy[m3]*eyy[m3]);
+ 	}
+ /* End EPSxx,EPSyy,P interpolation ------------------------ */
+ /* Pressure as function of depth from erosion level calc */
+@@ -2559,12 +2518,15 @@
+ 	case 17:
+ 	case 36:
+ 	case 37:
++	case 2:
+ 	case 3:
+ 	case 4:
+ 	case 5:
++	case 6:
+ 	case 23:
+ 	case 24:
+ 	case 25:
++	case 26:
+ 	/* Wet Solidus Temperature, Johannes, 1985, Poli & Schmidt, 2002 */
+ 	if (ykm<36.0) 
+ 		{
+@@ -2580,8 +2542,6 @@
+ 	break;
+ 	/**/
+ 	/* Gabbro latent heat 380 kJ/kg (Bittner & Schmeling, 1995) */
+-	case 6:
+-	case 26:
+ 	case 8:
+ 	case 28: 
+ 	/* Dry Toleitic Basalt solidus, Hess, 1989 */
+@@ -2612,6 +2572,7 @@
+ 	/**/
+ 	/* Dry/Wet Peridotite: latent heat 400 kJ/kg Turcotte & Schubert, 1982, p.171 */
+ 	case  9:
++	case 19:
+ 	case 10:
+ 	case 11:
+ 	case 12:
+@@ -2831,12 +2792,6 @@
+ /* Counters */
+ long int m1;
+ int n1,n2;
+-/* Bercovici flow law  */
+-int i,j;
+-double p,q,dissip,r,r0,dtsum,drlim,dsiginlim,dt,dt0;
+-double Adisl,Edisl,Vdisl,AA,Adiff,Ediff,Vdiff,m,BB;
+-double pival,phi1,phi2,eta,gammaI,Eggrow,Aggrow,Vggrow,GG,rscale,Gfac,GI,f0,fG,fI,Psi,DlnrDt;
+-double epsinpowl,siginpowl,ETA,sigin0,sigin1,sigin2,dsigin0,dsigin1,dsigin2;
+ /**/
+ /**/
+ /**/
+@@ -2852,8 +2807,12 @@
+ /**/
+ /* Brittle "viscosity" calc: sbrit=A(eps)+LAM*B(eps)*P ------------------- */
+ /* Brittle/ductile transition stress calc */
++lamb=markll[mm2]; 
++abrit=marka0[mm2]; 
++bbrit=markb0[mm2]; 
++/**/
+ /* A,B coefficients calc depending on integral strain */
+-lamb=1.0; 
++lamb=markll[mm2]; 
+ abrit=marka0[mm2]; 
+ bbrit=markb0[mm2]; 
+ if(strain>marke1[mm2])
+@@ -2897,12 +2856,9 @@
+ 	else
+ 		{
+ 		nubrit=1.0/markn0[mm2];
+-		sbrit=0;
+ 		}
+ 	/* Check plastic viscosity */
+-/*
+ 	if(nubrit>1.0/nuplast) nubrit=1.0/nuplast;
+-*/
+ 	}
+ /* End Brittle "viscosity" calc: sbrit=A(eps)+LAM*B(eps)*P ------------------- */
+ /**/
+@@ -2910,7 +2866,7 @@
+ /**/
+ /* Peierls plasticity-creep mechanism, data from Katayama and Karato, 2008 */
+ nupeierls=0;
+-if(1==0 && mm2>1 && mm2<20 && sigin>1e+7 && mtk<1473.0 && epsin>0) 
++if(0==0 && mm2>1 && mm2<20 && sigin>1e+7 && mtk<1473.0 && epsin>0) 
+ /*
+ if(mm2>=9 && mm2<=14)
+ if(0==0 && mm2>1 && mm2<20 && sigin>0 && epsin>0) 
+@@ -3027,7 +2983,7 @@
+ 	/* Effective viscosity: NU=NU0/2*exp[(E+PV)/RT] */
+ 	/* Effective viscosity member in Stoks: NUs=NU */
+ 	/* NU1=NU0/SScr^(n-1) */
+-	if(marknu[mm2]>0 && markdh[mm2]>0 && (markdh[mm2]!=0 || markdv[mm2]!=0) && markss[mm2]!=0 && markmm[mm2]!=1.0)
++	if(marknu[mm2]>0 && (markdh[mm2]>0 || markdv[mm2]!=0) && markss[mm2]!=0 && markmm[mm2]!=1.0)
+ 		{
+ 		/* T-P exponent for effective NU calc */
+ 		e1=(markdh[mm2]+markdv[mm2]*mpb)/rt;
+@@ -3050,255 +3006,12 @@
+ 	if(marknu[mm2]<0)
+ 		{
+ 		/* Diffusion viscosity calc for given grainsize, mm, Karato & Wu (1993) */
+-		mnu2=1.0; /* Grainsize, mm */ 
+-		nunewt=1.0/(0.5*pow(mnu2*1e-3/5e-10,2.5)*8e+10/marks1[mm2]*exp((markss[mm2]+mpb*markll[mm2])/rt));
++		mnu2=1.0; 
++		nunewt=1.0/(0.5*pow(mnu2*1e-3/5e-10,2.5)*8e+10/8.7e+15*exp((3.06e+5+0.6*(eps[46]/28.0*markdv[mm2]))/8.314/mtk));
+ 		/* Dislocation viscosity calc, Karato & Wu (1993) */
+ 		/* Effective viscosity1 calc */
+ 		nupowl=0; 
+-		if(epsin>0) nupowl=1.0/(0.5*pow(epsin,1.0/markmm[mm2]-1.0)*8e+10/pow(-marknu[mm2],1.0/markmm[mm2])*exp((markdh[mm2]+markdv[mm2]*mpb)/rt/markmm[mm2]));
+-		}
+-	/* G)  P-T-stress dependent rheology of Mantle Bercovici (personal communication) */
+-	if(markdh[mm2]<0)
+-		{
+-/* Stress, strain rate and dissipation */
+-epsin=markeii;
+-sigin=marksii;
+-dissip=markdis*markrn[mm1]; /* Ductile creep dissipation */
+-/* Grainsize parameters */
+-pival=2.0*asin(1.0);
+-r=r0=markrr[mm1];  /* Interface roughness or radius of curvature for pinned-state limit */
+-if(r0<=0) r=r0=markrr[mm1]=3e-3*2.0/pival;
+-dtsum=0; /* Cumulative time */
+-drlim=0.1; /* Limit for r change */
+-dsiginlim=1e-6; /* Limit for sigin change */
+-dt0=timestep; /* Timestep for grain growth */
+-
+-/* Rheological parameters; using Hirth & Kohlstedt 2003 rheology data for olivine (dry only) */
+-/* Dislocation creep parameters */
+-n=markmm[mm2]; /* dislocation creep power-law exponent (could be n=3 also, which is what I often use for mathematical convenience) */
+-Adisl=marknu[mm2]; /* preexponential constant */ 
+-Edisl=-markdh[mm2]; /* 530kJ/mol activation energy for dislocation creep; uncertainty is ??4 */
+-Vdisl=markdv[mm2];  /* Hirth/Kohsltedt Table 2; for P=1 - 3GPa 14.e-6 most frequent, low as 6 high as 27 */
+-e1=(Edisl+mpb*Vdisl)/rt;
+-if(e1>150.0) e1=150.0;
+-e1=exp(-e1);
+-AA=Adisl*e1;  /* dislocation creep "compliance" */ 
+-/* Diffusion creep parameters */
+-m=3.0;  /* grain-size exponent */ 
+-Adiff=marks1[mm2]; /* preexponential constant */
+-Ediff=markss[mm2]; /* 375kJ/mol activation energy for diffusion creep uncertainty is ??50 */
+-Vdiff=markll[mm2]; /* activation volume 6.e-6 m^3/mol and uncertainty is ??4 */
+-e1=(Ediff+mpb*Vdiff)/rt;
+-if(e1>150.0) e1=150.0;
+-e1=exp(-e1);
+-BB=Adiff*e1; /* diffusion creep compliance */
+-BB=BB/pow(pival/2.0,m); /* the (pi/2)^m factor comes about b/c we're using r (pining body size */
+-	/* or interface roughness) instead of grainsize Rg and assuming a pinned state */
+-	/* where the Zener pinning factor  Z = 1- c(1-phi_i)(R_i/r)^2 ~ 0 */
+-        /* and thus R_i = r/sqrt(c(1-phi_i)); thus the avg is */
+-	/*	R = r/sqrt(c) * [phi1/sqrt(phi2) + phi2/sqrt(phi1)] */
+-        /* and using c=0.87 (from the Nature and EPSL paper etc), phi1=0.4 and phi2=0.6, */ 
+-	/* we get R=1.5707r, which  coincidentally is 1.5707 = pi/2 */    
+-
+-/*
+-printf("A %ld %d %e %e %e   %e %e   %e %e   %e %e",mm1,mm2,epsin,sigin,dissip,mtk,mpb,dt0,r0,AA,BB); getchar();
+-*/
+-
+-/* Update grainsize */
+-if(0==0 && timesum>1e+11)
+-{
+-j=0;
+-do
+-{
+-/* Grain growth parameters */
+-q=4.0; /* roughness coarsening exponent */ 
+-p=2.0; /* grain size coarsening exponent; we need this to scale the experimental growth rates */
+-phi1=0.4; phi2=1.0-phi1; /* volume fractions of Ol and Px; say Px is phase 1, Ol is phase 2; */
+-eta=3.0*phi1*phi2;  /* a simple function of how interface area density depends on phi1 and phi2 */
+-gammaI=1.0;  /* interface surface tension in Pa m */
+-Eggrow=300e+3; /* activation energy for grain growth; assuming standard for diffusion; 200 from Karato could be used also but not sure anyone including Shun believes it */
+-Aggrow=2e+4*pow(1e-6,p); /* pre-exponential factor; this is from Karato, repeated by Rozel; it should be redone one day;  not sure if there is something better */
+-Vggrow=Vdiff; /* activation volume; this is a total guess; assume it's similar to diff creep? */
+-e1=(Eggrow+mpb*Vggrow)/rt;
+-if(e1>150.0) e1=150.0;
+-e1=exp(-e1);
+-GG=Aggrow*e1;  /* grain-growth rate in units of s^(-1)*m^p */
+-/* interface coarsening is from comparison to Hiraga et al 2010 experiments and scaling arguments in Bercovici & Ricard 2013. */
+-rscale=1e-6; Gfac=100.0;   /* have used Gfac = 250 before; there is freedom/slop in adjusting this a bit */
+-GI=GG/Gfac*q/p*pow(r0,q-p);  /* interface coarsening GI is slower than GG, but also has different units this scaling is explained in Berco+Ricard 2013 */
+-/* damage partitioning fraction (how much deformational work goes into creating surface energy on interface) */
+-f0=1e-3; /* damage at 1000K; the Rozel paper suggest 2.e-1 which gives a HUGE damage number, */
+-          /* but it goes with the grain-growth activation  energy of 200.  for Eg=300 it is */
+-          /* usually much smaller, like 1e-3.  There is some freedome also in playing with this */
+-e1=2.0*pow(mtk/1000,2.9) - 2.0;
+-if(e1>150.0) e1=150.0;
+-e1=exp(-e1);
+-fG=f0*e1;  /* this T dependence is still from Rozel, assuming Eg=200; it needs to be adjusted for general Eg (will get this from Elvira) */
+-fI= fG;  /* assuming interface damage fraction is the same as the maximum for grain boundary damage. */
+-         /* In fact, if we include grain-boundary evolution eqns,  this fG is scaled again to vanish */
+-	 /* when we're in diffusion creep; but we don't include those eqns here. */
+-	 /* ALSO if we include the hysteresis effect (maybe one day) theh fI (interface damage) */
+-         /* will also be scaled to vanish but in dislocation creep; not worth doing yet */
+-
+-/* Grain growth */
+-/* !!!! To look where you move relative to deformation regime boundary */
+-/*  Sometimes it's useful to get the field boundary grain-size, although this formula below */
+-/*   is really for the field-boundary interface roughness (b/c of how we redefined BB): */
+-/* Rf = (BB/AA/sigin^(n-1))^(1/m); */
+-/* Now for grain evolution laws; we're only going to use interface roughness in the pinned-state limit evolution equation (finally): */
+-/* !!!!!! Marker deformational work: */
+-/* Psi = 2*(AA*sigin^(n+1) + BB*sigin^2/r^m); */
+-/* !!!!!! Nodal deformational work: */ 
+-Psi = dissip;
+-/* DrDt = eta*GI/q/r0^(q-1) - fI*r0^2/gammaI/eta * Psi; */ 
+-DlnrDt = (eta*GI/q/pow(r0,q-1.0) - fI*r0*r0/gammaI/eta * Psi)/r0;
+-dt=dt0-dtsum; /* Remaining time for grain growth */
+-if(ABSV(DlnrDt*dt)>drlim) dt=dt*drlim/ABSV(DlnrDt*dt);
+-r=r0*exp(DlnrDt*dt);
+-if(r>1e-2) printf("GRAINS %ld %d %e %e %e %e %e %e \n",mm1,mm2,mtk,mpb,epsin,sigin,dissip,r);
+-/*
+-*/
+-if(r>1e-2) r=1e-2;
+-if(r<1e-6) r=1e-6;
+-/* Update r */
+-j=j+1;
+-dtsum=dtsum+dt;
+-r0=r;
+-}
+-while(dtsum<dt0 && j<50);
+-/* Update grainsize */
+-markrr[mm1]=r;
+-/*
+-*/
+-}
+-
+-/*
+-printf("B %d %e %e %e",j,r,nunewt,nupowl); getchar();
+-*/
+-
+-/* !!!!!! Viscosity calculation */
+-/* Diffusion creep viscosity */
+-nunewt=pow(r,m)/BB/2.0;
+-nupowl=0;
+-if(epsin>0)
+-{
+-/* Dislocation creep strain rate and viscosity */
+-/* Assuming that epsindisl=epsin */
+-epsinpowl=epsin;
+-siginpowl=pow(epsinpowl/AA,1.0/n); 
+-nupowl=siginpowl/2.0/epsinpowl;
+-if(0==0)
+-{
+-/* Resulting effective viscosity */
+-ETA=1.0/(1.0/nunewt+1.0/nupowl);
+-/* Viscosity check */
+-/*
+-if(ETA<markn0[mm2]) ETA=markn0[mm2]; 
+-if(ETA>markn1[mm2]) ETA=markn1[mm2];
+-if(ETA<nubeg) ETA=nubeg; 
+-if(ETA>nuend) ETA=nuend;
+-*/
+-/*
+-printf("C %e %e %e %e",r,nunewt,nupowl,ETA); getchar();
+-*/
+-
+-/* Bisection limits */
+-/* First initial stress computing from viscosity */
+-sigin0=2.0*epsin*ETA;
+-sigin=sigin0;
+-/* Dislocation creep strain rate and viscosity */
+-epsinpowl=AA*pow(sigin,n); 
+-nupowl=sigin/2.0/epsinpowl;
+-/* Resulting effective viscosity */
+-ETA=1.0/(1.0/nunewt+1.0/nupowl);
+-/* Viscosity check */
+-/*
+-if(ETA<markn0[mm2]) ETA=markn0[mm2]; 
+-if(ETA>markn1[mm2]) ETA=markn1[mm2];
+-if(ETA<nubeg) ETA=nubeg; 
+-if(ETA>nuend) ETA=nuend;
+-*/
+-/* New stress */
+-sigin1=2.0*epsin*ETA;
+-/* First stress change */
+-dsigin0=sigin1-sigin0;
+-/* Second initial stress taken as sigin1 */
+-sigin=sigin1;
+-epsinpowl=AA*pow(sigin,n); 
+-nupowl=sigin/2.0/epsinpowl;
+-/* Resulting effective viscosity */
+-ETA=1.0/(1.0/nunewt+1/nupowl);
+-/* Viscosity check */
+-/*
+-if(ETA<markn0[mm2]) ETA=markn0[mm2]; 
+-if(ETA>markn1[mm2]) ETA=markn1[mm2];
+-if(ETA<nubeg) ETA=nubeg; 
+-if(ETA>nuend) ETA=nuend;
+-*/
+-/* New stress */
+-sigin2=2.0*epsin*ETA;
+-/* Second stress change */
+-dsigin1=sigin2-sigin1;
+-
+-/*
+-printf("D %e %e %e   %e %e",sigin0,sigin1,sigin2,dsigin0,dsigin1); getchar();
+-*/
+-
+-/* Bisection on the stress */
+-if(ABSV(dsigin1/sigin)>dsiginlim && ((dsigin0<0 && dsigin1>0) || (dsigin0>0 && dsigin1<0)))
+-for(i=1;i<50;i++)
+-    {
+-    /* Current stress value */
+-    sigin=(sigin0+sigin1)/2.0;
+-    /* Dislocation creep strain rate and viscosity */
+-    epsinpowl=AA*pow(sigin,n); 
+-    nupowl=sigin/2.0/epsinpowl;
+-    /* Resulting effective viscosity */
+-    ETA=1.0/(1.0/nunewt+1.0/nupowl);
+-    /* Viscosity check */
+-/*
+-    if(ETA<markn0[mm2]) ETA=markn0[mm2]; 
+-    if(ETA>markn1[mm2]) ETA=markn1[mm2];
+-    if(ETA<nubeg) ETA=nubeg; 
+-    if(ETA>nuend) ETA=nuend;
+-*/
+-    /* New stress */
+-    sigin2=2.0*epsin*ETA;
+-    /* Current stress change */
+-    dsigin2=sigin2-sigin;
+-    /* Exit iteration */
+-    if(ABSV(dsigin2/sigin)<dsiginlim) break;
+-    /* Changing bisection limits */
+-    if((dsigin2>0 && dsigin0>0) || (dsigin2<0 && dsigin0<0))
+-        {
+-        sigin0=sigin;
+-        }
+-    else
+-        {
+-        sigin1=sigin;
+-        }
+-    }
+-/*
+-printf("E %d %e %e %e %e  %e %e  %e",i,sigin,sigin0,sigin1,sigin2,dsigin0,dsigin2,nupowl); getchar();
+-*/
+-}
+-/* Inverted dislocation creep viscosity */
+-if(sigin>sbrit)
+-    {
+-    /* Dislocation creep viscosity corrected for yield stress */
+-    nupowl=2.0*AA*pow(sbrit,n-1);
+-    }
+-    else
+-    {
+-    nupowl=1.0/nupowl;
+-    }
+-/*
+-*/
+-}
+-nunewt=1.0/nunewt;
+-/*
+-*/
+-
++		if(epsin>0) nupowl=1.0/(0.5*pow(epsin,1.0/3.5-1.0)*8e+10/pow(3.5e+22,1.0/3.5)*exp((5.4e+5+2.0*(eps[46]/28.0*markss[mm2]))/8.314/mtk/3.5));
+ 		}
+ 	}
+ /* End Ductile viscosity calc -------------------------------------------*/
+@@ -3319,11 +3032,7 @@
+ 	{
+ 	/* Stop plastic yeilding */
+ 	marke[mm1]=-ABSV(marke[mm1]);
+-/*
+-*/
+ 	}
+-/* Update ductile viscosity ratio */
+-if(markdh[mm2]<0 && timesum>1e+11) markrn[mm1]=(nunewt+nupowl)/nueff;
+ /*
+ printf("%ld %d  %e %e  %e %e  %e %e %e %e",mm1,mm2,x,y,mtk,mpb,nubrit,nunewt,nupowl,nueff);getchar();
+ */
+@@ -3339,17 +3048,17 @@
+ */
+ /**/
+ /* Central dike */
++/*if(mm2<20 && mm2!=10 && nueff>1e+20 && ABSV(markx[mm1])<5000.0 && marky[mm1]<50000.0) nueff=1e+20;*/
+ /*
+-if(mm2<20 && mm2!=10 && nueff>1e+20 && ABSV(markx[mm1])<5000.0 && marky[mm1]<50000.0) nueff=1e+20;
+ */
+ /* Viscosity check */
+ if(nueff<markn0[mm2]) nueff=markn0[mm2]; 
+ if(nueff>markn1[mm2]) nueff=markn1[mm2];
+ if(nueff<nubeg) nueff=nubeg; 
+ if(nueff>nuend) nueff=nuend;
+-/**/
+-/* Melting in 1000-2000 km interval only */
+-/*
++/*if(markx[mm1]<50000 && marky[mm1]<100000) nueff=1e+18;
++//if(markx[mm1]>1950000 && marky[mm1]<140000 && marky[mm1]>55000 && markt[mm1]==9 && nueff>1e+19) nueff=1e+19;//
++// Melting in 1000-2000 km interval only //
+ if ((markx[mm1]<1e+6 || markx[mm1]>3e+6) && nueff<1e+20 && mm2>1) nueff=1e+20;
+ */
+ /**/
+@@ -3436,7 +3145,7 @@
+ /**/
+ /* Check markers out of grid and within hydration range */
+ if(markx[mm1]>0 && marky[mm1]>0 && (double)(markx[mm1])<xsize && (double)(marky[mm1])<ysize && (markk[mm1]>0 || markt[mm1]>=50) && markt[mm1]<100)
+-if((double)(markd[mm1])>=0 && (double)(markw[mm1])>=0 && mm2>1 && mm2!=9 && mm2!=10 && mm2!=5 && mm2!=6 && mm2!=25 && mm2!=26)
++if((double)(markd[mm1])>=0 && (double)(markw[mm1])>=0 && mm2>1 && mm2!=9 && mm2!=10 && mm2!=3 && mm2!=4 &&  mm2!=5 && mm2!=6 && mm2!=23 && mm2!=24 &&  mm2!=25 && mm2!=26)
+ 	{
+ 	if(mm2<50)
+ 		{
+@@ -3698,7 +3407,7 @@
+ /**/
+ /* Change water consuming rocks  and fluid makers */
+ if(markx[mm1]>0 && marky[mm1]>0 && (double)(markx[mm1])<xsize && (double)(marky[mm1])<ysize && (markk[mm1]>0 || markt[mm1]>=50) && markt[mm1]<100)
+-if((double)(markd[mm1])>=0 && (double)(markw[mm1])>=0 && mm2>1 && mm2!=9 && mm2!=10 && mm2!=12 && mm2!=14 && mm2!=5 && mm2!=6 && mm2!=25 && mm2!=26)
++if((double)(markd[mm1])>=0 && (double)(markw[mm1])>=0 && mm2>1 && mm2!=9 && mm2!=10 && mm2!=12 && mm2!=14 && mm2!=3 && mm2!=4 && mm2!=23 && mm2!=24 && mm2!=5 && mm2!=6 && mm2!=25 && mm2!=26)
+ 	{
+ 	if(mm2<50)
+ 		{
+@@ -3776,7 +3485,7 @@
+ 		{
+ 		/* Decrease aditional markers counter */
+ 		marknum1--;
+-		if(markx[marknum1]>=0);
++		if(markx[marknum1]>=0)
+ 			{
+ 			/* Type save */
+ 			markt[mm1]=markt[marknum1];
+@@ -3788,6 +3497,7 @@
+ 			markk[mm1]=markk[marknum1];
+ 			markdt[mm1]=markdt[marknum1];
+ 			markpr[mm1]=markpr[marknum1];
++			markecl[mm1]=markecl[marknum1];
+ 			markwt[mm1]=markwt[marknum1];
+ 			markex[mm1]=markex[marknum1];
+ 			marke[mm1]=marke[marknum1];
+@@ -3852,24 +3562,17 @@
+ xmelt=eps[21];
+ /**/
+ /* Melt extraction computing */
+-/* No secondary  extraction */
+-if (mm2<=34)
++/* Only mantle extraction */
+ /*
++if (mm2>=29 && mm2<=34)
+ */
+ /*
+-if (xmelt>0 && (xmelt-markex[mm1])>(minmelt+stpmelt) && markwt[mm1]<=0)
+ */
+-/*
+-if(markx[mm1]>1e+6 && markx[mm1]<3e+6 && xmelt>0) {printf("A %ld %d %e %e %e %e",mm1,mm2,markx[mm1],marky[mm1],xmelt,markex[mm1]);getchar();}
+-*/
+-if ((xmelt-markex[mm1])>(minmelt+stpmelt))
++if (xmelt>0 && (xmelt-markex[mm1])>(minmelt+stpmelt) && markwt[mm1]<=0)
+ 	{
+ 	/* No crust generation for the early stages */
+-	if(timesum>1e+11 && markx[mm1]>1e+6 && markx[mm1]<3e+6)
++	if(timesum>1e+11 && markx[mm1]>100000 && markx[mm1]<1.9e+6)
+ 		{
+-/*
+-printf("A %ld %d %e %e %e %e",mm1,mm2,markx[mm1],marky[mm1],xmelt,markex[mm1]);getchar();
+-*/
+ 		/* New marker generation */
+ 		/* New marker type */
+ 		switch (mm2)
+@@ -3880,6 +3583,7 @@
+ 			case 23:
+ 			case 24:
+ 			case 25:
++			case 26:
+ 			case 35:
+ 			case 36:
+ 			case 37:
+@@ -3890,7 +3594,6 @@
+ 			mm3=16; break;
+ 			/**/
+ 			/* Gabbro  */
+-			case 26:
+ 			case 28:
+ 			case 38:
+ 			mm3=17; break;
+@@ -3899,7 +3602,7 @@
+ 			case 29:
+ 			case 30:
+ 			case 32:
+-			mm3=18; break;
++			mm3=7; break;
+ 			/**/
+ 			/* Wet Peridotite  */
+ 			case 34:
+@@ -4078,19 +3781,10 @@
+ 		if(marky[mm1]+dywater>ep0[xnumx*3+m1]) ep0[xnumx*3+m1]=marky[mm1]+dywater;
+ 		/**/
+ 		}
+-/*
+-printf("B %ld %d %e %e %e %e",mm1,mm2,markx[mm1],marky[mm1],xmelt,markex[mm1]);getchar();
+-*/
+ 	/* Old Marker water, extraction level */
+ 	markw[mm1]*=minmelt/(xmelt-markex[mm1]);
+-/*
+ 	if(markx[mm1]>1e+6 || markt[mm1]==29 || markt[mm1]==30) markex[mm1]=xmelt-minmelt;
+-*/
+-	markex[mm1]=xmelt-minmelt;
+ 	/**/
+-/*
+-printf("C %ld %d %e %e %e %e",mm1,mm2,markx[mm1],marky[mm1],xmelt,markex[mm1]);getchar();
+-*/
+ 	}
+ }
+ if(printmod) printf("\n MELT EXTRACTION END Number of markers: OLD = %ld NEW = %ld \n",marknum,marknum1);
+@@ -4211,8 +3905,8 @@
+ }
+ /**/
+ /* Shallow TD base type */
+-if(mpb<pbmax && ynpb==0)
+ /*
++if(mpb<pbmax && ynpb==0)
+ */
+ {
+ /* TD base type */
+@@ -4220,14 +3914,10 @@
+ 	{
+ 	/* Sediments */
+ 	case 15:
+-	case 2:
+-	case 3:
+-	case 4: mm3=5; break;
++	case 2: mm3=5; break;
+ 	/* Molten Sediments, Molten continental Crust */
+ 	case 35:
+-	case 22:
+-	case 23:
+-	case 24: mm3=6; break;
++	case 22: mm3=6; break;
+ 	/* Basalt */
+ 	case 16:
+ 	case 17:
+@@ -4244,6 +3934,7 @@
+ 	case 28: mm3=4; break;
+ 	/* Dry peridotite */
+ 	case 9:
++	case 19:
+ 	case 12:
+ 	case 14:
+ 	case 10: mm3=0; break;
+@@ -4359,9 +4050,7 @@
+ eps[47]+=krad;
+ }
+ /**/
+-/*
+ return;
+-*/
+ /**/
+ /* Deep TD base type */
+ if(1==0 || mpb>0.75*pbmax || ynpb==1)
+@@ -4371,13 +4060,9 @@
+ 	/* MORB DATABASE */
+ 	/* Sediments */
+ 	case 2:
+-	case 3:
+-	case 4:
+ 	case 15:
+ 	/* Molten Sediments */
+ 	case 22:
+-	case 23:
+-	case 24:
+ 	case 35:
+ 	/* Basalt */
+ 	case 16:
+@@ -4397,6 +4082,7 @@
+ 	/* PIROLITE DATABASE */
+ 	/* Dry peridotite */
+ 	case 9:
++	case 19:
+ 	case 12:
+ 	case 14:
+ 	case 10:
+@@ -4799,4 +4485,45 @@
+ }
+ /* Errosion Surface progress */
+ 
++/*Jie: Transition type for initial T box*/
++void tkcalc1(double x, double y, double *eps1)
++{
++/*counters*/
++long int m1, m2, m3, m10, m20;
++int n1;
++/*coordinates, grid and marker-node distances*/
++double dx,dy,ddx,ddy,swt,ival;
++/**/
++m10=m1serch(x);
++m20=m2serch(y);
++dx=gx[m10+1]-gx[m10];
++dy=gy[m20+1]-gy[m20];
++/*initial tk*/
++eps1[0]=0;
++/**/
++n1=0;
++ival=0;
++for (m1=m10;m1<=m10+1;m1++)
++        {
++        /*normalized x distance*/
++        ddx=(gx[m1]-x)/dx;
++        ddx=1.0-ABSV(ddx);
++        for (m2=m20;m2<=m20+1;m2++)
++                {
++                /*normalized y distance*/
++                ddy=(gy[m2]-y)/dy;
++                ddy=1.0-ABSV(ddy);
++                /*Wt calculation*/
++                swt=ddx*ddy;
++                m3=m1*ynumy+m2;
++                /*add tk for current node*/
++                eps1[0]+=swt*tk[m3];
++                /*add Wt*/
++                ival+=swt;
++                /*add counter*/
++		 n1++;
++                }
++        }
++}
++
+ 
+diff -ruN a/movefast.c b/movefast.c
+--- a/movefast.c	2026-11-08 11:16:15.195149474 +0800
++++ b/movefast.c	2026-11-08 11:16:15.203149515 +0800
+@@ -604,7 +604,7 @@
+ /*
+ printf("Vx %ld %ld    %ld",m1,m2,bondm[mcmax+1]); getchar();
+ */
+-		if(!bondm[mcmax+1] || (timesum>timebond && m1>2 && m2>2 && m1<xnumx-4 && m2<ynumy-3)) 
++		if(!bondm[mcmax+1] || (timesum<timebond && m1>2 && m2>2 && m1<xnumx-4 && m2<ynumy-3)) 
+ 			{
+ 			/* Add vX-Stokes */
+ 	                xstokserr(m1,m2,0);
+@@ -640,6 +640,21 @@
+ 				{
+ 				/* Add vX Simple Boundary */
+ 				xbonderr(mcmax+1,0);
++				/* Change internal velocity BC */
++				if(m1>2 && m2>2 && m1<xnumx-4 && m2<ynumy-3) 
++					{
++					if(timesum<=vtimebeg) wi[0]*=vkoefbeg;
++					if(timesum>vtimebeg && timesum<vtimeend)
++						{
++						ival=(timesum-vtimebeg)/(vtimeend-vtimebeg);
++						wi[0]*=(vkoefbeg*(1.0-ival)+vkoefend*ival);
++/*
++ * {printf("Vx %ld %ld    %e",m1,m2,(vkoefbeg*(1.0-ival)+vkoefend*ival));}
++ * */
++
++						}
++					if(timesum>=vtimeend) wi[0]*=vkoefend;
++					}
+ 				}
+ 			/**/
+ 			/* Vx boundary condition Add */
+@@ -666,7 +681,7 @@
+ /*
+ printf("Vy %ld %ld    %ld",m1,m2,bondm[mcmax+2]); getchar();
+ */
+-		if(!bondm[mcmax+2] || (timesum>timebond && m1>2 && m2>2 && m1<xnumx-4 && m2<ynumy-3)) 
++		if(!bondm[mcmax+2] || (timesum<timebond && m1>2 && m2>2 && m1<xnumx-4 && m2<ynumy-3)) 
+ 			{
+ 			/* Add vY-Stokes */
+         	        ystokserr(m1,m2,0);
+@@ -886,7 +901,7 @@
+ 	/* Check vX-Equations for nodes =========================== */
+ 	if(m2<ynumy-1)
+ 		{
+-		if(!bondm[mcmax0+1] || (timesum>timebond && m1>2 && m2>2 && m1<xnumx-4 && m2<ynumy-3)) 
++		if(!bondm[mcmax0+1] || (timesum<timebond && m1>2 && m2>2 && m1<xnumx-4 && m2<ynumy-3)) 
+ 			{
+ 			/* Add vX-Stokes */
+ 	                ival=xstokserr(m1,m2,1);
+@@ -922,7 +937,7 @@
+ 	/* Check vY-Equations for nodes =========================== */
+ 	if(m1<xnumx-1)
+ 		{
+-		if(!bondm[mcmax0+2] || (timesum>timebond && m1>2 && m2>2 && m1<xnumx-4 && m2<ynumy-3)) 
++		if(!bondm[mcmax0+2] || (timesum<timebond && m1>2 && m2>2 && m1<xnumx-4 && m2<ynumy-3)) 
+ 			{
+ 			/* Add vX-vY-Stokes */
+ 	                ival=ystokserr(m1,m2,1);
+@@ -1029,12 +1044,14 @@
+ if (maxvx)
+ 	{
+ 	maxvx=(maxxystep*xstpx)/maxvx;
++	if(printmod) printf("\n !!! fast MAXXYSTEP %e XSTPX %e MAXVX %e YEAR !!!\n",maxxystep, xstpx, maxvx/3.15576e+7);
+ 	if(printmod) printf("\n !!! MAX VALID TIME STEP FOR Vx-MARKER %e YEAR !!!\n",maxvx/3.15576e+7);
+ 	timestep=MINV(maxvx,timestep);
+ 	}
+ if (maxvy)
+ 	{
+ 	maxvy=(maxxystep*ystpy)/maxvy;
++	if(printmod) printf("\n !!! fast MAXXYSTEP %e YSTPY %e MAXVY %e YEAR !!!\n",maxxystep, ystpy, maxvy/3.15576e+7);
+ 	if(printmod) printf("\n !!! MAX VALID TIME STEP FOR Vy-MARKER %e YEAR !!!\n",maxvy/3.15576e+7);
+ 	timestep=MINV(maxvy,timestep);
+ 	}
+diff -ruN a/moveslab.c b/moveslab.c
+--- a/moveslab.c	2026-11-08 11:16:15.210149551 +0800
++++ b/moveslab.c	2026-11-08 11:16:15.217149587 +0800
+@@ -1075,12 +1075,14 @@
+ if (maxvx)
+ 	{
+ 	maxvx=(maxxystep*xstpx)/maxvx;
++	if(printmod) printf("\n !!! slab MAXXYSTEP %e XSTPX %e MAXVX %e YEAR !!!\n",maxxystep, xstpx, maxvx/3.15576e+7);
+ 	if(printmod) printf("\n !!! MAX VALID TIME STEP FOR Vx-MARKER %e YEAR !!!\n",maxvx/3.15576e+7);
+ 	timestep=MINV(maxvx,timestep);
+ 	}
+ if (maxvy)
+ 	{
+ 	maxvy=(maxxystep*ystpy)/maxvy;
++	if(printmod) printf("\n !!! slab MAXXYSTEP %e YSTPY %e MAXVY %e YEAR !!!\n",maxxystep, ystpy, maxvy/3.15576e+7);
+ 	if(printmod) printf("\n !!! MAX VALID TIME STEP FOR Vy-MARKER %e YEAR !!!\n",maxvy/3.15576e+7);
+ 	timestep=MINV(maxvy,timestep);
+ 	}

@@ -1,0 +1,69 @@
+{
+  "runs": [
+    {
+      "key": "plume2|2026-09-22-mfgno-E02-C-equal-plume2-corr-seed0|best",
+      "run_dir": "code/experiments/E02_ablation/runs/2026-09-22-mfgno-E02-C-equal-plume2-corr-seed0",
+      "which": "best",
+      "ckpt_epoch": 520,
+      "n_val_traj": 11,
+      "n_frame": 10
+    },
+    {
+      "key": "plume2|2026-09-22-mpnn-E02-A-plume2-corr-seed0|best",
+      "run_dir": "code/experiments/E02_ablation/runs/2026-09-22-mpnn-E02-A-plume2-corr-seed0",
+      "which": "best",
+      "ckpt_epoch": 280,
+      "n_val_traj": 11,
+      "n_frame": 10
+    },
+    {
+      "key": "plume1d|2026-09-17-mfgno-E02-C-equal-plume1d-seed0|best",
+      "run_dir": "code/experiments/E02_ablation/runs/2026-09-17-mfgno-E02-C-equal-plume1d-seed0",
+      "which": "best",
+      "ckpt_epoch": 1940,
+      "n_val_traj": 10,
+      "n_frame": 10
+    },
+    {
+      "key": "plume1d|2026-09-17-mpnn-E02-A-plume1d-seed0|best",
+      "run_dir": "code/experiments/E02_ablation/runs/2026-09-17-mpnn-E02-A-plume1d-seed0",
+      "which": "best",
+      "ckpt_epoch": 2000,
+      "n_val_traj": 10,
+      "n_frame": 10
+    },
+    {
+      "key": "plume2|2026-09-22-fno-E01-plume2-corr-seed0|best",
+      "run_dir": "code/experiments/E01_main/runs/2026-09-22-fno-E01-plume2-corr-seed0",
+      "which": "best",
+      "ckpt_epoch": 1000,
+      "n_val_traj": 25,
+      "n_frame": 10
+    },
+    {
+      "key": "plume1d|2026-09-17-fno-E01-plume1d-seed0|best",
+      "run_dir": "code/experiments/E01_main/runs/2026-09-17-fno-E01-plume1d-seed0",
+      "which": "best",
+      "ckpt_epoch": 1000,
+      "n_val_traj": 12,
+      "n_frame": 10
+    },
+    {
+      "key": "plume2|2026-09-22-transolver-E01-plume2-corr-seed0|best",
+      "run_dir": "code/experiments/E01_main/runs/2026-09-22-transolver-E01-plume2-corr-seed0",
+      "which": "best",
+      "ckpt_epoch": 1000,
+      "n_val_traj": 25,
+      "n_frame": 10
+    },
+    {
+      "key": "plume1d|2026-09-17-transolver-E01-plume1d-seed0|best",
+      "run_dir": "code/experiments/E01_main/runs/2026-09-17-transolver-E01-plume1d-seed0",
+      "which": "best",
+      "ckpt_epoch": 1000,
+      "n_val_traj": 12,
+      "n_frame": 10
+    }
+  ],
+  "generated_at": "2026-09-25T11:16:04"
+}

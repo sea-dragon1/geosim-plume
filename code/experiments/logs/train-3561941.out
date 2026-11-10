@@ -1,0 +1,1199 @@
+config : /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E01_main/configs/2026-09-22-fno-E01-plume2-corr-seed0.yaml
+trainer: /fs1/home/USER/lhl/neuraloeprator-main/fno/train_new.py
+host   : gsn14
+start  : 2026-09-22T09:16:28+08:00
+{'root_path': '/fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E01_main/runs', 'exp_id': '2026-09-22-fno-E01-plume2-corr-seed0', 'pde_name': '2D_Mantle_Convection', 'model_id': 'fno', 'if_training': True, 'continue_training': False, 'inverse': False, 'model_path': None, 'save_period': 20, 'seed': 0, 'training_type': 'autoregressive', 't_train': 20, 'initial_step': 10, 'unroll_step': 20, 'epochs': 1000, 'if_physical_loss': False, 'dataset': {'single_file': True, 'file_name': 'plume2d_train_ds_128x128_phys1e6_first21_corrected.hdf5', 'saved_folder': '/fs1/home/USER/lhl/neuraloeprator-main/data/plume2/', 'reduced_resolution': 1, 'reduced_resolution_t': 1, 'reduced_batch': 1}, 'dataloader': {'batch_size': 32, 'num_workers': 4, 'pin_memory': True}, 'model': {'num_channels': 6, 'modes': 24, 'width': 48}, 'optimizer': {'name': 'Adam', 'lr': 0.0001, 'weight_decay': 0.0001}, 'scheduler': {'name': 'StepLR', 'step_size': 100, 'gamma': 0.5}}
+FNODatasetSingle
+Total trainable parameters: 10636310
+Start training...
+[Epoch 0] train_l2: 0.581433, train_l_inf: 1.029715, time: 8.956s
+[Epoch 1] train_l2: 0.574689, train_l_inf: 1.025039, time: 7.872s
+[Epoch 2] train_l2: 0.568002, train_l_inf: 1.020197, time: 7.802s
+[Epoch 3] train_l2: 0.561310, train_l_inf: 1.015383, time: 8.056s
+[Epoch 4] train_l2: 0.554624, train_l_inf: 1.010321, time: 7.833s
+[Epoch 5] train_l2: 0.547909, train_l_inf: 1.005888, time: 7.567s
+[Epoch 6] train_l2: 0.541156, train_l_inf: 1.000776, time: 7.524s
+[Epoch 7] train_l2: 0.534334, train_l_inf: 0.996000, time: 8.044s
+[Epoch 8] train_l2: 0.527381, train_l_inf: 0.990601, time: 7.816s
+[Epoch 9] train_l2: 0.520280, train_l_inf: 0.985889, time: 8.117s
+[Epoch 10] train_l2: 0.512997, train_l_inf: 0.980801, time: 7.649s
+[Epoch 11] train_l2: 0.505455, train_l_inf: 0.975576, time: 7.582s
+[Epoch 12] train_l2: 0.497612, train_l_inf: 0.969890, time: 7.760s
+[Epoch 13] train_l2: 0.489391, train_l_inf: 0.964728, time: 7.796s
+[Epoch 14] train_l2: 0.480718, train_l_inf: 0.959413, time: 8.011s
+[Epoch 15] train_l2: 0.471428, train_l_inf: 0.953691, time: 7.732s
+[Epoch 16] train_l2: 0.461423, train_l_inf: 0.947700, time: 7.900s
+[Epoch 17] train_l2: 0.450507, train_l_inf: 0.941389, time: 7.714s
+[Epoch 18] train_l2: 0.438467, train_l_inf: 0.934649, time: 7.723s
+[Epoch 19] train_l2: 0.424987, train_l_inf: 0.927130, time: 7.921s
+====================validate====================
+[Epoch 19] val_l2: 0.276710, val_l_inf: 0.918966
+================================================
+[Epoch 20] train_l2: 0.409763, train_l_inf: 0.919186, time: 7.359s
+[Epoch 21] train_l2: 0.392339, train_l_inf: 0.910446, time: 7.433s
+[Epoch 22] train_l2: 0.372195, train_l_inf: 0.900068, time: 7.831s
+[Epoch 23] train_l2: 0.348658, train_l_inf: 0.889071, time: 7.694s
+[Epoch 24] train_l2: 0.320947, train_l_inf: 0.876268, time: 7.932s
+[Epoch 25] train_l2: 0.288135, train_l_inf: 0.860942, time: 7.677s
+[Epoch 26] train_l2: 0.249252, train_l_inf: 0.842135, time: 7.719s
+[Epoch 27] train_l2: 0.203465, train_l_inf: 0.817941, time: 8.039s
+[Epoch 28] train_l2: 0.150854, train_l_inf: 0.785615, time: 7.287s
+[Epoch 29] train_l2: 0.094462, train_l_inf: 0.739865, time: 7.463s
+[Epoch 30] train_l2: 0.046680, train_l_inf: 0.669204, time: 7.941s
+[Epoch 31] train_l2: 0.036355, train_l_inf: 0.608615, time: 7.468s
+[Epoch 32] train_l2: 0.051245, train_l_inf: 0.677216, time: 7.391s
+[Epoch 33] train_l2: 0.043452, train_l_inf: 0.655148, time: 7.523s
+[Epoch 34] train_l2: 0.023897, train_l_inf: 0.512517, time: 7.656s
+[Epoch 35] train_l2: 0.016911, train_l_inf: 0.523862, time: 8.008s
+[Epoch 36] train_l2: 0.017577, train_l_inf: 0.526081, time: 7.690s
+[Epoch 37] train_l2: 0.014588, train_l_inf: 0.516107, time: 7.524s
+[Epoch 38] train_l2: 0.012754, train_l_inf: 0.506786, time: 7.826s
+[Epoch 39] train_l2: 0.012191, train_l_inf: 0.512789, time: 7.630s
+====================validate====================
+[Epoch 39] val_l2: 0.007053, val_l_inf: 0.497689
+================================================
+[Epoch 40] train_l2: 0.010117, train_l_inf: 0.533922, time: 7.656s
+[Epoch 41] train_l2: 0.008884, train_l_inf: 0.552990, time: 7.851s
+[Epoch 42] train_l2: 0.007218, train_l_inf: 0.560544, time: 7.796s
+[Epoch 43] train_l2: 0.005856, train_l_inf: 0.569384, time: 7.814s
+[Epoch 44] train_l2: 0.004457, train_l_inf: 0.574508, time: 7.645s
+[Epoch 45] train_l2: 0.003155, train_l_inf: 0.574502, time: 7.838s
+[Epoch 46] train_l2: 0.002188, train_l_inf: 0.580972, time: 7.929s
+[Epoch 47] train_l2: 0.001580, train_l_inf: 0.585285, time: 7.682s
+[Epoch 48] train_l2: 0.001297, train_l_inf: 0.585691, time: 7.938s
+[Epoch 49] train_l2: 0.001212, train_l_inf: 0.590077, time: 7.677s
+[Epoch 50] train_l2: 0.001178, train_l_inf: 0.590147, time: 7.628s
+[Epoch 51] train_l2: 0.001127, train_l_inf: 0.596854, time: 8.001s
+[Epoch 52] train_l2: 0.001043, train_l_inf: 0.601249, time: 7.742s
+[Epoch 53] train_l2: 0.000957, train_l_inf: 0.605754, time: 7.820s
+[Epoch 54] train_l2: 0.000894, train_l_inf: 0.617589, time: 7.650s
+[Epoch 55] train_l2: 0.000848, train_l_inf: 0.618944, time: 7.832s
+[Epoch 56] train_l2: 0.000821, train_l_inf: 0.620321, time: 7.693s
+[Epoch 57] train_l2: 0.000801, train_l_inf: 0.618998, time: 7.671s
+[Epoch 58] train_l2: 0.000783, train_l_inf: 0.616702, time: 7.530s
+[Epoch 59] train_l2: 0.000767, train_l_inf: 0.614048, time: 8.019s
+====================validate====================
+[Epoch 59] val_l2: 0.000521, val_l_inf: 0.570722
+================================================
+[Epoch 60] train_l2: 0.000755, train_l_inf: 0.611610, time: 7.891s
+[Epoch 61] train_l2: 0.000746, train_l_inf: 0.608940, time: 8.100s
+[Epoch 62] train_l2: 0.000738, train_l_inf: 0.606069, time: 7.708s
+[Epoch 63] train_l2: 0.000734, train_l_inf: 0.604253, time: 7.624s
+[Epoch 64] train_l2: 0.000730, train_l_inf: 0.603981, time: 7.751s
+[Epoch 65] train_l2: 0.000727, train_l_inf: 0.604291, time: 8.120s
+[Epoch 66] train_l2: 0.000723, train_l_inf: 0.604615, time: 7.698s
+[Epoch 67] train_l2: 0.000721, train_l_inf: 0.605337, time: 7.446s
+[Epoch 68] train_l2: 0.000720, train_l_inf: 0.606051, time: 8.029s
+[Epoch 69] train_l2: 0.000718, train_l_inf: 0.607578, time: 7.996s
+[Epoch 70] train_l2: 0.000714, train_l_inf: 0.608268, time: 7.924s
+[Epoch 71] train_l2: 0.000713, train_l_inf: 0.608511, time: 7.874s
+[Epoch 72] train_l2: 0.000712, train_l_inf: 0.609182, time: 7.790s
+[Epoch 73] train_l2: 0.000709, train_l_inf: 0.609457, time: 8.084s
+[Epoch 74] train_l2: 0.000708, train_l_inf: 0.609821, time: 7.669s
+[Epoch 75] train_l2: 0.000707, train_l_inf: 0.609983, time: 7.876s
+[Epoch 76] train_l2: 0.000705, train_l_inf: 0.609752, time: 7.565s
+[Epoch 77] train_l2: 0.000704, train_l_inf: 0.609564, time: 7.801s
+[Epoch 78] train_l2: 0.000702, train_l_inf: 0.609592, time: 7.765s
+[Epoch 79] train_l2: 0.000701, train_l_inf: 0.609720, time: 7.722s
+====================validate====================
+[Epoch 79] val_l2: 0.000481, val_l_inf: 0.568922
+================================================
+[Epoch 80] train_l2: 0.000701, train_l_inf: 0.609623, time: 7.590s
+[Epoch 81] train_l2: 0.000700, train_l_inf: 0.609999, time: 7.363s
+[Epoch 82] train_l2: 0.000698, train_l_inf: 0.609795, time: 7.667s
+[Epoch 83] train_l2: 0.000698, train_l_inf: 0.609869, time: 7.913s
+[Epoch 84] train_l2: 0.000696, train_l_inf: 0.609918, time: 7.663s
+[Epoch 85] train_l2: 0.000694, train_l_inf: 0.610216, time: 7.588s
+[Epoch 86] train_l2: 0.000695, train_l_inf: 0.610653, time: 7.572s
+[Epoch 87] train_l2: 0.000696, train_l_inf: 0.610787, time: 7.386s
+[Epoch 88] train_l2: 0.000692, train_l_inf: 0.610619, time: 7.942s
+[Epoch 89] train_l2: 0.000690, train_l_inf: 0.610420, time: 7.521s
+[Epoch 90] train_l2: 0.000689, train_l_inf: 0.610613, time: 7.701s
+[Epoch 91] train_l2: 0.000689, train_l_inf: 0.610595, time: 7.707s
+[Epoch 92] train_l2: 0.000688, train_l_inf: 0.610843, time: 7.902s
+[Epoch 93] train_l2: 0.000686, train_l_inf: 0.610841, time: 7.551s
+[Epoch 94] train_l2: 0.000685, train_l_inf: 0.610857, time: 7.443s
+[Epoch 95] train_l2: 0.000686, train_l_inf: 0.610543, time: 7.529s
+[Epoch 96] train_l2: 0.000685, train_l_inf: 0.610936, time: 7.540s
+[Epoch 97] train_l2: 0.000684, train_l_inf: 0.610969, time: 7.820s
+[Epoch 98] train_l2: 0.000681, train_l_inf: 0.611350, time: 7.690s
+[Epoch 99] train_l2: 0.000680, train_l_inf: 0.611039, time: 7.915s
+====================validate====================
+[Epoch 99] val_l2: 0.000468, val_l_inf: 0.571295
+================================================
+[Epoch 100] train_l2: 0.000681, train_l_inf: 0.611113, time: 7.800s
+[Epoch 101] train_l2: 0.000680, train_l_inf: 0.611085, time: 7.536s
+[Epoch 102] train_l2: 0.000677, train_l_inf: 0.611253, time: 7.635s
+[Epoch 103] train_l2: 0.000679, train_l_inf: 0.611312, time: 7.641s
+[Epoch 104] train_l2: 0.000678, train_l_inf: 0.611316, time: 7.779s
+[Epoch 105] train_l2: 0.000678, train_l_inf: 0.611448, time: 7.684s
+[Epoch 106] train_l2: 0.000677, train_l_inf: 0.611451, time: 8.074s
+[Epoch 107] train_l2: 0.000679, train_l_inf: 0.611448, time: 7.773s
+[Epoch 108] train_l2: 0.000677, train_l_inf: 0.611288, time: 7.564s
+[Epoch 109] train_l2: 0.000677, train_l_inf: 0.611366, time: 7.723s
+[Epoch 110] train_l2: 0.000677, train_l_inf: 0.611431, time: 7.721s
+[Epoch 111] train_l2: 0.000675, train_l_inf: 0.611339, time: 7.230s
+[Epoch 112] train_l2: 0.000674, train_l_inf: 0.611418, time: 7.661s
+[Epoch 113] train_l2: 0.000676, train_l_inf: 0.611585, time: 7.666s
+[Epoch 114] train_l2: 0.000675, train_l_inf: 0.611711, time: 7.634s
+[Epoch 115] train_l2: 0.000673, train_l_inf: 0.611646, time: 7.376s
+[Epoch 116] train_l2: 0.000673, train_l_inf: 0.611385, time: 7.474s
+[Epoch 117] train_l2: 0.000673, train_l_inf: 0.611262, time: 7.940s
+[Epoch 118] train_l2: 0.000673, train_l_inf: 0.611367, time: 8.083s
+[Epoch 119] train_l2: 0.000672, train_l_inf: 0.611717, time: 7.342s
+====================validate====================
+[Epoch 119] val_l2: 0.000462, val_l_inf: 0.572191
+================================================
+[Epoch 120] train_l2: 0.000673, train_l_inf: 0.611710, time: 8.053s
+[Epoch 121] train_l2: 0.000671, train_l_inf: 0.611685, time: 7.630s
+[Epoch 122] train_l2: 0.000670, train_l_inf: 0.611703, time: 7.972s
+[Epoch 123] train_l2: 0.000672, train_l_inf: 0.611655, time: 7.907s
+[Epoch 124] train_l2: 0.000671, train_l_inf: 0.611773, time: 7.730s
+[Epoch 125] train_l2: 0.000671, train_l_inf: 0.611892, time: 7.795s
+[Epoch 126] train_l2: 0.000669, train_l_inf: 0.611781, time: 7.533s
+[Epoch 127] train_l2: 0.000669, train_l_inf: 0.611759, time: 7.841s
+[Epoch 128] train_l2: 0.000668, train_l_inf: 0.611747, time: 8.174s
+[Epoch 129] train_l2: 0.000667, train_l_inf: 0.611700, time: 8.004s
+[Epoch 130] train_l2: 0.000668, train_l_inf: 0.612066, time: 7.520s
+[Epoch 131] train_l2: 0.000669, train_l_inf: 0.612096, time: 7.807s
+[Epoch 132] train_l2: 0.000667, train_l_inf: 0.611997, time: 7.916s
+[Epoch 133] train_l2: 0.000665, train_l_inf: 0.611698, time: 7.500s
+[Epoch 134] train_l2: 0.000666, train_l_inf: 0.611576, time: 7.677s
+[Epoch 135] train_l2: 0.000666, train_l_inf: 0.611958, time: 7.661s
+[Epoch 136] train_l2: 0.000664, train_l_inf: 0.612119, time: 7.939s
+[Epoch 137] train_l2: 0.000663, train_l_inf: 0.612147, time: 7.618s
+[Epoch 138] train_l2: 0.000665, train_l_inf: 0.612175, time: 7.602s
+[Epoch 139] train_l2: 0.000664, train_l_inf: 0.612161, time: 7.649s
+====================validate====================
+[Epoch 139] val_l2: 0.000456, val_l_inf: 0.572692
+================================================
+[Epoch 140] train_l2: 0.000662, train_l_inf: 0.611955, time: 7.413s
+[Epoch 141] train_l2: 0.000664, train_l_inf: 0.612125, time: 7.810s
+[Epoch 142] train_l2: 0.000664, train_l_inf: 0.612081, time: 7.640s
+[Epoch 143] train_l2: 0.000663, train_l_inf: 0.612266, time: 7.466s
+[Epoch 144] train_l2: 0.000661, train_l_inf: 0.612208, time: 7.604s
+[Epoch 145] train_l2: 0.000662, train_l_inf: 0.612302, time: 8.031s
+[Epoch 146] train_l2: 0.000662, train_l_inf: 0.612319, time: 7.641s
+[Epoch 147] train_l2: 0.000660, train_l_inf: 0.612009, time: 7.873s
+[Epoch 148] train_l2: 0.000659, train_l_inf: 0.612009, time: 7.794s
+[Epoch 149] train_l2: 0.000660, train_l_inf: 0.612059, time: 7.842s
+[Epoch 150] train_l2: 0.000660, train_l_inf: 0.612259, time: 7.704s
+[Epoch 151] train_l2: 0.000657, train_l_inf: 0.612332, time: 7.478s
+[Epoch 152] train_l2: 0.000661, train_l_inf: 0.612335, time: 7.738s
+[Epoch 153] train_l2: 0.000660, train_l_inf: 0.612286, time: 7.616s
+[Epoch 154] train_l2: 0.000658, train_l_inf: 0.612266, time: 7.401s
+[Epoch 155] train_l2: 0.000659, train_l_inf: 0.612502, time: 7.906s
+[Epoch 156] train_l2: 0.000657, train_l_inf: 0.612451, time: 7.820s
+[Epoch 157] train_l2: 0.000655, train_l_inf: 0.612384, time: 7.675s
+[Epoch 158] train_l2: 0.000656, train_l_inf: 0.612366, time: 7.680s
+[Epoch 159] train_l2: 0.000657, train_l_inf: 0.612330, time: 7.692s
+====================validate====================
+[Epoch 159] val_l2: 0.000451, val_l_inf: 0.573493
+================================================
+[Epoch 160] train_l2: 0.000655, train_l_inf: 0.612236, time: 7.860s
+[Epoch 161] train_l2: 0.000654, train_l_inf: 0.612274, time: 7.624s
+[Epoch 162] train_l2: 0.000655, train_l_inf: 0.612596, time: 7.843s
+[Epoch 163] train_l2: 0.000652, train_l_inf: 0.612512, time: 7.830s
+[Epoch 164] train_l2: 0.000652, train_l_inf: 0.612335, time: 7.623s
+[Epoch 165] train_l2: 0.000651, train_l_inf: 0.612403, time: 7.840s
+[Epoch 166] train_l2: 0.000652, train_l_inf: 0.612491, time: 7.947s
+[Epoch 167] train_l2: 0.000653, train_l_inf: 0.612951, time: 7.489s
+[Epoch 168] train_l2: 0.000651, train_l_inf: 0.612894, time: 7.521s
+[Epoch 169] train_l2: 0.000652, train_l_inf: 0.612720, time: 7.724s
+[Epoch 170] train_l2: 0.000650, train_l_inf: 0.612501, time: 7.831s
+[Epoch 171] train_l2: 0.000651, train_l_inf: 0.612605, time: 7.586s
+[Epoch 172] train_l2: 0.000650, train_l_inf: 0.612744, time: 7.676s
+[Epoch 173] train_l2: 0.000649, train_l_inf: 0.612959, time: 7.735s
+[Epoch 174] train_l2: 0.000648, train_l_inf: 0.612771, time: 7.936s
+[Epoch 175] train_l2: 0.000650, train_l_inf: 0.612741, time: 7.890s
+[Epoch 176] train_l2: 0.000648, train_l_inf: 0.612892, time: 7.605s
+[Epoch 177] train_l2: 0.000650, train_l_inf: 0.612785, time: 7.223s
+[Epoch 178] train_l2: 0.000648, train_l_inf: 0.612829, time: 8.103s
+[Epoch 179] train_l2: 0.000646, train_l_inf: 0.612897, time: 7.539s
+====================validate====================
+[Epoch 179] val_l2: 0.000445, val_l_inf: 0.574235
+================================================
+[Epoch 180] train_l2: 0.000646, train_l_inf: 0.612914, time: 7.934s
+[Epoch 181] train_l2: 0.000645, train_l_inf: 0.612769, time: 7.911s
+[Epoch 182] train_l2: 0.000645, train_l_inf: 0.612999, time: 7.572s
+[Epoch 183] train_l2: 0.000645, train_l_inf: 0.612852, time: 7.366s
+[Epoch 184] train_l2: 0.000644, train_l_inf: 0.612826, time: 7.715s
+[Epoch 185] train_l2: 0.000645, train_l_inf: 0.612794, time: 7.507s
+[Epoch 186] train_l2: 0.000643, train_l_inf: 0.612860, time: 7.564s
+[Epoch 187] train_l2: 0.000645, train_l_inf: 0.613304, time: 7.925s
+[Epoch 188] train_l2: 0.000643, train_l_inf: 0.613011, time: 8.207s
+[Epoch 189] train_l2: 0.000644, train_l_inf: 0.612917, time: 7.411s
+[Epoch 190] train_l2: 0.000642, train_l_inf: 0.613074, time: 7.591s
+[Epoch 191] train_l2: 0.000642, train_l_inf: 0.613068, time: 7.705s
+[Epoch 192] train_l2: 0.000642, train_l_inf: 0.613123, time: 7.751s
+[Epoch 193] train_l2: 0.000642, train_l_inf: 0.613116, time: 7.734s
+[Epoch 194] train_l2: 0.000642, train_l_inf: 0.613281, time: 7.732s
+[Epoch 195] train_l2: 0.000637, train_l_inf: 0.613172, time: 7.725s
+[Epoch 196] train_l2: 0.000638, train_l_inf: 0.612751, time: 7.604s
+[Epoch 197] train_l2: 0.000638, train_l_inf: 0.613153, time: 7.696s
+[Epoch 198] train_l2: 0.000637, train_l_inf: 0.613184, time: 7.561s
+[Epoch 199] train_l2: 0.000637, train_l_inf: 0.613273, time: 7.631s
+====================validate====================
+[Epoch 199] val_l2: 0.000439, val_l_inf: 0.574927
+================================================
+[Epoch 200] train_l2: 0.000637, train_l_inf: 0.613239, time: 8.079s
+[Epoch 201] train_l2: 0.000638, train_l_inf: 0.613135, time: 7.633s
+[Epoch 202] train_l2: 0.000637, train_l_inf: 0.613317, time: 7.656s
+[Epoch 203] train_l2: 0.000637, train_l_inf: 0.613353, time: 7.916s
+[Epoch 204] train_l2: 0.000636, train_l_inf: 0.613314, time: 7.612s
+[Epoch 205] train_l2: 0.000636, train_l_inf: 0.613228, time: 7.513s
+[Epoch 206] train_l2: 0.000635, train_l_inf: 0.613269, time: 7.529s
+[Epoch 207] train_l2: 0.000638, train_l_inf: 0.613562, time: 7.378s
+[Epoch 208] train_l2: 0.000635, train_l_inf: 0.613445, time: 7.676s
+[Epoch 209] train_l2: 0.000634, train_l_inf: 0.613382, time: 7.605s
+[Epoch 210] train_l2: 0.000634, train_l_inf: 0.613281, time: 7.431s
+[Epoch 211] train_l2: 0.000635, train_l_inf: 0.613245, time: 7.416s
+[Epoch 212] train_l2: 0.000632, train_l_inf: 0.613307, time: 7.365s
+[Epoch 213] train_l2: 0.000636, train_l_inf: 0.613475, time: 7.946s
+[Epoch 214] train_l2: 0.000633, train_l_inf: 0.613617, time: 7.949s
+[Epoch 215] train_l2: 0.000634, train_l_inf: 0.613542, time: 7.608s
+[Epoch 216] train_l2: 0.000636, train_l_inf: 0.613601, time: 7.446s
+[Epoch 217] train_l2: 0.000634, train_l_inf: 0.613592, time: 7.747s
+[Epoch 218] train_l2: 0.000631, train_l_inf: 0.613402, time: 7.809s
+[Epoch 219] train_l2: 0.000633, train_l_inf: 0.613262, time: 7.749s
+====================validate====================
+[Epoch 219] val_l2: 0.000436, val_l_inf: 0.575106
+================================================
+[Epoch 220] train_l2: 0.000633, train_l_inf: 0.613327, time: 7.621s
+[Epoch 221] train_l2: 0.000633, train_l_inf: 0.613609, time: 7.643s
+[Epoch 222] train_l2: 0.000633, train_l_inf: 0.613697, time: 7.664s
+[Epoch 223] train_l2: 0.000633, train_l_inf: 0.613562, time: 7.605s
+[Epoch 224] train_l2: 0.000631, train_l_inf: 0.613479, time: 7.626s
+[Epoch 225] train_l2: 0.000631, train_l_inf: 0.613385, time: 7.643s
+[Epoch 226] train_l2: 0.000629, train_l_inf: 0.613404, time: 7.856s
+[Epoch 227] train_l2: 0.000632, train_l_inf: 0.613433, time: 7.588s
+[Epoch 228] train_l2: 0.000632, train_l_inf: 0.613763, time: 7.931s
+[Epoch 229] train_l2: 0.000631, train_l_inf: 0.613702, time: 7.414s
+[Epoch 230] train_l2: 0.000629, train_l_inf: 0.613613, time: 7.745s
+[Epoch 231] train_l2: 0.000631, train_l_inf: 0.613511, time: 7.799s
+[Epoch 232] train_l2: 0.000629, train_l_inf: 0.613460, time: 7.889s
+[Epoch 233] train_l2: 0.000629, train_l_inf: 0.613450, time: 7.788s
+[Epoch 234] train_l2: 0.000630, train_l_inf: 0.613547, time: 7.425s
+[Epoch 235] train_l2: 0.000628, train_l_inf: 0.613682, time: 7.438s
+[Epoch 236] train_l2: 0.000629, train_l_inf: 0.613577, time: 7.434s
+[Epoch 237] train_l2: 0.000628, train_l_inf: 0.613619, time: 7.677s
+[Epoch 238] train_l2: 0.000629, train_l_inf: 0.613819, time: 7.767s
+[Epoch 239] train_l2: 0.000626, train_l_inf: 0.613771, time: 7.741s
+====================validate====================
+[Epoch 239] val_l2: 0.000432, val_l_inf: 0.575526
+================================================
+[Epoch 240] train_l2: 0.000627, train_l_inf: 0.613677, time: 7.851s
+[Epoch 241] train_l2: 0.000626, train_l_inf: 0.613644, time: 7.307s
+[Epoch 242] train_l2: 0.000626, train_l_inf: 0.613615, time: 7.231s
+[Epoch 243] train_l2: 0.000629, train_l_inf: 0.613974, time: 7.196s
+[Epoch 244] train_l2: 0.000627, train_l_inf: 0.613935, time: 7.920s
+[Epoch 245] train_l2: 0.000627, train_l_inf: 0.613815, time: 7.646s
+[Epoch 246] train_l2: 0.000626, train_l_inf: 0.613802, time: 7.453s
+[Epoch 247] train_l2: 0.000624, train_l_inf: 0.613730, time: 7.199s
+[Epoch 248] train_l2: 0.000627, train_l_inf: 0.613803, time: 7.640s
+[Epoch 249] train_l2: 0.000623, train_l_inf: 0.613818, time: 7.558s
+[Epoch 250] train_l2: 0.000625, train_l_inf: 0.613799, time: 7.705s
+[Epoch 251] train_l2: 0.000625, train_l_inf: 0.613815, time: 7.625s
+[Epoch 252] train_l2: 0.000625, train_l_inf: 0.614031, time: 7.422s
+[Epoch 253] train_l2: 0.000624, train_l_inf: 0.613981, time: 7.233s
+[Epoch 254] train_l2: 0.000623, train_l_inf: 0.613825, time: 7.407s
+[Epoch 255] train_l2: 0.000625, train_l_inf: 0.613739, time: 7.843s
+[Epoch 256] train_l2: 0.000622, train_l_inf: 0.613682, time: 7.517s
+[Epoch 257] train_l2: 0.000620, train_l_inf: 0.613690, time: 7.616s
+[Epoch 258] train_l2: 0.000623, train_l_inf: 0.613803, time: 7.573s
+[Epoch 259] train_l2: 0.000623, train_l_inf: 0.614017, time: 7.506s
+====================validate====================
+[Epoch 259] val_l2: 0.000429, val_l_inf: 0.576109
+================================================
+[Epoch 260] train_l2: 0.000623, train_l_inf: 0.614041, time: 7.605s
+[Epoch 261] train_l2: 0.000622, train_l_inf: 0.614009, time: 7.711s
+[Epoch 262] train_l2: 0.000622, train_l_inf: 0.613844, time: 7.549s
+[Epoch 263] train_l2: 0.000620, train_l_inf: 0.613825, time: 7.453s
+[Epoch 264] train_l2: 0.000620, train_l_inf: 0.613810, time: 7.595s
+[Epoch 265] train_l2: 0.000623, train_l_inf: 0.614083, time: 7.706s
+[Epoch 266] train_l2: 0.000622, train_l_inf: 0.614252, time: 7.612s
+[Epoch 267] train_l2: 0.000619, train_l_inf: 0.614245, time: 7.374s
+[Epoch 268] train_l2: 0.000620, train_l_inf: 0.613876, time: 7.831s
+[Epoch 269] train_l2: 0.000619, train_l_inf: 0.613960, time: 7.692s
+[Epoch 270] train_l2: 0.000619, train_l_inf: 0.614049, time: 8.147s
+[Epoch 271] train_l2: 0.000619, train_l_inf: 0.613994, time: 7.567s
+[Epoch 272] train_l2: 0.000618, train_l_inf: 0.614152, time: 7.420s
+[Epoch 273] train_l2: 0.000619, train_l_inf: 0.614133, time: 7.593s
+[Epoch 274] train_l2: 0.000618, train_l_inf: 0.614166, time: 7.410s
+[Epoch 275] train_l2: 0.000617, train_l_inf: 0.614124, time: 7.578s
+[Epoch 276] train_l2: 0.000618, train_l_inf: 0.613977, time: 7.461s
+[Epoch 277] train_l2: 0.000618, train_l_inf: 0.614114, time: 7.381s
+[Epoch 278] train_l2: 0.000616, train_l_inf: 0.614110, time: 7.399s
+[Epoch 279] train_l2: 0.000617, train_l_inf: 0.614088, time: 7.246s
+====================validate====================
+[Epoch 279] val_l2: 0.000425, val_l_inf: 0.576285
+================================================
+[Epoch 280] train_l2: 0.000616, train_l_inf: 0.614171, time: 7.757s
+[Epoch 281] train_l2: 0.000615, train_l_inf: 0.614105, time: 8.008s
+[Epoch 282] train_l2: 0.000613, train_l_inf: 0.613946, time: 7.890s
+[Epoch 283] train_l2: 0.000617, train_l_inf: 0.614064, time: 8.732s
+[Epoch 284] train_l2: 0.000616, train_l_inf: 0.614267, time: 8.241s
+[Epoch 285] train_l2: 0.000615, train_l_inf: 0.614337, time: 7.617s
+[Epoch 286] train_l2: 0.000615, train_l_inf: 0.614209, time: 7.392s
+[Epoch 287] train_l2: 0.000613, train_l_inf: 0.614108, time: 7.474s
+[Epoch 288] train_l2: 0.000613, train_l_inf: 0.614128, time: 7.284s
+[Epoch 289] train_l2: 0.000613, train_l_inf: 0.614185, time: 8.850s
+[Epoch 290] train_l2: 0.000614, train_l_inf: 0.614208, time: 7.412s
+[Epoch 291] train_l2: 0.000613, train_l_inf: 0.614433, time: 8.010s
+[Epoch 292] train_l2: 0.000615, train_l_inf: 0.614587, time: 7.537s
+[Epoch 293] train_l2: 0.000612, train_l_inf: 0.614573, time: 7.915s
+[Epoch 294] train_l2: 0.000613, train_l_inf: 0.614305, time: 7.833s
+[Epoch 295] train_l2: 0.000612, train_l_inf: 0.614103, time: 7.530s
+[Epoch 296] train_l2: 0.000610, train_l_inf: 0.614056, time: 7.364s
+[Epoch 297] train_l2: 0.000610, train_l_inf: 0.614274, time: 7.501s
+[Epoch 298] train_l2: 0.000610, train_l_inf: 0.614381, time: 7.897s
+[Epoch 299] train_l2: 0.000609, train_l_inf: 0.614448, time: 7.417s
+====================validate====================
+[Epoch 299] val_l2: 0.000421, val_l_inf: 0.576778
+================================================
+[Epoch 300] train_l2: 0.000611, train_l_inf: 0.614511, time: 7.635s
+[Epoch 301] train_l2: 0.000610, train_l_inf: 0.614478, time: 7.970s
+[Epoch 302] train_l2: 0.000611, train_l_inf: 0.614281, time: 7.901s
+[Epoch 303] train_l2: 0.000609, train_l_inf: 0.614270, time: 8.257s
+[Epoch 304] train_l2: 0.000609, train_l_inf: 0.614220, time: 7.469s
+[Epoch 305] train_l2: 0.000609, train_l_inf: 0.614317, time: 7.556s
+[Epoch 306] train_l2: 0.000609, train_l_inf: 0.614340, time: 7.544s
+[Epoch 307] train_l2: 0.000610, train_l_inf: 0.614453, time: 10.322s
+[Epoch 308] train_l2: 0.000607, train_l_inf: 0.614492, time: 9.341s
+[Epoch 309] train_l2: 0.000611, train_l_inf: 0.614477, time: 8.197s
+[Epoch 310] train_l2: 0.000611, train_l_inf: 0.614578, time: 7.971s
+[Epoch 311] train_l2: 0.000610, train_l_inf: 0.614617, time: 7.668s
+[Epoch 312] train_l2: 0.000608, train_l_inf: 0.614578, time: 7.396s
+[Epoch 313] train_l2: 0.000609, train_l_inf: 0.614504, time: 7.354s
+[Epoch 314] train_l2: 0.000608, train_l_inf: 0.614480, time: 7.732s
+[Epoch 315] train_l2: 0.000610, train_l_inf: 0.614452, time: 7.789s
+[Epoch 316] train_l2: 0.000606, train_l_inf: 0.614452, time: 7.298s
+[Epoch 317] train_l2: 0.000608, train_l_inf: 0.614488, time: 7.305s
+[Epoch 318] train_l2: 0.000607, train_l_inf: 0.614512, time: 7.419s
+[Epoch 319] train_l2: 0.000609, train_l_inf: 0.614593, time: 7.716s
+====================validate====================
+[Epoch 319] val_l2: 0.000419, val_l_inf: 0.577031
+================================================
+[Epoch 320] train_l2: 0.000607, train_l_inf: 0.614618, time: 7.249s
+[Epoch 321] train_l2: 0.000607, train_l_inf: 0.614543, time: 7.264s
+[Epoch 322] train_l2: 0.000609, train_l_inf: 0.614573, time: 7.500s
+[Epoch 323] train_l2: 0.000607, train_l_inf: 0.614408, time: 7.491s
+[Epoch 324] train_l2: 0.000607, train_l_inf: 0.614435, time: 7.696s
+[Epoch 325] train_l2: 0.000607, train_l_inf: 0.614529, time: 8.635s
+[Epoch 326] train_l2: 0.000607, train_l_inf: 0.614573, time: 7.656s
+[Epoch 327] train_l2: 0.000607, train_l_inf: 0.614543, time: 8.048s
+[Epoch 328] train_l2: 0.000605, train_l_inf: 0.614501, time: 12.882s
+[Epoch 329] train_l2: 0.000606, train_l_inf: 0.614566, time: 7.201s
+[Epoch 330] train_l2: 0.000606, train_l_inf: 0.614549, time: 7.553s
+[Epoch 331] train_l2: 0.000607, train_l_inf: 0.614427, time: 7.545s
+[Epoch 332] train_l2: 0.000604, train_l_inf: 0.614509, time: 7.487s
+[Epoch 333] train_l2: 0.000605, train_l_inf: 0.614472, time: 7.435s
+[Epoch 334] train_l2: 0.000605, train_l_inf: 0.614502, time: 7.807s
+[Epoch 335] train_l2: 0.000606, train_l_inf: 0.614724, time: 7.779s
+[Epoch 336] train_l2: 0.000606, train_l_inf: 0.614740, time: 7.832s
+[Epoch 337] train_l2: 0.000604, train_l_inf: 0.614730, time: 7.858s
+[Epoch 338] train_l2: 0.000604, train_l_inf: 0.614668, time: 7.473s
+[Epoch 339] train_l2: 0.000603, train_l_inf: 0.614582, time: 7.746s
+====================validate====================
+[Epoch 339] val_l2: 0.000417, val_l_inf: 0.576904
+================================================
+[Epoch 340] train_l2: 0.000604, train_l_inf: 0.614525, time: 7.858s
+[Epoch 341] train_l2: 0.000605, train_l_inf: 0.614450, time: 7.926s
+[Epoch 342] train_l2: 0.000604, train_l_inf: 0.614475, time: 7.845s
+[Epoch 343] train_l2: 0.000603, train_l_inf: 0.614695, time: 7.663s
+[Epoch 344] train_l2: 0.000606, train_l_inf: 0.614755, time: 8.202s
+[Epoch 345] train_l2: 0.000604, train_l_inf: 0.614767, time: 7.615s
+[Epoch 346] train_l2: 0.000603, train_l_inf: 0.614766, time: 7.250s
+[Epoch 347] train_l2: 0.000604, train_l_inf: 0.614714, time: 7.263s
+[Epoch 348] train_l2: 0.000602, train_l_inf: 0.614643, time: 8.925s
+[Epoch 349] train_l2: 0.000603, train_l_inf: 0.614548, time: 7.916s
+[Epoch 350] train_l2: 0.000601, train_l_inf: 0.614587, time: 7.390s
+[Epoch 351] train_l2: 0.000601, train_l_inf: 0.614585, time: 7.694s
+[Epoch 352] train_l2: 0.000602, train_l_inf: 0.614638, time: 7.828s
+[Epoch 353] train_l2: 0.000602, train_l_inf: 0.614742, time: 8.151s
+[Epoch 354] train_l2: 0.000601, train_l_inf: 0.614844, time: 7.648s
+[Epoch 355] train_l2: 0.000602, train_l_inf: 0.614868, time: 7.236s
+[Epoch 356] train_l2: 0.000600, train_l_inf: 0.614833, time: 8.204s
+[Epoch 357] train_l2: 0.000602, train_l_inf: 0.614752, time: 9.656s
+[Epoch 358] train_l2: 0.000601, train_l_inf: 0.614573, time: 9.758s
+[Epoch 359] train_l2: 0.000600, train_l_inf: 0.614566, time: 9.838s
+====================validate====================
+[Epoch 359] val_l2: 0.000415, val_l_inf: 0.577093
+================================================
+[Epoch 360] train_l2: 0.000600, train_l_inf: 0.614647, time: 8.265s
+[Epoch 361] train_l2: 0.000602, train_l_inf: 0.614721, time: 8.489s
+[Epoch 362] train_l2: 0.000599, train_l_inf: 0.614785, time: 13.300s
+[Epoch 363] train_l2: 0.000602, train_l_inf: 0.614824, time: 7.433s
+[Epoch 364] train_l2: 0.000601, train_l_inf: 0.614837, time: 7.693s
+[Epoch 365] train_l2: 0.000600, train_l_inf: 0.614797, time: 7.359s
+[Epoch 366] train_l2: 0.000601, train_l_inf: 0.614798, time: 7.546s
+[Epoch 367] train_l2: 0.000600, train_l_inf: 0.614784, time: 7.583s
+[Epoch 368] train_l2: 0.000601, train_l_inf: 0.614777, time: 7.623s
+[Epoch 369] train_l2: 0.000598, train_l_inf: 0.614774, time: 7.425s
+[Epoch 370] train_l2: 0.000600, train_l_inf: 0.614775, time: 11.807s
+[Epoch 371] train_l2: 0.000600, train_l_inf: 0.614825, time: 19.173s
+[Epoch 372] train_l2: 0.000599, train_l_inf: 0.614792, time: 7.650s
+[Epoch 373] train_l2: 0.000600, train_l_inf: 0.614748, time: 7.932s
+[Epoch 374] train_l2: 0.000599, train_l_inf: 0.614889, time: 8.077s
+[Epoch 375] train_l2: 0.000599, train_l_inf: 0.614873, time: 7.658s
+[Epoch 376] train_l2: 0.000597, train_l_inf: 0.614728, time: 7.686s
+[Epoch 377] train_l2: 0.000596, train_l_inf: 0.614724, time: 7.606s
+[Epoch 378] train_l2: 0.000596, train_l_inf: 0.614713, time: 7.736s
+[Epoch 379] train_l2: 0.000597, train_l_inf: 0.614683, time: 7.485s
+====================validate====================
+[Epoch 379] val_l2: 0.000412, val_l_inf: 0.577217
+================================================
+[Epoch 380] train_l2: 0.000601, train_l_inf: 0.614923, time: 7.487s
+[Epoch 381] train_l2: 0.000596, train_l_inf: 0.614887, time: 7.427s
+[Epoch 382] train_l2: 0.000595, train_l_inf: 0.614857, time: 7.775s
+[Epoch 383] train_l2: 0.000596, train_l_inf: 0.614810, time: 8.180s
+[Epoch 384] train_l2: 0.000596, train_l_inf: 0.614812, time: 7.776s
+[Epoch 385] train_l2: 0.000596, train_l_inf: 0.614943, time: 7.499s
+[Epoch 386] train_l2: 0.000596, train_l_inf: 0.614875, time: 7.610s
+[Epoch 387] train_l2: 0.000598, train_l_inf: 0.614843, time: 8.001s
+[Epoch 388] train_l2: 0.000596, train_l_inf: 0.614937, time: 7.481s
+[Epoch 389] train_l2: 0.000595, train_l_inf: 0.614964, time: 7.560s
+[Epoch 390] train_l2: 0.000596, train_l_inf: 0.614830, time: 7.342s
+[Epoch 391] train_l2: 0.000595, train_l_inf: 0.614887, time: 7.151s
+[Epoch 392] train_l2: 0.000594, train_l_inf: 0.615073, time: 7.561s
+[Epoch 393] train_l2: 0.000594, train_l_inf: 0.615043, time: 7.451s
+[Epoch 394] train_l2: 0.000597, train_l_inf: 0.615013, time: 7.385s
+[Epoch 395] train_l2: 0.000594, train_l_inf: 0.615019, time: 7.738s
+[Epoch 396] train_l2: 0.000594, train_l_inf: 0.614918, time: 7.736s
+[Epoch 397] train_l2: 0.000595, train_l_inf: 0.614953, time: 7.827s
+[Epoch 398] train_l2: 0.000595, train_l_inf: 0.614928, time: 7.509s
+[Epoch 399] train_l2: 0.000593, train_l_inf: 0.614956, time: 7.650s
+====================validate====================
+[Epoch 399] val_l2: 0.000410, val_l_inf: 0.577572
+================================================
+[Epoch 400] train_l2: 0.000593, train_l_inf: 0.614962, time: 7.417s
+[Epoch 401] train_l2: 0.000593, train_l_inf: 0.614950, time: 7.477s
+[Epoch 402] train_l2: 0.000594, train_l_inf: 0.614963, time: 7.635s
+[Epoch 403] train_l2: 0.000593, train_l_inf: 0.615015, time: 7.430s
+[Epoch 404] train_l2: 0.000593, train_l_inf: 0.615046, time: 7.768s
+[Epoch 405] train_l2: 0.000593, train_l_inf: 0.615090, time: 8.028s
+[Epoch 406] train_l2: 0.000591, train_l_inf: 0.615067, time: 8.043s
+[Epoch 407] train_l2: 0.000592, train_l_inf: 0.614977, time: 7.521s
+[Epoch 408] train_l2: 0.000591, train_l_inf: 0.614931, time: 7.833s
+[Epoch 409] train_l2: 0.000593, train_l_inf: 0.614928, time: 7.596s
+[Epoch 410] train_l2: 0.000592, train_l_inf: 0.614973, time: 7.708s
+[Epoch 411] train_l2: 0.000594, train_l_inf: 0.614980, time: 7.759s
+[Epoch 412] train_l2: 0.000594, train_l_inf: 0.615096, time: 7.546s
+[Epoch 413] train_l2: 0.000591, train_l_inf: 0.615104, time: 7.488s
+[Epoch 414] train_l2: 0.000592, train_l_inf: 0.615041, time: 7.595s
+[Epoch 415] train_l2: 0.000591, train_l_inf: 0.615047, time: 7.571s
+[Epoch 416] train_l2: 0.000592, train_l_inf: 0.615068, time: 7.737s
+[Epoch 417] train_l2: 0.000592, train_l_inf: 0.615070, time: 7.708s
+[Epoch 418] train_l2: 0.000594, train_l_inf: 0.615035, time: 7.497s
+[Epoch 419] train_l2: 0.000592, train_l_inf: 0.615081, time: 7.578s
+====================validate====================
+[Epoch 419] val_l2: 0.000409, val_l_inf: 0.577757
+================================================
+[Epoch 420] train_l2: 0.000592, train_l_inf: 0.615119, time: 7.588s
+[Epoch 421] train_l2: 0.000591, train_l_inf: 0.615124, time: 7.553s
+[Epoch 422] train_l2: 0.000590, train_l_inf: 0.615059, time: 7.282s
+[Epoch 423] train_l2: 0.000591, train_l_inf: 0.615059, time: 7.743s
+[Epoch 424] train_l2: 0.000591, train_l_inf: 0.615049, time: 7.824s
+[Epoch 425] train_l2: 0.000590, train_l_inf: 0.615034, time: 7.649s
+[Epoch 426] train_l2: 0.000592, train_l_inf: 0.615029, time: 7.789s
+[Epoch 427] train_l2: 0.000593, train_l_inf: 0.615069, time: 7.393s
+[Epoch 428] train_l2: 0.000592, train_l_inf: 0.615117, time: 7.794s
+[Epoch 429] train_l2: 0.000592, train_l_inf: 0.615123, time: 7.426s
+[Epoch 430] train_l2: 0.000592, train_l_inf: 0.615148, time: 7.381s
+[Epoch 431] train_l2: 0.000588, train_l_inf: 0.615075, time: 7.309s
+[Epoch 432] train_l2: 0.000589, train_l_inf: 0.615080, time: 7.579s
+[Epoch 433] train_l2: 0.000591, train_l_inf: 0.615073, time: 7.412s
+[Epoch 434] train_l2: 0.000592, train_l_inf: 0.615146, time: 8.069s
+[Epoch 435] train_l2: 0.000591, train_l_inf: 0.615155, time: 7.573s
+[Epoch 436] train_l2: 0.000589, train_l_inf: 0.615152, time: 7.642s
+[Epoch 437] train_l2: 0.000591, train_l_inf: 0.615107, time: 7.572s
+[Epoch 438] train_l2: 0.000589, train_l_inf: 0.615062, time: 7.361s
+[Epoch 439] train_l2: 0.000591, train_l_inf: 0.615069, time: 7.577s
+====================validate====================
+[Epoch 439] val_l2: 0.000408, val_l_inf: 0.577761
+================================================
+[Epoch 440] train_l2: 0.000590, train_l_inf: 0.615099, time: 7.384s
+[Epoch 441] train_l2: 0.000591, train_l_inf: 0.615145, time: 7.826s
+[Epoch 442] train_l2: 0.000590, train_l_inf: 0.615148, time: 7.802s
+[Epoch 443] train_l2: 0.000590, train_l_inf: 0.615107, time: 7.855s
+[Epoch 444] train_l2: 0.000590, train_l_inf: 0.615095, time: 7.488s
+[Epoch 445] train_l2: 0.000590, train_l_inf: 0.615110, time: 7.890s
+[Epoch 446] train_l2: 0.000589, train_l_inf: 0.615124, time: 7.329s
+[Epoch 447] train_l2: 0.000588, train_l_inf: 0.615088, time: 7.953s
+[Epoch 448] train_l2: 0.000589, train_l_inf: 0.615086, time: 7.510s
+[Epoch 449] train_l2: 0.000589, train_l_inf: 0.615147, time: 7.526s
+[Epoch 450] train_l2: 0.000589, train_l_inf: 0.615165, time: 7.542s
+[Epoch 451] train_l2: 0.000590, train_l_inf: 0.615162, time: 7.839s
+[Epoch 452] train_l2: 0.000587, train_l_inf: 0.615136, time: 7.248s
+[Epoch 453] train_l2: 0.000588, train_l_inf: 0.615143, time: 7.491s
+[Epoch 454] train_l2: 0.000588, train_l_inf: 0.615139, time: 7.589s
+[Epoch 455] train_l2: 0.000588, train_l_inf: 0.615114, time: 7.478s
+[Epoch 456] train_l2: 0.000588, train_l_inf: 0.615078, time: 7.508s
+[Epoch 457] train_l2: 0.000590, train_l_inf: 0.615063, time: 7.508s
+[Epoch 458] train_l2: 0.000588, train_l_inf: 0.615201, time: 7.694s
+[Epoch 459] train_l2: 0.000587, train_l_inf: 0.615192, time: 7.700s
+====================validate====================
+[Epoch 459] val_l2: 0.000406, val_l_inf: 0.577752
+================================================
+[Epoch 460] train_l2: 0.000587, train_l_inf: 0.615081, time: 7.315s
+[Epoch 461] train_l2: 0.000586, train_l_inf: 0.615142, time: 7.622s
+[Epoch 462] train_l2: 0.000589, train_l_inf: 0.615213, time: 7.639s
+[Epoch 463] train_l2: 0.000589, train_l_inf: 0.615291, time: 7.633s
+[Epoch 464] train_l2: 0.000586, train_l_inf: 0.615246, time: 7.348s
+[Epoch 465] train_l2: 0.000586, train_l_inf: 0.615159, time: 7.317s
+[Epoch 466] train_l2: 0.000587, train_l_inf: 0.615119, time: 7.540s
+[Epoch 467] train_l2: 0.000588, train_l_inf: 0.615118, time: 7.414s
+[Epoch 468] train_l2: 0.000587, train_l_inf: 0.615210, time: 7.773s
+[Epoch 469] train_l2: 0.000587, train_l_inf: 0.615272, time: 7.425s
+[Epoch 470] train_l2: 0.000585, train_l_inf: 0.615186, time: 7.834s
+[Epoch 471] train_l2: 0.000586, train_l_inf: 0.615174, time: 7.602s
+[Epoch 472] train_l2: 0.000587, train_l_inf: 0.615189, time: 7.633s
+[Epoch 473] train_l2: 0.000588, train_l_inf: 0.615305, time: 7.397s
+[Epoch 474] train_l2: 0.000585, train_l_inf: 0.615310, time: 7.376s
+[Epoch 475] train_l2: 0.000586, train_l_inf: 0.615232, time: 7.308s
+[Epoch 476] train_l2: 0.000585, train_l_inf: 0.615178, time: 7.554s
+[Epoch 477] train_l2: 0.000586, train_l_inf: 0.615134, time: 7.930s
+[Epoch 478] train_l2: 0.000585, train_l_inf: 0.615137, time: 7.457s
+[Epoch 479] train_l2: 0.000586, train_l_inf: 0.615175, time: 7.912s
+====================validate====================
+[Epoch 479] val_l2: 0.000405, val_l_inf: 0.577937
+================================================
+[Epoch 480] train_l2: 0.000585, train_l_inf: 0.615204, time: 7.534s
+[Epoch 481] train_l2: 0.000583, train_l_inf: 0.615266, time: 7.610s
+[Epoch 482] train_l2: 0.000584, train_l_inf: 0.615291, time: 7.167s
+[Epoch 483] train_l2: 0.000585, train_l_inf: 0.615303, time: 7.240s
+[Epoch 484] train_l2: 0.000583, train_l_inf: 0.615307, time: 7.448s
+[Epoch 485] train_l2: 0.000585, train_l_inf: 0.615288, time: 9.206s
+[Epoch 486] train_l2: 0.000585, train_l_inf: 0.615268, time: 7.711s
+[Epoch 487] train_l2: 0.000584, train_l_inf: 0.615237, time: 7.592s
+[Epoch 488] train_l2: 0.000584, train_l_inf: 0.615272, time: 7.451s
+[Epoch 489] train_l2: 0.000586, train_l_inf: 0.615280, time: 7.611s
+[Epoch 490] train_l2: 0.000583, train_l_inf: 0.615295, time: 7.204s
+[Epoch 491] train_l2: 0.000585, train_l_inf: 0.615305, time: 7.493s
+[Epoch 492] train_l2: 0.000584, train_l_inf: 0.615347, time: 7.535s
+[Epoch 493] train_l2: 0.000585, train_l_inf: 0.615375, time: 8.034s
+[Epoch 494] train_l2: 0.000583, train_l_inf: 0.615370, time: 7.578s
+[Epoch 495] train_l2: 0.000583, train_l_inf: 0.615307, time: 7.351s
+[Epoch 496] train_l2: 0.000584, train_l_inf: 0.615323, time: 7.612s
+[Epoch 497] train_l2: 0.000581, train_l_inf: 0.615310, time: 7.765s
+[Epoch 498] train_l2: 0.000586, train_l_inf: 0.615258, time: 7.558s
+[Epoch 499] train_l2: 0.000584, train_l_inf: 0.615331, time: 7.298s
+====================validate====================
+[Epoch 499] val_l2: 0.000403, val_l_inf: 0.578114
+================================================
+[Epoch 500] train_l2: 0.000584, train_l_inf: 0.615358, time: 7.327s
+[Epoch 501] train_l2: 0.000582, train_l_inf: 0.615353, time: 7.409s
+[Epoch 502] train_l2: 0.000583, train_l_inf: 0.615329, time: 7.839s
+[Epoch 503] train_l2: 0.000585, train_l_inf: 0.615327, time: 7.599s
+[Epoch 504] train_l2: 0.000584, train_l_inf: 0.615348, time: 7.701s
+[Epoch 505] train_l2: 0.000584, train_l_inf: 0.615353, time: 7.410s
+[Epoch 506] train_l2: 0.000582, train_l_inf: 0.615348, time: 7.995s
+[Epoch 507] train_l2: 0.000583, train_l_inf: 0.615334, time: 7.542s
+[Epoch 508] train_l2: 0.000585, train_l_inf: 0.615318, time: 7.351s
+[Epoch 509] train_l2: 0.000582, train_l_inf: 0.615314, time: 7.728s
+[Epoch 510] train_l2: 0.000584, train_l_inf: 0.615343, time: 7.702s
+[Epoch 511] train_l2: 0.000583, train_l_inf: 0.615342, time: 7.736s
+[Epoch 512] train_l2: 0.000583, train_l_inf: 0.615344, time: 7.507s
+[Epoch 513] train_l2: 0.000583, train_l_inf: 0.615336, time: 7.795s
+[Epoch 514] train_l2: 0.000583, train_l_inf: 0.615303, time: 7.754s
+[Epoch 515] train_l2: 0.000583, train_l_inf: 0.615296, time: 7.281s
+[Epoch 516] train_l2: 0.000583, train_l_inf: 0.615317, time: 7.722s
+[Epoch 517] train_l2: 0.000583, train_l_inf: 0.615344, time: 7.442s
+[Epoch 518] train_l2: 0.000582, train_l_inf: 0.615354, time: 7.308s
+[Epoch 519] train_l2: 0.000583, train_l_inf: 0.615299, time: 7.762s
+====================validate====================
+[Epoch 519] val_l2: 0.000403, val_l_inf: 0.578094
+================================================
+[Epoch 520] train_l2: 0.000584, train_l_inf: 0.615304, time: 7.242s
+[Epoch 521] train_l2: 0.000583, train_l_inf: 0.615344, time: 7.661s
+[Epoch 522] train_l2: 0.000583, train_l_inf: 0.615365, time: 7.758s
+[Epoch 523] train_l2: 0.000582, train_l_inf: 0.615311, time: 7.576s
+[Epoch 524] train_l2: 0.000582, train_l_inf: 0.615305, time: 7.759s
+[Epoch 525] train_l2: 0.000582, train_l_inf: 0.615370, time: 7.279s
+[Epoch 526] train_l2: 0.000581, train_l_inf: 0.615363, time: 7.825s
+[Epoch 527] train_l2: 0.000584, train_l_inf: 0.615366, time: 7.335s
+[Epoch 528] train_l2: 0.000583, train_l_inf: 0.615360, time: 7.808s
+[Epoch 529] train_l2: 0.000581, train_l_inf: 0.615334, time: 7.301s
+[Epoch 530] train_l2: 0.000579, train_l_inf: 0.615300, time: 8.002s
+[Epoch 531] train_l2: 0.000583, train_l_inf: 0.615265, time: 7.746s
+[Epoch 532] train_l2: 0.000582, train_l_inf: 0.615338, time: 7.776s
+[Epoch 533] train_l2: 0.000583, train_l_inf: 0.615343, time: 7.644s
+[Epoch 534] train_l2: 0.000581, train_l_inf: 0.615339, time: 7.367s
+[Epoch 535] train_l2: 0.000581, train_l_inf: 0.615323, time: 7.789s
+[Epoch 536] train_l2: 0.000582, train_l_inf: 0.615341, time: 7.594s
+[Epoch 537] train_l2: 0.000581, train_l_inf: 0.615352, time: 7.648s
+[Epoch 538] train_l2: 0.000581, train_l_inf: 0.615355, time: 9.852s
+[Epoch 539] train_l2: 0.000580, train_l_inf: 0.615358, time: 7.601s
+====================validate====================
+[Epoch 539] val_l2: 0.000402, val_l_inf: 0.578155
+================================================
+[Epoch 540] train_l2: 0.000584, train_l_inf: 0.615363, time: 7.523s
+[Epoch 541] train_l2: 0.000581, train_l_inf: 0.615390, time: 7.653s
+[Epoch 542] train_l2: 0.000583, train_l_inf: 0.615383, time: 7.660s
+[Epoch 543] train_l2: 0.000581, train_l_inf: 0.615379, time: 7.614s
+[Epoch 544] train_l2: 0.000580, train_l_inf: 0.615371, time: 7.701s
+[Epoch 545] train_l2: 0.000581, train_l_inf: 0.615382, time: 7.530s
+[Epoch 546] train_l2: 0.000580, train_l_inf: 0.615389, time: 40.094s
+[Epoch 547] train_l2: 0.000581, train_l_inf: 0.615404, time: 7.710s
+[Epoch 548] train_l2: 0.000581, train_l_inf: 0.615372, time: 7.425s
+[Epoch 549] train_l2: 0.000581, train_l_inf: 0.615356, time: 7.463s
+[Epoch 550] train_l2: 0.000582, train_l_inf: 0.615377, time: 7.522s
+[Epoch 551] train_l2: 0.000580, train_l_inf: 0.615372, time: 10.440s
+[Epoch 552] train_l2: 0.000581, train_l_inf: 0.615375, time: 7.944s
+[Epoch 553] train_l2: 0.000580, train_l_inf: 0.615361, time: 7.857s
+[Epoch 554] train_l2: 0.000581, train_l_inf: 0.615343, time: 7.880s
+[Epoch 555] train_l2: 0.000582, train_l_inf: 0.615363, time: 7.467s
+[Epoch 556] train_l2: 0.000581, train_l_inf: 0.615402, time: 7.316s
+[Epoch 557] train_l2: 0.000581, train_l_inf: 0.615398, time: 7.502s
+[Epoch 558] train_l2: 0.000580, train_l_inf: 0.615411, time: 7.315s
+[Epoch 559] train_l2: 0.000580, train_l_inf: 0.615413, time: 8.365s
+====================validate====================
+[Epoch 559] val_l2: 0.000401, val_l_inf: 0.578209
+================================================
+[Epoch 560] train_l2: 0.000579, train_l_inf: 0.615402, time: 7.882s
+[Epoch 561] train_l2: 0.000579, train_l_inf: 0.615387, time: 7.742s
+[Epoch 562] train_l2: 0.000579, train_l_inf: 0.615361, time: 7.526s
+[Epoch 563] train_l2: 0.000580, train_l_inf: 0.615343, time: 7.508s
+[Epoch 564] train_l2: 0.000578, train_l_inf: 0.615335, time: 7.176s
+[Epoch 565] train_l2: 0.000581, train_l_inf: 0.615377, time: 7.818s
+[Epoch 566] train_l2: 0.000581, train_l_inf: 0.615416, time: 7.624s
+[Epoch 567] train_l2: 0.000579, train_l_inf: 0.615456, time: 8.139s
+[Epoch 568] train_l2: 0.000581, train_l_inf: 0.615459, time: 7.833s
+[Epoch 569] train_l2: 0.000580, train_l_inf: 0.615461, time: 7.666s
+[Epoch 570] train_l2: 0.000581, train_l_inf: 0.615463, time: 7.286s
+[Epoch 571] train_l2: 0.000580, train_l_inf: 0.615435, time: 7.497s
+[Epoch 572] train_l2: 0.000581, train_l_inf: 0.615419, time: 7.429s
+[Epoch 573] train_l2: 0.000580, train_l_inf: 0.615421, time: 7.408s
+[Epoch 574] train_l2: 0.000579, train_l_inf: 0.615416, time: 7.643s
+[Epoch 575] train_l2: 0.000578, train_l_inf: 0.615362, time: 7.752s
+[Epoch 576] train_l2: 0.000579, train_l_inf: 0.615355, time: 7.947s
+[Epoch 577] train_l2: 0.000581, train_l_inf: 0.615391, time: 8.535s
+[Epoch 578] train_l2: 0.000580, train_l_inf: 0.615434, time: 7.548s
+[Epoch 579] train_l2: 0.000577, train_l_inf: 0.615428, time: 7.419s
+====================validate====================
+[Epoch 579] val_l2: 0.000400, val_l_inf: 0.578235
+================================================
+[Epoch 580] train_l2: 0.000580, train_l_inf: 0.615412, time: 7.475s
+[Epoch 581] train_l2: 0.000579, train_l_inf: 0.615470, time: 7.663s
+[Epoch 582] train_l2: 0.000578, train_l_inf: 0.615466, time: 7.631s
+[Epoch 583] train_l2: 0.000580, train_l_inf: 0.615454, time: 8.712s
+[Epoch 584] train_l2: 0.000579, train_l_inf: 0.615429, time: 7.712s
+[Epoch 585] train_l2: 0.000579, train_l_inf: 0.615375, time: 7.749s
+[Epoch 586] train_l2: 0.000579, train_l_inf: 0.615370, time: 7.509s
+[Epoch 587] train_l2: 0.000579, train_l_inf: 0.615374, time: 7.399s
+[Epoch 588] train_l2: 0.000578, train_l_inf: 0.615435, time: 7.459s
+[Epoch 589] train_l2: 0.000577, train_l_inf: 0.615435, time: 7.326s
+[Epoch 590] train_l2: 0.000578, train_l_inf: 0.615417, time: 7.322s
+[Epoch 591] train_l2: 0.000578, train_l_inf: 0.615401, time: 7.250s
+[Epoch 592] train_l2: 0.000578, train_l_inf: 0.615427, time: 8.946s
+[Epoch 593] train_l2: 0.000579, train_l_inf: 0.615424, time: 8.487s
+[Epoch 594] train_l2: 0.000579, train_l_inf: 0.615443, time: 7.512s
+[Epoch 595] train_l2: 0.000577, train_l_inf: 0.615464, time: 7.663s
+[Epoch 596] train_l2: 0.000576, train_l_inf: 0.615456, time: 7.380s
+[Epoch 597] train_l2: 0.000578, train_l_inf: 0.615429, time: 7.456s
+[Epoch 598] train_l2: 0.000576, train_l_inf: 0.615459, time: 7.808s
+[Epoch 599] train_l2: 0.000578, train_l_inf: 0.615445, time: 7.423s
+====================validate====================
+[Epoch 599] val_l2: 0.000399, val_l_inf: 0.578285
+================================================
+[Epoch 600] train_l2: 0.000579, train_l_inf: 0.615433, time: 8.718s
+[Epoch 601] train_l2: 0.000579, train_l_inf: 0.615431, time: 7.512s
+[Epoch 602] train_l2: 0.000577, train_l_inf: 0.615437, time: 7.385s
+[Epoch 603] train_l2: 0.000578, train_l_inf: 0.615438, time: 7.389s
+[Epoch 604] train_l2: 0.000577, train_l_inf: 0.615441, time: 7.451s
+[Epoch 605] train_l2: 0.000576, train_l_inf: 0.615443, time: 7.274s
+[Epoch 606] train_l2: 0.000578, train_l_inf: 0.615447, time: 7.315s
+[Epoch 607] train_l2: 0.000577, train_l_inf: 0.615459, time: 8.533s
+[Epoch 608] train_l2: 0.000577, train_l_inf: 0.615463, time: 8.348s
+[Epoch 609] train_l2: 0.000577, train_l_inf: 0.615465, time: 11.352s
+[Epoch 610] train_l2: 0.000579, train_l_inf: 0.615461, time: 7.469s
+[Epoch 611] train_l2: 0.000577, train_l_inf: 0.615477, time: 7.374s
+[Epoch 612] train_l2: 0.000578, train_l_inf: 0.615494, time: 7.469s
+[Epoch 613] train_l2: 0.000579, train_l_inf: 0.615490, time: 7.565s
+[Epoch 614] train_l2: 0.000580, train_l_inf: 0.615489, time: 7.875s
+[Epoch 615] train_l2: 0.000578, train_l_inf: 0.615485, time: 7.345s
+[Epoch 616] train_l2: 0.000578, train_l_inf: 0.615470, time: 7.534s
+[Epoch 617] train_l2: 0.000577, train_l_inf: 0.615472, time: 7.821s
+[Epoch 618] train_l2: 0.000577, train_l_inf: 0.615468, time: 7.259s
+[Epoch 619] train_l2: 0.000577, train_l_inf: 0.615453, time: 7.325s
+====================validate====================
+[Epoch 619] val_l2: 0.000399, val_l_inf: 0.578320
+================================================
+[Epoch 620] train_l2: 0.000576, train_l_inf: 0.615453, time: 7.661s
+[Epoch 621] train_l2: 0.000578, train_l_inf: 0.615460, time: 7.274s
+[Epoch 622] train_l2: 0.000576, train_l_inf: 0.615461, time: 7.820s
+[Epoch 623] train_l2: 0.000576, train_l_inf: 0.615447, time: 7.727s
+[Epoch 624] train_l2: 0.000578, train_l_inf: 0.615444, time: 7.747s
+[Epoch 625] train_l2: 0.000577, train_l_inf: 0.615473, time: 7.758s
+[Epoch 626] train_l2: 0.000577, train_l_inf: 0.615473, time: 7.484s
+[Epoch 627] train_l2: 0.000577, train_l_inf: 0.615478, time: 7.505s
+[Epoch 628] train_l2: 0.000577, train_l_inf: 0.615463, time: 7.718s
+[Epoch 629] train_l2: 0.000577, train_l_inf: 0.615457, time: 7.645s
+[Epoch 630] train_l2: 0.000578, train_l_inf: 0.615463, time: 7.530s
+[Epoch 631] train_l2: 0.000577, train_l_inf: 0.615457, time: 7.886s
+[Epoch 632] train_l2: 0.000577, train_l_inf: 0.615475, time: 7.600s
+[Epoch 633] train_l2: 0.000579, train_l_inf: 0.615475, time: 7.493s
+[Epoch 634] train_l2: 0.000578, train_l_inf: 0.615483, time: 7.747s
+[Epoch 635] train_l2: 0.000577, train_l_inf: 0.615484, time: 7.799s
+[Epoch 636] train_l2: 0.000577, train_l_inf: 0.615483, time: 7.621s
+[Epoch 637] train_l2: 0.000575, train_l_inf: 0.615483, time: 7.320s
+[Epoch 638] train_l2: 0.000578, train_l_inf: 0.615473, time: 7.521s
+[Epoch 639] train_l2: 0.000577, train_l_inf: 0.615489, time: 7.858s
+====================validate====================
+[Epoch 639] val_l2: 0.000399, val_l_inf: 0.578363
+================================================
+[Epoch 640] train_l2: 0.000579, train_l_inf: 0.615486, time: 7.820s
+[Epoch 641] train_l2: 0.000577, train_l_inf: 0.615497, time: 7.804s
+[Epoch 642] train_l2: 0.000577, train_l_inf: 0.615494, time: 7.798s
+[Epoch 643] train_l2: 0.000577, train_l_inf: 0.615487, time: 7.637s
+[Epoch 644] train_l2: 0.000576, train_l_inf: 0.615457, time: 7.494s
+[Epoch 645] train_l2: 0.000578, train_l_inf: 0.615462, time: 7.685s
+[Epoch 646] train_l2: 0.000577, train_l_inf: 0.615468, time: 7.810s
+[Epoch 647] train_l2: 0.000576, train_l_inf: 0.615470, time: 7.494s
+[Epoch 648] train_l2: 0.000578, train_l_inf: 0.615479, time: 7.420s
+[Epoch 649] train_l2: 0.000574, train_l_inf: 0.615471, time: 7.726s
+[Epoch 650] train_l2: 0.000577, train_l_inf: 0.615465, time: 8.224s
+[Epoch 651] train_l2: 0.000576, train_l_inf: 0.615478, time: 10.622s
+[Epoch 652] train_l2: 0.000578, train_l_inf: 0.615477, time: 7.606s
+[Epoch 653] train_l2: 0.000576, train_l_inf: 0.615481, time: 7.660s
+[Epoch 654] train_l2: 0.000575, train_l_inf: 0.615485, time: 7.517s
+[Epoch 655] train_l2: 0.000575, train_l_inf: 0.615490, time: 7.612s
+[Epoch 656] train_l2: 0.000574, train_l_inf: 0.615490, time: 7.405s
+[Epoch 657] train_l2: 0.000574, train_l_inf: 0.615496, time: 7.643s
+[Epoch 658] train_l2: 0.000576, train_l_inf: 0.615482, time: 7.539s
+[Epoch 659] train_l2: 0.000577, train_l_inf: 0.615480, time: 7.701s
+====================validate====================
+[Epoch 659] val_l2: 0.000398, val_l_inf: 0.578378
+================================================
+[Epoch 660] train_l2: 0.000576, train_l_inf: 0.615494, time: 9.246s
+[Epoch 661] train_l2: 0.000575, train_l_inf: 0.615497, time: 7.822s
+[Epoch 662] train_l2: 0.000574, train_l_inf: 0.615503, time: 7.585s
+[Epoch 663] train_l2: 0.000576, train_l_inf: 0.615495, time: 8.816s
+[Epoch 664] train_l2: 0.000576, train_l_inf: 0.615515, time: 12.316s
+[Epoch 665] train_l2: 0.000577, train_l_inf: 0.615517, time: 7.691s
+[Epoch 666] train_l2: 0.000577, train_l_inf: 0.615507, time: 8.378s
+[Epoch 667] train_l2: 0.000574, train_l_inf: 0.615510, time: 7.811s
+[Epoch 668] train_l2: 0.000576, train_l_inf: 0.615489, time: 7.637s
+[Epoch 669] train_l2: 0.000576, train_l_inf: 0.615497, time: 7.865s
+[Epoch 670] train_l2: 0.000575, train_l_inf: 0.615495, time: 7.481s
+[Epoch 671] train_l2: 0.000576, train_l_inf: 0.615501, time: 7.401s
+[Epoch 672] train_l2: 0.000576, train_l_inf: 0.615511, time: 7.474s
+[Epoch 673] train_l2: 0.000575, train_l_inf: 0.615496, time: 7.159s
+[Epoch 674] train_l2: 0.000578, train_l_inf: 0.615495, time: 7.455s
+[Epoch 675] train_l2: 0.000575, train_l_inf: 0.615495, time: 9.379s
+[Epoch 676] train_l2: 0.000575, train_l_inf: 0.615505, time: 7.439s
+[Epoch 677] train_l2: 0.000577, train_l_inf: 0.615508, time: 7.230s
+[Epoch 678] train_l2: 0.000574, train_l_inf: 0.615525, time: 7.333s
+[Epoch 679] train_l2: 0.000575, train_l_inf: 0.615527, time: 7.439s
+====================validate====================
+[Epoch 679] val_l2: 0.000398, val_l_inf: 0.578425
+================================================
+[Epoch 680] train_l2: 0.000576, train_l_inf: 0.615487, time: 7.427s
+[Epoch 681] train_l2: 0.000576, train_l_inf: 0.615481, time: 7.556s
+[Epoch 682] train_l2: 0.000575, train_l_inf: 0.615499, time: 7.429s
+[Epoch 683] train_l2: 0.000574, train_l_inf: 0.615507, time: 12.764s
+[Epoch 684] train_l2: 0.000575, train_l_inf: 0.615529, time: 8.255s
+[Epoch 685] train_l2: 0.000575, train_l_inf: 0.615513, time: 7.319s
+[Epoch 686] train_l2: 0.000576, train_l_inf: 0.615524, time: 7.455s
+[Epoch 687] train_l2: 0.000574, train_l_inf: 0.615524, time: 7.344s
+[Epoch 688] train_l2: 0.000574, train_l_inf: 0.615520, time: 7.097s
+[Epoch 689] train_l2: 0.000572, train_l_inf: 0.615535, time: 7.477s
+[Epoch 690] train_l2: 0.000574, train_l_inf: 0.615568, time: 7.688s
+[Epoch 691] train_l2: 0.000574, train_l_inf: 0.615564, time: 7.487s
+[Epoch 692] train_l2: 0.000574, train_l_inf: 0.615541, time: 7.730s
+[Epoch 693] train_l2: 0.000575, train_l_inf: 0.615535, time: 7.503s
+[Epoch 694] train_l2: 0.000574, train_l_inf: 0.615519, time: 7.763s
+[Epoch 695] train_l2: 0.000576, train_l_inf: 0.615526, time: 7.783s
+[Epoch 696] train_l2: 0.000574, train_l_inf: 0.615509, time: 7.680s
+[Epoch 697] train_l2: 0.000575, train_l_inf: 0.615534, time: 7.753s
+[Epoch 698] train_l2: 0.000574, train_l_inf: 0.615532, time: 7.744s
+[Epoch 699] train_l2: 0.000575, train_l_inf: 0.615513, time: 8.885s
+====================validate====================
+[Epoch 699] val_l2: 0.000397, val_l_inf: 0.578432
+================================================
+[Epoch 700] train_l2: 0.000574, train_l_inf: 0.615504, time: 7.483s
+[Epoch 701] train_l2: 0.000576, train_l_inf: 0.615502, time: 7.678s
+[Epoch 702] train_l2: 0.000573, train_l_inf: 0.615506, time: 9.553s
+[Epoch 703] train_l2: 0.000573, train_l_inf: 0.615520, time: 7.479s
+[Epoch 704] train_l2: 0.000576, train_l_inf: 0.615535, time: 7.332s
+[Epoch 705] train_l2: 0.000576, train_l_inf: 0.615544, time: 7.428s
+[Epoch 706] train_l2: 0.000575, train_l_inf: 0.615545, time: 8.314s
+[Epoch 707] train_l2: 0.000575, train_l_inf: 0.615543, time: 10.069s
+[Epoch 708] train_l2: 0.000573, train_l_inf: 0.615550, time: 9.107s
+[Epoch 709] train_l2: 0.000574, train_l_inf: 0.615552, time: 7.377s
+[Epoch 710] train_l2: 0.000574, train_l_inf: 0.615549, time: 7.494s
+[Epoch 711] train_l2: 0.000573, train_l_inf: 0.615560, time: 7.513s
+[Epoch 712] train_l2: 0.000572, train_l_inf: 0.615558, time: 7.380s
+[Epoch 713] train_l2: 0.000575, train_l_inf: 0.615558, time: 7.550s
+[Epoch 714] train_l2: 0.000575, train_l_inf: 0.615569, time: 8.588s
+[Epoch 715] train_l2: 0.000574, train_l_inf: 0.615569, time: 11.212s
+[Epoch 716] train_l2: 0.000575, train_l_inf: 0.615568, time: 7.815s
+[Epoch 717] train_l2: 0.000574, train_l_inf: 0.615567, time: 7.815s
+[Epoch 718] train_l2: 0.000575, train_l_inf: 0.615565, time: 7.754s
+[Epoch 719] train_l2: 0.000575, train_l_inf: 0.615561, time: 7.384s
+====================validate====================
+[Epoch 719] val_l2: 0.000397, val_l_inf: 0.578498
+================================================
+[Epoch 720] train_l2: 0.000575, train_l_inf: 0.615558, time: 7.416s
+[Epoch 721] train_l2: 0.000573, train_l_inf: 0.615557, time: 7.847s
+[Epoch 722] train_l2: 0.000574, train_l_inf: 0.615549, time: 8.761s
+[Epoch 723] train_l2: 0.000573, train_l_inf: 0.615547, time: 7.609s
+[Epoch 724] train_l2: 0.000576, train_l_inf: 0.615551, time: 7.432s
+[Epoch 725] train_l2: 0.000574, train_l_inf: 0.615551, time: 7.439s
+[Epoch 726] train_l2: 0.000575, train_l_inf: 0.615557, time: 7.855s
+[Epoch 727] train_l2: 0.000574, train_l_inf: 0.615549, time: 8.220s
+[Epoch 728] train_l2: 0.000574, train_l_inf: 0.615553, time: 9.711s
+[Epoch 729] train_l2: 0.000573, train_l_inf: 0.615554, time: 7.739s
+[Epoch 730] train_l2: 0.000573, train_l_inf: 0.615548, time: 7.583s
+[Epoch 731] train_l2: 0.000573, train_l_inf: 0.615539, time: 7.460s
+[Epoch 732] train_l2: 0.000574, train_l_inf: 0.615539, time: 7.728s
+[Epoch 733] train_l2: 0.000574, train_l_inf: 0.615543, time: 7.373s
+[Epoch 734] train_l2: 0.000578, train_l_inf: 0.615561, time: 7.304s
+[Epoch 735] train_l2: 0.000576, train_l_inf: 0.615560, time: 7.662s
+[Epoch 736] train_l2: 0.000573, train_l_inf: 0.615562, time: 7.856s
+[Epoch 737] train_l2: 0.000574, train_l_inf: 0.615555, time: 7.747s
+[Epoch 738] train_l2: 0.000573, train_l_inf: 0.615555, time: 9.732s
+[Epoch 739] train_l2: 0.000574, train_l_inf: 0.615560, time: 8.318s
+====================validate====================
+[Epoch 739] val_l2: 0.000397, val_l_inf: 0.578490
+================================================
+[Epoch 740] train_l2: 0.000573, train_l_inf: 0.615554, time: 7.515s
+[Epoch 741] train_l2: 0.000573, train_l_inf: 0.615541, time: 7.599s
+[Epoch 742] train_l2: 0.000574, train_l_inf: 0.615530, time: 7.521s
+[Epoch 743] train_l2: 0.000573, train_l_inf: 0.615544, time: 7.844s
+[Epoch 744] train_l2: 0.000573, train_l_inf: 0.615554, time: 7.830s
+[Epoch 745] train_l2: 0.000574, train_l_inf: 0.615555, time: 7.805s
+[Epoch 746] train_l2: 0.000574, train_l_inf: 0.615558, time: 9.380s
+[Epoch 747] train_l2: 0.000573, train_l_inf: 0.615570, time: 9.342s
+[Epoch 748] train_l2: 0.000573, train_l_inf: 0.615569, time: 7.632s
+[Epoch 749] train_l2: 0.000574, train_l_inf: 0.615573, time: 7.571s
+[Epoch 750] train_l2: 0.000575, train_l_inf: 0.615574, time: 7.197s
+[Epoch 751] train_l2: 0.000573, train_l_inf: 0.615579, time: 7.468s
+[Epoch 752] train_l2: 0.000573, train_l_inf: 0.615582, time: 7.510s
+[Epoch 753] train_l2: 0.000574, train_l_inf: 0.615582, time: 8.002s
+[Epoch 754] train_l2: 0.000573, train_l_inf: 0.615571, time: 8.226s
+[Epoch 755] train_l2: 0.000573, train_l_inf: 0.615570, time: 7.772s
+[Epoch 756] train_l2: 0.000573, train_l_inf: 0.615575, time: 7.565s
+[Epoch 757] train_l2: 0.000574, train_l_inf: 0.615578, time: 7.454s
+[Epoch 758] train_l2: 0.000575, train_l_inf: 0.615580, time: 7.303s
+[Epoch 759] train_l2: 0.000574, train_l_inf: 0.615578, time: 7.135s
+====================validate====================
+[Epoch 759] val_l2: 0.000396, val_l_inf: 0.578526
+================================================
+[Epoch 760] train_l2: 0.000572, train_l_inf: 0.615578, time: 7.196s
+[Epoch 761] train_l2: 0.000574, train_l_inf: 0.615568, time: 7.610s
+[Epoch 762] train_l2: 0.000573, train_l_inf: 0.615566, time: 9.803s
+[Epoch 763] train_l2: 0.000573, train_l_inf: 0.615557, time: 7.676s
+[Epoch 764] train_l2: 0.000574, train_l_inf: 0.615552, time: 7.495s
+[Epoch 765] train_l2: 0.000575, train_l_inf: 0.615562, time: 7.466s
+[Epoch 766] train_l2: 0.000571, train_l_inf: 0.615575, time: 7.774s
+[Epoch 767] train_l2: 0.000573, train_l_inf: 0.615561, time: 7.997s
+[Epoch 768] train_l2: 0.000569, train_l_inf: 0.615562, time: 7.566s
+[Epoch 769] train_l2: 0.000574, train_l_inf: 0.615549, time: 8.191s
+[Epoch 770] train_l2: 0.000573, train_l_inf: 0.615561, time: 9.266s
+[Epoch 771] train_l2: 0.000574, train_l_inf: 0.615568, time: 7.608s
+[Epoch 772] train_l2: 0.000572, train_l_inf: 0.615571, time: 7.590s
+[Epoch 773] train_l2: 0.000573, train_l_inf: 0.615580, time: 7.610s
+[Epoch 774] train_l2: 0.000575, train_l_inf: 0.615585, time: 7.837s
+[Epoch 775] train_l2: 0.000574, train_l_inf: 0.615586, time: 7.874s
+[Epoch 776] train_l2: 0.000573, train_l_inf: 0.615590, time: 7.589s
+[Epoch 777] train_l2: 0.000575, train_l_inf: 0.615589, time: 7.345s
+[Epoch 778] train_l2: 0.000573, train_l_inf: 0.615600, time: 9.169s
+[Epoch 779] train_l2: 0.000573, train_l_inf: 0.615601, time: 8.794s
+====================validate====================
+[Epoch 779] val_l2: 0.000396, val_l_inf: 0.578556
+================================================
+[Epoch 780] train_l2: 0.000573, train_l_inf: 0.615598, time: 7.662s
+[Epoch 781] train_l2: 0.000574, train_l_inf: 0.615600, time: 7.633s
+[Epoch 782] train_l2: 0.000573, train_l_inf: 0.615586, time: 7.390s
+[Epoch 783] train_l2: 0.000575, train_l_inf: 0.615581, time: 7.649s
+[Epoch 784] train_l2: 0.000575, train_l_inf: 0.615587, time: 7.582s
+[Epoch 785] train_l2: 0.000574, train_l_inf: 0.615589, time: 7.364s
+[Epoch 786] train_l2: 0.000572, train_l_inf: 0.615586, time: 7.434s
+[Epoch 787] train_l2: 0.000574, train_l_inf: 0.615570, time: 7.303s
+[Epoch 788] train_l2: 0.000573, train_l_inf: 0.615566, time: 7.257s
+[Epoch 789] train_l2: 0.000575, train_l_inf: 0.615569, time: 7.487s
+[Epoch 790] train_l2: 0.000573, train_l_inf: 0.615573, time: 7.388s
+[Epoch 791] train_l2: 0.000572, train_l_inf: 0.615574, time: 7.805s
+[Epoch 792] train_l2: 0.000572, train_l_inf: 0.615574, time: 7.234s
+[Epoch 793] train_l2: 0.000574, train_l_inf: 0.615575, time: 7.907s
+[Epoch 794] train_l2: 0.000573, train_l_inf: 0.615570, time: 7.928s
+[Epoch 795] train_l2: 0.000573, train_l_inf: 0.615581, time: 7.381s
+[Epoch 796] train_l2: 0.000572, train_l_inf: 0.615580, time: 7.261s
+[Epoch 797] train_l2: 0.000570, train_l_inf: 0.615574, time: 7.934s
+[Epoch 798] train_l2: 0.000574, train_l_inf: 0.615569, time: 7.889s
+[Epoch 799] train_l2: 0.000573, train_l_inf: 0.615587, time: 10.582s
+====================validate====================
+[Epoch 799] val_l2: 0.000396, val_l_inf: 0.578545
+================================================
+[Epoch 800] train_l2: 0.000575, train_l_inf: 0.615589, time: 7.451s
+[Epoch 801] train_l2: 0.000572, train_l_inf: 0.615588, time: 9.026s
+[Epoch 802] train_l2: 0.000573, train_l_inf: 0.615589, time: 7.840s
+[Epoch 803] train_l2: 0.000574, train_l_inf: 0.615589, time: 7.605s
+[Epoch 804] train_l2: 0.000573, train_l_inf: 0.615593, time: 8.367s
+[Epoch 805] train_l2: 0.000572, train_l_inf: 0.615590, time: 7.623s
+[Epoch 806] train_l2: 0.000571, train_l_inf: 0.615589, time: 7.494s
+[Epoch 807] train_l2: 0.000572, train_l_inf: 0.615585, time: 7.663s
+[Epoch 808] train_l2: 0.000574, train_l_inf: 0.615584, time: 7.679s
+[Epoch 809] train_l2: 0.000573, train_l_inf: 0.615584, time: 7.342s
+[Epoch 810] train_l2: 0.000575, train_l_inf: 0.615590, time: 7.290s
+[Epoch 811] train_l2: 0.000572, train_l_inf: 0.615591, time: 7.418s
+[Epoch 812] train_l2: 0.000573, train_l_inf: 0.615588, time: 7.717s
+[Epoch 813] train_l2: 0.000572, train_l_inf: 0.615585, time: 8.063s
+[Epoch 814] train_l2: 0.000573, train_l_inf: 0.615582, time: 7.601s
+[Epoch 815] train_l2: 0.000572, train_l_inf: 0.615583, time: 7.618s
+[Epoch 816] train_l2: 0.000570, train_l_inf: 0.615587, time: 7.825s
+[Epoch 817] train_l2: 0.000573, train_l_inf: 0.615586, time: 7.652s
+[Epoch 818] train_l2: 0.000572, train_l_inf: 0.615592, time: 7.671s
+[Epoch 819] train_l2: 0.000572, train_l_inf: 0.615593, time: 7.694s
+====================validate====================
+[Epoch 819] val_l2: 0.000396, val_l_inf: 0.578553
+================================================
+[Epoch 820] train_l2: 0.000573, train_l_inf: 0.615593, time: 7.458s
+[Epoch 821] train_l2: 0.000574, train_l_inf: 0.615591, time: 7.646s
+[Epoch 822] train_l2: 0.000573, train_l_inf: 0.615592, time: 7.600s
+[Epoch 823] train_l2: 0.000572, train_l_inf: 0.615590, time: 7.727s
+[Epoch 824] train_l2: 0.000572, train_l_inf: 0.615586, time: 7.827s
+[Epoch 825] train_l2: 0.000572, train_l_inf: 0.615582, time: 7.549s
+[Epoch 826] train_l2: 0.000572, train_l_inf: 0.615584, time: 7.443s
+[Epoch 827] train_l2: 0.000571, train_l_inf: 0.615586, time: 7.366s
+[Epoch 828] train_l2: 0.000570, train_l_inf: 0.615580, time: 7.646s
+[Epoch 829] train_l2: 0.000571, train_l_inf: 0.615581, time: 7.487s
+[Epoch 830] train_l2: 0.000574, train_l_inf: 0.615591, time: 7.643s
+[Epoch 831] train_l2: 0.000571, train_l_inf: 0.615590, time: 7.991s
+[Epoch 832] train_l2: 0.000573, train_l_inf: 0.615593, time: 7.492s
+[Epoch 833] train_l2: 0.000570, train_l_inf: 0.615593, time: 7.548s
+[Epoch 834] train_l2: 0.000572, train_l_inf: 0.615589, time: 7.434s
+[Epoch 835] train_l2: 0.000573, train_l_inf: 0.615595, time: 7.384s
+[Epoch 836] train_l2: 0.000573, train_l_inf: 0.615593, time: 7.473s
+[Epoch 837] train_l2: 0.000572, train_l_inf: 0.615597, time: 7.758s
+[Epoch 838] train_l2: 0.000572, train_l_inf: 0.615603, time: 8.998s
+[Epoch 839] train_l2: 0.000572, train_l_inf: 0.615603, time: 7.951s
+====================validate====================
+[Epoch 839] val_l2: 0.000396, val_l_inf: 0.578570
+================================================
+[Epoch 840] train_l2: 0.000572, train_l_inf: 0.615604, time: 7.715s
+[Epoch 841] train_l2: 0.000574, train_l_inf: 0.615606, time: 7.751s
+[Epoch 842] train_l2: 0.000573, train_l_inf: 0.615610, time: 7.476s
+[Epoch 843] train_l2: 0.000573, train_l_inf: 0.615610, time: 7.297s
+[Epoch 844] train_l2: 0.000573, train_l_inf: 0.615613, time: 7.538s
+[Epoch 845] train_l2: 0.000572, train_l_inf: 0.615610, time: 7.584s
+[Epoch 846] train_l2: 0.000571, train_l_inf: 0.615606, time: 7.574s
+[Epoch 847] train_l2: 0.000572, train_l_inf: 0.615607, time: 7.328s
+[Epoch 848] train_l2: 0.000571, train_l_inf: 0.615611, time: 7.312s
+[Epoch 849] train_l2: 0.000573, train_l_inf: 0.615611, time: 7.387s
+[Epoch 850] train_l2: 0.000573, train_l_inf: 0.615610, time: 7.715s
+[Epoch 851] train_l2: 0.000572, train_l_inf: 0.615604, time: 7.524s
+[Epoch 852] train_l2: 0.000571, train_l_inf: 0.615604, time: 7.407s
+[Epoch 853] train_l2: 0.000573, train_l_inf: 0.615611, time: 7.397s
+[Epoch 854] train_l2: 0.000572, train_l_inf: 0.615607, time: 7.702s
+[Epoch 855] train_l2: 0.000572, train_l_inf: 0.615610, time: 7.726s
+[Epoch 856] train_l2: 0.000571, train_l_inf: 0.615610, time: 7.376s
+[Epoch 857] train_l2: 0.000572, train_l_inf: 0.615610, time: 7.546s
+[Epoch 858] train_l2: 0.000574, train_l_inf: 0.615613, time: 7.430s
+[Epoch 859] train_l2: 0.000574, train_l_inf: 0.615613, time: 7.541s
+====================validate====================
+[Epoch 859] val_l2: 0.000396, val_l_inf: 0.578597
+================================================
+[Epoch 860] train_l2: 0.000571, train_l_inf: 0.615621, time: 7.470s
+[Epoch 861] train_l2: 0.000573, train_l_inf: 0.615615, time: 7.415s
+[Epoch 862] train_l2: 0.000572, train_l_inf: 0.615615, time: 7.704s
+[Epoch 863] train_l2: 0.000573, train_l_inf: 0.615614, time: 7.962s
+[Epoch 864] train_l2: 0.000572, train_l_inf: 0.615614, time: 7.486s
+[Epoch 865] train_l2: 0.000572, train_l_inf: 0.615614, time: 7.484s
+[Epoch 866] train_l2: 0.000570, train_l_inf: 0.615614, time: 7.416s
+[Epoch 867] train_l2: 0.000574, train_l_inf: 0.615618, time: 7.725s
+[Epoch 868] train_l2: 0.000570, train_l_inf: 0.615615, time: 7.350s
+[Epoch 869] train_l2: 0.000572, train_l_inf: 0.615614, time: 7.500s
+[Epoch 870] train_l2: 0.000573, train_l_inf: 0.615622, time: 7.986s
+[Epoch 871] train_l2: 0.000571, train_l_inf: 0.615616, time: 7.622s
+[Epoch 872] train_l2: 0.000570, train_l_inf: 0.615613, time: 8.199s
+[Epoch 873] train_l2: 0.000571, train_l_inf: 0.615610, time: 7.436s
+[Epoch 874] train_l2: 0.000570, train_l_inf: 0.615608, time: 7.496s
+[Epoch 875] train_l2: 0.000571, train_l_inf: 0.615608, time: 7.703s
+[Epoch 876] train_l2: 0.000572, train_l_inf: 0.615611, time: 7.727s
+[Epoch 877] train_l2: 0.000572, train_l_inf: 0.615621, time: 7.612s
+[Epoch 878] train_l2: 0.000572, train_l_inf: 0.615626, time: 7.656s
+[Epoch 879] train_l2: 0.000572, train_l_inf: 0.615626, time: 7.631s
+====================validate====================
+[Epoch 879] val_l2: 0.000395, val_l_inf: 0.578602
+================================================
+[Epoch 880] train_l2: 0.000572, train_l_inf: 0.615626, time: 7.649s
+[Epoch 881] train_l2: 0.000572, train_l_inf: 0.615623, time: 7.490s
+[Epoch 882] train_l2: 0.000572, train_l_inf: 0.615617, time: 7.659s
+[Epoch 883] train_l2: 0.000572, train_l_inf: 0.615615, time: 7.596s
+[Epoch 884] train_l2: 0.000572, train_l_inf: 0.615615, time: 7.446s
+[Epoch 885] train_l2: 0.000574, train_l_inf: 0.615617, time: 7.280s
+[Epoch 886] train_l2: 0.000572, train_l_inf: 0.615624, time: 7.732s
+[Epoch 887] train_l2: 0.000572, train_l_inf: 0.615629, time: 8.623s
+[Epoch 888] train_l2: 0.000573, train_l_inf: 0.615628, time: 7.663s
+[Epoch 889] train_l2: 0.000571, train_l_inf: 0.615619, time: 7.489s
+[Epoch 890] train_l2: 0.000571, train_l_inf: 0.615615, time: 7.649s
+[Epoch 891] train_l2: 0.000571, train_l_inf: 0.615612, time: 7.134s
+[Epoch 892] train_l2: 0.000573, train_l_inf: 0.615618, time: 7.241s
+[Epoch 893] train_l2: 0.000572, train_l_inf: 0.615622, time: 8.227s
+[Epoch 894] train_l2: 0.000572, train_l_inf: 0.615626, time: 8.401s
+[Epoch 895] train_l2: 0.000572, train_l_inf: 0.615625, time: 10.495s
+[Epoch 896] train_l2: 0.000572, train_l_inf: 0.615625, time: 7.467s
+[Epoch 897] train_l2: 0.000574, train_l_inf: 0.615630, time: 7.448s
+[Epoch 898] train_l2: 0.000572, train_l_inf: 0.615630, time: 7.554s
+[Epoch 899] train_l2: 0.000572, train_l_inf: 0.615627, time: 7.219s
+====================validate====================
+[Epoch 899] val_l2: 0.000395, val_l_inf: 0.578603
+================================================
+[Epoch 900] train_l2: 0.000572, train_l_inf: 0.615627, time: 7.586s
+[Epoch 901] train_l2: 0.000572, train_l_inf: 0.615629, time: 7.636s
+[Epoch 902] train_l2: 0.000573, train_l_inf: 0.615630, time: 7.837s
+[Epoch 903] train_l2: 0.000571, train_l_inf: 0.615631, time: 7.559s
+[Epoch 904] train_l2: 0.000571, train_l_inf: 0.615629, time: 7.825s
+[Epoch 905] train_l2: 0.000573, train_l_inf: 0.615630, time: 7.871s
+[Epoch 906] train_l2: 0.000570, train_l_inf: 0.615629, time: 7.968s
+[Epoch 907] train_l2: 0.000570, train_l_inf: 0.615626, time: 8.340s
+[Epoch 908] train_l2: 0.000570, train_l_inf: 0.615628, time: 7.261s
+[Epoch 909] train_l2: 0.000572, train_l_inf: 0.615631, time: 7.152s
+[Epoch 910] train_l2: 0.000571, train_l_inf: 0.615631, time: 7.536s
+[Epoch 911] train_l2: 0.000572, train_l_inf: 0.615633, time: 7.294s
+[Epoch 912] train_l2: 0.000573, train_l_inf: 0.615633, time: 7.283s
+[Epoch 913] train_l2: 0.000570, train_l_inf: 0.615634, time: 7.286s
+[Epoch 914] train_l2: 0.000571, train_l_inf: 0.615635, time: 7.727s
+[Epoch 915] train_l2: 0.000571, train_l_inf: 0.615631, time: 8.104s
+[Epoch 916] train_l2: 0.000571, train_l_inf: 0.615631, time: 7.989s
+[Epoch 917] train_l2: 0.000572, train_l_inf: 0.615632, time: 8.097s
+[Epoch 918] train_l2: 0.000571, train_l_inf: 0.615632, time: 7.311s
+[Epoch 919] train_l2: 0.000570, train_l_inf: 0.615631, time: 7.474s
+====================validate====================
+[Epoch 919] val_l2: 0.000395, val_l_inf: 0.578607
+================================================
+[Epoch 920] train_l2: 0.000572, train_l_inf: 0.615632, time: 7.621s
+[Epoch 921] train_l2: 0.000570, train_l_inf: 0.615634, time: 7.738s
+[Epoch 922] train_l2: 0.000572, train_l_inf: 0.615636, time: 7.437s
+[Epoch 923] train_l2: 0.000571, train_l_inf: 0.615637, time: 7.879s
+[Epoch 924] train_l2: 0.000574, train_l_inf: 0.615641, time: 9.502s
+[Epoch 925] train_l2: 0.000573, train_l_inf: 0.615640, time: 7.634s
+[Epoch 926] train_l2: 0.000572, train_l_inf: 0.615637, time: 7.961s
+[Epoch 927] train_l2: 0.000573, train_l_inf: 0.615638, time: 7.674s
+[Epoch 928] train_l2: 0.000571, train_l_inf: 0.615639, time: 7.967s
+[Epoch 929] train_l2: 0.000572, train_l_inf: 0.615641, time: 7.774s
+[Epoch 930] train_l2: 0.000572, train_l_inf: 0.615640, time: 7.787s
+[Epoch 931] train_l2: 0.000573, train_l_inf: 0.615642, time: 7.782s
+[Epoch 932] train_l2: 0.000570, train_l_inf: 0.615642, time: 7.791s
+[Epoch 933] train_l2: 0.000571, train_l_inf: 0.615637, time: 7.292s
+[Epoch 934] train_l2: 0.000573, train_l_inf: 0.615638, time: 7.429s
+[Epoch 935] train_l2: 0.000572, train_l_inf: 0.615642, time: 7.426s
+[Epoch 936] train_l2: 0.000571, train_l_inf: 0.615641, time: 7.433s
+[Epoch 937] train_l2: 0.000571, train_l_inf: 0.615638, time: 7.362s
+[Epoch 938] train_l2: 0.000572, train_l_inf: 0.615641, time: 7.232s
+[Epoch 939] train_l2: 0.000571, train_l_inf: 0.615639, time: 7.475s
+====================validate====================
+[Epoch 939] val_l2: 0.000395, val_l_inf: 0.578617
+================================================
+[Epoch 940] train_l2: 0.000571, train_l_inf: 0.615637, time: 8.616s
+[Epoch 941] train_l2: 0.000572, train_l_inf: 0.615635, time: 7.511s
+[Epoch 942] train_l2: 0.000571, train_l_inf: 0.615634, time: 7.831s
+[Epoch 943] train_l2: 0.000569, train_l_inf: 0.615633, time: 7.576s
+[Epoch 944] train_l2: 0.000572, train_l_inf: 0.615637, time: 7.616s
+[Epoch 945] train_l2: 0.000572, train_l_inf: 0.615641, time: 7.778s
+[Epoch 946] train_l2: 0.000572, train_l_inf: 0.615639, time: 7.358s
+[Epoch 947] train_l2: 0.000569, train_l_inf: 0.615640, time: 7.932s
+[Epoch 948] train_l2: 0.000572, train_l_inf: 0.615638, time: 7.990s
+[Epoch 949] train_l2: 0.000571, train_l_inf: 0.615642, time: 7.780s
+[Epoch 950] train_l2: 0.000571, train_l_inf: 0.615644, time: 7.470s
+[Epoch 951] train_l2: 0.000569, train_l_inf: 0.615645, time: 7.593s
+[Epoch 952] train_l2: 0.000571, train_l_inf: 0.615644, time: 7.578s
+[Epoch 953] train_l2: 0.000571, train_l_inf: 0.615641, time: 7.501s
+[Epoch 954] train_l2: 0.000571, train_l_inf: 0.615644, time: 7.637s
+[Epoch 955] train_l2: 0.000570, train_l_inf: 0.615644, time: 7.542s
+[Epoch 956] train_l2: 0.000571, train_l_inf: 0.615644, time: 8.738s
+[Epoch 957] train_l2: 0.000571, train_l_inf: 0.615644, time: 8.251s
+[Epoch 958] train_l2: 0.000571, train_l_inf: 0.615644, time: 8.613s
+[Epoch 959] train_l2: 0.000571, train_l_inf: 0.615644, time: 7.517s
+====================validate====================
+[Epoch 959] val_l2: 0.000395, val_l_inf: 0.578628
+================================================
+[Epoch 960] train_l2: 0.000572, train_l_inf: 0.615642, time: 7.823s
+[Epoch 961] train_l2: 0.000571, train_l_inf: 0.615642, time: 7.618s
+[Epoch 962] train_l2: 0.000571, train_l_inf: 0.615641, time: 7.467s
+[Epoch 963] train_l2: 0.000572, train_l_inf: 0.615642, time: 8.062s
+[Epoch 964] train_l2: 0.000572, train_l_inf: 0.615646, time: 7.769s
+[Epoch 965] train_l2: 0.000569, train_l_inf: 0.615645, time: 7.575s
+[Epoch 966] train_l2: 0.000572, train_l_inf: 0.615646, time: 7.956s
+[Epoch 967] train_l2: 0.000570, train_l_inf: 0.615653, time: 7.865s
+[Epoch 968] train_l2: 0.000570, train_l_inf: 0.615655, time: 7.732s
+[Epoch 969] train_l2: 0.000573, train_l_inf: 0.615656, time: 7.547s
+[Epoch 970] train_l2: 0.000571, train_l_inf: 0.615659, time: 7.521s
+[Epoch 971] train_l2: 0.000571, train_l_inf: 0.615658, time: 7.360s
+[Epoch 972] train_l2: 0.000571, train_l_inf: 0.615657, time: 7.860s
+[Epoch 973] train_l2: 0.000573, train_l_inf: 0.615656, time: 7.665s
+[Epoch 974] train_l2: 0.000572, train_l_inf: 0.615657, time: 7.546s
+[Epoch 975] train_l2: 0.000572, train_l_inf: 0.615656, time: 7.441s
+[Epoch 976] train_l2: 0.000572, train_l_inf: 0.615655, time: 7.301s
+[Epoch 977] train_l2: 0.000572, train_l_inf: 0.615654, time: 7.849s
+[Epoch 978] train_l2: 0.000572, train_l_inf: 0.615655, time: 7.764s
+[Epoch 979] train_l2: 0.000572, train_l_inf: 0.615661, time: 7.173s
+====================validate====================
+[Epoch 979] val_l2: 0.000395, val_l_inf: 0.578647
+================================================
+[Epoch 980] train_l2: 0.000569, train_l_inf: 0.615660, time: 7.945s
+[Epoch 981] train_l2: 0.000569, train_l_inf: 0.615654, time: 8.288s
+[Epoch 982] train_l2: 0.000571, train_l_inf: 0.615652, time: 7.747s
+[Epoch 983] train_l2: 0.000570, train_l_inf: 0.615651, time: 7.518s
+[Epoch 984] train_l2: 0.000570, train_l_inf: 0.615652, time: 7.793s
+[Epoch 985] train_l2: 0.000572, train_l_inf: 0.615653, time: 7.339s
+[Epoch 986] train_l2: 0.000571, train_l_inf: 0.615656, time: 7.771s
+[Epoch 987] train_l2: 0.000571, train_l_inf: 0.615659, time: 7.517s
+[Epoch 988] train_l2: 0.000572, train_l_inf: 0.615660, time: 8.190s
+[Epoch 989] train_l2: 0.000571, train_l_inf: 0.615659, time: 9.766s
+[Epoch 990] train_l2: 0.000572, train_l_inf: 0.615663, time: 7.767s
+[Epoch 991] train_l2: 0.000572, train_l_inf: 0.615665, time: 7.207s
+[Epoch 992] train_l2: 0.000570, train_l_inf: 0.615663, time: 7.475s
+[Epoch 993] train_l2: 0.000573, train_l_inf: 0.615662, time: 7.587s
+[Epoch 994] train_l2: 0.000572, train_l_inf: 0.615662, time: 7.451s
+[Epoch 995] train_l2: 0.000571, train_l_inf: 0.615663, time: 7.684s
+[Epoch 996] train_l2: 0.000571, train_l_inf: 0.615665, time: 7.502s
+[Epoch 997] train_l2: 0.000572, train_l_inf: 0.615664, time: 10.618s
+[Epoch 998] train_l2: 0.000570, train_l_inf: 0.615664, time: 7.641s
+[Epoch 999] train_l2: 0.000572, train_l_inf: 0.615667, time: 7.817s
+====================validate====================
+[Epoch 999] val_l2: 0.000395, val_l_inf: 0.578656
+================================================
+Total train time: 7793.29496319592s. Average per epoch: 7.79329496319592s
+Loss curve saved to /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E01_main/runs/2026-09-22-fno-E01-plume2-corr-seed0/log/2026-09-22-fno-E01-plume2-corr-seed0_Training_Loss.png
+Loss curve saved to /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E01_main/runs/2026-09-22-fno-E01-plume2-corr-seed0/log/2026-09-22-fno-E01-plume2-corr-seed0_Validation_Loss.png
+Loading best model from /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E01_main/runs/2026-09-22-fno-E01-plume2-corr-seed0/checkpoints/plume2d_train_ds_128x128_phys1e6_first21_corrected_FNO-best.pt for final test...
+Start final testing...
+Average inference time per call: 0.006031 s in GPU
+pred_np shape: (10, 128, 128, 20, 6)
+pred_all shape: (10, 20, 128, 128, 6)
+{'MSE': tensor([5.6497e-04, 2.6939e-04, 8.5951e-04, 6.4878e-04, 6.1338e-06, 2.0675e-05],
+       device='cuda:0'), 'RMSE': tensor([0.0237, 0.0164, 0.0279, 0.0251, 0.0022, 0.0034], device='cuda:0'), 'L2RE': tensor([0.0265, 0.0299, 0.0402, 0.0275, 3.3296, 1.1594], device='cuda:0'), 'MaxError': tensor([0.3258, 0.3494, 0.5787, 0.2324, 0.1592, 0.3720], device='cuda:0'), 'SSIM': tensor([0.9508, 0.9409, 0.9314, 0.8058, 0.0040, 0.0519]), 'avg_infer_time_s': 0.006031462478637695}
+MSE 	0.000565	0.000269	0.000860	0.000649	0.000006	0.000021	
+RMSE 	0.023695	0.016412	0.027898	0.025059	0.002209	0.003397	
+L2RE 	0.026457	0.029879	0.040155	0.027461	3.329592	1.159443	
+MaxError 	0.325824	0.349446	0.578656	0.232381	0.159201	0.371966	
+SSIM 	0.950809	0.940947	0.931411	0.805792	0.003976	0.051928	
+Done
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+end    : 2026-09-22T11:52:37+08:00

@@ -1,0 +1,19 @@
+# Direct dependencies of the release, pinned to the validated `fno` environment
+# (2026-11-01). torch / PyG extension wheels must be installed from the indexes
+# shown in setup_env.sh; they are not all available from PyPI.
+torch==2.4.1
+torch-geometric==2.6.1
+torch-scatter==2.1.2
+torch-sparse==0.6.18
+torch-cluster==1.6.3+pt24cu121
+dgl==2.1.0
+numpy==1.24.4
+scipy==1.10.1
+h5py==3.11.0
+pandas==2.0.3
+matplotlib==3.7.5
+imageio==2.33.1
+einops==0.8.1
+tqdm==4.68.2
+ruamel.yaml==0.18.15
+pyyaml==6.0.2

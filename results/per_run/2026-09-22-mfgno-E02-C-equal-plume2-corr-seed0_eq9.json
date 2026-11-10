@@ -1,0 +1,48 @@
+{
+  "E_per_field": {
+    "ro": 0.005651170077989151,
+    "pr": 0.0015118379919447159,
+    "tk": 0.009734720030420422,
+    "nu": 0.010755207824570134,
+    "vx": 0.8201665410389414,
+    "vy": 0.7797660704775928
+  },
+  "rmse_per_field": {
+    "ro": 0.005061881507228988,
+    "pr": 0.0008307063293851784,
+    "tk": 0.006736930806507445,
+    "nu": 0.009822159105727474,
+    "vx": 0.0017206729272536629,
+    "vy": 0.004133157710545354
+  },
+  "second_order": {
+    "ro": 3.193572325035991e-05,
+    "pr": 2.2856541138874308e-06,
+    "tk": 9.476477407066858e-05,
+    "nu": 0.00011567449534969463,
+    "vx": 0.6726731550397815,
+    "vy": 0.6080351246680663
+  },
+  "epsilon_triggered": {
+    "ro": 0,
+    "pr": 0,
+    "tk": 0,
+    "nu": 0,
+    "vx": 0,
+    "vy": 0
+  },
+  "n_traj": 25,
+  "n_frame": 10,
+  "exp_id": "2026-09-22-mfgno-E02-C-equal-plume2-corr-seed0",
+  "model_id": "MFGNO",
+  "variant": "C",
+  "subset": "plume2",
+  "seed": 0,
+  "checkpoint_epoch": 520,
+  "checkpoint_val_loss": 5.098255587654421e-05,
+  "n_test_samples": 25,
+  "test_file": "plume2d_test_ds_128x128_phys1e6_first21_corrected.hdf5",
+  "epsilon_source": "fitted_on_train__protocol/epsilon.json 尚未生成",
+  "epsilon_subset": "plume2",
+  "epsilon_train_file": "plume2d_train_ds_128x128_phys1e6_first21_corrected.hdf5"
+}

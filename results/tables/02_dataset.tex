@@ -1,0 +1,38 @@
+\begin{table}[t]
+\centering\small
+\caption{File inventory of the GeoSim dataset. Training-pool counts precede
+validation selection. Both subsets simulate two-dimensional space. The
+released dataset provides the stored trajectory segments: the Plume1
+training pool contains 97 frames (maximum end time $55.24$\,Myr) and the
+Plume1 test set 131 frames (maximum end time $72.24$\,Myr). Each Plume2
+trajectory contains 131 stored frames with trajectory-specific physical
+timestamps; $67.99$\,Myr is the maximum end time ($67.92$\,Myr in the test
+file). The trained models use a shorter time extent (see the ``frames used
+in training'' row), and reported numbers state which extent they come
+from. The training count is the
+effective $10\to10$ target extent; the 21st frame is retained for the time
+axis and canonical evaluation. Temperature and
+lithosphere-thickness ranges are the simulator input intervals defined by
+the sampling design, not the extrema realized by the sampled points; both
+are derived from the sampling scripts and per-case inputs.}
+\label{tab:dataset_inventory}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Property & \pone & \ptwo\\
+\midrule
+Simulation trajectories & 109 & 128\\
+Training pool / held-out test & 97 / 12 & 103 / 25\\
+Final train / validation & 87 / 10 & 92 / 11\\
+Frames per full train / test trajectory & 97 / 131 & 131 / 131\\
+Frames used in training & 20 & 20\\
+Active parameter dimension & 1 & 2\\
+Temperature parameter range (K) & 1600--1800 & 2000--2150\\
+Lithosphere thickness range (km) & fixed & 160--220\\
+Verified sampling design & Latin hypercube, seed 42 & Sobol sequence\\
+Max end time, train (Myr) & 55.24 & 67.99\\
+Max end time, test (Myr) & 72.24 & 67.92\\
+Stored physical channels & 6 & 6\\
+Standard target resolution & $128\times128$ & $128\times128$\\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,204 @@
+PKG      : /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume
+VENDOR   : /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume/code/vendor
+PYTHONPATH: /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume/code/vendor
+CWD      : /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume
+python   : /fs1/home/USER/.conda/envs/fno/bin/python
+host     : gsn14
+start    : 2026-10-31T20:15:33+08:00
+
+--- import 检查: FNO
+    OK: /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume/code/vendor/fno/train_new.py
+--- import 检查: GNOT
+    OK: /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume/code/vendor/GNOT-master/plume1/train.py
+--- import 检查: Transolver
+    OK: /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume/code/vendor/Transolver/train.py
+
+===== 训练: FNO =====
+{'root_path': '/fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume/smoke/runs', 'exp_id': 'SMOKE-vendor-fno', 'pde_name': '2D_Mantle_Convection', 'model_id': 'fno', 'if_training': True, 'continue_training': False, 'inverse': False, 'model_path': None, 'save_period': 1, 'seed': 0, 'training_type': 'autoregressive', 't_train': 21, 'initial_step': 10, 'unroll_step': 20, 'epochs': 2, 'if_physical_loss': False, 'dataset': {'single_file': True, 'file_name': 'plume1d_train_ds_128x128_phys1e6_first21.hdf5', 'saved_folder': '/fs1/home/USER/lhl/neuraloeprator-main/data/plume1d_corrected/', 'reduced_resolution': 1, 'reduced_resolution_t': 1, 'reduced_batch': 1}, 'dataloader': {'batch_size': 32, 'num_workers': 4, 'pin_memory': True}, 'model': {'num_channels': 6, 'modes': 24, 'width': 48}, 'optimizer': {'name': 'Adam', 'lr': 0.0001, 'weight_decay': 0.0001}, 'scheduler': {'name': 'StepLR', 'step_size': 100, 'gamma': 0.5}}
+FNODatasetSingle
+Total trainable parameters: 10636310
+Start training...
+[Epoch 0] train_l2: 0.633827, train_l_inf: 1.032562, time: 11.106s
+====================validate====================
+[Epoch 0] val_l2: 0.401014, val_l_inf: 1.027776
+================================================
+[Epoch 1] train_l2: 0.626569, train_l_inf: 1.027777, time: 8.699s
+====================validate====================
+[Epoch 1] val_l2: 0.396450, val_l_inf: 1.022978
+================================================
+Total train time: 19.805324914865196s. Average per epoch: 9.902662457432598s
+Loss curve saved to /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume/smoke/runs/SMOKE-vendor-fno/log/SMOKE-vendor-fno_Training_Loss.png
+Loss curve saved to /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume/smoke/runs/SMOKE-vendor-fno/log/SMOKE-vendor-fno_Validation_Loss.png
+Loading best model from /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume/smoke/runs/SMOKE-vendor-fno/checkpoints/plume1d_train_ds_128x128_phys1e6_first21_FNO-best.pt for final test...
+Start final testing...
+Average inference time per call: 0.005526 s in GPU
+pred_np shape: (9, 128, 128, 21, 6)
+pred_all shape: (9, 21, 128, 128, 6)
+{'MSE': tensor([8.4345e-01, 2.7509e-01, 5.9061e-01, 6.5959e-01, 9.8505e-03, 1.1030e-04],
+       device='cuda:0'), 'RMSE': tensor([0.9184, 0.5245, 0.7685, 0.8120, 0.0992, 0.0091], device='cuda:0'), 'L2RE': tensor([ 1.0243,  0.9545,  1.0451,  0.8679, 63.5570,  1.0074], device='cuda:0'), 'MaxError': tensor([1.0176, 0.9675, 1.0230, 0.8769, 0.2371, 0.2430], device='cuda:0'), 'SSIM': tensor([-0.0455,  0.1785, -0.0806,  0.1697,  0.0002,  0.0716]), 'avg_infer_time_s': 0.005526379628614946}
+MSE 	0.843450	0.275094	0.590613	0.659585	0.009850	0.000110	
+RMSE 	0.918395	0.524494	0.768513	0.812047	0.099249	0.009110	
+L2RE 	1.024284	0.954453	1.045070	0.867890	63.556988	1.007423	
+MaxError 	1.017554	0.967539	1.022978	0.876891	0.237105	0.242966	
+SSIM 	-0.045522	0.178546	-0.080635	0.169741	0.000248	0.071588	
+Done
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+--- FNO 产物:
+    SMOKE-vendor-fno.yaml
+    log/val_loss_history.npy
+    log/SMOKE-vendor-fno_Training_Loss.png
+    log/SMOKE-vendor-fno_Validation_Loss.png
+    log/loss_history.npy
+    checkpoints/plume1d_train_ds_128x128_phys1e6_first21_FNO-latest.pt
+    checkpoints/plume1d_train_ds_128x128_phys1e6_first21_FNO-best.pt
+
+===== 训练: GNOT =====
+Using device: cuda:0
+Train samples: 174, Test samples: 20
+Nodes per graph: 16384
+Using Linear Attention
+Using Linear Attention
+Using Linear Attention
+Model: GNOT, Parameters: 2940994
+
+Start training from epoch 0 to 2...
+[Epoch 0] train_loss: 0.120773, time: 10.4s, lr: 1.00e-04
+  val_loss: 0.023140
+[Epoch 1] train_loss: 0.015370, time: 7.7s, lr: 1.00e-04
+  val_loss: 0.010589
+
+Training completed. Total time: 18.1s
+
+Running final evaluation...
+Average inference time: 0.064037 s
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+MSE[0]: 0.020542
+MSE[1]: 0.009855
+MSE[2]: 0.014587
+MSE[3]: 0.011466
+MSE[4]: 0.003047
+MSE[5]: 0.004035
+RMSE[0]: 0.143326
+RMSE[1]: 0.099015
+RMSE[2]: 0.120770
+RMSE[3]: 0.107059
+RMSE[4]: 0.055173
+RMSE[5]: 0.063500
+L2RE[0]: 0.159850
+L2RE[1]: 0.180181
+L2RE[2]: 0.164255
+L2RE[3]: 0.114355
+L2RE[4]: 35.672134
+L2RE[5]: 19.547884
+MaxError[0]: 0.877506
+MaxError[1]: 0.350248
+MaxError[2]: 0.544964
+MaxError[3]: 0.407021
+MaxError[4]: 0.216638
+MaxError[5]: 0.298282
+avg_infer_time_s: 0.064037s
+Done.
+--- GNOT 产物:
+    SMOKE-vendor-gnot.yaml
+    logs/SMOKE-vendor-gnot_loss_history.npy
+    logs/SMOKE-vendor-gnot_val_loss_history.npy
+    logs/SMOKE-vendor-gnot_test.log
+    checkpoints/SMOKE-vendor-gnot-latest.pt
+    checkpoints/SMOKE-vendor-gnot-best.pt
+
+===== 训练: Transolver =====
+{'root_path': '/fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume/smoke/runs', 'exp_id': 'SMOKE-vendor-transolver', 'model_id': 'Transolver', 'pde_name': '2D_Mantle_Convection', 'temporal_domain': '(0, 17.2433)', 'resolution_t': 21, 'spatial_domain': '[(0, 1), (0, 1)]', 'resolution': [128, 128], 'num_outputs': 6, 'if_training': True, 'continue_training': False, 'model_path': None, 'save_period': 1, 'seed': 0, 'initial_step': 10, 't_train': 21, 'epochs': 2, 'dataset': {'single_file': True, 'file_name': 'plume1d_train_ds_128x128_phys1e6_first21.hdf5', 'saved_folder': '/fs1/home/USER/lhl/neuraloeprator-main/data/plume1d_corrected/', 'test_ratio': 0.1}, 'dataloader': {'batch_size': 4, 'num_workers': 4, 'pin_memory': True}, 'model': {'n_layers': 5, 'n_hidden': 256, 'n_head': 8, 'dropout': 0.0, 'act': 'gelu', 'mlp_ratio': 1, 'slice_num': 64, 'ref': 8, 'unified_pos': False, 'Time_Input': False}, 'optimizer': {'name': 'Adam', 'lr': 0.0001, 'weight_decay': 1e-08}, 'scheduler': {'name': 'StepLR', 'step_size': 100, 'gamma': 0.5}}
+Total trainable parameters: 7084654
+Start training...
+[Epoch 0] train_loss: 0.724033, time: 70.83s
+[Epoch 0] val_loss: 0.088885
+[Epoch 1] train_loss: 0.077998, time: 68.11s
+[Epoch 1] val_loss: 0.055617
+Loading best model from /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume/smoke/runs/SMOKE-vendor-transolver/checkpoints/Transolver_lr0.0001_bs4-best.pt for final test...
+Start final testing...
+Average inference time per call: 0.087087 s
+{'MSE': tensor([0.0097, 0.0108, 0.0058, 0.0038, 0.0001, 0.0002], device='cuda:0'), 'RMSE': tensor([0.0986, 0.1039, 0.0763, 0.0613, 0.0105, 0.0114], device='cuda:0'), 'L2RE': tensor([0.1099, 0.1890, 0.1037, 0.0655, 6.2281, 1.8659], device='cuda:0'), 'MaxError': tensor([0.3805, 0.2601, 0.2244, 0.2244, 0.1399, 0.3055], device='cuda:0'), 'avg_infer_time_s': 0.08708673176620946}
+MSE 	0.009713	0.010787	0.005820	0.003775	0.000112	0.000152	
+RMSE 	0.098554	0.103855	0.076278	0.061346	0.010534	0.011387	
+L2RE 	0.109917	0.188989	0.103743	0.065472	6.228082	1.865949	
+MaxError 	0.380496	0.260093	0.224433	0.224443	0.139931	0.305452	
+Done
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+--- Transolver 产物:
+    log/val_loss_history.npy
+    log/loss_history.npy
+    checkpoints/Transolver_lr0.0001_bs4-best.pt
+    checkpoints/Transolver_lr0.0001_bs4-latest.pt
+    SMOKE-vendor-transolver.yaml
+
+end: 2026-10-31T20:26:12+08:00
+冒烟通过：三个基线均可从 vendor 目录跑通

@@ -1,0 +1,50 @@
+# 由发布前配置生成器生成并冻结 —— 生成器未随包，请勿手改。
+# 模板: fno_large.yaml   训练入口: fno/train_new.py
+# stage=E01 subset=plume1d model=fno seed=2 variant=- loss_mode=None
+# 数据: plume1d_train_ds_128x128_phys1e6_first21.hdf5  (t 单位: Myr)
+# FNO large — originA (conservative remapping 128×128)
+root_path: "/fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume/code/experiments/E01_main/runs"
+exp_id: "2026-09-17-fno-E01-plume1d-seed2"
+pde_name: "2D_Mantle_Convection"
+model_id: "fno"
+if_training: True
+continue_training: False
+inverse: False
+model_path: null
+save_period: 20
+# training args
+seed: 2
+training_type: "autoregressive"
+t_train: 20
+initial_step: 10
+unroll_step: 20
+epochs: 1000
+if_physical_loss: False
+# dataset args — 方案 B 保守重映射数据
+dataset:
+  single_file: True
+  file_name: "plume1d_train_ds_128x128_phys1e6_first21.hdf5"
+  saved_folder: "/fs1/home/USER/lhl/neuraloeprator-main/data/plume1d_corrected/"
+  reduced_resolution: 1
+  reduced_resolution_t: 1
+  reduced_batch: 1
+# dataloader args
+dataloader:
+  batch_size: 32
+  num_workers: 4
+  pin_memory: True
+# model args — large: modes 24, width 48
+model:
+  num_channels: 6
+  modes: 24
+  width: 48
+# optimizer args
+optimizer:
+  name: 'Adam'
+  lr: 1.e-4
+  weight_decay: 1.e-4
+# scheduler args
+scheduler:
+  name: "StepLR"
+  step_size: 100
+  gamma: 0.5

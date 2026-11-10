@@ -1,0 +1,6 @@
+model,model_id,params_M,peak_alloc_GiB,batch,precision,infer_latency_ms,infer_latency_std_ms,N_nodes,E_edges,mean_degree,d_width,L_layers,graph_rebuild_ms,graph_cached_update_ms,train_hours_total,gpu_hours,device,oom_note,note
+fno,fno,10.636,0.151,32,fp32,2.751,0.038,,,,,,,,2.39,2.39,cuda:0,,
+gnot,GNOT,2.941,1.854,2,fp32,16.79,0.14,,,,,,,,4.32,4.32,cuda:0,,GNOT 走 CPU（dgl 2.1.0 是 CPU-only 编译），其延迟与其余四行的 GPU 数字不可比
+mfgno,MFGNO,10.551,12.885,1,fp32,119.381,0.777,16384,129540,7.91,512,6,6.212,0.602,33.24,33.24,cuda:0,,
+mpnn,MPNN,9.077,29.566,1,fp32,213.27,1.565,16384,129540,7.91,200,6,6.182,0.612,52.14,52.14,cuda:0,,
+transolver,Transolver,7.085,1.245,4,fp32,28.609,2.647,,,,,,,,17.28,17.28,cuda:0,,

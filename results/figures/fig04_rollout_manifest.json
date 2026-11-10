@@ -1,0 +1,46 @@
+{
+  "figures": [
+    "fig04_rollout_main.pdf",
+    "fig04_rollout_full.pdf"
+  ],
+  "source_csv": "results/metrics/E03_rollout/formal_all5/rollout_curves.csv",
+  "aggregation": "frame-index aligned: every plotted point is a raw per-frame value, no time interpolation (time-interpolation over 12 mismatched non-uniform axes produced a resampling-artefact sawtooth)",
+  "x_axis": "dt = physical_time - t[9] of the same trajectory, where t[9] is the LAST OBSERVED INPUT frame; this matches the paper's lead-time convention. The x-axis is pinned to start at 0 via xlim; the drawn curves begin at the first predicted frame (dt = 1.0 Myr on GeoSim-Plume1). A zero-error anchor at dt=0 is deliberately NOT added: it is not drawable on a log axis and renders as a spurious vertical drop to the axis floor",
+  "why_t9": "the first version used t[10] (first predicted frame) as the origin. That differs from the frozen protocol by exactly one time step (1.0 Myr on GeoSim-Plume1, 0.098-1.0 on GeoSim-Plume2), so a reader taking a value off the figure at dt=12 was reading the paper's lead-13 number. Author ruling 2026-09-26: match the protocol.",
+  "main_panels": [
+    "ro",
+    "tk",
+    "vx",
+    "vy"
+  ],
+  "main_subset": "GeoSim-Plume1",
+  "main_bands": "none (mean curves only)",
+  "full_panels": "6 fields x 2 subsets, seed and trajectory bands kept",
+  "mode": "auto",
+  "training_boundary": {
+    "plume1d": {
+      "median_dt_Myr": 7.999999284744263,
+      "min_dt_Myr": 7.999998092651367,
+      "max_dt_Myr": 8.000000953674316,
+      "n_trajectories": 12,
+      "constant": true
+    },
+    "plume2": {
+      "median_dt_Myr": 7.265334129333496,
+      "min_dt_Myr": 1.682596206665039,
+      "max_dt_Myr": 8.000000476837158,
+      "n_trajectories": 25,
+      "constant": false
+    }
+  },
+  "boundary_note": "computed per trajectory as t[19] - t[9], the last target frame of the effective s=10 window. The s=11 boundary window has dt=0 and contributes no gradient. The dashed line is the median; on GeoSim-Plume1 it is exactly 8.000 Myr for every trajectory, on GeoSim-Plume2 it varies and the spread is recorded here.",
+  "model_colors": {
+    "MFGNO": "#3D2670",
+    "MPNN": "#56B4E9",
+    "fno": "#C44E52",
+    "Transolver": "#CCB974",
+    "GNOT": "#55A860"
+  },
+  "fonttype_setting": 42,
+  "generated_at": "2026-11-03T10:28:05"
+}

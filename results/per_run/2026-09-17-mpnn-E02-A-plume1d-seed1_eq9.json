@@ -1,0 +1,48 @@
+{
+  "E_per_field": {
+    "ro": 0.00011451450813894125,
+    "pr": 3.950777866600995e-05,
+    "tk": 0.0002884705138905466,
+    "nu": 0.0006982397515571691,
+    "vx": 0.1242523734996163,
+    "vy": 0.059638422321608126
+  },
+  "rmse_per_field": {
+    "ro": 0.00010267455161648212,
+    "pr": 2.1710055361365554e-05,
+    "tk": 0.00021229400091714955,
+    "nu": 0.0006519083855017157,
+    "vx": 0.0005183975533098184,
+    "vy": 0.0006522018594947683
+  },
+  "second_order": {
+    "ro": 1.3113572574303643e-08,
+    "pr": 1.5608645751224311e-09,
+    "tk": 8.321523738427603e-08,
+    "nu": 4.875387506546172e-07,
+    "vx": 0.015438652320288153,
+    "vy": 0.0035567414170104865
+  },
+  "epsilon_triggered": {
+    "ro": 0,
+    "pr": 0,
+    "tk": 0,
+    "nu": 0,
+    "vx": 0,
+    "vy": 0
+  },
+  "n_traj": 12,
+  "n_frame": 10,
+  "exp_id": "2026-09-17-mpnn-E02-A-plume1d-seed1",
+  "model_id": "MPNN",
+  "variant": "A",
+  "subset": "plume1d",
+  "seed": 1,
+  "checkpoint_epoch": 1980,
+  "checkpoint_val_loss": 4.520142510955338e-07,
+  "n_test_samples": 12,
+  "test_file": "plume1d_test_ds_128x128_phys1e6_first21.hdf5",
+  "epsilon_source": "fitted_on_train__protocol/epsilon.json 尚未生成",
+  "epsilon_subset": "plume1d",
+  "epsilon_train_file": "plume1d_train_ds_128x128_phys1e6_first21.hdf5"
+}

@@ -1,0 +1,2352 @@
+config : /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E02_ablation/configs/2026-09-17-mfgno-E02-B-equal-plume1d-seed1.yaml
+trainer: /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/common/vendor/train_tubor.py
+host   : gsn6
+start  : 2026-09-18T01:12:02+08:00
+{'root_path': '/fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E02_ablation/runs', 'model_id': 'MFGNO', 'exp_id': '2026-09-17-mfgno-E02-B-equal-plume1d-seed1', 'pde_name': '2D_Mantle_Convection', 'temporal_domain': '(0, 17.2433)', 'resolution_t': 21, 'spatial_domain': '[(0, 1), (0, 1)]', 'resolution': [128, 128], 'variables': {'m': 0.1, 'eta': 0.1, 'zeta': 0.1}, 'num_outputs': 6, 'if_training': True, 'continue_training': False, 'model_path': None, 'save_period': 20, 'tensorboard': False, 'log_dir': './logs/tensorboard/', 'seed': 1, 'time_window': 10, 'neighbors': 1, 'unrolling': 0, 'unroll_step': 20, 'epochs': 2000, 'if_physical_loss': 1, 'if_v_gradient_loss': 0, 'if_continuity_loss': 0, 'if_argument_v_loss': 0, 'if_continuity_loss_non_uniform': 0, 'if_l2re_loss': 0, 'if_weighted_l2re_loss': 0, 'loss_mode': 'equal', 'dataset': {'single_file': True, 'file_name': 'plume1d_train_ds_128x128_phys1e6_first21.hdf5', 'saved_folder': '/fs1/home/USER/lhl/neuraloeprator-main/data/plume1d_corrected/', 'reduced_resolution': 1, 'reduced_resolution_t': 1, 'reduced_batch': 1, 'test_ratio': 0.1}, 'dataloader': {'batch_size': 2, 'num_workers': 4, 'pin_memory': True}, 'model': {'hidden_features': 512, 'hidden_layer': 6, 'zero_var_diff': True}, 'optimizer': {'name': 'Adam', 'lr': 0.0001, 'weight_decay': 1e-08}, 'scheduler': {'name': 'StepLR', 'step_size': 100, 'gamma': 0.8}}
+Using device: cuda:0
+SingleDataset
+Total trainable parameters: 10551362
+Start training from epoch 0
+[Epoch 0] MSELoss: 0.39042644016444683, time: 64.224s
+[Epoch 1] MSELoss: 0.2879993850365281, time: 59.073s
+[Epoch 2] MSELoss: 0.28654848775741726, time: 59.468s
+[Epoch 3] MSELoss: 0.231026864441281, time: 58.906s
+[Epoch 4] MSELoss: 0.2560756311497905, time: 59.273s
+[Epoch 5] MSELoss: 0.21827023510228505, time: 59.021s
+[Epoch 6] MSELoss: 0.2058848569338972, time: 60.060s
+[Epoch 7] MSELoss: 0.21148032881319523, time: 59.583s
+[Epoch 8] MSELoss: 0.19796280503611674, time: 59.289s
+[Epoch 9] MSELoss: 0.18824956117367203, time: 59.107s
+[Epoch 10] MSELoss: 0.19162403555078938, time: 59.628s
+[Epoch 11] MSELoss: 0.19231970087540423, time: 58.964s
+[Epoch 12] MSELoss: 0.18781682645732706, time: 58.935s
+[Epoch 13] MSELoss: 0.18348384902558545, time: 59.432s
+[Epoch 14] MSELoss: 0.17876145099713042, time: 59.594s
+[Epoch 15] MSELoss: 0.17336316592991352, time: 60.022s
+[Epoch 16] MSELoss: 0.18074983527714555, time: 59.099s
+[Epoch 17] MSELoss: 0.18113227721981026, time: 59.848s
+[Epoch 18] MSELoss: 0.17693838197737932, time: 59.056s
+[Epoch 19] MSELoss: 0.17283757420426066, time: 59.240s
+==================== Validation ====================
+[Epoch 19] val_loss: 1.833162086768425e-05
+===================================================
+[Epoch 20] MSELoss: 0.18381049780344422, time: 59.119s
+[Epoch 21] MSELoss: 0.1800824841907756, time: 59.537s
+[Epoch 22] MSELoss: 0.1720714224925773, time: 59.608s
+[Epoch 23] MSELoss: 0.1760687588460066, time: 59.996s
+[Epoch 24] MSELoss: 0.17382828705012798, time: 58.977s
+[Epoch 25] MSELoss: 0.17155786646022037, time: 59.820s
+[Epoch 26] MSELoss: 0.1746235324747183, time: 59.452s
+[Epoch 27] MSELoss: 0.18600270456888457, time: 58.944s
+[Epoch 28] MSELoss: 0.171567153185606, time: 59.402s
+[Epoch 29] MSELoss: 0.16647266228259966, time: 59.106s
+[Epoch 30] MSELoss: 0.16736947575753386, time: 59.419s
+[Epoch 31] MSELoss: 0.17521873649887065, time: 59.414s
+[Epoch 32] MSELoss: 0.16552323204549876, time: 59.186s
+[Epoch 33] MSELoss: 0.16473529970442707, time: 59.502s
+[Epoch 34] MSELoss: 0.16106294751675293, time: 59.231s
+[Epoch 35] MSELoss: 0.16271501203829591, time: 59.447s
+[Epoch 36] MSELoss: 0.1533173720606349, time: 59.462s
+[Epoch 37] MSELoss: 0.1545525228350677, time: 59.601s
+[Epoch 38] MSELoss: 0.15525421081110835, time: 59.583s
+[Epoch 39] MSELoss: 0.15195859198204498, time: 59.467s
+==================== Validation ====================
+[Epoch 39] val_loss: 1.2996440045753842e-05
+===================================================
+[Epoch 40] MSELoss: 0.15081246044825425, time: 59.176s
+[Epoch 41] MSELoss: 0.1485457915220071, time: 59.104s
+[Epoch 42] MSELoss: 0.14721767147156326, time: 59.207s
+[Epoch 43] MSELoss: 0.14742294368757441, time: 59.247s
+[Epoch 44] MSELoss: 0.14817040218887004, time: 59.472s
+[Epoch 45] MSELoss: 0.14941508504985407, time: 59.044s
+[Epoch 46] MSELoss: 0.14964210817759688, time: 59.539s
+[Epoch 47] MSELoss: 0.141574888066812, time: 59.483s
+[Epoch 48] MSELoss: 0.14056437674232505, time: 59.489s
+[Epoch 49] MSELoss: 0.1426387945698066, time: 59.890s
+[Epoch 50] MSELoss: 0.1353940978984941, time: 59.963s
+[Epoch 51] MSELoss: 0.13060240201990714, time: 59.406s
+[Epoch 52] MSELoss: 0.1405879165553911, time: 59.432s
+[Epoch 53] MSELoss: 0.13097692568871108, time: 59.199s
+[Epoch 54] MSELoss: 0.13410322444344108, time: 59.461s
+[Epoch 55] MSELoss: 0.13962858745997603, time: 59.889s
+[Epoch 56] MSELoss: 0.1349880417639559, time: 59.854s
+[Epoch 57] MSELoss: 0.12834850876507437, time: 59.392s
+[Epoch 58] MSELoss: 0.13174239194697956, time: 59.905s
+[Epoch 59] MSELoss: 0.13486350467428565, time: 59.206s
+==================== Validation ====================
+[Epoch 59] val_loss: 1.006232678264496e-05
+===================================================
+[Epoch 60] MSELoss: 0.1341835551641204, time: 59.096s
+[Epoch 61] MSELoss: 0.1293591282076456, time: 59.500s
+[Epoch 62] MSELoss: 0.1266264051029628, time: 59.926s
+[Epoch 63] MSELoss: 0.13074385421350598, time: 59.526s
+[Epoch 64] MSELoss: 0.13728486611084506, time: 59.529s
+[Epoch 65] MSELoss: 0.1366143923845481, time: 59.920s
+[Epoch 66] MSELoss: 0.13664484527808698, time: 59.865s
+[Epoch 67] MSELoss: 0.1280534855005416, time: 59.364s
+[Epoch 68] MSELoss: 0.12407902115955949, time: 59.429s
+[Epoch 69] MSELoss: 0.1291068719953976, time: 59.112s
+[Epoch 70] MSELoss: 0.12400558159093966, time: 59.519s
+[Epoch 71] MSELoss: 0.12166357396001165, time: 59.579s
+[Epoch 72] MSELoss: 0.1314627681435509, time: 59.899s
+[Epoch 73] MSELoss: 0.12415214242752304, time: 59.722s
+[Epoch 74] MSELoss: 0.11634775500913913, time: 59.992s
+[Epoch 75] MSELoss: 0.12830441995439204, time: 59.405s
+[Epoch 76] MSELoss: 0.12127003564753316, time: 59.146s
+[Epoch 77] MSELoss: 0.12415294963019816, time: 59.433s
+[Epoch 78] MSELoss: 0.11906803577122363, time: 59.831s
+[Epoch 79] MSELoss: 0.12124509508298202, time: 60.055s
+==================== Validation ====================
+[Epoch 79] val_loss: 7.37502341507934e-06
+===================================================
+[Epoch 80] MSELoss: 0.11715835798531771, time: 59.871s
+[Epoch 81] MSELoss: 0.125960203924809, time: 59.200s
+[Epoch 82] MSELoss: 0.12009593708948656, time: 59.498s
+[Epoch 83] MSELoss: 0.12349546171555464, time: 59.088s
+[Epoch 84] MSELoss: 0.12108510186557066, time: 59.080s
+[Epoch 85] MSELoss: 0.11871714128012006, time: 59.481s
+[Epoch 86] MSELoss: 0.11060377273877914, time: 59.256s
+[Epoch 87] MSELoss: 0.11248293066058646, time: 60.017s
+[Epoch 88] MSELoss: 0.12087348154322668, time: 58.854s
+[Epoch 89] MSELoss: 0.10901678014885297, time: 59.109s
+[Epoch 90] MSELoss: 0.11718111671507359, time: 59.446s
+[Epoch 91] MSELoss: 0.11025350109081378, time: 59.596s
+[Epoch 92] MSELoss: 0.11911072404208509, time: 59.036s
+[Epoch 93] MSELoss: 0.12020312084562398, time: 59.684s
+[Epoch 94] MSELoss: 0.10984761725095185, time: 59.409s
+[Epoch 95] MSELoss: 0.11934566561302001, time: 59.457s
+[Epoch 96] MSELoss: 0.10899465251713991, time: 59.611s
+[Epoch 97] MSELoss: 0.11959153079343113, time: 59.529s
+[Epoch 98] MSELoss: 0.11061382945626974, time: 59.062s
+[Epoch 99] MSELoss: 0.11282135533507576, time: 59.109s
+==================== Validation ====================
+[Epoch 99] val_loss: 5.375916180128115e-06
+===================================================
+[Epoch 100] MSELoss: 0.11564144898544658, time: 58.864s
+[Epoch 101] MSELoss: 0.11025635121305558, time: 58.884s
+[Epoch 102] MSELoss: 0.11004295193759556, time: 59.677s
+[Epoch 103] MSELoss: 0.10767130215059628, time: 59.568s
+[Epoch 104] MSELoss: 0.10941773432899606, time: 59.721s
+[Epoch 105] MSELoss: 0.10886283735321327, time: 59.031s
+[Epoch 106] MSELoss: 0.11357089034705, time: 59.522s
+[Epoch 107] MSELoss: 0.11449125114913014, time: 59.262s
+[Epoch 108] MSELoss: 0.10844256074845113, time: 59.792s
+[Epoch 109] MSELoss: 0.10426162771711295, time: 59.070s
+[Epoch 110] MSELoss: 0.10779101638631387, time: 59.536s
+[Epoch 111] MSELoss: 0.10559610815041445, time: 60.021s
+[Epoch 112] MSELoss: 0.11080364163287662, time: 59.105s
+[Epoch 113] MSELoss: 0.10706856787543406, time: 59.379s
+[Epoch 114] MSELoss: 0.11236081109382212, time: 59.071s
+[Epoch 115] MSELoss: 0.1104698467110707, time: 59.959s
+[Epoch 116] MSELoss: 0.11758746289309452, time: 59.050s
+[Epoch 117] MSELoss: 0.09954792515120722, time: 59.638s
+[Epoch 118] MSELoss: 0.09570484003052115, time: 59.276s
+[Epoch 119] MSELoss: 0.11518841998820956, time: 59.603s
+==================== Validation ====================
+[Epoch 119] val_loss: 3.920363405995886e-06
+===================================================
+[Epoch 120] MSELoss: 0.09807527975433253, time: 59.274s
+[Epoch 121] MSELoss: 0.11143853030675514, time: 59.372s
+[Epoch 122] MSELoss: 0.11042656942101364, time: 59.168s
+[Epoch 123] MSELoss: 0.1115493959408592, time: 59.845s
+[Epoch 124] MSELoss: 0.10497603006660938, time: 59.101s
+[Epoch 125] MSELoss: 0.1041198256848888, time: 59.537s
+[Epoch 126] MSELoss: 0.10483336979946631, time: 59.262s
+[Epoch 127] MSELoss: 0.09953262377530336, time: 59.142s
+[Epoch 128] MSELoss: 0.11009359994733875, time: 59.665s
+[Epoch 129] MSELoss: 0.09883758844807744, time: 59.909s
+[Epoch 130] MSELoss: 0.10524587733247741, time: 59.568s
+[Epoch 131] MSELoss: 0.0942866676910357, time: 59.496s
+[Epoch 132] MSELoss: 0.11537843978625129, time: 58.888s
+[Epoch 133] MSELoss: 0.10986869178966366, time: 59.320s
+[Epoch 134] MSELoss: 0.0982864293566143, time: 59.215s
+[Epoch 135] MSELoss: 0.10441982034932483, time: 59.245s
+[Epoch 136] MSELoss: 0.10149805364198983, time: 59.072s
+[Epoch 137] MSELoss: 0.10198454929261722, time: 59.472s
+[Epoch 138] MSELoss: 0.10806580201130023, time: 59.385s
+[Epoch 139] MSELoss: 0.10814642256379806, time: 59.518s
+==================== Validation ====================
+[Epoch 139] val_loss: 3.4120990449082457e-06
+===================================================
+[Epoch 140] MSELoss: 0.10272221853533252, time: 59.562s
+[Epoch 141] MSELoss: 0.10580095278353177, time: 59.337s
+[Epoch 142] MSELoss: 0.11290427993729032, time: 59.125s
+[Epoch 143] MSELoss: 0.10656116871078583, time: 59.099s
+[Epoch 144] MSELoss: 0.10139973895539614, time: 59.472s
+[Epoch 145] MSELoss: 0.10267783754335885, time: 59.541s
+[Epoch 146] MSELoss: 0.1050290672362528, time: 59.425s
+[Epoch 147] MSELoss: 0.10771055765111338, time: 59.562s
+[Epoch 148] MSELoss: 0.1048815096940168, time: 59.540s
+[Epoch 149] MSELoss: 0.10390677070245147, time: 59.634s
+[Epoch 150] MSELoss: 0.10772529970431192, time: 59.119s
+[Epoch 151] MSELoss: 0.10003580796447667, time: 59.085s
+[Epoch 152] MSELoss: 0.11520907350561835, time: 59.820s
+[Epoch 153] MSELoss: 0.09949568612501025, time: 59.563s
+[Epoch 154] MSELoss: 0.10733781033195555, time: 58.952s
+[Epoch 155] MSELoss: 0.11339736048301513, time: 59.608s
+[Epoch 156] MSELoss: 0.09541385796513746, time: 59.299s
+[Epoch 157] MSELoss: 0.10538008967837827, time: 59.201s
+[Epoch 158] MSELoss: 0.10816795886917548, time: 60.051s
+[Epoch 159] MSELoss: 0.09892357716506178, time: 59.112s
+==================== Validation ====================
+[Epoch 159] val_loss: 2.828580295499705e-06
+===================================================
+[Epoch 160] MSELoss: 0.10585564123043281, time: 59.291s
+[Epoch 161] MSELoss: 0.11335401546040719, time: 59.846s
+[Epoch 162] MSELoss: 0.10473955198275772, time: 59.420s
+[Epoch 163] MSELoss: 0.10665982908738608, time: 59.623s
+[Epoch 164] MSELoss: 0.08998784005895935, time: 59.360s
+[Epoch 165] MSELoss: 0.10784081147391011, time: 59.509s
+[Epoch 166] MSELoss: 0.10759787890128791, time: 59.501s
+[Epoch 167] MSELoss: 0.10593318166634577, time: 59.914s
+[Epoch 168] MSELoss: 0.09950822896578096, time: 59.137s
+[Epoch 169] MSELoss: 0.10584955433891578, time: 58.980s
+[Epoch 170] MSELoss: 0.09971941590563141, time: 60.059s
+[Epoch 171] MSELoss: 0.10013729611157693, time: 59.100s
+[Epoch 172] MSELoss: 0.10868483783931218, time: 59.356s
+[Epoch 173] MSELoss: 0.10889826382679696, time: 58.986s
+[Epoch 174] MSELoss: 0.10106575954705477, time: 59.496s
+[Epoch 175] MSELoss: 0.11033925297670066, time: 59.661s
+[Epoch 176] MSELoss: 0.11616611510345881, time: 59.500s
+[Epoch 177] MSELoss: 0.1066287926567549, time: 59.028s
+[Epoch 178] MSELoss: 0.10095202507959171, time: 59.102s
+[Epoch 179] MSELoss: 0.10197419307025318, time: 59.756s
+==================== Validation ====================
+[Epoch 179] val_loss: 2.538275793995126e-06
+===================================================
+[Epoch 180] MSELoss: 0.10301541898992252, time: 59.879s
+[Epoch 181] MSELoss: 0.1097955843645402, time: 59.028s
+[Epoch 182] MSELoss: 0.1018688561267812, time: 59.722s
+[Epoch 183] MSELoss: 0.09913847210224379, time: 60.013s
+[Epoch 184] MSELoss: 0.1103260041934184, time: 59.051s
+[Epoch 185] MSELoss: 0.08998305356891995, time: 59.065s
+[Epoch 186] MSELoss: 0.10044428701935844, time: 58.925s
+[Epoch 187] MSELoss: 0.10007769847288728, time: 59.217s
+[Epoch 188] MSELoss: 0.10143028959547254, time: 59.290s
+[Epoch 189] MSELoss: 0.09316905283115126, time: 59.380s
+[Epoch 190] MSELoss: 0.1008547576863996, time: 59.884s
+[Epoch 191] MSELoss: 0.11103059965270487, time: 59.520s
+[Epoch 192] MSELoss: 0.08785179795020007, time: 59.195s
+[Epoch 193] MSELoss: 0.0967384004034102, time: 59.137s
+[Epoch 194] MSELoss: 0.09100124472752213, time: 59.483s
+[Epoch 195] MSELoss: 0.10989153787324374, time: 59.137s
+[Epoch 196] MSELoss: 0.11081781115552242, time: 59.137s
+[Epoch 197] MSELoss: 0.10024810423651202, time: 59.660s
+[Epoch 198] MSELoss: 0.1020752027080479, time: 59.948s
+[Epoch 199] MSELoss: 0.10874773625453765, time: 59.211s
+==================== Validation ====================
+[Epoch 199] val_loss: 2.552203477534931e-06
+===================================================
+[Epoch 200] MSELoss: 0.09946816454810853, time: 59.114s
+[Epoch 201] MSELoss: 0.09899656836536119, time: 59.279s
+[Epoch 202] MSELoss: 0.10417546084235338, time: 59.140s
+[Epoch 203] MSELoss: 0.09708943742920052, time: 59.264s
+[Epoch 204] MSELoss: 0.10069280765442687, time: 59.378s
+[Epoch 205] MSELoss: 0.103229809446599, time: 59.545s
+[Epoch 206] MSELoss: 0.09966280552643267, time: 59.486s
+[Epoch 207] MSELoss: 0.09541910391470249, time: 59.857s
+[Epoch 208] MSELoss: 0.09333623113872652, time: 59.893s
+[Epoch 209] MSELoss: 0.09890102427876131, time: 59.574s
+[Epoch 210] MSELoss: 0.0932476477570493, time: 60.029s
+[Epoch 211] MSELoss: 0.10173067194409668, time: 59.269s
+[Epoch 212] MSELoss: 0.10567910366014324, time: 58.972s
+[Epoch 213] MSELoss: 0.09380568415773186, time: 59.106s
+[Epoch 214] MSELoss: 0.09791568880477412, time: 59.073s
+[Epoch 215] MSELoss: 0.10423676443116908, time: 59.548s
+[Epoch 216] MSELoss: 0.10030369088053703, time: 60.024s
+[Epoch 217] MSELoss: 0.10168959439562802, time: 58.998s
+[Epoch 218] MSELoss: 0.10752145810560745, time: 59.183s
+[Epoch 219] MSELoss: 0.09818297980183904, time: 59.052s
+==================== Validation ====================
+[Epoch 219] val_loss: 2.0244439383532153e-06
+===================================================
+[Epoch 220] MSELoss: 0.102378149792044, time: 59.019s
+[Epoch 221] MSELoss: 0.10020856982605024, time: 59.946s
+[Epoch 222] MSELoss: 0.1007442481561818, time: 60.021s
+[Epoch 223] MSELoss: 0.10891461497257379, time: 59.437s
+[Epoch 224] MSELoss: 0.09394436987878924, time: 58.932s
+[Epoch 225] MSELoss: 0.10566204231740399, time: 59.214s
+[Epoch 226] MSELoss: 0.09490817167203536, time: 59.662s
+[Epoch 227] MSELoss: 0.09693352147852155, time: 58.903s
+[Epoch 228] MSELoss: 0.09963245620019734, time: 59.576s
+[Epoch 229] MSELoss: 0.09632600081915205, time: 59.501s
+[Epoch 230] MSELoss: 0.11029978532513435, time: 60.029s
+[Epoch 231] MSELoss: 0.09543800910680808, time: 59.436s
+[Epoch 232] MSELoss: 0.10199759737588465, time: 59.979s
+[Epoch 233] MSELoss: 0.0994931974617595, time: 59.613s
+[Epoch 234] MSELoss: 0.09882184666242788, time: 59.717s
+[Epoch 235] MSELoss: 0.10269825966944071, time: 59.264s
+[Epoch 236] MSELoss: 0.10223127965053375, time: 59.485s
+[Epoch 237] MSELoss: 0.09998858326368712, time: 59.482s
+[Epoch 238] MSELoss: 0.10503935902802781, time: 59.269s
+[Epoch 239] MSELoss: 0.10014291535216299, time: 59.653s
+==================== Validation ====================
+[Epoch 239] val_loss: 2.175805093429517e-06
+===================================================
+[Epoch 240] MSELoss: 0.09951514663936739, time: 59.438s
+[Epoch 241] MSELoss: 0.09399347966113551, time: 59.397s
+[Epoch 242] MSELoss: 0.09242843017405407, time: 59.991s
+[Epoch 243] MSELoss: 0.0981290866832503, time: 59.669s
+[Epoch 244] MSELoss: 0.10166466983289205, time: 59.672s
+[Epoch 245] MSELoss: 0.09630283833989366, time: 59.568s
+[Epoch 246] MSELoss: 0.10471260922283612, time: 59.125s
+[Epoch 247] MSELoss: 0.09314874866554006, time: 59.258s
+[Epoch 248] MSELoss: 0.10276335877874358, time: 59.549s
+[Epoch 249] MSELoss: 0.09826442152685062, time: 59.910s
+[Epoch 250] MSELoss: 0.1136187835257839, time: 59.044s
+[Epoch 251] MSELoss: 0.10230350830930879, time: 59.423s
+[Epoch 252] MSELoss: 0.09911243826023897, time: 59.033s
+[Epoch 253] MSELoss: 0.0914212407078594, time: 59.065s
+[Epoch 254] MSELoss: 0.09831073752138764, time: 58.882s
+[Epoch 255] MSELoss: 0.09681092345536771, time: 59.099s
+[Epoch 256] MSELoss: 0.08329998521896248, time: 59.013s
+[Epoch 257] MSELoss: 0.08983106966215101, time: 59.308s
+[Epoch 258] MSELoss: 0.09132071429948238, time: 58.995s
+[Epoch 259] MSELoss: 0.08842378615571017, time: 59.195s
+==================== Validation ====================
+[Epoch 259] val_loss: 1.6527287243661703e-06
+===================================================
+[Epoch 260] MSELoss: 0.09985922433605249, time: 59.738s
+[Epoch 261] MSELoss: 0.08595323928801174, time: 59.443s
+[Epoch 262] MSELoss: 0.10845764322121712, time: 59.226s
+[Epoch 263] MSELoss: 0.09429813735187054, time: 59.384s
+[Epoch 264] MSELoss: 0.10511824852702292, time: 59.869s
+[Epoch 265] MSELoss: 0.0969434882175516, time: 59.181s
+[Epoch 266] MSELoss: 0.09371993563730609, time: 59.468s
+[Epoch 267] MSELoss: 0.10236428398638964, time: 59.551s
+[Epoch 268] MSELoss: 0.09996227498843588, time: 59.291s
+[Epoch 269] MSELoss: 0.09958618752319705, time: 59.018s
+[Epoch 270] MSELoss: 0.10306109492243691, time: 59.500s
+[Epoch 271] MSELoss: 0.09967699285003949, time: 59.221s
+[Epoch 272] MSELoss: 0.09139412789690224, time: 59.077s
+[Epoch 273] MSELoss: 0.09659525252540004, time: 59.905s
+[Epoch 274] MSELoss: 0.09353813313117082, time: 59.503s
+[Epoch 275] MSELoss: 0.09300721066326581, time: 59.146s
+[Epoch 276] MSELoss: 0.10429562990215013, time: 59.941s
+[Epoch 277] MSELoss: 0.09573552763851528, time: 59.532s
+[Epoch 278] MSELoss: 0.09933517020280389, time: 59.125s
+[Epoch 279] MSELoss: 0.09616368552881548, time: 59.224s
+==================== Validation ====================
+[Epoch 279] val_loss: 1.5008412674433203e-06
+===================================================
+[Epoch 280] MSELoss: 0.09570847915231503, time: 59.517s
+[Epoch 281] MSELoss: 0.09491680187850512, time: 59.246s
+[Epoch 282] MSELoss: 0.1039992657659406, time: 59.232s
+[Epoch 283] MSELoss: 0.09497588957575234, time: 59.606s
+[Epoch 284] MSELoss: 0.10497471326115457, time: 59.041s
+[Epoch 285] MSELoss: 0.08963952727869831, time: 59.579s
+[Epoch 286] MSELoss: 0.09801397500136359, time: 58.966s
+[Epoch 287] MSELoss: 0.08669128639369525, time: 59.565s
+[Epoch 288] MSELoss: 0.10054783254269173, time: 59.295s
+[Epoch 289] MSELoss: 0.10580276867205446, time: 59.258s
+[Epoch 290] MSELoss: 0.10240261832421477, time: 59.546s
+[Epoch 291] MSELoss: 0.09934031137857925, time: 58.893s
+[Epoch 292] MSELoss: 0.10206648705273189, time: 59.979s
+[Epoch 293] MSELoss: 0.10518248751759529, time: 59.565s
+[Epoch 294] MSELoss: 0.09561457554809749, time: 59.034s
+[Epoch 295] MSELoss: 0.09616820325820961, time: 59.580s
+[Epoch 296] MSELoss: 0.0922023561486805, time: 59.427s
+[Epoch 297] MSELoss: 0.10275674700229005, time: 59.964s
+[Epoch 298] MSELoss: 0.09514394798316061, time: 59.446s
+[Epoch 299] MSELoss: 0.09129706027240239, time: 59.524s
+==================== Validation ====================
+[Epoch 299] val_loss: 1.6096366607598612e-06
+===================================================
+[Epoch 300] MSELoss: 0.08180363666774197, time: 59.287s
+[Epoch 301] MSELoss: 0.08982306469062512, time: 59.723s
+[Epoch 302] MSELoss: 0.08665973229587756, time: 58.997s
+[Epoch 303] MSELoss: 0.10275040914050557, time: 59.583s
+[Epoch 304] MSELoss: 0.08528396135873414, time: 59.109s
+[Epoch 305] MSELoss: 0.09020057609516449, time: 59.024s
+[Epoch 306] MSELoss: 0.10748624403707005, time: 59.267s
+[Epoch 307] MSELoss: 0.10117992292031307, time: 59.533s
+[Epoch 308] MSELoss: 0.09592975759667091, time: 59.991s
+[Epoch 309] MSELoss: 0.09363474897955629, time: 59.543s
+[Epoch 310] MSELoss: 0.09313054252627559, time: 59.141s
+[Epoch 311] MSELoss: 0.09012393160215156, time: 59.573s
+[Epoch 312] MSELoss: 0.09526782523078675, time: 59.218s
+[Epoch 313] MSELoss: 0.10764364076947625, time: 59.598s
+[Epoch 314] MSELoss: 0.09905955912968652, time: 59.145s
+[Epoch 315] MSELoss: 0.08965831137770279, time: 59.024s
+[Epoch 316] MSELoss: 0.10199712602082979, time: 59.430s
+[Epoch 317] MSELoss: 0.09679573410275308, time: 59.382s
+[Epoch 318] MSELoss: 0.08359879725189372, time: 59.015s
+[Epoch 319] MSELoss: 0.09919749440582977, time: 60.118s
+==================== Validation ====================
+[Epoch 319] val_loss: 1.38015764150623e-06
+===================================================
+[Epoch 320] MSELoss: 0.08966912401162766, time: 59.633s
+[Epoch 321] MSELoss: 0.09742432308848947, time: 59.416s
+[Epoch 322] MSELoss: 0.10662593487226828, time: 59.658s
+[Epoch 323] MSELoss: 0.09795430383052338, time: 59.612s
+[Epoch 324] MSELoss: 0.09044974652880972, time: 60.078s
+[Epoch 325] MSELoss: 0.09028139591894367, time: 59.521s
+[Epoch 326] MSELoss: 0.09467843284999783, time: 59.958s
+[Epoch 327] MSELoss: 0.09534804213961418, time: 59.046s
+[Epoch 328] MSELoss: 0.08921007769690317, time: 59.109s
+[Epoch 329] MSELoss: 0.09021101997826586, time: 59.242s
+[Epoch 330] MSELoss: 0.09261982623403045, time: 59.125s
+[Epoch 331] MSELoss: 0.09766527040946213, time: 59.548s
+[Epoch 332] MSELoss: 0.10145754115232689, time: 59.068s
+[Epoch 333] MSELoss: 0.09285092618401078, time: 59.066s
+[Epoch 334] MSELoss: 0.09363707588900896, time: 59.065s
+[Epoch 335] MSELoss: 0.09532668855337595, time: 59.919s
+[Epoch 336] MSELoss: 0.08751868431202389, time: 59.590s
+[Epoch 337] MSELoss: 0.09592026032888415, time: 59.206s
+[Epoch 338] MSELoss: 0.0883176957405257, time: 59.057s
+[Epoch 339] MSELoss: 0.09913424328392881, time: 59.566s
+==================== Validation ====================
+[Epoch 339] val_loss: 1.442462598788552e-06
+===================================================
+[Epoch 340] MSELoss: 0.09748516703786497, time: 59.479s
+[Epoch 341] MSELoss: 0.09149052678946067, time: 59.122s
+[Epoch 342] MSELoss: 0.09380925334566696, time: 59.911s
+[Epoch 343] MSELoss: 0.09553142148070037, time: 59.550s
+[Epoch 344] MSELoss: 0.09742000883191146, time: 59.133s
+[Epoch 345] MSELoss: 0.09554275914772667, time: 59.643s
+[Epoch 346] MSELoss: 0.08996871217492629, time: 59.199s
+[Epoch 347] MSELoss: 0.08451846786986358, time: 59.753s
+[Epoch 348] MSELoss: 0.09123341194142334, time: 59.486s
+[Epoch 349] MSELoss: 0.09737412015568803, time: 59.029s
+[Epoch 350] MSELoss: 0.09511287359055132, time: 59.029s
+[Epoch 351] MSELoss: 0.09530593854883178, time: 59.159s
+[Epoch 352] MSELoss: 0.08338958181610162, time: 59.368s
+[Epoch 353] MSELoss: 0.0995672671970996, time: 59.011s
+[Epoch 354] MSELoss: 0.10456972719508817, time: 60.063s
+[Epoch 355] MSELoss: 0.10475669246674939, time: 59.552s
+[Epoch 356] MSELoss: 0.09530084416143259, time: 59.551s
+[Epoch 357] MSELoss: 0.09028955333104188, time: 59.492s
+[Epoch 358] MSELoss: 0.08735680535689673, time: 59.984s
+[Epoch 359] MSELoss: 0.08953302467919208, time: 59.460s
+==================== Validation ====================
+[Epoch 359] val_loss: 1.2176342920611205e-06
+===================================================
+[Epoch 360] MSELoss: 0.08937072426885029, time: 59.120s
+[Epoch 361] MSELoss: 0.08891389404677533, time: 59.334s
+[Epoch 362] MSELoss: 0.09411636144134469, time: 59.461s
+[Epoch 363] MSELoss: 0.09160154307557439, time: 59.087s
+[Epoch 364] MSELoss: 0.09719404862897302, time: 59.174s
+[Epoch 365] MSELoss: 0.09843505860771984, time: 59.349s
+[Epoch 366] MSELoss: 0.09711590798741038, time: 59.618s
+[Epoch 367] MSELoss: 0.10254641413815657, time: 59.434s
+[Epoch 368] MSELoss: 0.09681476771154188, time: 59.117s
+[Epoch 369] MSELoss: 0.10085516157348387, time: 59.093s
+[Epoch 370] MSELoss: 0.08989172816191884, time: 59.633s
+[Epoch 371] MSELoss: 0.09234331498472867, time: 59.578s
+[Epoch 372] MSELoss: 0.09361890257886527, time: 59.059s
+[Epoch 373] MSELoss: 0.09254240073178979, time: 59.086s
+[Epoch 374] MSELoss: 0.09349655793895098, time: 59.430s
+[Epoch 375] MSELoss: 0.09309022179381414, time: 59.797s
+[Epoch 376] MSELoss: 0.09335758996365423, time: 58.984s
+[Epoch 377] MSELoss: 0.09902833637104116, time: 59.481s
+[Epoch 378] MSELoss: 0.08896254417909817, time: 59.530s
+[Epoch 379] MSELoss: 0.09983198719353162, time: 59.479s
+==================== Validation ====================
+[Epoch 379] val_loss: 1.3441068972497306e-06
+===================================================
+[Epoch 380] MSELoss: 0.09122479685836218, time: 59.477s
+[Epoch 381] MSELoss: 0.08662872490557758, time: 59.249s
+[Epoch 382] MSELoss: 0.09269634285010397, time: 59.079s
+[Epoch 383] MSELoss: 0.08644966006448324, time: 59.584s
+[Epoch 384] MSELoss: 0.09711935047314249, time: 59.880s
+[Epoch 385] MSELoss: 0.09947874864817344, time: 58.921s
+[Epoch 386] MSELoss: 0.0967399111885408, time: 59.550s
+[Epoch 387] MSELoss: 0.0902408818735487, time: 59.740s
+[Epoch 388] MSELoss: 0.08847087641796944, time: 59.618s
+[Epoch 389] MSELoss: 0.09795831567184492, time: 59.865s
+[Epoch 390] MSELoss: 0.10510529296218671, time: 60.075s
+[Epoch 391] MSELoss: 0.08882782293949276, time: 59.258s
+[Epoch 392] MSELoss: 0.09482633247336542, time: 59.367s
+[Epoch 393] MSELoss: 0.09398655375381085, time: 60.063s
+[Epoch 394] MSELoss: 0.09044125314209271, time: 59.540s
+[Epoch 395] MSELoss: 0.09292863654396073, time: 59.096s
+[Epoch 396] MSELoss: 0.09131015892225233, time: 59.033s
+[Epoch 397] MSELoss: 0.08691195603883402, time: 59.342s
+[Epoch 398] MSELoss: 0.0853798151100901, time: 59.959s
+[Epoch 399] MSELoss: 0.09839049754240972, time: 59.443s
+==================== Validation ====================
+[Epoch 399] val_loss: 1.1472886171759456e-06
+===================================================
+[Epoch 400] MSELoss: 0.10301666645417837, time: 59.454s
+[Epoch 401] MSELoss: 0.09399327387059615, time: 60.103s
+[Epoch 402] MSELoss: 0.10163587827066128, time: 59.027s
+[Epoch 403] MSELoss: 0.09442414707419547, time: 59.991s
+[Epoch 404] MSELoss: 0.10039062764156947, time: 59.487s
+[Epoch 405] MSELoss: 0.097313918416727, time: 59.138s
+[Epoch 406] MSELoss: 0.09346167995086448, time: 59.077s
+[Epoch 407] MSELoss: 0.09466219375925986, time: 59.223s
+[Epoch 408] MSELoss: 0.09030943308872255, time: 59.559s
+[Epoch 409] MSELoss: 0.08849012903572823, time: 59.137s
+[Epoch 410] MSELoss: 0.0984653393547474, time: 59.209s
+[Epoch 411] MSELoss: 0.09466042324096302, time: 59.097s
+[Epoch 412] MSELoss: 0.08767003094015474, time: 59.164s
+[Epoch 413] MSELoss: 0.09329970278353854, time: 59.018s
+[Epoch 414] MSELoss: 0.09997557804242453, time: 59.625s
+[Epoch 415] MSELoss: 0.09321126963054253, time: 58.998s
+[Epoch 416] MSELoss: 0.09451318917457352, time: 59.258s
+[Epoch 417] MSELoss: 0.08671152666846121, time: 59.542s
+[Epoch 418] MSELoss: 0.08703094990712337, time: 59.468s
+[Epoch 419] MSELoss: 0.09142259391956031, time: 59.512s
+==================== Validation ====================
+[Epoch 419] val_loss: 1.1455759249656694e-06
+===================================================
+[Epoch 420] MSELoss: 0.08370119017887523, time: 59.044s
+[Epoch 421] MSELoss: 0.09626481906426224, time: 59.390s
+[Epoch 422] MSELoss: 0.09017119134395299, time: 59.727s
+[Epoch 423] MSELoss: 0.09910302698104219, time: 59.781s
+[Epoch 424] MSELoss: 0.10513722356832163, time: 59.465s
+[Epoch 425] MSELoss: 0.09060111414344812, time: 59.245s
+[Epoch 426] MSELoss: 0.10426818799566138, time: 59.329s
+[Epoch 427] MSELoss: 0.08728498892477629, time: 59.909s
+[Epoch 428] MSELoss: 0.07993708506480537, time: 59.145s
+[Epoch 429] MSELoss: 0.09565121836071325, time: 59.261s
+[Epoch 430] MSELoss: 0.09702698294793002, time: 59.829s
+[Epoch 431] MSELoss: 0.10633507929742336, time: 59.238s
+[Epoch 432] MSELoss: 0.09670881398911164, time: 58.959s
+[Epoch 433] MSELoss: 0.09344346632926978, time: 59.034s
+[Epoch 434] MSELoss: 0.09762069105636328, time: 59.540s
+[Epoch 435] MSELoss: 0.09348008009097115, time: 59.569s
+[Epoch 436] MSELoss: 0.09081628180997954, time: 59.554s
+[Epoch 437] MSELoss: 0.09426227348475633, time: 59.090s
+[Epoch 438] MSELoss: 0.09484121033032848, time: 59.567s
+[Epoch 439] MSELoss: 0.09077458599031987, time: 59.073s
+==================== Validation ====================
+[Epoch 439] val_loss: 1.0955209404528432e-06
+===================================================
+[Epoch 440] MSELoss: 0.08892592079725795, time: 59.443s
+[Epoch 441] MSELoss: 0.0905511025339365, time: 59.081s
+[Epoch 442] MSELoss: 0.08762590153227476, time: 59.855s
+[Epoch 443] MSELoss: 0.09005474340466951, time: 59.184s
+[Epoch 444] MSELoss: 0.08542464594145052, time: 59.401s
+[Epoch 445] MSELoss: 0.09550327717707577, time: 59.138s
+[Epoch 446] MSELoss: 0.09025853723075919, time: 59.595s
+[Epoch 447] MSELoss: 0.09101619869893925, time: 59.615s
+[Epoch 448] MSELoss: 0.09517172973772342, time: 59.429s
+[Epoch 449] MSELoss: 0.10341956796632572, time: 59.333s
+[Epoch 450] MSELoss: 0.09462919213216414, time: 59.563s
+[Epoch 451] MSELoss: 0.08732375408395787, time: 59.263s
+[Epoch 452] MSELoss: 0.08915019633290781, time: 59.583s
+[Epoch 453] MSELoss: 0.09021342399699445, time: 59.818s
+[Epoch 454] MSELoss: 0.082854256414893, time: 60.053s
+[Epoch 455] MSELoss: 0.09671352199405771, time: 59.843s
+[Epoch 456] MSELoss: 0.10284762431613423, time: 59.544s
+[Epoch 457] MSELoss: 0.0927836964097382, time: 59.073s
+[Epoch 458] MSELoss: 0.08918734204913066, time: 59.428s
+[Epoch 459] MSELoss: 0.09499132836406882, time: 59.199s
+==================== Validation ====================
+[Epoch 459] val_loss: 1.0334560329283704e-06
+===================================================
+[Epoch 460] MSELoss: 0.1062944614730606, time: 59.708s
+[Epoch 461] MSELoss: 0.10549511417577212, time: 59.045s
+[Epoch 462] MSELoss: 0.0946381807602434, time: 59.526s
+[Epoch 463] MSELoss: 0.08621696529867635, time: 59.142s
+[Epoch 464] MSELoss: 0.09195352985989302, time: 59.454s
+[Epoch 465] MSELoss: 0.07411097204947675, time: 59.338s
+[Epoch 466] MSELoss: 0.09852790186943655, time: 59.080s
+[Epoch 467] MSELoss: 0.10001622038808736, time: 59.564s
+[Epoch 468] MSELoss: 0.09738305185667492, time: 59.752s
+[Epoch 469] MSELoss: 0.08685978372919967, time: 59.656s
+[Epoch 470] MSELoss: 0.08522784463341601, time: 59.123s
+[Epoch 471] MSELoss: 0.09709325535434551, time: 59.345s
+[Epoch 472] MSELoss: 0.08404630054296416, time: 59.433s
+[Epoch 473] MSELoss: 0.09897393025246196, time: 59.229s
+[Epoch 474] MSELoss: 0.09795978674876758, time: 59.563s
+[Epoch 475] MSELoss: 0.10084174973466857, time: 59.418s
+[Epoch 476] MSELoss: 0.08417995153418319, time: 59.096s
+[Epoch 477] MSELoss: 0.09268388945863329, time: 59.542s
+[Epoch 478] MSELoss: 0.09993207159409807, time: 59.459s
+[Epoch 479] MSELoss: 0.09510603005235846, time: 59.011s
+==================== Validation ====================
+[Epoch 479] val_loss: 1.0449150067870505e-06
+===================================================
+[Epoch 480] MSELoss: 0.09702312426683916, time: 59.565s
+[Epoch 481] MSELoss: 0.09914015490688723, time: 59.120s
+[Epoch 482] MSELoss: 0.08942515636921268, time: 59.874s
+[Epoch 483] MSELoss: 0.09736775431189348, time: 59.419s
+[Epoch 484] MSELoss: 0.09513026780702852, time: 59.761s
+[Epoch 485] MSELoss: 0.09628754856318913, time: 59.597s
+[Epoch 486] MSELoss: 0.09125786562534896, time: 59.640s
+[Epoch 487] MSELoss: 0.08348330193918876, time: 60.041s
+[Epoch 488] MSELoss: 0.1045442309378731, time: 59.542s
+[Epoch 489] MSELoss: 0.09563950877848336, time: 59.789s
+[Epoch 490] MSELoss: 0.09435929343189028, time: 59.162s
+[Epoch 491] MSELoss: 0.09293277584947646, time: 59.645s
+[Epoch 492] MSELoss: 0.09087771902241829, time: 58.894s
+[Epoch 493] MSELoss: 0.08657343494070863, time: 59.171s
+[Epoch 494] MSELoss: 0.10216639112596484, time: 59.173s
+[Epoch 495] MSELoss: 0.08309202681464906, time: 59.402s
+[Epoch 496] MSELoss: 0.0865971005140719, time: 60.141s
+[Epoch 497] MSELoss: 0.08334876366213642, time: 60.087s
+[Epoch 498] MSELoss: 0.08628775146578185, time: 59.357s
+[Epoch 499] MSELoss: 0.08406841000330381, time: 59.192s
+==================== Validation ====================
+[Epoch 499] val_loss: 1.071125007001683e-06
+===================================================
+[Epoch 500] MSELoss: 0.09418233103034171, time: 59.151s
+[Epoch 501] MSELoss: 0.08622127772435884, time: 59.301s
+[Epoch 502] MSELoss: 0.09590510101142255, time: 59.108s
+[Epoch 503] MSELoss: 0.09576645892494443, time: 58.990s
+[Epoch 504] MSELoss: 0.09492912471548401, time: 59.720s
+[Epoch 505] MSELoss: 0.09566665077793665, time: 59.596s
+[Epoch 506] MSELoss: 0.09445270372088999, time: 59.019s
+[Epoch 507] MSELoss: 0.09258277462372048, time: 59.013s
+[Epoch 508] MSELoss: 0.10289378502321514, time: 59.841s
+[Epoch 509] MSELoss: 0.09270127514504235, time: 59.153s
+[Epoch 510] MSELoss: 0.09307297941466625, time: 59.520s
+[Epoch 511] MSELoss: 0.0846027705437419, time: 59.277s
+[Epoch 512] MSELoss: 0.09601425009102307, time: 59.564s
+[Epoch 513] MSELoss: 0.08721633823800154, time: 59.027s
+[Epoch 514] MSELoss: 0.08724091408393261, time: 59.390s
+[Epoch 515] MSELoss: 0.08895582548046316, time: 59.572s
+[Epoch 516] MSELoss: 0.09117770236281847, time: 59.158s
+[Epoch 517] MSELoss: 0.0924336407968605, time: 59.116s
+[Epoch 518] MSELoss: 0.09527687744279816, time: 59.208s
+[Epoch 519] MSELoss: 0.09158427567771552, time: 58.985s
+==================== Validation ====================
+[Epoch 519] val_loss: 9.567792858433676e-07
+===================================================
+[Epoch 520] MSELoss: 0.10079135439908979, time: 59.500s
+[Epoch 521] MSELoss: 0.09676927742971615, time: 59.135s
+[Epoch 522] MSELoss: 0.07841064175590873, time: 59.169s
+[Epoch 523] MSELoss: 0.08593181332319297, time: 59.304s
+[Epoch 524] MSELoss: 0.09673707752319222, time: 59.536s
+[Epoch 525] MSELoss: 0.09284355195069854, time: 59.831s
+[Epoch 526] MSELoss: 0.0958716920894486, time: 59.089s
+[Epoch 527] MSELoss: 0.08728151249868626, time: 59.097s
+[Epoch 528] MSELoss: 0.09494646344418553, time: 59.976s
+[Epoch 529] MSELoss: 0.0820671662116762, time: 59.013s
+[Epoch 530] MSELoss: 0.08940793563273143, time: 59.946s
+[Epoch 531] MSELoss: 0.0950695417757908, time: 59.099s
+[Epoch 532] MSELoss: 0.088750086767091, time: 59.460s
+[Epoch 533] MSELoss: 0.0849694382314655, time: 59.618s
+[Epoch 534] MSELoss: 0.09025201173922555, time: 59.176s
+[Epoch 535] MSELoss: 0.09367637989238242, time: 59.310s
+[Epoch 536] MSELoss: 0.07909929071849381, time: 59.655s
+[Epoch 537] MSELoss: 0.0944206424120983, time: 59.435s
+[Epoch 538] MSELoss: 0.09677902329713106, time: 59.293s
+[Epoch 539] MSELoss: 0.09383058578664945, time: 59.418s
+==================== Validation ====================
+[Epoch 539] val_loss: 1.0143161489395424e-06
+===================================================
+[Epoch 540] MSELoss: 0.09238822711631656, time: 59.675s
+[Epoch 541] MSELoss: 0.09048596991818736, time: 59.413s
+[Epoch 542] MSELoss: 0.09150729767597196, time: 58.930s
+[Epoch 543] MSELoss: 0.07817203739911996, time: 58.950s
+[Epoch 544] MSELoss: 0.10470833699218929, time: 59.518s
+[Epoch 545] MSELoss: 0.10021685927428983, time: 59.963s
+[Epoch 546] MSELoss: 0.09348624291702767, time: 59.023s
+[Epoch 547] MSELoss: 0.09195165123409507, time: 59.460s
+[Epoch 548] MSELoss: 0.08687737642321736, time: 59.836s
+[Epoch 549] MSELoss: 0.08454947626556862, time: 59.110s
+[Epoch 550] MSELoss: 0.08561565906910057, time: 59.388s
+[Epoch 551] MSELoss: 0.09390061378309672, time: 58.951s
+[Epoch 552] MSELoss: 0.08389684102836657, time: 59.292s
+[Epoch 553] MSELoss: 0.09429444002241574, time: 59.124s
+[Epoch 554] MSELoss: 0.09064784112640403, time: 59.541s
+[Epoch 555] MSELoss: 0.08691514724738558, time: 59.506s
+[Epoch 556] MSELoss: 0.08806143213190477, time: 59.480s
+[Epoch 557] MSELoss: 0.09349894015626474, time: 59.207s
+[Epoch 558] MSELoss: 0.09460335886317559, time: 59.131s
+[Epoch 559] MSELoss: 0.08043604416095398, time: 59.110s
+==================== Validation ====================
+[Epoch 559] val_loss: 9.320805929746711e-07
+===================================================
+[Epoch 560] MSELoss: 0.0867989297892729, time: 60.034s
+[Epoch 561] MSELoss: 0.09217883705754171, time: 59.386s
+[Epoch 562] MSELoss: 0.090642749204893, time: 58.986s
+[Epoch 563] MSELoss: 0.1020930686076595, time: 59.678s
+[Epoch 564] MSELoss: 0.08930676498196341, time: 59.719s
+[Epoch 565] MSELoss: 0.09529444786973976, time: 59.512s
+[Epoch 566] MSELoss: 0.09530376378362151, time: 59.622s
+[Epoch 567] MSELoss: 0.09124836429360915, time: 59.961s
+[Epoch 568] MSELoss: 0.08856623790184544, time: 59.442s
+[Epoch 569] MSELoss: 0.08666545901955529, time: 59.124s
+[Epoch 570] MSELoss: 0.09917611014944586, time: 59.346s
+[Epoch 571] MSELoss: 0.09689530933445151, time: 59.049s
+[Epoch 572] MSELoss: 0.09769775506786324, time: 59.535s
+[Epoch 573] MSELoss: 0.0795115249294957, time: 59.597s
+[Epoch 574] MSELoss: 0.09761930552353573, time: 59.919s
+[Epoch 575] MSELoss: 0.08940552914811467, time: 59.593s
+[Epoch 576] MSELoss: 0.08725660491142084, time: 59.309s
+[Epoch 577] MSELoss: 0.09164185851643031, time: 59.473s
+[Epoch 578] MSELoss: 0.10368608986027539, time: 59.077s
+[Epoch 579] MSELoss: 0.09161711459852417, time: 58.908s
+==================== Validation ====================
+[Epoch 579] val_loss: 9.04760736375465e-07
+===================================================
+[Epoch 580] MSELoss: 0.09499861161351542, time: 59.497s
+[Epoch 581] MSELoss: 0.09695787678091702, time: 59.623s
+[Epoch 582] MSELoss: 0.09548690598669715, time: 59.474s
+[Epoch 583] MSELoss: 0.0924863010666079, time: 59.627s
+[Epoch 584] MSELoss: 0.09514172386843711, time: 59.586s
+[Epoch 585] MSELoss: 0.09327469986270776, time: 59.209s
+[Epoch 586] MSELoss: 0.0894070665076883, time: 59.505s
+[Epoch 587] MSELoss: 0.08798627978698774, time: 59.733s
+[Epoch 588] MSELoss: 0.09571617401459001, time: 59.484s
+[Epoch 589] MSELoss: 0.0933005748083815, time: 60.039s
+[Epoch 590] MSELoss: 0.09973580679136582, time: 59.427s
+[Epoch 591] MSELoss: 0.09343812931117347, time: 58.965s
+[Epoch 592] MSELoss: 0.09352549154904077, time: 59.380s
+[Epoch 593] MSELoss: 0.09099694743583148, time: 58.836s
+[Epoch 594] MSELoss: 0.0929758154829456, time: 59.729s
+[Epoch 595] MSELoss: 0.09442453849425708, time: 59.972s
+[Epoch 596] MSELoss: 0.07783374354370277, time: 59.532s
+[Epoch 597] MSELoss: 0.0920135808515955, time: 59.585s
+[Epoch 598] MSELoss: 0.09087803252887997, time: 59.129s
+[Epoch 599] MSELoss: 0.09516117831861431, time: 59.098s
+==================== Validation ====================
+[Epoch 599] val_loss: 8.74593592925521e-07
+===================================================
+[Epoch 600] MSELoss: 0.09205327049659734, time: 59.140s
+[Epoch 601] MSELoss: 0.0827389653793282, time: 59.038s
+[Epoch 602] MSELoss: 0.09281659542201934, time: 59.134s
+[Epoch 603] MSELoss: 0.10075644448145546, time: 59.950s
+[Epoch 604] MSELoss: 0.08761676763904028, time: 59.455s
+[Epoch 605] MSELoss: 0.09625072816429152, time: 58.931s
+[Epoch 606] MSELoss: 0.09268212142739106, time: 59.510s
+[Epoch 607] MSELoss: 0.09484075084963645, time: 59.481s
+[Epoch 608] MSELoss: 0.09364295933945951, time: 59.157s
+[Epoch 609] MSELoss: 0.09813095019622284, time: 58.999s
+[Epoch 610] MSELoss: 0.08839774491604079, time: 59.233s
+[Epoch 611] MSELoss: 0.09039222394031557, time: 59.326s
+[Epoch 612] MSELoss: 0.0947415574496104, time: 59.843s
+[Epoch 613] MSELoss: 0.0779740679479966, time: 59.540s
+[Epoch 614] MSELoss: 0.08501343363472684, time: 58.940s
+[Epoch 615] MSELoss: 0.09168655665549026, time: 59.442s
+[Epoch 616] MSELoss: 0.10421659955119883, time: 58.944s
+[Epoch 617] MSELoss: 0.09670061644547703, time: 60.019s
+[Epoch 618] MSELoss: 0.07257128834978424, time: 59.174s
+[Epoch 619] MSELoss: 0.08158713014034386, time: 59.458s
+==================== Validation ====================
+[Epoch 619] val_loss: 8.159833214449464e-07
+===================================================
+[Epoch 620] MSELoss: 0.08655086680400101, time: 59.507s
+[Epoch 621] MSELoss: 0.09179262398869138, time: 59.615s
+[Epoch 622] MSELoss: 0.08882645033934916, time: 59.569s
+[Epoch 623] MSELoss: 0.08839797138617458, time: 59.761s
+[Epoch 624] MSELoss: 0.08369505789596587, time: 60.091s
+[Epoch 625] MSELoss: 0.08439016612034969, time: 59.274s
+[Epoch 626] MSELoss: 0.08850531606003642, time: 59.079s
+[Epoch 627] MSELoss: 0.08542200459421359, time: 59.650s
+[Epoch 628] MSELoss: 0.0959389926971529, time: 59.079s
+[Epoch 629] MSELoss: 0.09276690715077249, time: 59.183s
+[Epoch 630] MSELoss: 0.08992740536235612, time: 59.614s
+[Epoch 631] MSELoss: 0.09163277438545431, time: 59.239s
+[Epoch 632] MSELoss: 0.0913309404541823, time: 60.001s
+[Epoch 633] MSELoss: 0.08869404494974084, time: 59.024s
+[Epoch 634] MSELoss: 0.08263432879043234, time: 59.466s
+[Epoch 635] MSELoss: 0.08889797193379226, time: 59.194s
+[Epoch 636] MSELoss: 0.08050319682595067, time: 59.489s
+[Epoch 637] MSELoss: 0.09443299607797102, time: 59.209s
+[Epoch 638] MSELoss: 0.10003959142010321, time: 59.978s
+[Epoch 639] MSELoss: 0.08064377414782278, time: 59.539s
+==================== Validation ====================
+[Epoch 639] val_loss: 7.959683216540725e-07
+===================================================
+[Epoch 640] MSELoss: 0.08961245269429954, time: 59.528s
+[Epoch 641] MSELoss: 0.08948184816505421, time: 59.990s
+[Epoch 642] MSELoss: 0.08471628604456782, time: 59.173s
+[Epoch 643] MSELoss: 0.09234645083250309, time: 59.169s
+[Epoch 644] MSELoss: 0.09506333506115797, time: 59.000s
+[Epoch 645] MSELoss: 0.0907642453993586, time: 59.307s
+[Epoch 646] MSELoss: 0.08881591556763108, time: 59.644s
+[Epoch 647] MSELoss: 0.09013452588326551, time: 58.872s
+[Epoch 648] MSELoss: 0.09217546759596604, time: 59.008s
+[Epoch 649] MSELoss: 0.09444450776473703, time: 59.975s
+[Epoch 650] MSELoss: 0.08856086793821305, time: 58.967s
+[Epoch 651] MSELoss: 0.09906399126206948, time: 59.595s
+[Epoch 652] MSELoss: 0.09248826601965861, time: 59.865s
+[Epoch 653] MSELoss: 0.08695793999570675, time: 59.954s
+[Epoch 654] MSELoss: 0.09665494576223532, time: 59.599s
+[Epoch 655] MSELoss: 0.0894962263780392, time: 58.983s
+[Epoch 656] MSELoss: 0.08772519904993137, time: 59.772s
+[Epoch 657] MSELoss: 0.09215723068072376, time: 59.092s
+[Epoch 658] MSELoss: 0.09067329230972312, time: 59.070s
+[Epoch 659] MSELoss: 0.08263089655983177, time: 59.664s
+==================== Validation ====================
+[Epoch 659] val_loss: 8.426578233411419e-07
+===================================================
+[Epoch 660] MSELoss: 0.09521980073556982, time: 60.168s
+[Epoch 661] MSELoss: 0.0937688889468766, time: 59.587s
+[Epoch 662] MSELoss: 0.09469300229102373, time: 59.120s
+[Epoch 663] MSELoss: 0.08574230940377509, time: 59.211s
+[Epoch 664] MSELoss: 0.08592791130385277, time: 59.993s
+[Epoch 665] MSELoss: 0.08796148735564202, time: 58.836s
+[Epoch 666] MSELoss: 0.1007051348622719, time: 59.453s
+[Epoch 667] MSELoss: 0.09826186806259846, time: 59.031s
+[Epoch 668] MSELoss: 0.08999751472253015, time: 59.066s
+[Epoch 669] MSELoss: 0.09271190522915937, time: 59.119s
+[Epoch 670] MSELoss: 0.09404349274171347, time: 59.776s
+[Epoch 671] MSELoss: 0.08254583971574903, time: 59.148s
+[Epoch 672] MSELoss: 0.08521206980698148, time: 59.762s
+[Epoch 673] MSELoss: 0.08513889018319208, time: 59.577s
+[Epoch 674] MSELoss: 0.08402724718590351, time: 59.546s
+[Epoch 675] MSELoss: 0.09036719835024665, time: 59.861s
+[Epoch 676] MSELoss: 0.08332040833986618, time: 59.443s
+[Epoch 677] MSELoss: 0.08792994186197492, time: 59.011s
+[Epoch 678] MSELoss: 0.09596027793701399, time: 59.552s
+[Epoch 679] MSELoss: 0.0921928729883141, time: 59.508s
+==================== Validation ====================
+[Epoch 679] val_loss: 7.768695127197134e-07
+===================================================
+[Epoch 680] MSELoss: 0.08180080361621962, time: 59.870s
+[Epoch 681] MSELoss: 0.08911802096885035, time: 59.646s
+[Epoch 682] MSELoss: 0.0987091045403345, time: 59.163s
+[Epoch 683] MSELoss: 0.09015870946247809, time: 59.477s
+[Epoch 684] MSELoss: 0.0977038448274305, time: 60.001s
+[Epoch 685] MSELoss: 0.08551974395628681, time: 59.542s
+[Epoch 686] MSELoss: 0.09077435917094012, time: 59.392s
+[Epoch 687] MSELoss: 0.09211022409991446, time: 59.297s
+[Epoch 688] MSELoss: 0.08344627640591087, time: 59.513s
+[Epoch 689] MSELoss: 0.09640030475037004, time: 59.971s
+[Epoch 690] MSELoss: 0.08541168448176574, time: 59.301s
+[Epoch 691] MSELoss: 0.08889808121602982, time: 59.598s
+[Epoch 692] MSELoss: 0.08679075191982769, time: 59.434s
+[Epoch 693] MSELoss: 0.08682106275492432, time: 60.040s
+[Epoch 694] MSELoss: 0.08302937675563787, time: 59.554s
+[Epoch 695] MSELoss: 0.10135774444577031, time: 59.851s
+[Epoch 696] MSELoss: 0.09745524272280323, time: 59.206s
+[Epoch 697] MSELoss: 0.09913033684080635, time: 58.996s
+[Epoch 698] MSELoss: 0.08720357781699435, time: 59.476s
+[Epoch 699] MSELoss: 0.0953575685323978, time: 58.956s
+==================== Validation ====================
+[Epoch 699] val_loss: 7.744884669591556e-07
+===================================================
+[Epoch 700] MSELoss: 0.08652367312672801, time: 59.331s
+[Epoch 701] MSELoss: 0.09972675396552817, time: 59.426s
+[Epoch 702] MSELoss: 0.09355463485487484, time: 59.123s
+[Epoch 703] MSELoss: 0.09029529236299409, time: 59.809s
+[Epoch 704] MSELoss: 0.0897972900102931, time: 59.136s
+[Epoch 705] MSELoss: 0.09979736159386282, time: 59.198s
+[Epoch 706] MSELoss: 0.08650514821056277, time: 59.062s
+[Epoch 707] MSELoss: 0.09013390261679888, time: 59.506s
+[Epoch 708] MSELoss: 0.0991606712764637, time: 58.957s
+[Epoch 709] MSELoss: 0.09009462700818073, time: 59.541s
+[Epoch 710] MSELoss: 0.08773286210965703, time: 59.435s
+[Epoch 711] MSELoss: 0.0811009994729168, time: 59.101s
+[Epoch 712] MSELoss: 0.08997936369004575, time: 59.321s
+[Epoch 713] MSELoss: 0.0827751891920343, time: 59.622s
+[Epoch 714] MSELoss: 0.09076758283613758, time: 59.506s
+[Epoch 715] MSELoss: 0.09143871652089397, time: 59.195s
+[Epoch 716] MSELoss: 0.09238789153327658, time: 59.458s
+[Epoch 717] MSELoss: 0.10281973260200836, time: 58.921s
+[Epoch 718] MSELoss: 0.08641615335363895, time: 59.489s
+[Epoch 719] MSELoss: 0.09100437759083103, time: 59.354s
+==================== Validation ====================
+[Epoch 719] val_loss: 7.432999268530693e-07
+===================================================
+[Epoch 720] MSELoss: 0.09485103683122857, time: 59.919s
+[Epoch 721] MSELoss: 0.08155643170572478, time: 59.208s
+[Epoch 722] MSELoss: 0.09220449716403065, time: 59.175s
+[Epoch 723] MSELoss: 0.09986771841067821, time: 59.512s
+[Epoch 724] MSELoss: 0.07856859847776253, time: 59.339s
+[Epoch 725] MSELoss: 0.09006035572383553, time: 59.874s
+[Epoch 726] MSELoss: 0.09537843691015785, time: 59.399s
+[Epoch 727] MSELoss: 0.08792516305534677, time: 59.013s
+[Epoch 728] MSELoss: 0.09460828140039335, time: 59.375s
+[Epoch 729] MSELoss: 0.0943032756595957, time: 59.418s
+[Epoch 730] MSELoss: 0.08910474660594694, time: 59.554s
+[Epoch 731] MSELoss: 0.08138644971503792, time: 59.355s
+[Epoch 732] MSELoss: 0.09083701980257915, time: 59.037s
+[Epoch 733] MSELoss: 0.08780154823960568, time: 59.161s
+[Epoch 734] MSELoss: 0.09012226110578261, time: 59.000s
+[Epoch 735] MSELoss: 0.09748790430074389, time: 59.368s
+[Epoch 736] MSELoss: 0.09715225150681693, time: 59.425s
+[Epoch 737] MSELoss: 0.09463343768253583, time: 59.381s
+[Epoch 738] MSELoss: 0.08687893449413506, time: 59.954s
+[Epoch 739] MSELoss: 0.10288740152662451, time: 59.417s
+==================== Validation ====================
+[Epoch 739] val_loss: 7.764065685478272e-07
+===================================================
+[Epoch 740] MSELoss: 0.08407309033315291, time: 59.620s
+[Epoch 741] MSELoss: 0.08999840249519117, time: 59.614s
+[Epoch 742] MSELoss: 0.0960252561119639, time: 59.609s
+[Epoch 743] MSELoss: 0.08549275646113197, time: 59.391s
+[Epoch 744] MSELoss: 0.08233611150221391, time: 59.008s
+[Epoch 745] MSELoss: 0.08536524195435712, time: 58.947s
+[Epoch 746] MSELoss: 0.08542620605492796, time: 59.465s
+[Epoch 747] MSELoss: 0.08653600336137143, time: 59.189s
+[Epoch 748] MSELoss: 0.07682212989311665, time: 59.897s
+[Epoch 749] MSELoss: 0.08313704692673954, time: 58.986s
+[Epoch 750] MSELoss: 0.08780393249947917, time: 59.474s
+[Epoch 751] MSELoss: 0.09187159923286262, time: 58.960s
+[Epoch 752] MSELoss: 0.09851576731836592, time: 59.060s
+[Epoch 753] MSELoss: 0.09993942366616632, time: 58.893s
+[Epoch 754] MSELoss: 0.09318602655548602, time: 59.272s
+[Epoch 755] MSELoss: 0.08895985168320211, time: 59.006s
+[Epoch 756] MSELoss: 0.08835688697978515, time: 59.519s
+[Epoch 757] MSELoss: 0.08541968567508526, time: 59.907s
+[Epoch 758] MSELoss: 0.09861628772606226, time: 59.085s
+[Epoch 759] MSELoss: 0.08159666862973775, time: 59.346s
+==================== Validation ====================
+[Epoch 759] val_loss: 7.528166008796688e-07
+===================================================
+[Epoch 760] MSELoss: 0.09388490298508921, time: 59.839s
+[Epoch 761] MSELoss: 0.09080917881378396, time: 59.050s
+[Epoch 762] MSELoss: 0.08896871739786796, time: 59.425s
+[Epoch 763] MSELoss: 0.07122487893370404, time: 59.357s
+[Epoch 764] MSELoss: 0.0948789946375076, time: 59.196s
+[Epoch 765] MSELoss: 0.09142043767496943, time: 59.597s
+[Epoch 766] MSELoss: 0.0804369879082184, time: 59.971s
+[Epoch 767] MSELoss: 0.08672783324833622, time: 59.559s
+[Epoch 768] MSELoss: 0.09002531389705837, time: 59.580s
+[Epoch 769] MSELoss: 0.08691236747174777, time: 59.191s
+[Epoch 770] MSELoss: 0.0926831180377948, time: 59.796s
+[Epoch 771] MSELoss: 0.078630399689163, time: 59.175s
+[Epoch 772] MSELoss: 0.0893687064949931, time: 59.656s
+[Epoch 773] MSELoss: 0.08688529159619726, time: 59.133s
+[Epoch 774] MSELoss: 0.08878921767146411, time: 59.320s
+[Epoch 775] MSELoss: 0.09150518389122392, time: 59.428s
+[Epoch 776] MSELoss: 0.09883627950594845, time: 59.210s
+[Epoch 777] MSELoss: 0.09189660078845918, time: 59.704s
+[Epoch 778] MSELoss: 0.08002596579238094, time: 59.517s
+[Epoch 779] MSELoss: 0.09884339018555527, time: 59.884s
+==================== Validation ====================
+[Epoch 779] val_loss: 7.368633703208616e-07
+===================================================
+[Epoch 780] MSELoss: 0.09143600352531807, time: 59.532s
+[Epoch 781] MSELoss: 0.09683725085448136, time: 59.955s
+[Epoch 782] MSELoss: 0.09373703261371702, time: 59.636s
+[Epoch 783] MSELoss: 0.07962497663472526, time: 59.153s
+[Epoch 784] MSELoss: 0.0956594217674468, time: 59.251s
+[Epoch 785] MSELoss: 0.09954956594050268, time: 59.186s
+[Epoch 786] MSELoss: 0.08386315768372944, time: 59.479s
+[Epoch 787] MSELoss: 0.07573762676805595, time: 58.947s
+[Epoch 788] MSELoss: 0.0967268800384111, time: 59.426s
+[Epoch 789] MSELoss: 0.09700992266351188, time: 59.773s
+[Epoch 790] MSELoss: 0.08688936044927686, time: 59.526s
+[Epoch 791] MSELoss: 0.0930618204028261, time: 59.703s
+[Epoch 792] MSELoss: 0.08168205835814164, time: 59.430s
+[Epoch 793] MSELoss: 0.09279169052288952, time: 59.293s
+[Epoch 794] MSELoss: 0.08659992545885457, time: 59.610s
+[Epoch 795] MSELoss: 0.08322922565804963, time: 59.522s
+[Epoch 796] MSELoss: 0.08145867855372754, time: 59.060s
+[Epoch 797] MSELoss: 0.09320742756509307, time: 59.671s
+[Epoch 798] MSELoss: 0.08670799836347048, time: 59.475s
+[Epoch 799] MSELoss: 0.09002965953285721, time: 59.370s
+==================== Validation ====================
+[Epoch 799] val_loss: 7.144322296426253e-07
+===================================================
+[Epoch 800] MSELoss: 0.08990350135983052, time: 59.028s
+[Epoch 801] MSELoss: 0.1015289453048767, time: 58.951s
+[Epoch 802] MSELoss: 0.08747154492249881, time: 59.564s
+[Epoch 803] MSELoss: 0.08015867369249463, time: 59.766s
+[Epoch 804] MSELoss: 0.08778833555565639, time: 59.128s
+[Epoch 805] MSELoss: 0.08030454151925037, time: 59.395s
+[Epoch 806] MSELoss: 0.0878588864685629, time: 58.922s
+[Epoch 807] MSELoss: 0.08486461014994844, time: 58.984s
+[Epoch 808] MSELoss: 0.0797617519380186, time: 59.417s
+[Epoch 809] MSELoss: 0.10087314888369292, time: 59.597s
+[Epoch 810] MSELoss: 0.08935330879070204, time: 59.050s
+[Epoch 811] MSELoss: 0.08273520600050688, time: 59.476s
+[Epoch 812] MSELoss: 0.0888196756978604, time: 59.578s
+[Epoch 813] MSELoss: 0.09576499345712364, time: 59.040s
+[Epoch 814] MSELoss: 0.0993559283670038, time: 59.162s
+[Epoch 815] MSELoss: 0.09521906641946937, time: 59.682s
+[Epoch 816] MSELoss: 0.09426739646799184, time: 59.475s
+[Epoch 817] MSELoss: 0.0876540049741214, time: 58.990s
+[Epoch 818] MSELoss: 0.08888023674742065, time: 59.526s
+[Epoch 819] MSELoss: 0.09199319627474656, time: 58.902s
+==================== Validation ====================
+[Epoch 819] val_loss: 6.885794164190883e-07
+===================================================
+[Epoch 820] MSELoss: 0.08730151972056113, time: 59.323s
+[Epoch 821] MSELoss: 0.09218701482115482, time: 59.079s
+[Epoch 822] MSELoss: 0.0954233962111175, time: 59.001s
+[Epoch 823] MSELoss: 0.09321823657955974, time: 59.363s
+[Epoch 824] MSELoss: 0.08375417759684337, time: 59.609s
+[Epoch 825] MSELoss: 0.08531291706656868, time: 59.909s
+[Epoch 826] MSELoss: 0.09458360214590687, time: 59.046s
+[Epoch 827] MSELoss: 0.09541397893124007, time: 59.316s
+[Epoch 828] MSELoss: 0.09082903565881266, time: 59.049s
+[Epoch 829] MSELoss: 0.08953853487037122, time: 59.884s
+[Epoch 830] MSELoss: 0.08231223883657632, time: 59.144s
+[Epoch 831] MSELoss: 0.08713810343760997, time: 59.967s
+[Epoch 832] MSELoss: 0.09457277859010818, time: 59.486s
+[Epoch 833] MSELoss: 0.09009606310759077, time: 59.610s
+[Epoch 834] MSELoss: 0.09386328543240036, time: 59.504s
+[Epoch 835] MSELoss: 0.10158113728870044, time: 59.120s
+[Epoch 836] MSELoss: 0.08987093185582622, time: 59.529s
+[Epoch 837] MSELoss: 0.0895828511777588, time: 59.163s
+[Epoch 838] MSELoss: 0.0865906421200965, time: 59.212s
+[Epoch 839] MSELoss: 0.08529863872734661, time: 58.944s
+==================== Validation ====================
+[Epoch 839] val_loss: 6.793334421217879e-07
+===================================================
+[Epoch 840] MSELoss: 0.10275941478638825, time: 59.334s
+[Epoch 841] MSELoss: 0.09594746051483195, time: 59.072s
+[Epoch 842] MSELoss: 0.0839070284908468, time: 59.107s
+[Epoch 843] MSELoss: 0.09637395859780637, time: 59.003s
+[Epoch 844] MSELoss: 0.08741208299232478, time: 58.981s
+[Epoch 845] MSELoss: 0.08130187054418704, time: 59.011s
+[Epoch 846] MSELoss: 0.08711716923227703, time: 59.381s
+[Epoch 847] MSELoss: 0.07966257862492718, time: 59.388s
+[Epoch 848] MSELoss: 0.08965750923380256, time: 58.986s
+[Epoch 849] MSELoss: 0.09314980285919525, time: 58.761s
+[Epoch 850] MSELoss: 0.08895671621642329, time: 59.548s
+[Epoch 851] MSELoss: 0.08436128870711068, time: 59.773s
+[Epoch 852] MSELoss: 0.09251379419583827, time: 59.143s
+[Epoch 853] MSELoss: 0.09090387303678488, time: 60.003s
+[Epoch 854] MSELoss: 0.09405290525914593, time: 59.520s
+[Epoch 855] MSELoss: 0.09002372707155618, time: 59.353s
+[Epoch 856] MSELoss: 0.08442155142653396, time: 59.490s
+[Epoch 857] MSELoss: 0.09340362251863221, time: 59.558s
+[Epoch 858] MSELoss: 0.09245177699168297, time: 59.689s
+[Epoch 859] MSELoss: 0.09632335026452149, time: 59.931s
+==================== Validation ====================
+[Epoch 859] val_loss: 6.770831532776356e-07
+===================================================
+[Epoch 860] MSELoss: 0.080494532329877, time: 59.102s
+[Epoch 861] MSELoss: 0.08295982990371571, time: 59.088s
+[Epoch 862] MSELoss: 0.09168094735253941, time: 59.219s
+[Epoch 863] MSELoss: 0.0929226089078425, time: 59.169s
+[Epoch 864] MSELoss: 0.09848728591830216, time: 60.119s
+[Epoch 865] MSELoss: 0.09861915876072916, time: 59.417s
+[Epoch 866] MSELoss: 0.09121376659128476, time: 59.559s
+[Epoch 867] MSELoss: 0.08953878549139269, time: 60.102s
+[Epoch 868] MSELoss: 0.10642602675679055, time: 59.639s
+[Epoch 869] MSELoss: 0.08896305813157762, time: 59.657s
+[Epoch 870] MSELoss: 0.09327804963951083, time: 59.106s
+[Epoch 871] MSELoss: 0.08579638913612475, time: 59.580s
+[Epoch 872] MSELoss: 0.10506074149584906, time: 59.974s
+[Epoch 873] MSELoss: 0.08672849628651007, time: 59.685s
+[Epoch 874] MSELoss: 0.09534601711625741, time: 59.937s
+[Epoch 875] MSELoss: 0.09502380791077898, time: 59.476s
+[Epoch 876] MSELoss: 0.09951358129778369, time: 59.662s
+[Epoch 877] MSELoss: 0.09396953622556545, time: 59.598s
+[Epoch 878] MSELoss: 0.09133548036598685, time: 59.530s
+[Epoch 879] MSELoss: 0.0909313494127921, time: 59.728s
+==================== Validation ====================
+[Epoch 879] val_loss: 6.706598412620223e-07
+===================================================
+[Epoch 880] MSELoss: 0.10024096592414108, time: 59.584s
+[Epoch 881] MSELoss: 0.08231071824080904, time: 59.488s
+[Epoch 882] MSELoss: 0.08627795356071807, time: 59.425s
+[Epoch 883] MSELoss: 0.08451822894329036, time: 59.390s
+[Epoch 884] MSELoss: 0.08882994035428221, time: 59.275s
+[Epoch 885] MSELoss: 0.08510186434300107, time: 58.889s
+[Epoch 886] MSELoss: 0.08818778816864571, time: 59.359s
+[Epoch 887] MSELoss: 0.09906196948775853, time: 59.001s
+[Epoch 888] MSELoss: 0.09324667683209886, time: 58.889s
+[Epoch 889] MSELoss: 0.09219847623766823, time: 59.214s
+[Epoch 890] MSELoss: 0.08618290717078542, time: 59.100s
+[Epoch 891] MSELoss: 0.09307930188846182, time: 59.345s
+[Epoch 892] MSELoss: 0.09041491920255464, time: 59.054s
+[Epoch 893] MSELoss: 0.0883956103458662, time: 59.072s
+[Epoch 894] MSELoss: 0.0929417658004571, time: 59.862s
+[Epoch 895] MSELoss: 0.09205472314814953, time: 59.008s
+[Epoch 896] MSELoss: 0.08408591068688442, time: 59.869s
+[Epoch 897] MSELoss: 0.08644106009424748, time: 59.497s
+[Epoch 898] MSELoss: 0.09325746791860597, time: 59.312s
+[Epoch 899] MSELoss: 0.09583302845501088, time: 59.741s
+==================== Validation ====================
+[Epoch 899] val_loss: 6.63099064013295e-07
+===================================================
+[Epoch 900] MSELoss: 0.07919836055953056, time: 59.401s
+[Epoch 901] MSELoss: 0.09212163797664372, time: 59.415s
+[Epoch 902] MSELoss: 0.09340953279752284, time: 59.115s
+[Epoch 903] MSELoss: 0.0838916947832331, time: 59.068s
+[Epoch 904] MSELoss: 0.08586959633976221, time: 59.723s
+[Epoch 905] MSELoss: 0.0831069691657004, time: 59.379s
+[Epoch 906] MSELoss: 0.0766014084643261, time: 59.432s
+[Epoch 907] MSELoss: 0.08975067553745414, time: 59.355s
+[Epoch 908] MSELoss: 0.08910995010625233, time: 59.209s
+[Epoch 909] MSELoss: 0.08788928618146614, time: 58.953s
+[Epoch 910] MSELoss: 0.08549596587280658, time: 59.491s
+[Epoch 911] MSELoss: 0.08533075175629082, time: 59.122s
+[Epoch 912] MSELoss: 0.09040691553276371, time: 59.405s
+[Epoch 913] MSELoss: 0.08317576017527079, time: 59.048s
+[Epoch 914] MSELoss: 0.09233732899354602, time: 59.861s
+[Epoch 915] MSELoss: 0.08742791243871166, time: 59.415s
+[Epoch 916] MSELoss: 0.09921276432843032, time: 59.511s
+[Epoch 917] MSELoss: 0.09211740473454649, time: 58.945s
+[Epoch 918] MSELoss: 0.0816760288911279, time: 59.009s
+[Epoch 919] MSELoss: 0.08565031960394912, time: 58.993s
+==================== Validation ====================
+[Epoch 919] val_loss: 6.567614036612213e-07
+===================================================
+[Epoch 920] MSELoss: 0.09826779442796993, time: 59.435s
+[Epoch 921] MSELoss: 0.0909266735702245, time: 59.503s
+[Epoch 922] MSELoss: 0.09107072096826001, time: 59.151s
+[Epoch 923] MSELoss: 0.09459006182045082, time: 59.496s
+[Epoch 924] MSELoss: 0.08896141146860001, time: 59.025s
+[Epoch 925] MSELoss: 0.08361530222464353, time: 59.224s
+[Epoch 926] MSELoss: 0.08228510550477289, time: 59.264s
+[Epoch 927] MSELoss: 0.08685858031226831, time: 59.130s
+[Epoch 928] MSELoss: 0.0851318399443037, time: 59.138s
+[Epoch 929] MSELoss: 0.08817494873338463, time: 59.506s
+[Epoch 930] MSELoss: 0.09684691013006325, time: 59.386s
+[Epoch 931] MSELoss: 0.08609847620722244, time: 59.536s
+[Epoch 932] MSELoss: 0.08717609248759056, time: 59.707s
+[Epoch 933] MSELoss: 0.07844069270967421, time: 59.435s
+[Epoch 934] MSELoss: 0.09748400978490034, time: 59.453s
+[Epoch 935] MSELoss: 0.08163925611668013, time: 58.922s
+[Epoch 936] MSELoss: 0.09282373520545661, time: 59.289s
+[Epoch 937] MSELoss: 0.08633074290330775, time: 58.934s
+[Epoch 938] MSELoss: 0.09208160747816278, time: 59.407s
+[Epoch 939] MSELoss: 0.0751585291952572, time: 59.251s
+==================== Validation ====================
+[Epoch 939] val_loss: 6.470252003509813e-07
+===================================================
+[Epoch 940] MSELoss: 0.09266700523651458, time: 58.911s
+[Epoch 941] MSELoss: 0.08292683871166612, time: 59.087s
+[Epoch 942] MSELoss: 0.08983454883987592, time: 58.996s
+[Epoch 943] MSELoss: 0.09825889270922, time: 59.432s
+[Epoch 944] MSELoss: 0.09002803495704112, time: 58.960s
+[Epoch 945] MSELoss: 0.09556911296253516, time: 59.245s
+[Epoch 946] MSELoss: 0.08708545239642262, time: 59.123s
+[Epoch 947] MSELoss: 0.08633786444128913, time: 59.110s
+[Epoch 948] MSELoss: 0.08816479275595734, time: 59.400s
+[Epoch 949] MSELoss: 0.08806548953394999, time: 59.569s
+[Epoch 950] MSELoss: 0.084380973553793, time: 59.449s
+[Epoch 951] MSELoss: 0.08775716961827129, time: 58.914s
+[Epoch 952] MSELoss: 0.07948227217209272, time: 59.677s
+[Epoch 953] MSELoss: 0.07847158309199255, time: 59.118s
+[Epoch 954] MSELoss: 0.0898366951468316, time: 58.920s
+[Epoch 955] MSELoss: 0.08738221926614642, time: 59.353s
+[Epoch 956] MSELoss: 0.08383502455597575, time: 58.994s
+[Epoch 957] MSELoss: 0.08592807546003975, time: 59.880s
+[Epoch 958] MSELoss: 0.0878526299175891, time: 59.317s
+[Epoch 959] MSELoss: 0.09033187349665571, time: 59.626s
+==================== Validation ====================
+[Epoch 959] val_loss: 6.51424176112414e-07
+===================================================
+[Epoch 960] MSELoss: 0.08851174706466157, time: 59.039s
+[Epoch 961] MSELoss: 0.09217749010051854, time: 59.298s
+[Epoch 962] MSELoss: 0.08669145825445991, time: 59.004s
+[Epoch 963] MSELoss: 0.08630643584977159, time: 59.483s
+[Epoch 964] MSELoss: 0.09807273661929436, time: 59.443s
+[Epoch 965] MSELoss: 0.09051829801914706, time: 58.935s
+[Epoch 966] MSELoss: 0.081243182818236, time: 59.270s
+[Epoch 967] MSELoss: 0.08828664945692502, time: 58.954s
+[Epoch 968] MSELoss: 0.09353785121559419, time: 59.028s
+[Epoch 969] MSELoss: 0.08503204279325224, time: 59.295s
+[Epoch 970] MSELoss: 0.08825661941558462, time: 59.466s
+[Epoch 971] MSELoss: 0.08360088625076142, time: 59.278s
+[Epoch 972] MSELoss: 0.09366695224095814, time: 59.690s
+[Epoch 973] MSELoss: 0.09015179282604632, time: 59.314s
+[Epoch 974] MSELoss: 0.08419470671056346, time: 59.346s
+[Epoch 975] MSELoss: 0.08861447950105436, time: 58.836s
+[Epoch 976] MSELoss: 0.08126007052223114, time: 59.288s
+[Epoch 977] MSELoss: 0.09048149107151071, time: 59.642s
+[Epoch 978] MSELoss: 0.0870508902113546, time: 59.292s
+[Epoch 979] MSELoss: 0.0938510500444946, time: 59.774s
+==================== Validation ====================
+[Epoch 979] val_loss: 6.494878164176043e-07
+===================================================
+[Epoch 980] MSELoss: 0.08776943304110318, time: 59.085s
+[Epoch 981] MSELoss: 0.09908850977874614, time: 60.129s
+[Epoch 982] MSELoss: 0.09887006316884336, time: 59.483s
+[Epoch 983] MSELoss: 0.08223562814633954, time: 59.137s
+[Epoch 984] MSELoss: 0.08672034853688357, time: 59.359s
+[Epoch 985] MSELoss: 0.09283507225865667, time: 59.801s
+[Epoch 986] MSELoss: 0.09360262335659089, time: 59.856s
+[Epoch 987] MSELoss: 0.09368949140083382, time: 59.680s
+[Epoch 988] MSELoss: 0.09654714179817926, time: 59.090s
+[Epoch 989] MSELoss: 0.09203797880433162, time: 59.938s
+[Epoch 990] MSELoss: 0.08322598599955777, time: 60.130s
+[Epoch 991] MSELoss: 0.09468801038085736, time: 59.008s
+[Epoch 992] MSELoss: 0.08860687223601749, time: 59.899s
+[Epoch 993] MSELoss: 0.08934367455499755, time: 59.214s
+[Epoch 994] MSELoss: 0.08477328289088538, time: 58.873s
+[Epoch 995] MSELoss: 0.09224313293287362, time: 59.293s
+[Epoch 996] MSELoss: 0.08449721119408919, time: 59.575s
+[Epoch 997] MSELoss: 0.08770530652889813, time: 59.069s
+[Epoch 998] MSELoss: 0.09084424301346933, time: 59.444s
+[Epoch 999] MSELoss: 0.08671584943394092, time: 59.595s
+==================== Validation ====================
+[Epoch 999] val_loss: 6.331677184334695e-07
+===================================================
+[Epoch 1000] MSELoss: 0.0950057847340676, time: 59.347s
+[Epoch 1001] MSELoss: 0.09610649633263661, time: 59.744s
+[Epoch 1002] MSELoss: 0.08665095179722729, time: 59.428s
+[Epoch 1003] MSELoss: 0.08276077254082669, time: 59.253s
+[Epoch 1004] MSELoss: 0.0841297593539242, time: 59.878s
+[Epoch 1005] MSELoss: 0.08419594570825045, time: 58.985s
+[Epoch 1006] MSELoss: 0.09375350617549637, time: 59.372s
+[Epoch 1007] MSELoss: 0.07664837991945783, time: 59.324s
+[Epoch 1008] MSELoss: 0.08703128900378942, time: 59.838s
+[Epoch 1009] MSELoss: 0.09295663428069516, time: 59.092s
+[Epoch 1010] MSELoss: 0.08826023783661764, time: 59.293s
+[Epoch 1011] MSELoss: 0.08128740029959855, time: 59.169s
+[Epoch 1012] MSELoss: 0.07955292089503598, time: 60.020s
+[Epoch 1013] MSELoss: 0.08395024285313081, time: 58.980s
+[Epoch 1014] MSELoss: 0.08920198568904941, time: 59.122s
+[Epoch 1015] MSELoss: 0.0796740476931022, time: 59.483s
+[Epoch 1016] MSELoss: 0.09810777683742344, time: 59.425s
+[Epoch 1017] MSELoss: 0.08220891451293771, time: 59.375s
+[Epoch 1018] MSELoss: 0.07106337133287029, time: 59.515s
+[Epoch 1019] MSELoss: 0.09085144129031422, time: 59.631s
+==================== Validation ====================
+[Epoch 1019] val_loss: 6.241494133973901e-07
+===================================================
+[Epoch 1020] MSELoss: 0.08563972751355983, time: 59.450s
+[Epoch 1021] MSELoss: 0.07629303018223832, time: 59.477s
+[Epoch 1022] MSELoss: 0.08781182250558314, time: 59.363s
+[Epoch 1023] MSELoss: 0.08581020594151183, time: 59.464s
+[Epoch 1024] MSELoss: 0.08970861422659998, time: 59.435s
+[Epoch 1025] MSELoss: 0.09399114901580932, time: 59.466s
+[Epoch 1026] MSELoss: 0.08502953149251301, time: 59.118s
+[Epoch 1027] MSELoss: 0.09677702621345155, time: 59.111s
+[Epoch 1028] MSELoss: 0.10009706710380586, time: 59.330s
+[Epoch 1029] MSELoss: 0.0836141704031351, time: 59.829s
+[Epoch 1030] MSELoss: 0.0924660053993152, time: 59.971s
+[Epoch 1031] MSELoss: 0.09475879274859009, time: 59.474s
+[Epoch 1032] MSELoss: 0.08996045294175432, time: 59.509s
+[Epoch 1033] MSELoss: 0.09151754073205998, time: 59.479s
+[Epoch 1034] MSELoss: 0.08395811533343725, time: 59.091s
+[Epoch 1035] MSELoss: 0.08546813858926974, time: 59.146s
+[Epoch 1036] MSELoss: 0.092339818069542, time: 59.301s
+[Epoch 1037] MSELoss: 0.09599301426417449, time: 59.476s
+[Epoch 1038] MSELoss: 0.08552704863673584, time: 59.356s
+[Epoch 1039] MSELoss: 0.0824465143748305, time: 58.884s
+==================== Validation ====================
+[Epoch 1039] val_loss: 6.178837736570131e-07
+===================================================
+[Epoch 1040] MSELoss: 0.08207927328873087, time: 59.416s
+[Epoch 1041] MSELoss: 0.07240782608278096, time: 59.952s
+[Epoch 1042] MSELoss: 0.09106776162727989, time: 59.345s
+[Epoch 1043] MSELoss: 0.08856539743613791, time: 59.434s
+[Epoch 1044] MSELoss: 0.08646240103354846, time: 59.458s
+[Epoch 1045] MSELoss: 0.0862616412659091, time: 59.439s
+[Epoch 1046] MSELoss: 0.09839329693932086, time: 58.948s
+[Epoch 1047] MSELoss: 0.09421570497480306, time: 59.403s
+[Epoch 1048] MSELoss: 0.09325795433357019, time: 59.498s
+[Epoch 1049] MSELoss: 0.08517014894592152, time: 59.916s
+[Epoch 1050] MSELoss: 0.08664363572924313, time: 59.232s
+[Epoch 1051] MSELoss: 0.09713981300592422, time: 59.694s
+[Epoch 1052] MSELoss: 0.10350191278848797, time: 59.242s
+[Epoch 1053] MSELoss: 0.08622243961276994, time: 59.567s
+[Epoch 1054] MSELoss: 0.09449305886995385, time: 59.201s
+[Epoch 1055] MSELoss: 0.08257632342759859, time: 59.348s
+[Epoch 1056] MSELoss: 0.09356459642929787, time: 59.311s
+[Epoch 1057] MSELoss: 0.09057944335720756, time: 59.370s
+[Epoch 1058] MSELoss: 0.09038352767344225, time: 59.236s
+[Epoch 1059] MSELoss: 0.0917745474937626, time: 59.593s
+==================== Validation ====================
+[Epoch 1059] val_loss: 6.384521270774712e-07
+===================================================
+[Epoch 1060] MSELoss: 0.09325561477718028, time: 58.969s
+[Epoch 1061] MSELoss: 0.09048866214950316, time: 58.916s
+[Epoch 1062] MSELoss: 0.08348963070999493, time: 59.568s
+[Epoch 1063] MSELoss: 0.09028762312267315, time: 59.201s
+[Epoch 1064] MSELoss: 0.08390357744329693, time: 59.398s
+[Epoch 1065] MSELoss: 0.09139994480012154, time: 59.490s
+[Epoch 1066] MSELoss: 0.09316223052287982, time: 59.449s
+[Epoch 1067] MSELoss: 0.08269234275741671, time: 59.159s
+[Epoch 1068] MSELoss: 0.08062826280101118, time: 59.156s
+[Epoch 1069] MSELoss: 0.08199266725304452, time: 59.847s
+[Epoch 1070] MSELoss: 0.08658358538840813, time: 59.544s
+[Epoch 1071] MSELoss: 0.09080561003859408, time: 59.844s
+[Epoch 1072] MSELoss: 0.09081229806708341, time: 59.344s
+[Epoch 1073] MSELoss: 0.08052643787496808, time: 59.235s
+[Epoch 1074] MSELoss: 0.08510816495188259, time: 59.570s
+[Epoch 1075] MSELoss: 0.07969661336392164, time: 59.557s
+[Epoch 1076] MSELoss: 0.09531109392727641, time: 59.833s
+[Epoch 1077] MSELoss: 0.0946552834304219, time: 59.106s
+[Epoch 1078] MSELoss: 0.08772695015861906, time: 59.569s
+[Epoch 1079] MSELoss: 0.0989647903797132, time: 59.017s
+==================== Validation ====================
+[Epoch 1079] val_loss: 6.153162871669337e-07
+===================================================
+[Epoch 1080] MSELoss: 0.07209268162577329, time: 59.606s
+[Epoch 1081] MSELoss: 0.08510772283823992, time: 59.505s
+[Epoch 1082] MSELoss: 0.08541057765780186, time: 59.643s
+[Epoch 1083] MSELoss: 0.09838836515237662, time: 59.102s
+[Epoch 1084] MSELoss: 0.0984734347492287, time: 59.479s
+[Epoch 1085] MSELoss: 0.08745632076170295, time: 59.897s
+[Epoch 1086] MSELoss: 0.08950971306132322, time: 59.267s
+[Epoch 1087] MSELoss: 0.08537501939149066, time: 59.581s
+[Epoch 1088] MSELoss: 0.0789922300662676, time: 59.088s
+[Epoch 1089] MSELoss: 0.08312475914135575, time: 59.454s
+[Epoch 1090] MSELoss: 0.07690425212918359, time: 59.561s
+[Epoch 1091] MSELoss: 0.08643704887733542, time: 59.767s
+[Epoch 1092] MSELoss: 0.08275210461579263, time: 59.365s
+[Epoch 1093] MSELoss: 0.08291205253176899, time: 59.085s
+[Epoch 1094] MSELoss: 0.08999819683165036, time: 59.353s
+[Epoch 1095] MSELoss: 0.08592795275829054, time: 59.385s
+[Epoch 1096] MSELoss: 0.09593048663174902, time: 59.452s
+[Epoch 1097] MSELoss: 0.08594351421660659, time: 59.006s
+[Epoch 1098] MSELoss: 0.09182753282683817, time: 59.136s
+[Epoch 1099] MSELoss: 0.08741099741944874, time: 59.346s
+==================== Validation ====================
+[Epoch 1099] val_loss: 6.481592834006733e-07
+===================================================
+[Epoch 1100] MSELoss: 0.07727933074982668, time: 59.559s
+[Epoch 1101] MSELoss: 0.09204491908365692, time: 59.221s
+[Epoch 1102] MSELoss: 0.09281736805992709, time: 59.691s
+[Epoch 1103] MSELoss: 0.09478107557251034, time: 58.783s
+[Epoch 1104] MSELoss: 0.09124248444145036, time: 59.852s
+[Epoch 1105] MSELoss: 0.09537431212480774, time: 59.798s
+[Epoch 1106] MSELoss: 0.09752084702168676, time: 59.494s
+[Epoch 1107] MSELoss: 0.0880130634018728, time: 59.759s
+[Epoch 1108] MSELoss: 0.093096875553866, time: 59.900s
+[Epoch 1109] MSELoss: 0.08445641829166561, time: 59.297s
+[Epoch 1110] MSELoss: 0.07940392244861208, time: 59.842s
+[Epoch 1111] MSELoss: 0.09479220803107388, time: 60.127s
+[Epoch 1112] MSELoss: 0.10046337933321907, time: 59.318s
+[Epoch 1113] MSELoss: 0.08389358805619518, time: 59.829s
+[Epoch 1114] MSELoss: 0.09227808555376461, time: 59.611s
+[Epoch 1115] MSELoss: 0.0915796312567016, time: 60.028s
+[Epoch 1116] MSELoss: 0.07759508421771567, time: 59.559s
+[Epoch 1117] MSELoss: 0.08575481396507134, time: 59.458s
+[Epoch 1118] MSELoss: 0.0943743948486041, time: 59.167s
+[Epoch 1119] MSELoss: 0.07997253557286141, time: 59.672s
+==================== Validation ====================
+[Epoch 1119] val_loss: 6.05966732791785e-07
+===================================================
+[Epoch 1120] MSELoss: 0.09424983069766313, time: 60.282s
+[Epoch 1121] MSELoss: 0.09015313783575865, time: 59.708s
+[Epoch 1122] MSELoss: 0.087511728157882, time: 59.164s
+[Epoch 1123] MSELoss: 0.0745506018336693, time: 59.553s
+[Epoch 1124] MSELoss: 0.09450459845406427, time: 59.445s
+[Epoch 1125] MSELoss: 0.09868961464698342, time: 58.952s
+[Epoch 1126] MSELoss: 0.09111789187458766, time: 59.352s
+[Epoch 1127] MSELoss: 0.08304358297027647, time: 59.017s
+[Epoch 1128] MSELoss: 0.09127422336446629, time: 59.579s
+[Epoch 1129] MSELoss: 0.09226917290255766, time: 59.437s
+[Epoch 1130] MSELoss: 0.09125318137971176, time: 59.096s
+[Epoch 1131] MSELoss: 0.09297028317285533, time: 59.103s
+[Epoch 1132] MSELoss: 0.07498346433170477, time: 59.049s
+[Epoch 1133] MSELoss: 0.08648957541762767, time: 59.196s
+[Epoch 1134] MSELoss: 0.09400669281074608, time: 59.443s
+[Epoch 1135] MSELoss: 0.0880491775143045, time: 59.831s
+[Epoch 1136] MSELoss: 0.07590380052252757, time: 59.330s
+[Epoch 1137] MSELoss: 0.0797105154805732, time: 59.314s
+[Epoch 1138] MSELoss: 0.0741407698422501, time: 59.849s
+[Epoch 1139] MSELoss: 0.09016426391264593, time: 59.775s
+==================== Validation ====================
+[Epoch 1139] val_loss: 6.002422082929115e-07
+===================================================
+[Epoch 1140] MSELoss: 0.08984320720827038, time: 59.470s
+[Epoch 1141] MSELoss: 0.09817880837627771, time: 59.096s
+[Epoch 1142] MSELoss: 0.09245948889292777, time: 59.218s
+[Epoch 1143] MSELoss: 0.08753406806764277, time: 60.029s
+[Epoch 1144] MSELoss: 0.08007992429404773, time: 59.043s
+[Epoch 1145] MSELoss: 0.0954852950103073, time: 59.826s
+[Epoch 1146] MSELoss: 0.08538595029279929, time: 59.426s
+[Epoch 1147] MSELoss: 0.09755779104307294, time: 59.434s
+[Epoch 1148] MSELoss: 0.07776390435174108, time: 59.243s
+[Epoch 1149] MSELoss: 0.09042089760557495, time: 59.558s
+[Epoch 1150] MSELoss: 0.08850815296384759, time: 59.450s
+[Epoch 1151] MSELoss: 0.08540477868783372, time: 59.500s
+[Epoch 1152] MSELoss: 0.09413560350764205, time: 59.549s
+[Epoch 1153] MSELoss: 0.09721175181171433, time: 59.245s
+[Epoch 1154] MSELoss: 0.08378054677847435, time: 59.113s
+[Epoch 1155] MSELoss: 0.09072535141074861, time: 59.105s
+[Epoch 1156] MSELoss: 0.09156586440407079, time: 59.693s
+[Epoch 1157] MSELoss: 0.08515957193660803, time: 59.034s
+[Epoch 1158] MSELoss: 0.09493588040244173, time: 59.345s
+[Epoch 1159] MSELoss: 0.08425404462667013, time: 59.098s
+==================== Validation ====================
+[Epoch 1159] val_loss: 5.912876588354266e-07
+===================================================
+[Epoch 1160] MSELoss: 0.09056728362867777, time: 59.287s
+[Epoch 1161] MSELoss: 0.09134722437540238, time: 59.334s
+[Epoch 1162] MSELoss: 0.09894697356503457, time: 59.794s
+[Epoch 1163] MSELoss: 0.0969183808404275, time: 59.735s
+[Epoch 1164] MSELoss: 0.08400526035323061, time: 59.649s
+[Epoch 1165] MSELoss: 0.09923904638906772, time: 59.031s
+[Epoch 1166] MSELoss: 0.07962459915275262, time: 59.820s
+[Epoch 1167] MSELoss: 0.09350396584804085, time: 59.759s
+[Epoch 1168] MSELoss: 0.0885956502117386, time: 59.531s
+[Epoch 1169] MSELoss: 0.08725564417810264, time: 59.250s
+[Epoch 1170] MSELoss: 0.09433244248132475, time: 59.149s
+[Epoch 1171] MSELoss: 0.08483006516259842, time: 59.696s
+[Epoch 1172] MSELoss: 0.09835322247818112, time: 59.721s
+[Epoch 1173] MSELoss: 0.08685144880490209, time: 59.584s
+[Epoch 1174] MSELoss: 0.0898429702501744, time: 59.825s
+[Epoch 1175] MSELoss: 0.09788715703920885, time: 59.646s
+[Epoch 1176] MSELoss: 0.08820507551585748, time: 59.354s
+[Epoch 1177] MSELoss: 0.08576342555567285, time: 59.312s
+[Epoch 1178] MSELoss: 0.09337910600218244, time: 59.543s
+[Epoch 1179] MSELoss: 0.08347573865797708, time: 59.558s
+==================== Validation ====================
+[Epoch 1179] val_loss: 5.98565361542569e-07
+===================================================
+[Epoch 1180] MSELoss: 0.0864810577054, time: 59.527s
+[Epoch 1181] MSELoss: 0.08153315184807236, time: 59.653s
+[Epoch 1182] MSELoss: 0.09427812745244327, time: 58.992s
+[Epoch 1183] MSELoss: 0.10124062228185887, time: 59.637s
+[Epoch 1184] MSELoss: 0.09234237276144665, time: 59.015s
+[Epoch 1185] MSELoss: 0.08959928617431698, time: 59.363s
+[Epoch 1186] MSELoss: 0.08989311481656675, time: 59.302s
+[Epoch 1187] MSELoss: 0.089905161653984, time: 60.066s
+[Epoch 1188] MSELoss: 0.0920358539707112, time: 59.798s
+[Epoch 1189] MSELoss: 0.08653846849814395, time: 59.758s
+[Epoch 1190] MSELoss: 0.08570480546702378, time: 59.982s
+[Epoch 1191] MSELoss: 0.0928740328897468, time: 59.446s
+[Epoch 1192] MSELoss: 0.08734471399591051, time: 59.300s
+[Epoch 1193] MSELoss: 0.08522779464891012, time: 59.854s
+[Epoch 1194] MSELoss: 0.0885110942392864, time: 59.496s
+[Epoch 1195] MSELoss: 0.09446831658186222, time: 59.469s
+[Epoch 1196] MSELoss: 0.08196308833165941, time: 59.710s
+[Epoch 1197] MSELoss: 0.0904772772284394, time: 59.058s
+[Epoch 1198] MSELoss: 0.0942998050860214, time: 59.978s
+[Epoch 1199] MSELoss: 0.08101315425962888, time: 59.563s
+==================== Validation ====================
+[Epoch 1199] val_loss: 5.903478950131102e-07
+===================================================
+[Epoch 1200] MSELoss: 0.09682392636949028, time: 59.510s
+[Epoch 1201] MSELoss: 0.09396048670168966, time: 59.423s
+[Epoch 1202] MSELoss: 0.08387087194503032, time: 59.055s
+[Epoch 1203] MSELoss: 0.07699763594957237, time: 59.526s
+[Epoch 1204] MSELoss: 0.0840490605544553, time: 59.594s
+[Epoch 1205] MSELoss: 0.07371750451751392, time: 59.140s
+[Epoch 1206] MSELoss: 0.08650926264553246, time: 59.070s
+[Epoch 1207] MSELoss: 0.08903779185758057, time: 60.004s
+[Epoch 1208] MSELoss: 0.0992305698190731, time: 59.527s
+[Epoch 1209] MSELoss: 0.08703848435966806, time: 59.432s
+[Epoch 1210] MSELoss: 0.08831144897902216, time: 59.352s
+[Epoch 1211] MSELoss: 0.09435759505405175, time: 58.964s
+[Epoch 1212] MSELoss: 0.08321919240353798, time: 59.753s
+[Epoch 1213] MSELoss: 0.08604663302486931, time: 59.484s
+[Epoch 1214] MSELoss: 0.09061291851949962, time: 59.608s
+[Epoch 1215] MSELoss: 0.09169835860269483, time: 59.405s
+[Epoch 1216] MSELoss: 0.08449025698725812, time: 59.401s
+[Epoch 1217] MSELoss: 0.08965480126525191, time: 59.014s
+[Epoch 1218] MSELoss: 0.09438673059710048, time: 59.162s
+[Epoch 1219] MSELoss: 0.09022454019974578, time: 59.716s
+==================== Validation ====================
+[Epoch 1219] val_loss: 5.809542017232161e-07
+===================================================
+[Epoch 1220] MSELoss: 0.082124967509034, time: 58.985s
+[Epoch 1221] MSELoss: 0.08706045390995727, time: 59.055s
+[Epoch 1222] MSELoss: 0.0898032870450565, time: 59.445s
+[Epoch 1223] MSELoss: 0.07850571807516231, time: 59.687s
+[Epoch 1224] MSELoss: 0.08463547289879485, time: 59.057s
+[Epoch 1225] MSELoss: 0.08741366829384457, time: 59.377s
+[Epoch 1226] MSELoss: 0.08872796828985552, time: 59.899s
+[Epoch 1227] MSELoss: 0.09459592278157784, time: 59.305s
+[Epoch 1228] MSELoss: 0.08367968698836524, time: 59.083s
+[Epoch 1229] MSELoss: 0.08478802779096772, time: 59.275s
+[Epoch 1230] MSELoss: 0.07205314382868395, time: 59.296s
+[Epoch 1231] MSELoss: 0.08630068391688506, time: 59.461s
+[Epoch 1232] MSELoss: 0.08787832014389675, time: 59.949s
+[Epoch 1233] MSELoss: 0.08461583059662106, time: 59.878s
+[Epoch 1234] MSELoss: 0.08359033255097033, time: 59.810s
+[Epoch 1235] MSELoss: 0.09642963746393268, time: 59.197s
+[Epoch 1236] MSELoss: 0.09273155655881221, time: 60.110s
+[Epoch 1237] MSELoss: 0.08701499916655435, time: 59.312s
+[Epoch 1238] MSELoss: 0.08693682061592964, time: 59.167s
+[Epoch 1239] MSELoss: 0.08816163647200234, time: 59.713s
+==================== Validation ====================
+[Epoch 1239] val_loss: 5.701593295270868e-07
+===================================================
+[Epoch 1240] MSELoss: 0.08279568014073778, time: 59.413s
+[Epoch 1241] MSELoss: 0.09020869882608001, time: 59.559s
+[Epoch 1242] MSELoss: 0.0871002757022242, time: 59.946s
+[Epoch 1243] MSELoss: 0.08978253658014265, time: 59.312s
+[Epoch 1244] MSELoss: 0.07543984323274344, time: 59.431s
+[Epoch 1245] MSELoss: 0.08092245374890891, time: 59.094s
+[Epoch 1246] MSELoss: 0.08981223958967761, time: 59.855s
+[Epoch 1247] MSELoss: 0.0961296334862709, time: 59.578s
+[Epoch 1248] MSELoss: 0.08228969510475342, time: 59.482s
+[Epoch 1249] MSELoss: 0.08533049760047685, time: 59.688s
+[Epoch 1250] MSELoss: 0.07467071764403954, time: 59.169s
+[Epoch 1251] MSELoss: 0.08448090038092976, time: 59.502s
+[Epoch 1252] MSELoss: 0.09014154183255, time: 59.086s
+[Epoch 1253] MSELoss: 0.08857557737924666, time: 58.870s
+[Epoch 1254] MSELoss: 0.09450076054781675, time: 59.090s
+[Epoch 1255] MSELoss: 0.09656890608708966, time: 59.062s
+[Epoch 1256] MSELoss: 0.0943610121506605, time: 59.062s
+[Epoch 1257] MSELoss: 0.08047228265257383, time: 59.290s
+[Epoch 1258] MSELoss: 0.08235128290570257, time: 59.004s
+[Epoch 1259] MSELoss: 0.08333740130447867, time: 59.238s
+==================== Validation ====================
+[Epoch 1259] val_loss: 5.758393797350436e-07
+===================================================
+[Epoch 1260] MSELoss: 0.0985538158036599, time: 59.271s
+[Epoch 1261] MSELoss: 0.08006561136889187, time: 59.444s
+[Epoch 1262] MSELoss: 0.08941755171822892, time: 59.003s
+[Epoch 1263] MSELoss: 0.09793506360570478, time: 59.461s
+[Epoch 1264] MSELoss: 0.07984704001468014, time: 59.546s
+[Epoch 1265] MSELoss: 0.0944117350630801, time: 59.170s
+[Epoch 1266] MSELoss: 0.08582270902115852, time: 59.222s
+[Epoch 1267] MSELoss: 0.08348639349622483, time: 59.479s
+[Epoch 1268] MSELoss: 0.08332748426420783, time: 60.042s
+[Epoch 1269] MSELoss: 0.08821469725278969, time: 59.342s
+[Epoch 1270] MSELoss: 0.09415805523961104, time: 59.952s
+[Epoch 1271] MSELoss: 0.08007344045803289, time: 59.798s
+[Epoch 1272] MSELoss: 0.09210677116855301, time: 59.283s
+[Epoch 1273] MSELoss: 0.09229852781969715, time: 59.614s
+[Epoch 1274] MSELoss: 0.0846232786054977, time: 59.577s
+[Epoch 1275] MSELoss: 0.09259917278012092, time: 59.815s
+[Epoch 1276] MSELoss: 0.07793015637435019, time: 59.101s
+[Epoch 1277] MSELoss: 0.08633435836104168, time: 59.341s
+[Epoch 1278] MSELoss: 0.081658191957765, time: 59.964s
+[Epoch 1279] MSELoss: 0.07008842371446504, time: 59.913s
+==================== Validation ====================
+[Epoch 1279] val_loss: 5.870185930234584e-07
+===================================================
+[Epoch 1280] MSELoss: 0.08881194347685034, time: 59.333s
+[Epoch 1281] MSELoss: 0.09639925873753699, time: 59.478s
+[Epoch 1282] MSELoss: 0.0907959021225741, time: 59.506s
+[Epoch 1283] MSELoss: 0.09227237185801973, time: 59.613s
+[Epoch 1284] MSELoss: 0.08074105648980053, time: 59.229s
+[Epoch 1285] MSELoss: 0.10031084853901781, time: 58.986s
+[Epoch 1286] MSELoss: 0.09715561018410054, time: 59.252s
+[Epoch 1287] MSELoss: 0.08962115417869593, time: 59.510s
+[Epoch 1288] MSELoss: 0.08929895049765367, time: 59.512s
+[Epoch 1289] MSELoss: 0.10173327902289615, time: 59.815s
+[Epoch 1290] MSELoss: 0.09625594550743699, time: 59.536s
+[Epoch 1291] MSELoss: 0.08691872155759484, time: 59.869s
+[Epoch 1292] MSELoss: 0.10529374050780793, time: 59.129s
+[Epoch 1293] MSELoss: 0.08346973860699852, time: 59.297s
+[Epoch 1294] MSELoss: 0.0814000484533608, time: 59.011s
+[Epoch 1295] MSELoss: 0.08023177684200081, time: 59.038s
+[Epoch 1296] MSELoss: 0.08356919952414253, time: 59.575s
+[Epoch 1297] MSELoss: 0.08497066307939927, time: 59.418s
+[Epoch 1298] MSELoss: 0.08118847164388915, time: 59.884s
+[Epoch 1299] MSELoss: 0.09765505792827092, time: 59.518s
+==================== Validation ====================
+[Epoch 1299] val_loss: 5.705210526230076e-07
+===================================================
+[Epoch 1300] MSELoss: 0.09338200112423775, time: 59.150s
+[Epoch 1301] MSELoss: 0.08657215069979429, time: 59.454s
+[Epoch 1302] MSELoss: 0.08215868561951951, time: 59.294s
+[Epoch 1303] MSELoss: 0.0928972183874893, time: 59.521s
+[Epoch 1304] MSELoss: 0.08800602984741668, time: 59.662s
+[Epoch 1305] MSELoss: 0.07195813196647743, time: 59.311s
+[Epoch 1306] MSELoss: 0.08357531314885075, time: 59.521s
+[Epoch 1307] MSELoss: 0.07142613937189295, time: 59.862s
+[Epoch 1308] MSELoss: 0.09103636881759898, time: 59.077s
+[Epoch 1309] MSELoss: 0.08919178927317262, time: 59.552s
+[Epoch 1310] MSELoss: 0.09216159595896237, time: 59.417s
+[Epoch 1311] MSELoss: 0.09792796810242263, time: 59.436s
+[Epoch 1312] MSELoss: 0.08452325565634633, time: 59.370s
+[Epoch 1313] MSELoss: 0.08884168515743857, time: 59.270s
+[Epoch 1314] MSELoss: 0.08496230623727156, time: 59.891s
+[Epoch 1315] MSELoss: 0.08965769826053557, time: 59.327s
+[Epoch 1316] MSELoss: 0.09436102428431199, time: 59.019s
+[Epoch 1317] MSELoss: 0.093188008018346, time: 59.566s
+[Epoch 1318] MSELoss: 0.080123012017628, time: 59.393s
+[Epoch 1319] MSELoss: 0.095188606985506, time: 59.512s
+==================== Validation ====================
+[Epoch 1319] val_loss: 5.612008919797518e-07
+===================================================
+[Epoch 1320] MSELoss: 0.10107881147731942, time: 59.679s
+[Epoch 1321] MSELoss: 0.0994945914505727, time: 58.984s
+[Epoch 1322] MSELoss: 0.09086543010463091, time: 59.350s
+[Epoch 1323] MSELoss: 0.09702163821996444, time: 59.708s
+[Epoch 1324] MSELoss: 0.08273588860703801, time: 60.063s
+[Epoch 1325] MSELoss: 0.0906254296212203, time: 59.615s
+[Epoch 1326] MSELoss: 0.08993611909681931, time: 58.900s
+[Epoch 1327] MSELoss: 0.08612721517089417, time: 59.980s
+[Epoch 1328] MSELoss: 0.09799505154263566, time: 59.924s
+[Epoch 1329] MSELoss: 0.09171025477222759, time: 59.467s
+[Epoch 1330] MSELoss: 0.09627963562326675, time: 58.836s
+[Epoch 1331] MSELoss: 0.08245355408342386, time: 59.856s
+[Epoch 1332] MSELoss: 0.08157828489360822, time: 59.200s
+[Epoch 1333] MSELoss: 0.09014417920049957, time: 59.904s
+[Epoch 1334] MSELoss: 0.08232041717168283, time: 59.396s
+[Epoch 1335] MSELoss: 0.08919487877177414, time: 59.773s
+[Epoch 1336] MSELoss: 0.08030815778130834, time: 58.931s
+[Epoch 1337] MSELoss: 0.08811694740275429, time: 59.390s
+[Epoch 1338] MSELoss: 0.07933526231102984, time: 59.052s
+[Epoch 1339] MSELoss: 0.07648408774350007, time: 59.929s
+==================== Validation ====================
+[Epoch 1339] val_loss: 5.607088041870156e-07
+===================================================
+[Epoch 1340] MSELoss: 0.0943292021560906, time: 58.892s
+[Epoch 1341] MSELoss: 0.08961752596819264, time: 59.326s
+[Epoch 1342] MSELoss: 0.08743591711390764, time: 59.049s
+[Epoch 1343] MSELoss: 0.09570649019654162, time: 58.952s
+[Epoch 1344] MSELoss: 0.08478614875242453, time: 59.363s
+[Epoch 1345] MSELoss: 0.07845099534924058, time: 59.286s
+[Epoch 1346] MSELoss: 0.08915252384031191, time: 59.485s
+[Epoch 1347] MSELoss: 0.08966982855715536, time: 59.478s
+[Epoch 1348] MSELoss: 0.09442285342480648, time: 59.143s
+[Epoch 1349] MSELoss: 0.09184850784103302, time: 58.896s
+[Epoch 1350] MSELoss: 0.08120834122052079, time: 59.852s
+[Epoch 1351] MSELoss: 0.09259391019374809, time: 59.483s
+[Epoch 1352] MSELoss: 0.08474671612070364, time: 59.185s
+[Epoch 1353] MSELoss: 0.08283638747789981, time: 58.882s
+[Epoch 1354] MSELoss: 0.08151916214476593, time: 59.598s
+[Epoch 1355] MSELoss: 0.10029447622681884, time: 59.299s
+[Epoch 1356] MSELoss: 0.09074723024704409, time: 59.556s
+[Epoch 1357] MSELoss: 0.09492009722585366, time: 59.481s
+[Epoch 1358] MSELoss: 0.08674575869967652, time: 59.856s
+[Epoch 1359] MSELoss: 0.0915199517992071, time: 59.522s
+==================== Validation ====================
+[Epoch 1359] val_loss: 5.661622878960771e-07
+===================================================
+[Epoch 1360] MSELoss: 0.08621040182399817, time: 59.046s
+[Epoch 1361] MSELoss: 0.08478929895103315, time: 58.946s
+[Epoch 1362] MSELoss: 0.09118002354675396, time: 58.879s
+[Epoch 1363] MSELoss: 0.08828579747139223, time: 59.291s
+[Epoch 1364] MSELoss: 0.08535962063946168, time: 59.473s
+[Epoch 1365] MSELoss: 0.08999847721795298, time: 59.368s
+[Epoch 1366] MSELoss: 0.08845960582204332, time: 59.755s
+[Epoch 1367] MSELoss: 0.0754456372497688, time: 59.545s
+[Epoch 1368] MSELoss: 0.08604253014676612, time: 59.656s
+[Epoch 1369] MSELoss: 0.08517156874718652, time: 59.847s
+[Epoch 1370] MSELoss: 0.09383569125467064, time: 59.712s
+[Epoch 1371] MSELoss: 0.08926356850530615, time: 59.882s
+[Epoch 1372] MSELoss: 0.08668195459970526, time: 59.354s
+[Epoch 1373] MSELoss: 0.08926609801975163, time: 59.640s
+[Epoch 1374] MSELoss: 0.08169838918415322, time: 59.670s
+[Epoch 1375] MSELoss: 0.09337320121597838, time: 59.469s
+[Epoch 1376] MSELoss: 0.08724353117444975, time: 60.292s
+[Epoch 1377] MSELoss: 0.08830613249235533, time: 59.557s
+[Epoch 1378] MSELoss: 0.08103610561970113, time: 59.701s
+[Epoch 1379] MSELoss: 0.07913912322626196, time: 59.479s
+==================== Validation ====================
+[Epoch 1379] val_loss: 5.609391791949747e-07
+===================================================
+[Epoch 1380] MSELoss: 0.09210813933433118, time: 59.412s
+[Epoch 1381] MSELoss: 0.09004185775252567, time: 59.039s
+[Epoch 1382] MSELoss: 0.08477126441853629, time: 59.455s
+[Epoch 1383] MSELoss: 0.08753777607555754, time: 59.549s
+[Epoch 1384] MSELoss: 0.09091958459149199, time: 59.664s
+[Epoch 1385] MSELoss: 0.0912097931352698, time: 59.660s
+[Epoch 1386] MSELoss: 0.08364088334862821, time: 59.364s
+[Epoch 1387] MSELoss: 0.09220528543334115, time: 59.273s
+[Epoch 1388] MSELoss: 0.08241226303454657, time: 59.819s
+[Epoch 1389] MSELoss: 0.08543801060560244, time: 59.055s
+[Epoch 1390] MSELoss: 0.09138164763465863, time: 59.385s
+[Epoch 1391] MSELoss: 0.08660474654011936, time: 59.912s
+[Epoch 1392] MSELoss: 0.08488109473414211, time: 59.358s
+[Epoch 1393] MSELoss: 0.09015843422490766, time: 59.335s
+[Epoch 1394] MSELoss: 0.08332858718825843, time: 60.006s
+[Epoch 1395] MSELoss: 0.09355565924620764, time: 59.165s
+[Epoch 1396] MSELoss: 0.09167930518742651, time: 59.354s
+[Epoch 1397] MSELoss: 0.0796665555681102, time: 59.062s
+[Epoch 1398] MSELoss: 0.09364500084087592, time: 59.970s
+[Epoch 1399] MSELoss: 0.08854646247345954, time: 59.576s
+==================== Validation ====================
+[Epoch 1399] val_loss: 5.556867279210565e-07
+===================================================
+[Epoch 1400] MSELoss: 0.0824184136475775, time: 59.419s
+[Epoch 1401] MSELoss: 0.08928306921469895, time: 58.817s
+[Epoch 1402] MSELoss: 0.0860499121799049, time: 58.929s
+[Epoch 1403] MSELoss: 0.09090515747878022, time: 58.997s
+[Epoch 1404] MSELoss: 0.09556262988851152, time: 59.024s
+[Epoch 1405] MSELoss: 0.08940364573341371, time: 59.040s
+[Epoch 1406] MSELoss: 0.0811639408136464, time: 59.199s
+[Epoch 1407] MSELoss: 0.10570651958484881, time: 59.841s
+[Epoch 1408] MSELoss: 0.09657218487171287, time: 59.205s
+[Epoch 1409] MSELoss: 0.09210771768332712, time: 59.498s
+[Epoch 1410] MSELoss: 0.08022832296873358, time: 59.786s
+[Epoch 1411] MSELoss: 0.0912673126122999, time: 59.537s
+[Epoch 1412] MSELoss: 0.08004123023816978, time: 59.013s
+[Epoch 1413] MSELoss: 0.08754967045123604, time: 58.907s
+[Epoch 1414] MSELoss: 0.09007051601921293, time: 59.415s
+[Epoch 1415] MSELoss: 0.08466179973170669, time: 59.448s
+[Epoch 1416] MSELoss: 0.0818861136318777, time: 59.366s
+[Epoch 1417] MSELoss: 0.09084442835724489, time: 59.140s
+[Epoch 1418] MSELoss: 0.08937502395234664, time: 59.068s
+[Epoch 1419] MSELoss: 0.0879818527451293, time: 59.417s
+==================== Validation ====================
+[Epoch 1419] val_loss: 5.540683446270123e-07
+===================================================
+[Epoch 1420] MSELoss: 0.08831694598352029, time: 59.948s
+[Epoch 1421] MSELoss: 0.08178066369675269, time: 58.964s
+[Epoch 1422] MSELoss: 0.09011718855683945, time: 59.789s
+[Epoch 1423] MSELoss: 0.0849151425910267, time: 59.560s
+[Epoch 1424] MSELoss: 0.08833424175496805, time: 59.789s
+[Epoch 1425] MSELoss: 0.08123153150187468, time: 59.033s
+[Epoch 1426] MSELoss: 0.08375217135339467, time: 58.963s
+[Epoch 1427] MSELoss: 0.08544527629221027, time: 59.316s
+[Epoch 1428] MSELoss: 0.09072392639196054, time: 59.340s
+[Epoch 1429] MSELoss: 0.08039232405876233, time: 59.592s
+[Epoch 1430] MSELoss: 0.07559974714372815, time: 59.431s
+[Epoch 1431] MSELoss: 0.09277251421008259, time: 59.514s
+[Epoch 1432] MSELoss: 0.08316856132693251, time: 59.686s
+[Epoch 1433] MSELoss: 0.08028262301178818, time: 59.483s
+[Epoch 1434] MSELoss: 0.08388269525444644, time: 59.612s
+[Epoch 1435] MSELoss: 0.08642208609010348, time: 59.881s
+[Epoch 1436] MSELoss: 0.09491824814838104, time: 59.080s
+[Epoch 1437] MSELoss: 0.07897094612284986, time: 59.623s
+[Epoch 1438] MSELoss: 0.09024327613455667, time: 59.633s
+[Epoch 1439] MSELoss: 0.09682375066702001, time: 59.428s
+==================== Validation ====================
+[Epoch 1439] val_loss: 5.533816363367805e-07
+===================================================
+[Epoch 1440] MSELoss: 0.07563241559546441, time: 58.973s
+[Epoch 1441] MSELoss: 0.09475915498015555, time: 59.352s
+[Epoch 1442] MSELoss: 0.09006307981061665, time: 59.123s
+[Epoch 1443] MSELoss: 0.08048381429398432, time: 59.547s
+[Epoch 1444] MSELoss: 0.09309361132115804, time: 59.820s
+[Epoch 1445] MSELoss: 0.09268264803739096, time: 59.084s
+[Epoch 1446] MSELoss: 0.09696929271078923, time: 58.961s
+[Epoch 1447] MSELoss: 0.08653057915878229, time: 58.979s
+[Epoch 1448] MSELoss: 0.08038581583902918, time: 59.504s
+[Epoch 1449] MSELoss: 0.08535002303754233, time: 59.428s
+[Epoch 1450] MSELoss: 0.08926480904814194, time: 58.957s
+[Epoch 1451] MSELoss: 0.09945831434081563, time: 58.921s
+[Epoch 1452] MSELoss: 0.09171085347506133, time: 59.883s
+[Epoch 1453] MSELoss: 0.08679652894021606, time: 58.855s
+[Epoch 1454] MSELoss: 0.0939951203657653, time: 59.332s
+[Epoch 1455] MSELoss: 0.07615914962529627, time: 59.078s
+[Epoch 1456] MSELoss: 0.08819507191021164, time: 58.989s
+[Epoch 1457] MSELoss: 0.08664039306511934, time: 58.948s
+[Epoch 1458] MSELoss: 0.08413875988811594, time: 59.792s
+[Epoch 1459] MSELoss: 0.08941088384017348, time: 59.231s
+==================== Validation ====================
+[Epoch 1459] val_loss: 5.489572970418522e-07
+===================================================
+[Epoch 1460] MSELoss: 0.07948071032296866, time: 59.169s
+[Epoch 1461] MSELoss: 0.07752458639548752, time: 59.921s
+[Epoch 1462] MSELoss: 0.08248550830070268, time: 59.668s
+[Epoch 1463] MSELoss: 0.08249907896705819, time: 59.128s
+[Epoch 1464] MSELoss: 0.08164700093700297, time: 59.238s
+[Epoch 1465] MSELoss: 0.08434553931213239, time: 59.477s
+[Epoch 1466] MSELoss: 0.08886694475288756, time: 59.327s
+[Epoch 1467] MSELoss: 0.0812725879103792, time: 59.593s
+[Epoch 1468] MSELoss: 0.08684871933126653, time: 59.476s
+[Epoch 1469] MSELoss: 0.10078565172575922, time: 59.544s
+[Epoch 1470] MSELoss: 0.0914935104242018, time: 59.506s
+[Epoch 1471] MSELoss: 0.08849392841379582, time: 59.863s
+[Epoch 1472] MSELoss: 0.09160046851982108, time: 58.975s
+[Epoch 1473] MSELoss: 0.09096963697282429, time: 59.187s
+[Epoch 1474] MSELoss: 0.09810183385641061, time: 60.067s
+[Epoch 1475] MSELoss: 0.08688685175729915, time: 59.117s
+[Epoch 1476] MSELoss: 0.07724735017506068, time: 59.443s
+[Epoch 1477] MSELoss: 0.08854212405541065, time: 59.611s
+[Epoch 1478] MSELoss: 0.07490740791598166, time: 59.897s
+[Epoch 1479] MSELoss: 0.08476838703923435, time: 59.598s
+==================== Validation ====================
+[Epoch 1479] val_loss: 5.514361077985086e-07
+===================================================
+[Epoch 1480] MSELoss: 0.09139348787721246, time: 59.816s
+[Epoch 1481] MSELoss: 0.09628221989524635, time: 59.995s
+[Epoch 1482] MSELoss: 0.08739532653602178, time: 59.541s
+[Epoch 1483] MSELoss: 0.09005959104450251, time: 59.571s
+[Epoch 1484] MSELoss: 0.08874359626365318, time: 59.475s
+[Epoch 1485] MSELoss: 0.10094186921328814, time: 59.220s
+[Epoch 1486] MSELoss: 0.08992271588332104, time: 59.860s
+[Epoch 1487] MSELoss: 0.0772878565370444, time: 59.955s
+[Epoch 1488] MSELoss: 0.08539384737907146, time: 59.508s
+[Epoch 1489] MSELoss: 0.086824266128877, time: 59.416s
+[Epoch 1490] MSELoss: 0.07613649757959964, time: 59.023s
+[Epoch 1491] MSELoss: 0.08462690449298614, time: 59.547s
+[Epoch 1492] MSELoss: 0.07949754307893189, time: 59.928s
+[Epoch 1493] MSELoss: 0.08955743386071513, time: 59.317s
+[Epoch 1494] MSELoss: 0.08828391348519786, time: 59.572s
+[Epoch 1495] MSELoss: 0.08691079466900026, time: 59.378s
+[Epoch 1496] MSELoss: 0.08554980477889662, time: 59.406s
+[Epoch 1497] MSELoss: 0.07699098121586509, time: 59.563s
+[Epoch 1498] MSELoss: 0.09219123914689673, time: 59.357s
+[Epoch 1499] MSELoss: 0.0893071567565626, time: 59.800s
+==================== Validation ====================
+[Epoch 1499] val_loss: 5.463858144594269e-07
+===================================================
+[Epoch 1500] MSELoss: 0.08682757800190963, time: 59.889s
+[Epoch 1501] MSELoss: 0.09275783598423004, time: 59.703s
+[Epoch 1502] MSELoss: 0.09207059220749547, time: 59.572s
+[Epoch 1503] MSELoss: 0.10290882665007799, time: 58.922s
+[Epoch 1504] MSELoss: 0.08209748834964226, time: 59.428s
+[Epoch 1505] MSELoss: 0.09628725132841448, time: 59.906s
+[Epoch 1506] MSELoss: 0.07410301924259824, time: 59.461s
+[Epoch 1507] MSELoss: 0.08917748793134128, time: 59.447s
+[Epoch 1508] MSELoss: 0.08963381485293873, time: 59.473s
+[Epoch 1509] MSELoss: 0.08894143257798119, time: 59.875s
+[Epoch 1510] MSELoss: 0.08889141505774618, time: 59.946s
+[Epoch 1511] MSELoss: 0.09430544672068208, time: 59.433s
+[Epoch 1512] MSELoss: 0.07026906495130705, time: 59.924s
+[Epoch 1513] MSELoss: 0.08779572838896207, time: 59.729s
+[Epoch 1514] MSELoss: 0.09194729726401751, time: 59.505s
+[Epoch 1515] MSELoss: 0.10105935266685925, time: 59.442s
+[Epoch 1516] MSELoss: 0.09979858456327664, time: 59.879s
+[Epoch 1517] MSELoss: 0.09095753682777286, time: 59.362s
+[Epoch 1518] MSELoss: 0.08646041503049096, time: 59.378s
+[Epoch 1519] MSELoss: 0.0897147401648743, time: 59.298s
+==================== Validation ====================
+[Epoch 1519] val_loss: 5.449713228244946e-07
+===================================================
+[Epoch 1520] MSELoss: 0.08899378687122159, time: 59.536s
+[Epoch 1521] MSELoss: 0.09803669645705007, time: 59.873s
+[Epoch 1522] MSELoss: 0.08010718335439874, time: 58.944s
+[Epoch 1523] MSELoss: 0.08663568671115421, time: 59.850s
+[Epoch 1524] MSELoss: 0.08729289514435964, time: 59.542s
+[Epoch 1525] MSELoss: 0.0841567577233284, time: 59.266s
+[Epoch 1526] MSELoss: 0.08400592392056502, time: 59.386s
+[Epoch 1527] MSELoss: 0.09611185640625824, time: 59.770s
+[Epoch 1528] MSELoss: 0.08851352749942717, time: 59.693s
+[Epoch 1529] MSELoss: 0.08414330049841241, time: 59.885s
+[Epoch 1530] MSELoss: 0.08574801678134297, time: 58.969s
+[Epoch 1531] MSELoss: 0.0885269368988123, time: 59.896s
+[Epoch 1532] MSELoss: 0.08641984008400785, time: 59.363s
+[Epoch 1533] MSELoss: 0.08393493382027373, time: 59.330s
+[Epoch 1534] MSELoss: 0.09985338170504707, time: 59.479s
+[Epoch 1535] MSELoss: 0.06995287525933236, time: 60.007s
+[Epoch 1536] MSELoss: 0.08954967000648718, time: 59.982s
+[Epoch 1537] MSELoss: 0.09330309796231714, time: 59.054s
+[Epoch 1538] MSELoss: 0.0927358114594509, time: 59.172s
+[Epoch 1539] MSELoss: 0.09593325826889751, time: 59.425s
+==================== Validation ====================
+[Epoch 1539] val_loss: 5.520993340724089e-07
+===================================================
+[Epoch 1540] MSELoss: 0.0730923729821701, time: 59.789s
+[Epoch 1541] MSELoss: 0.08313351553145118, time: 59.465s
+[Epoch 1542] MSELoss: 0.0910333420245231, time: 58.921s
+[Epoch 1543] MSELoss: 0.08473943533714522, time: 59.363s
+[Epoch 1544] MSELoss: 0.08890942978905514, time: 59.401s
+[Epoch 1545] MSELoss: 0.09262938512785529, time: 59.888s
+[Epoch 1546] MSELoss: 0.08923032599374313, time: 59.181s
+[Epoch 1547] MSELoss: 0.10102403772444549, time: 58.958s
+[Epoch 1548] MSELoss: 0.0995965278866193, time: 59.303s
+[Epoch 1549] MSELoss: 0.07395176952493124, time: 59.768s
+[Epoch 1550] MSELoss: 0.09296072559134866, time: 59.705s
+[Epoch 1551] MSELoss: 0.0871258256057362, time: 59.199s
+[Epoch 1552] MSELoss: 0.0796244147032584, time: 59.533s
+[Epoch 1553] MSELoss: 0.08738388060274618, time: 59.406s
+[Epoch 1554] MSELoss: 0.09449322341771965, time: 59.032s
+[Epoch 1555] MSELoss: 0.08784493828848514, time: 59.616s
+[Epoch 1556] MSELoss: 0.09107816250021146, time: 59.951s
+[Epoch 1557] MSELoss: 0.08232668956043199, time: 59.863s
+[Epoch 1558] MSELoss: 0.08848079610404304, time: 59.420s
+[Epoch 1559] MSELoss: 0.09166402817936614, time: 59.199s
+==================== Validation ====================
+[Epoch 1559] val_loss: 5.453141568523278e-07
+===================================================
+[Epoch 1560] MSELoss: 0.08644591613715007, time: 59.078s
+[Epoch 1561] MSELoss: 0.08280271649974483, time: 59.787s
+[Epoch 1562] MSELoss: 0.09017146425321698, time: 58.818s
+[Epoch 1563] MSELoss: 0.08280966764273631, time: 59.713s
+[Epoch 1564] MSELoss: 0.08961241284850985, time: 59.876s
+[Epoch 1565] MSELoss: 0.08314433002802121, time: 59.162s
+[Epoch 1566] MSELoss: 0.08993252139771357, time: 59.073s
+[Epoch 1567] MSELoss: 0.08084439874139868, time: 59.250s
+[Epoch 1568] MSELoss: 0.10433237967928025, time: 59.717s
+[Epoch 1569] MSELoss: 0.08026658103335649, time: 59.150s
+[Epoch 1570] MSELoss: 0.09013020791198043, time: 59.639s
+[Epoch 1571] MSELoss: 0.08926175193416631, time: 59.928s
+[Epoch 1572] MSELoss: 0.08070353350326927, time: 60.109s
+[Epoch 1573] MSELoss: 0.08539050407919355, time: 59.545s
+[Epoch 1574] MSELoss: 0.07370261853264476, time: 59.381s
+[Epoch 1575] MSELoss: 0.08724758514224298, time: 59.660s
+[Epoch 1576] MSELoss: 0.08529971338364042, time: 59.972s
+[Epoch 1577] MSELoss: 0.09222174031046135, time: 59.352s
+[Epoch 1578] MSELoss: 0.08814828414787454, time: 59.549s
+[Epoch 1579] MSELoss: 0.08506490584907375, time: 59.466s
+==================== Validation ====================
+[Epoch 1579] val_loss: 5.41652730134956e-07
+===================================================
+[Epoch 1580] MSELoss: 0.07963192925407467, time: 59.112s
+[Epoch 1581] MSELoss: 0.09024876125410877, time: 59.561s
+[Epoch 1582] MSELoss: 0.08285485170993276, time: 59.920s
+[Epoch 1583] MSELoss: 0.09253281164406377, time: 59.325s
+[Epoch 1584] MSELoss: 0.0836469444911927, time: 59.675s
+[Epoch 1585] MSELoss: 0.09444202719764276, time: 59.728s
+[Epoch 1586] MSELoss: 0.0931425691709261, time: 59.512s
+[Epoch 1587] MSELoss: 0.08637625393351878, time: 58.961s
+[Epoch 1588] MSELoss: 0.08245867294449867, time: 59.016s
+[Epoch 1589] MSELoss: 0.08947988865706562, time: 60.166s
+[Epoch 1590] MSELoss: 0.09608105274806307, time: 59.791s
+[Epoch 1591] MSELoss: 0.08712358224015175, time: 59.518s
+[Epoch 1592] MSELoss: 0.08365029270168056, time: 59.691s
+[Epoch 1593] MSELoss: 0.08865431633206423, time: 59.027s
+[Epoch 1594] MSELoss: 0.08257200094257397, time: 59.794s
+[Epoch 1595] MSELoss: 0.0865534047215161, time: 59.564s
+[Epoch 1596] MSELoss: 0.09538416023133323, time: 60.444s
+[Epoch 1597] MSELoss: 0.08704684702785347, time: 59.891s
+[Epoch 1598] MSELoss: 0.08748826235321097, time: 59.255s
+[Epoch 1599] MSELoss: 0.08264232305174862, time: 59.661s
+==================== Validation ====================
+[Epoch 1599] val_loss: 5.425725760233035e-07
+===================================================
+[Epoch 1600] MSELoss: 0.07883835772306405, time: 59.193s
+[Epoch 1601] MSELoss: 0.09303838602500036, time: 59.682s
+[Epoch 1602] MSELoss: 0.09199675736123358, time: 59.083s
+[Epoch 1603] MSELoss: 0.0959759435235438, time: 59.160s
+[Epoch 1604] MSELoss: 0.08256422798678448, time: 59.439s
+[Epoch 1605] MSELoss: 0.08197369742397727, time: 59.021s
+[Epoch 1606] MSELoss: 0.08713667589472607, time: 59.291s
+[Epoch 1607] MSELoss: 0.09082696862539955, time: 59.048s
+[Epoch 1608] MSELoss: 0.09101365847957574, time: 59.199s
+[Epoch 1609] MSELoss: 0.09125882527388801, time: 58.888s
+[Epoch 1610] MSELoss: 0.09790099967292257, time: 59.484s
+[Epoch 1611] MSELoss: 0.08910744763191111, time: 59.661s
+[Epoch 1612] MSELoss: 0.08315513840749521, time: 59.807s
+[Epoch 1613] MSELoss: 0.08334870939143002, time: 59.903s
+[Epoch 1614] MSELoss: 0.08241957270497964, time: 58.951s
+[Epoch 1615] MSELoss: 0.09437873799205673, time: 59.008s
+[Epoch 1616] MSELoss: 0.08814487071834844, time: 59.816s
+[Epoch 1617] MSELoss: 0.07484402595384215, time: 59.112s
+[Epoch 1618] MSELoss: 0.08759630534438079, time: 59.104s
+[Epoch 1619] MSELoss: 0.08078125710810788, time: 59.041s
+==================== Validation ====================
+[Epoch 1619] val_loss: 5.390558442286419e-07
+===================================================
+[Epoch 1620] MSELoss: 0.08025887594769962, time: 59.919s
+[Epoch 1621] MSELoss: 0.0861996537688273, time: 58.869s
+[Epoch 1622] MSELoss: 0.07307001680601388, time: 59.799s
+[Epoch 1623] MSELoss: 0.09121926945359024, time: 59.088s
+[Epoch 1624] MSELoss: 0.08500475810036402, time: 59.059s
+[Epoch 1625] MSELoss: 0.07429493057795547, time: 58.957s
+[Epoch 1626] MSELoss: 0.09273747373266483, time: 59.492s
+[Epoch 1627] MSELoss: 0.08025676305194132, time: 59.582s
+[Epoch 1628] MSELoss: 0.08870223400564017, time: 59.514s
+[Epoch 1629] MSELoss: 0.07982758050572805, time: 59.200s
+[Epoch 1630] MSELoss: 0.09747131807009943, time: 59.577s
+[Epoch 1631] MSELoss: 0.0802243522643535, time: 59.852s
+[Epoch 1632] MSELoss: 0.0791815685859712, time: 59.825s
+[Epoch 1633] MSELoss: 0.08889859724811025, time: 59.177s
+[Epoch 1634] MSELoss: 0.09907115224367855, time: 59.618s
+[Epoch 1635] MSELoss: 0.10232836685397408, time: 59.039s
+[Epoch 1636] MSELoss: 0.0797501539769159, time: 59.999s
+[Epoch 1637] MSELoss: 0.08144692268053239, time: 59.510s
+[Epoch 1638] MSELoss: 0.09212285219903357, time: 59.393s
+[Epoch 1639] MSELoss: 0.09480145431800999, time: 59.711s
+==================== Validation ====================
+[Epoch 1639] val_loss: 5.371160796130425e-07
+===================================================
+[Epoch 1640] MSELoss: 0.08576367229265584, time: 59.420s
+[Epoch 1641] MSELoss: 0.08633178167722441, time: 59.581s
+[Epoch 1642] MSELoss: 0.08513566114495255, time: 59.324s
+[Epoch 1643] MSELoss: 0.08823108515935019, time: 59.168s
+[Epoch 1644] MSELoss: 0.080856004930948, time: 59.842s
+[Epoch 1645] MSELoss: 0.0882810492819937, time: 59.387s
+[Epoch 1646] MSELoss: 0.06778441152577712, time: 59.487s
+[Epoch 1647] MSELoss: 0.08822538679338654, time: 59.568s
+[Epoch 1648] MSELoss: 0.09577241456876931, time: 59.052s
+[Epoch 1649] MSELoss: 0.08436037346572531, time: 59.938s
+[Epoch 1650] MSELoss: 0.08896182392279364, time: 59.119s
+[Epoch 1651] MSELoss: 0.09028148674935271, time: 59.452s
+[Epoch 1652] MSELoss: 0.0978683466144668, time: 59.199s
+[Epoch 1653] MSELoss: 0.08422112473371354, time: 59.545s
+[Epoch 1654] MSELoss: 0.08103336725616828, time: 60.005s
+[Epoch 1655] MSELoss: 0.09686853635040196, time: 58.941s
+[Epoch 1656] MSELoss: 0.08383595063986088, time: 59.518s
+[Epoch 1657] MSELoss: 0.09261265877020461, time: 59.614s
+[Epoch 1658] MSELoss: 0.07787791617870839, time: 59.915s
+[Epoch 1659] MSELoss: 0.08562326077795164, time: 59.225s
+==================== Validation ====================
+[Epoch 1659] val_loss: 5.378734385885764e-07
+===================================================
+[Epoch 1660] MSELoss: 0.09465292612598701, time: 59.762s
+[Epoch 1661] MSELoss: 0.0894282226535407, time: 59.859s
+[Epoch 1662] MSELoss: 0.08150307927809824, time: 59.027s
+[Epoch 1663] MSELoss: 0.08676481624768878, time: 59.543s
+[Epoch 1664] MSELoss: 0.09145534280370074, time: 59.485s
+[Epoch 1665] MSELoss: 0.09441121087663554, time: 59.875s
+[Epoch 1666] MSELoss: 0.10364588642683388, time: 59.768s
+[Epoch 1667] MSELoss: 0.09533047560200264, time: 59.950s
+[Epoch 1668] MSELoss: 0.089414826086299, time: 59.045s
+[Epoch 1669] MSELoss: 0.09825616292867131, time: 59.436s
+[Epoch 1670] MSELoss: 0.08303477996642786, time: 59.647s
+[Epoch 1671] MSELoss: 0.078794050517238, time: 59.371s
+[Epoch 1672] MSELoss: 0.09487502597568725, time: 59.852s
+[Epoch 1673] MSELoss: 0.09711460072272034, time: 59.964s
+[Epoch 1674] MSELoss: 0.07455468930261717, time: 59.355s
+[Epoch 1675] MSELoss: 0.08820219992511821, time: 59.099s
+[Epoch 1676] MSELoss: 0.08420044141927395, time: 59.415s
+[Epoch 1677] MSELoss: 0.0893769708186896, time: 59.567s
+[Epoch 1678] MSELoss: 0.08742427182468501, time: 59.353s
+[Epoch 1679] MSELoss: 0.07806067995261401, time: 60.106s
+==================== Validation ====================
+[Epoch 1679] val_loss: 5.357665315841587e-07
+===================================================
+[Epoch 1680] MSELoss: 0.07921059147073803, time: 59.176s
+[Epoch 1681] MSELoss: 0.10579460491002961, time: 59.421s
+[Epoch 1682] MSELoss: 0.08741703886665743, time: 59.483s
+[Epoch 1683] MSELoss: 0.08619944676121866, time: 59.498s
+[Epoch 1684] MSELoss: 0.08993052476382052, time: 59.574s
+[Epoch 1685] MSELoss: 0.08169352330415594, time: 59.027s
+[Epoch 1686] MSELoss: 0.0894095576050776, time: 59.362s
+[Epoch 1687] MSELoss: 0.08860738323578102, time: 59.478s
+[Epoch 1688] MSELoss: 0.09012520347129216, time: 59.918s
+[Epoch 1689] MSELoss: 0.08639856896215034, time: 59.367s
+[Epoch 1690] MSELoss: 0.07755964176348326, time: 59.947s
+[Epoch 1691] MSELoss: 0.08980490982172673, time: 59.439s
+[Epoch 1692] MSELoss: 0.0690557657931508, time: 58.943s
+[Epoch 1693] MSELoss: 0.08017213915114885, time: 60.008s
+[Epoch 1694] MSELoss: 0.08604385101088238, time: 59.477s
+[Epoch 1695] MSELoss: 0.08420773549005389, time: 59.899s
+[Epoch 1696] MSELoss: 0.08968365777135742, time: 59.033s
+[Epoch 1697] MSELoss: 0.08993728237692267, time: 59.710s
+[Epoch 1698] MSELoss: 0.08845773137132214, time: 59.934s
+[Epoch 1699] MSELoss: 0.09637344865107231, time: 60.041s
+==================== Validation ====================
+[Epoch 1699] val_loss: 5.308581819463143e-07
+===================================================
+[Epoch 1700] MSELoss: 0.09177293358582325, time: 59.397s
+[Epoch 1701] MSELoss: 0.08144147506258873, time: 58.945s
+[Epoch 1702] MSELoss: 0.0787248025457798, time: 59.076s
+[Epoch 1703] MSELoss: 0.10073203518351709, time: 59.591s
+[Epoch 1704] MSELoss: 0.08845228421903978, time: 59.186s
+[Epoch 1705] MSELoss: 0.07766916260483081, time: 60.065s
+[Epoch 1706] MSELoss: 0.0868822127443061, time: 59.093s
+[Epoch 1707] MSELoss: 0.08046568904749371, time: 60.253s
+[Epoch 1708] MSELoss: 0.08010272538839755, time: 59.053s
+[Epoch 1709] MSELoss: 0.0920317579716952, time: 59.418s
+[Epoch 1710] MSELoss: 0.07481727762338282, time: 59.549s
+[Epoch 1711] MSELoss: 0.07924276669721372, time: 59.560s
+[Epoch 1712] MSELoss: 0.08029367845103313, time: 60.352s
+[Epoch 1713] MSELoss: 0.08945931193143637, time: 60.088s
+[Epoch 1714] MSELoss: 0.08683848603289912, time: 59.152s
+[Epoch 1715] MSELoss: 0.07423635351005942, time: 59.334s
+[Epoch 1716] MSELoss: 0.07861233249158514, time: 59.562s
+[Epoch 1717] MSELoss: 0.08146135222209108, time: 60.100s
+[Epoch 1718] MSELoss: 0.0825731718531725, time: 59.479s
+[Epoch 1719] MSELoss: 0.08765599207783287, time: 60.091s
+==================== Validation ====================
+[Epoch 1719] val_loss: 5.322241236171977e-07
+===================================================
+[Epoch 1720] MSELoss: 0.07781743667808108, time: 59.139s
+[Epoch 1721] MSELoss: 0.09220384117956697, time: 59.651s
+[Epoch 1722] MSELoss: 0.0923997790669091, time: 59.483s
+[Epoch 1723] MSELoss: 0.0765674381823787, time: 58.996s
+[Epoch 1724] MSELoss: 0.08909772774098779, time: 59.947s
+[Epoch 1725] MSELoss: 0.08534516480920668, time: 59.476s
+[Epoch 1726] MSELoss: 0.0846011856126345, time: 59.510s
+[Epoch 1727] MSELoss: 0.0875021327149377, time: 59.817s
+[Epoch 1728] MSELoss: 0.08796348197343336, time: 59.395s
+[Epoch 1729] MSELoss: 0.09279661850516938, time: 59.187s
+[Epoch 1730] MSELoss: 0.08424960193224251, time: 59.605s
+[Epoch 1731] MSELoss: 0.07227994119536808, time: 59.573s
+[Epoch 1732] MSELoss: 0.08153998344840313, time: 59.633s
+[Epoch 1733] MSELoss: 0.08636676812205801, time: 59.230s
+[Epoch 1734] MSELoss: 0.0833182216897099, time: 59.781s
+[Epoch 1735] MSELoss: 0.08747715581822293, time: 59.298s
+[Epoch 1736] MSELoss: 0.08284499549137597, time: 58.956s
+[Epoch 1737] MSELoss: 0.09078568930272013, time: 59.869s
+[Epoch 1738] MSELoss: 0.0860348601656204, time: 59.308s
+[Epoch 1739] MSELoss: 0.09555756667925214, time: 59.922s
+==================== Validation ====================
+[Epoch 1739] val_loss: 5.323530501755158e-07
+===================================================
+[Epoch 1740] MSELoss: 0.08861398675732993, time: 59.369s
+[Epoch 1741] MSELoss: 0.0921462255911055, time: 59.467s
+[Epoch 1742] MSELoss: 0.08566977159882133, time: 60.034s
+[Epoch 1743] MSELoss: 0.09730272143761712, time: 59.450s
+[Epoch 1744] MSELoss: 0.08557603156871416, time: 59.466s
+[Epoch 1745] MSELoss: 0.09957927102434702, time: 58.857s
+[Epoch 1746] MSELoss: 0.08247345650505106, time: 60.067s
+[Epoch 1747] MSELoss: 0.09075076343089511, time: 59.791s
+[Epoch 1748] MSELoss: 0.0870688754525459, time: 59.175s
+[Epoch 1749] MSELoss: 0.08052347717404534, time: 59.116s
+[Epoch 1750] MSELoss: 0.08227527750105681, time: 59.734s
+[Epoch 1751] MSELoss: 0.10021405920005319, time: 59.362s
+[Epoch 1752] MSELoss: 0.08105218459174715, time: 59.537s
+[Epoch 1753] MSELoss: 0.10640988847113808, time: 59.073s
+[Epoch 1754] MSELoss: 0.08940086918036369, time: 59.041s
+[Epoch 1755] MSELoss: 0.08806126400701364, time: 59.487s
+[Epoch 1756] MSELoss: 0.08143896412697027, time: 59.407s
+[Epoch 1757] MSELoss: 0.09429309929890389, time: 59.101s
+[Epoch 1758] MSELoss: 0.08178910745879298, time: 59.877s
+[Epoch 1759] MSELoss: 0.09894518434091218, time: 59.163s
+==================== Validation ====================
+[Epoch 1759] val_loss: 5.338686605682597e-07
+===================================================
+[Epoch 1760] MSELoss: 0.08875353480371731, time: 59.512s
+[Epoch 1761] MSELoss: 0.07423909193709154, time: 59.599s
+[Epoch 1762] MSELoss: 0.08251564638604494, time: 59.526s
+[Epoch 1763] MSELoss: 0.08618902999230407, time: 59.131s
+[Epoch 1764] MSELoss: 0.09025601819898425, time: 59.520s
+[Epoch 1765] MSELoss: 0.08645224480741573, time: 59.780s
+[Epoch 1766] MSELoss: 0.0840270733460784, time: 59.791s
+[Epoch 1767] MSELoss: 0.08510268158914353, time: 59.825s
+[Epoch 1768] MSELoss: 0.0867704538025216, time: 59.395s
+[Epoch 1769] MSELoss: 0.07648769520561803, time: 58.941s
+[Epoch 1770] MSELoss: 0.08053634760224007, time: 59.438s
+[Epoch 1771] MSELoss: 0.0890579052026045, time: 59.351s
+[Epoch 1772] MSELoss: 0.08728325124089184, time: 59.318s
+[Epoch 1773] MSELoss: 0.0799702838412486, time: 59.792s
+[Epoch 1774] MSELoss: 0.08415458263003861, time: 59.582s
+[Epoch 1775] MSELoss: 0.08949415670940652, time: 59.194s
+[Epoch 1776] MSELoss: 0.09574418226574463, time: 60.064s
+[Epoch 1777] MSELoss: 0.08637936740309338, time: 59.438s
+[Epoch 1778] MSELoss: 0.08468519914789463, time: 59.641s
+[Epoch 1779] MSELoss: 0.09834356954194266, time: 59.471s
+==================== Validation ====================
+[Epoch 1779] val_loss: 5.292820901559026e-07
+===================================================
+[Epoch 1780] MSELoss: 0.08902173507323657, time: 59.018s
+[Epoch 1781] MSELoss: 0.08910212759986859, time: 59.073s
+[Epoch 1782] MSELoss: 0.09872227379078553, time: 59.668s
+[Epoch 1783] MSELoss: 0.0826480759000829, time: 59.759s
+[Epoch 1784] MSELoss: 0.08459262329217215, time: 59.879s
+[Epoch 1785] MSELoss: 0.09028927401364358, time: 59.495s
+[Epoch 1786] MSELoss: 0.08541148422095417, time: 59.881s
+[Epoch 1787] MSELoss: 0.07561834231654013, time: 59.631s
+[Epoch 1788] MSELoss: 0.084299189705317, time: 59.360s
+[Epoch 1789] MSELoss: 0.09412988144586878, time: 59.191s
+[Epoch 1790] MSELoss: 0.07643958872755652, time: 59.101s
+[Epoch 1791] MSELoss: 0.07696442149939355, time: 59.144s
+[Epoch 1792] MSELoss: 0.07840899384411221, time: 59.539s
+[Epoch 1793] MSELoss: 0.08602294095114552, time: 59.393s
+[Epoch 1794] MSELoss: 0.08637461948885837, time: 59.500s
+[Epoch 1795] MSELoss: 0.08466223304011775, time: 59.702s
+[Epoch 1796] MSELoss: 0.07467731867853383, time: 59.837s
+[Epoch 1797] MSELoss: 0.09659611047457226, time: 59.065s
+[Epoch 1798] MSELoss: 0.08443257014203648, time: 59.486s
+[Epoch 1799] MSELoss: 0.09354576180075211, time: 60.026s
+==================== Validation ====================
+[Epoch 1799] val_loss: 5.306283810568857e-07
+===================================================
+[Epoch 1800] MSELoss: 0.08966083966978741, time: 59.515s
+[Epoch 1801] MSELoss: 0.08052280624608762, time: 59.095s
+[Epoch 1802] MSELoss: 0.09174074539491399, time: 60.165s
+[Epoch 1803] MSELoss: 0.09157175911505791, time: 59.363s
+[Epoch 1804] MSELoss: 0.08705617766298185, time: 59.449s
+[Epoch 1805] MSELoss: 0.07589011669518764, time: 59.539s
+[Epoch 1806] MSELoss: 0.08983211134645072, time: 60.128s
+[Epoch 1807] MSELoss: 0.09626510937761684, time: 59.655s
+[Epoch 1808] MSELoss: 0.09995545071697878, time: 59.377s
+[Epoch 1809] MSELoss: 0.07861287916206161, time: 59.295s
+[Epoch 1810] MSELoss: 0.08551686158170924, time: 59.225s
+[Epoch 1811] MSELoss: 0.08685952848331495, time: 59.357s
+[Epoch 1812] MSELoss: 0.09804276514544406, time: 59.663s
+[Epoch 1813] MSELoss: 0.08399531296031042, time: 59.398s
+[Epoch 1814] MSELoss: 0.08784226723417471, time: 58.998s
+[Epoch 1815] MSELoss: 0.09023140240672299, time: 60.011s
+[Epoch 1816] MSELoss: 0.0860476424832913, time: 59.234s
+[Epoch 1817] MSELoss: 0.09666258942293511, time: 59.094s
+[Epoch 1818] MSELoss: 0.0855840766294436, time: 59.044s
+[Epoch 1819] MSELoss: 0.08504878234287555, time: 59.188s
+==================== Validation ====================
+[Epoch 1819] val_loss: 5.297101040468987e-07
+===================================================
+[Epoch 1820] MSELoss: 0.08847217791480944, time: 59.538s
+[Epoch 1821] MSELoss: 0.0822653382307511, time: 59.690s
+[Epoch 1822] MSELoss: 0.09006130618614737, time: 59.058s
+[Epoch 1823] MSELoss: 0.09083657853030176, time: 58.895s
+[Epoch 1824] MSELoss: 0.08629964694740588, time: 59.479s
+[Epoch 1825] MSELoss: 0.07699703437868843, time: 59.462s
+[Epoch 1826] MSELoss: 0.08088072076630355, time: 59.971s
+[Epoch 1827] MSELoss: 0.0824713088804856, time: 59.617s
+[Epoch 1828] MSELoss: 0.08294805268418383, time: 59.030s
+[Epoch 1829] MSELoss: 0.08237524714257399, time: 59.057s
+[Epoch 1830] MSELoss: 0.08708740907340226, time: 58.884s
+[Epoch 1831] MSELoss: 0.08745695317206396, time: 59.068s
+[Epoch 1832] MSELoss: 0.08616452880563552, time: 59.503s
+[Epoch 1833] MSELoss: 0.08703211454187773, time: 60.406s
+[Epoch 1834] MSELoss: 0.07817864812783558, time: 59.544s
+[Epoch 1835] MSELoss: 0.0969635296761143, time: 59.746s
+[Epoch 1836] MSELoss: 0.09426888351498003, time: 60.180s
+[Epoch 1837] MSELoss: 0.08598905368919738, time: 59.794s
+[Epoch 1838] MSELoss: 0.0946340010480278, time: 59.143s
+[Epoch 1839] MSELoss: 0.09048263654536146, time: 59.235s
+==================== Validation ====================
+[Epoch 1839] val_loss: 5.285945348987298e-07
+===================================================
+[Epoch 1840] MSELoss: 0.08882720935137264, time: 59.428s
+[Epoch 1841] MSELoss: 0.08958478597394953, time: 60.578s
+[Epoch 1842] MSELoss: 0.0808857544166544, time: 59.627s
+[Epoch 1843] MSELoss: 0.09096167914421213, time: 60.030s
+[Epoch 1844] MSELoss: 0.08439146233087574, time: 59.948s
+[Epoch 1845] MSELoss: 0.08682650307574394, time: 60.737s
+[Epoch 1846] MSELoss: 0.10292507718655874, time: 59.360s
+[Epoch 1847] MSELoss: 0.08188398127359423, time: 59.472s
+[Epoch 1848] MSELoss: 0.08378530328627676, time: 58.949s
+[Epoch 1849] MSELoss: 0.09908385630379515, time: 59.485s
+[Epoch 1850] MSELoss: 0.08809097195361656, time: 59.162s
+[Epoch 1851] MSELoss: 0.09618912731424312, time: 59.660s
+[Epoch 1852] MSELoss: 0.08317827029598199, time: 59.667s
+[Epoch 1853] MSELoss: 0.07814971780383281, time: 58.960s
+[Epoch 1854] MSELoss: 0.09393895684677939, time: 59.581s
+[Epoch 1855] MSELoss: 0.09806697898205709, time: 59.102s
+[Epoch 1856] MSELoss: 0.0907345149210993, time: 59.219s
+[Epoch 1857] MSELoss: 0.08813598627139899, time: 59.162s
+[Epoch 1858] MSELoss: 0.0902561453350989, time: 59.161s
+[Epoch 1859] MSELoss: 0.09090572003994815, time: 59.282s
+==================== Validation ====================
+[Epoch 1859] val_loss: 5.279247659473185e-07
+===================================================
+[Epoch 1860] MSELoss: 0.08886459901590239, time: 59.154s
+[Epoch 1861] MSELoss: 0.08922823417444967, time: 59.403s
+[Epoch 1862] MSELoss: 0.08565463908863338, time: 59.642s
+[Epoch 1863] MSELoss: 0.09061417385237291, time: 59.183s
+[Epoch 1864] MSELoss: 0.0854503765162504, time: 59.241s
+[Epoch 1865] MSELoss: 0.09076685987582261, time: 59.744s
+[Epoch 1866] MSELoss: 0.0895211526658386, time: 59.299s
+[Epoch 1867] MSELoss: 0.08481599218529565, time: 59.144s
+[Epoch 1868] MSELoss: 0.09267818184294314, time: 59.235s
+[Epoch 1869] MSELoss: 0.08902930881066079, time: 59.082s
+[Epoch 1870] MSELoss: 0.101016217763324, time: 59.495s
+[Epoch 1871] MSELoss: 0.08999695485478945, time: 59.237s
+[Epoch 1872] MSELoss: 0.09062389245214449, time: 59.213s
+[Epoch 1873] MSELoss: 0.0959993045703, time: 58.973s
+[Epoch 1874] MSELoss: 0.09464859807948497, time: 59.416s
+[Epoch 1875] MSELoss: 0.08930510353423994, time: 59.524s
+[Epoch 1876] MSELoss: 0.09327529620019381, time: 59.863s
+[Epoch 1877] MSELoss: 0.08770299109693785, time: 59.904s
+[Epoch 1878] MSELoss: 0.07933965401554649, time: 59.422s
+[Epoch 1879] MSELoss: 0.0800901057664305, time: 59.548s
+==================== Validation ====================
+[Epoch 1879] val_loss: 5.274523687148757e-07
+===================================================
+[Epoch 1880] MSELoss: 0.09095732949208468, time: 59.756s
+[Epoch 1881] MSELoss: 0.09055077820614149, time: 59.081s
+[Epoch 1882] MSELoss: 0.09809618599353019, time: 59.417s
+[Epoch 1883] MSELoss: 0.08259106904204766, time: 59.030s
+[Epoch 1884] MSELoss: 0.08912536380177533, time: 59.457s
+[Epoch 1885] MSELoss: 0.08885476991682398, time: 59.355s
+[Epoch 1886] MSELoss: 0.09048620485489003, time: 59.489s
+[Epoch 1887] MSELoss: 0.07646228026450527, time: 59.389s
+[Epoch 1888] MSELoss: 0.08445480344182049, time: 59.870s
+[Epoch 1889] MSELoss: 0.08395270993192258, time: 58.922s
+[Epoch 1890] MSELoss: 0.09523823545102708, time: 59.281s
+[Epoch 1891] MSELoss: 0.08371954557316547, time: 59.422s
+[Epoch 1892] MSELoss: 0.09324620449809695, time: 59.439s
+[Epoch 1893] MSELoss: 0.0929286592608233, time: 59.514s
+[Epoch 1894] MSELoss: 0.09285855231362142, time: 59.925s
+[Epoch 1895] MSELoss: 0.08464198583334853, time: 59.785s
+[Epoch 1896] MSELoss: 0.09440589667594229, time: 59.916s
+[Epoch 1897] MSELoss: 0.0895849329059605, time: 59.562s
+[Epoch 1898] MSELoss: 0.08314723873362792, time: 59.749s
+[Epoch 1899] MSELoss: 0.0971355193760246, time: 59.299s
+==================== Validation ====================
+[Epoch 1899] val_loss: 5.264772312330024e-07
+===================================================
+[Epoch 1900] MSELoss: 0.08198695735138078, time: 59.705s
+[Epoch 1901] MSELoss: 0.09003644421252169, time: 59.042s
+[Epoch 1902] MSELoss: 0.08491257984000682, time: 59.493s
+[Epoch 1903] MSELoss: 0.08313516178168356, time: 59.469s
+[Epoch 1904] MSELoss: 0.08154381272933361, time: 59.211s
+[Epoch 1905] MSELoss: 0.08458772249816154, time: 59.657s
+[Epoch 1906] MSELoss: 0.08055300252321598, time: 59.381s
+[Epoch 1907] MSELoss: 0.0907426450020549, time: 59.141s
+[Epoch 1908] MSELoss: 0.08886848439314318, time: 59.381s
+[Epoch 1909] MSELoss: 0.0898122735988264, time: 59.243s
+[Epoch 1910] MSELoss: 0.08002418361667712, time: 59.705s
+[Epoch 1911] MSELoss: 0.07871267643482001, time: 59.473s
+[Epoch 1912] MSELoss: 0.09692700920012695, time: 59.016s
+[Epoch 1913] MSELoss: 0.08216232127002017, time: 59.533s
+[Epoch 1914] MSELoss: 0.08989827108400111, time: 59.536s
+[Epoch 1915] MSELoss: 0.08726648077770899, time: 59.532s
+[Epoch 1916] MSELoss: 0.07946718202120709, time: 59.559s
+[Epoch 1917] MSELoss: 0.07853901784189724, time: 59.518s
+[Epoch 1918] MSELoss: 0.08036730952285738, time: 59.220s
+[Epoch 1919] MSELoss: 0.08163242594508285, time: 59.441s
+==================== Validation ====================
+[Epoch 1919] val_loss: 5.236668982888659e-07
+===================================================
+[Epoch 1920] MSELoss: 0.08357735755006698, time: 59.178s
+[Epoch 1921] MSELoss: 0.08425704834305428, time: 58.993s
+[Epoch 1922] MSELoss: 0.08026782708475366, time: 59.972s
+[Epoch 1923] MSELoss: 0.08109129531393675, time: 59.638s
+[Epoch 1924] MSELoss: 0.08725324138702656, time: 59.238s
+[Epoch 1925] MSELoss: 0.09036625139626928, time: 59.434s
+[Epoch 1926] MSELoss: 0.08292684402972968, time: 59.704s
+[Epoch 1927] MSELoss: 0.09049515557919882, time: 59.368s
+[Epoch 1928] MSELoss: 0.08663332616296512, time: 59.240s
+[Epoch 1929] MSELoss: 0.08680115055970171, time: 60.029s
+[Epoch 1930] MSELoss: 0.08430875146719204, time: 59.078s
+[Epoch 1931] MSELoss: 0.08787316088670526, time: 59.582s
+[Epoch 1932] MSELoss: 0.08790131556716832, time: 59.528s
+[Epoch 1933] MSELoss: 0.0826845864860595, time: 59.484s
+[Epoch 1934] MSELoss: 0.09000709834931928, time: 59.447s
+[Epoch 1935] MSELoss: 0.08573722175258974, time: 58.922s
+[Epoch 1936] MSELoss: 0.08615064427828079, time: 59.584s
+[Epoch 1937] MSELoss: 0.08705956822748043, time: 59.690s
+[Epoch 1938] MSELoss: 0.08502127918076108, time: 60.460s
+[Epoch 1939] MSELoss: 0.09209987476192923, time: 59.149s
+==================== Validation ====================
+[Epoch 1939] val_loss: 5.243481894012803e-07
+===================================================
+[Epoch 1940] MSELoss: 0.08090497404654426, time: 58.917s
+[Epoch 1941] MSELoss: 0.08923677782083608, time: 59.838s
+[Epoch 1942] MSELoss: 0.08429843726546757, time: 59.240s
+[Epoch 1943] MSELoss: 0.08092779496324841, time: 59.495s
+[Epoch 1944] MSELoss: 0.07960748776729981, time: 59.450s
+[Epoch 1945] MSELoss: 0.08751059679674322, time: 59.273s
+[Epoch 1946] MSELoss: 0.0810125409890051, time: 59.871s
+[Epoch 1947] MSELoss: 0.09169711265183816, time: 59.458s
+[Epoch 1948] MSELoss: 0.09421846440950916, time: 59.319s
+[Epoch 1949] MSELoss: 0.08104042965516617, time: 59.467s
+[Epoch 1950] MSELoss: 0.08253371556268328, time: 59.645s
+[Epoch 1951] MSELoss: 0.09055069393732332, time: 59.779s
+[Epoch 1952] MSELoss: 0.09377803453455932, time: 59.487s
+[Epoch 1953] MSELoss: 0.0895326926203614, time: 59.522s
+[Epoch 1954] MSELoss: 0.07640717484967105, time: 59.426s
+[Epoch 1955] MSELoss: 0.09860971855761652, time: 59.926s
+[Epoch 1956] MSELoss: 0.08229613269742747, time: 59.192s
+[Epoch 1957] MSELoss: 0.08028010404880412, time: 59.173s
+[Epoch 1958] MSELoss: 0.08368075755953958, time: 59.289s
+[Epoch 1959] MSELoss: 0.09411285163051533, time: 59.185s
+==================== Validation ====================
+[Epoch 1959] val_loss: 5.256234260286874e-07
+===================================================
+[Epoch 1960] MSELoss: 0.0980038276175037, time: 59.154s
+[Epoch 1961] MSELoss: 0.08436213006180796, time: 59.935s
+[Epoch 1962] MSELoss: 0.08067062989787452, time: 59.850s
+[Epoch 1963] MSELoss: 0.08731719101673331, time: 59.916s
+[Epoch 1964] MSELoss: 0.0757096761901101, time: 59.431s
+[Epoch 1965] MSELoss: 0.07989710139703343, time: 59.318s
+[Epoch 1966] MSELoss: 0.0873334487550892, time: 59.485s
+[Epoch 1967] MSELoss: 0.08010847941675986, time: 59.431s
+[Epoch 1968] MSELoss: 0.07163551344472746, time: 59.409s
+[Epoch 1969] MSELoss: 0.09542658931935544, time: 59.181s
+[Epoch 1970] MSELoss: 0.09070272484413264, time: 59.108s
+[Epoch 1971] MSELoss: 0.08519141775005581, time: 59.764s
+[Epoch 1972] MSELoss: 0.07428704347165133, time: 59.502s
+[Epoch 1973] MSELoss: 0.08486110260921784, time: 59.909s
+[Epoch 1974] MSELoss: 0.08546882986874235, time: 59.576s
+[Epoch 1975] MSELoss: 0.0955936146360314, time: 59.695s
+[Epoch 1976] MSELoss: 0.08993780982828783, time: 59.173s
+[Epoch 1977] MSELoss: 0.09558959208450027, time: 59.757s
+[Epoch 1978] MSELoss: 0.07825130507857962, time: 59.588s
+[Epoch 1979] MSELoss: 0.07423504625595259, time: 59.537s
+==================== Validation ====================
+[Epoch 1979] val_loss: 5.225621805493574e-07
+===================================================
+[Epoch 1980] MSELoss: 0.08964051067067141, time: 59.011s
+[Epoch 1981] MSELoss: 0.08977134836393155, time: 59.553s
+[Epoch 1982] MSELoss: 0.08564272774277593, time: 59.738s
+[Epoch 1983] MSELoss: 0.0733158107878725, time: 59.640s
+[Epoch 1984] MSELoss: 0.07878975622588769, time: 59.547s
+[Epoch 1985] MSELoss: 0.09514571268598296, time: 59.356s
+[Epoch 1986] MSELoss: 0.07110608276508917, time: 59.189s
+[Epoch 1987] MSELoss: 0.07827751608882946, time: 59.918s
+[Epoch 1988] MSELoss: 0.08565929819914428, time: 60.038s
+[Epoch 1989] MSELoss: 0.08929105849132281, time: 59.319s
+[Epoch 1990] MSELoss: 0.0826940487287092, time: 58.917s
+[Epoch 1991] MSELoss: 0.0963966345298104, time: 59.333s
+[Epoch 1992] MSELoss: 0.09273443702312018, time: 59.473s
+[Epoch 1993] MSELoss: 0.08476384577807039, time: 59.057s
+[Epoch 1994] MSELoss: 0.07774010170991956, time: 59.094s
+[Epoch 1995] MSELoss: 0.09877618517599662, time: 59.481s
+[Epoch 1996] MSELoss: 0.095067206711974, time: 59.973s
+[Epoch 1997] MSELoss: 0.08818936084968632, time: 59.500s
+[Epoch 1998] MSELoss: 0.09409694131781263, time: 59.511s
+[Epoch 1999] MSELoss: 0.09374666478569535, time: 59.734s
+==================== Validation ====================
+[Epoch 1999] val_loss: 5.220168930009095e-07
+===================================================
+Training completed.
+Total train time: 118866.90634560585s. Average per epoch: 59.43345317280293s
+Loss curve saved to /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E02_ablation/runs/2026-09-17-mfgno-E02-B-equal-plume1d-seed1/logs/2026-09-17-mfgno-E02-B-equal-plume1d-seed1_Training_Loss.png
+Loss curve saved to /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E02_ablation/runs/2026-09-17-mfgno-E02-B-equal-plume1d-seed1/logs/2026-09-17-mfgno-E02-B-equal-plume1d-seed1_Validation_Loss.png
+start testing...
+Average inference time per call: 0.232811 s in GPU
+pred_np shape: (2, 128, 128, 10, 6)
+pred_all shape: (2, 10, 128, 128, 6)
+{'MSE': tensor([4.3827e-08, 9.0186e-10, 2.2439e-07, 2.2829e-06, 1.1766e-07, 4.6244e-07],
+       device='cuda:0'), 'RMSE': tensor([2.0231e-04, 2.8024e-05, 4.1033e-04, 1.4681e-03, 2.6963e-04, 5.3077e-04],
+       device='cuda:0'), 'L2RE': tensor([2.2564e-04, 5.0998e-05, 5.5774e-04, 1.5699e-03, 6.2639e-02, 4.5643e-02],
+       device='cuda:0'), 'MaxError': tensor([0.0177, 0.0013, 0.0209, 0.0621, 0.0339, 0.0727], device='cuda:0'), 'SSIM': tensor([0.9997, 0.9962, 0.9998, 0.9958, 0.0342, 0.1584]), 'avg_infer_time_s': 0.23281131591796875}
+MSE 	0.000000	0.000000	0.000000	0.000002	0.000000	0.000000	
+RMSE 	0.000202	0.000028	0.000410	0.001468	0.000270	0.000531	
+L2RE 	0.000226	0.000051	0.000558	0.001570	0.062639	0.045643	
+MaxError 	0.017651	0.001295	0.020905	0.062086	0.033877	0.072675	
+SSIM 	0.999721	0.996235	0.999835	0.995845	0.034195	0.158380	
+Done
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+end    : 2026-09-19T10:34:08+08:00

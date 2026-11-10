@@ -1,0 +1,20 @@
+% Generated from the I2VIS timing records (2026-11-08).
+\begin{table}[htbp]
+\centering\small
+\caption{Measured I2VIS data-generation cost. Wall time is
+output-to-output and includes PRN I/O; CPU-core-hours use four OpenMP
+threads per case. Plume2 uses a different code branch and has different
+per-trajectory end times, so its values are reported separately rather than
+pooled with Plume1. Scheduler-billed core-hours are approximately twice
+the physical values because each batch reserves a whole 56-core node.}
+\label{tab:solvercost}
+\fitwidth{\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Subset & Cases & Wall per case (h) & End time range (Myr) & Case-hours & CPU-core-hours & Billed core-hours\\
+\midrule
+Plume1 & 109 & 28.3 (28.0--28.7) & 71.5--72.2 & 3{,}100 & 12{,}300 & 25{,}000\\
+Plume2 & 128 & 28.2 (27.4--29.3) & 49.0--68.0  & 3{,}600 & 14{,}400 & 30{,}500\\
+Total  & 237 & --                 & --          & 6{,}700 & 26{,}800 & 55{,}500\\
+\bottomrule
+\end{tabular}}
+\end{table}

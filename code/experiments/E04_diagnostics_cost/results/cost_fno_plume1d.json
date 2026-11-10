@@ -1,0 +1,21 @@
+{
+  "model": "fno",
+  "model_id": "fno",
+  "family": "fno",
+  "subset": "plume1d",
+  "exp_id": "2026-09-17-fno-E01-plume1d-seed0",
+  "ckpt_epoch": 1000,
+  "params_M": 10.636,
+  "peak_alloc_GiB": 0.151,
+  "batch": 32,
+  "precision": "fp32",
+  "infer_latency_ms": 2.751,
+  "infer_latency_std_ms": 0.038,
+  "device": "cuda:0",
+  "train_hours_total": 2.39,
+  "train_segments": "[2.39]",
+  "gpu_hours": 2.39,
+  "oom_note": "",
+  "note": "",
+  "generated_at": "2026-09-24T15:58:49"
+}

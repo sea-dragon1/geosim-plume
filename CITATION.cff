@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the GeoSim paper and the dataset record."
+title: "GeoSim: A Reproducible Benchmark Dataset and Multi-Field Graph Neural Operator for Mantle-Plume Dynamics"
+version: 0.1.0
+date-released: 2026-11-09
+license: MIT
+authors:
+  - family-names: Liu
+    given-names: Hailong
+    affiliation: "Department of Mathematical Sciences, Tsinghua University, Beijing, China"
+  - family-names: Yang
+    given-names: Dinghui
+    affiliation: "Department of Mathematical Sciences, Tsinghua University, Beijing, China"
+  - family-names: Liu
+    given-names: Mengxue
+    affiliation: "State Key Laboratory of Earthquake Dynamics, Institute of Geology, China Earthquake Administration, Beijing, China"
+  - family-names: Qi
+    given-names: Rui
+    affiliation: "Department of Mathematical Sciences, Tsinghua University, Beijing, China"
+  - family-names: Zhao
+    given-names: Meng
+    affiliation: "Department of Mathematical Sciences, Tsinghua University, Beijing, China"
+  - family-names: Tang
+    given-names: Yihang
+    affiliation: "Department of Mathematical Sciences, Tsinghua University, Beijing, China"
+  - family-names: Wen
+    given-names: Jin
+    affiliation: "Department of Mathematical Sciences, Tsinghua University, Beijing, China"
+  - family-names: Fang
+    given-names: Zhilong
+    affiliation: "School of Resources and Environment, University of Electronic Science and Technology of China, Chengdu, China"

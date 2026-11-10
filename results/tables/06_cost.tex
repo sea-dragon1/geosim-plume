@@ -1,0 +1,33 @@
+% Generated from the recorded cost and evaluation metrics.
+\begin{table}[htbp]
+\centering\small
+\caption{Measured accuracy--cost record. Parameters are counted from checkpoints;
+training hours are the \emph{accumulated job wall time} from \texttt{sacct},
+including segments killed by the original 48\,h submission limit and any
+resumed runs (the released training script raises this limit to 96\,h to
+avoid segmentation), so they bound cost, not pure compute. Single-call inference latency is batch
+one, fp32, on the same GPU partition (GNOT's graph remains on the CPU); it is the measured latency of one model
+invocation and should not be interpreted as end-to-end latency for an
+identical ten-frame prediction task, because the number of invocations
+required differs across model families (one per window for the joint graph
+models and GNOT, six for the independent-field baseline, and ten for FNO and
+Transolver). $E_{v_x}/E_{v_y}$ are the seed-mean errors from the common
+$10\!\to\!10$ protocol reported in Tab.~\ref{tab:main1} in percent, so the
+two tables can be read against each other. Peak memory is a batch-one probe: forward \emph{and backward} for the
+graph models, forward only for the external baselines, whose training code was
+not instrumented --- the five rows are comparable within those two groups and
+not across them. The I2VIS data-generation cost is reported separately in
+Table~\ref{tab:solvercost}.}
+\label{tab:cost}
+\fitwidth{\begin{tabular}{@{}lccccc@{}}
+\toprule
+Model & Params (M) & Peak GiB & Train hours & Single-call ms & $E_{v_x}/E_{v_y}$ (\%)\\
+\midrule
+FNO & 10.64 & 0.15 & 2.39 & 2.8 & 122 / 115\\
+GNOT & 2.94 & 1.85 & 4.32 & 16.8 & 90.2 / 40.6\\
+Independent MPNN & 9.08 & 29.57 & 52.14 & 213.3 & 11.9 / 5.64\\
+Transolver & 7.08 & 1.25 & 17.28 & 28.6 & 61.3 / 46.4\\
+MFGNO & 10.55 & 12.88 & 33.24 & 119.4 & 4.95 / 3.47\\
+\bottomrule
+\end{tabular}}
+\end{table}

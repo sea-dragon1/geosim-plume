@@ -1,0 +1,21 @@
+{
+  "model": "gnot",
+  "model_id": "GNOT",
+  "family": "gnot",
+  "subset": "plume1d",
+  "exp_id": "2026-09-17-gnot-E01-plume1d-seed0",
+  "ckpt_epoch": 1985,
+  "params_M": 2.941,
+  "peak_alloc_GiB": 1.854,
+  "batch": 2,
+  "precision": "fp32",
+  "infer_latency_ms": 16.79,
+  "infer_latency_std_ms": 0.14,
+  "device": "cuda:0",
+  "train_hours_total": 4.32,
+  "train_segments": "[4.32]",
+  "gpu_hours": 4.32,
+  "oom_note": "",
+  "note": "GNOT 走 CPU（dgl 2.1.0 是 CPU-only 编译），其延迟与其余四行的 GPU 数字不可比",
+  "generated_at": "2026-09-24T15:59:04"
+}

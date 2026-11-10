@@ -1,0 +1,200 @@
+config : /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E01_main/configs/RESUME-transolver-E01-plume2-corr-seed0.yaml
+trainer: /fs1/home/USER/lhl/neuraloeprator-main/Transolver/train.py
+host   : gsn15
+start  : 2026-09-23T22:57:46+08:00
+{'root_path': '/fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E01_main/runs', 'exp_id': '2026-09-22-transolver-E01-plume2-corr-seed0', 'model_id': 'Transolver', 'pde_name': '2D_Mantle_Convection', 'temporal_domain': '(0, 12.9913)', 'resolution_t': 21, 'spatial_domain': '[(0, 1), (0, 1)]', 'resolution': [128, 128], 'num_outputs': 6, 'if_training': True, 'continue_training': True, 'model_path': '/fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E01_main/runs/2026-09-22-transolver-E01-plume2-corr-seed0/checkpoints/Transolver_lr0.0001_bs4-latest.pt', 'save_period': 20, 'seed': 0, 'initial_step': 10, 't_train': 20, 'epochs': 1000, 'dataset': {'single_file': True, 'file_name': 'plume2d_train_ds_128x128_phys1e6_first21_corrected.hdf5', 'saved_folder': '/fs1/home/USER/lhl/neuraloeprator-main/data/plume2/', 'test_ratio': 0.1}, 'dataloader': {'batch_size': 4, 'num_workers': 4, 'pin_memory': True}, 'model': {'n_layers': 5, 'n_hidden': 256, 'n_head': 8, 'dropout': 0.0, 'act': 'gelu', 'mlp_ratio': 1, 'slice_num': 64, 'ref': 8, 'unified_pos': False, 'Time_Input': False}, 'optimizer': {'name': 'Adam', 'lr': 0.0001, 'weight_decay': 1e-08}, 'scheduler': {'name': 'StepLR', 'step_size': 100, 'gamma': 0.5}}
+Total trainable parameters: 7084654
+Resumed from /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E01_main/runs/2026-09-22-transolver-E01-plume2-corr-seed0/checkpoints/Transolver_lr0.0001_bs4-latest.pt, start_epoch=851, best_val_loss=0.000367
+Start training...
+[Epoch 851] train_loss: 0.000352, time: 71.25s
+[Epoch 852] train_loss: 0.000352, time: 66.98s
+[Epoch 853] train_loss: 0.000352, time: 66.93s
+[Epoch 854] train_loss: 0.000352, time: 66.88s
+[Epoch 855] train_loss: 0.000352, time: 66.90s
+[Epoch 856] train_loss: 0.000352, time: 66.86s
+[Epoch 857] train_loss: 0.000352, time: 66.78s
+[Epoch 858] train_loss: 0.000352, time: 66.72s
+[Epoch 859] train_loss: 0.000352, time: 66.73s
+[Epoch 859] val_loss: 0.000367
+[Epoch 860] train_loss: 0.000352, time: 66.75s
+[Epoch 861] train_loss: 0.000352, time: 66.69s
+[Epoch 862] train_loss: 0.000352, time: 66.67s
+[Epoch 863] train_loss: 0.000352, time: 66.66s
+[Epoch 864] train_loss: 0.000352, time: 66.71s
+[Epoch 865] train_loss: 0.000352, time: 66.69s
+[Epoch 866] train_loss: 0.000352, time: 66.66s
+[Epoch 867] train_loss: 0.000352, time: 66.77s
+[Epoch 868] train_loss: 0.000352, time: 66.71s
+[Epoch 869] train_loss: 0.000352, time: 66.75s
+[Epoch 870] train_loss: 0.000352, time: 66.88s
+[Epoch 871] train_loss: 0.000352, time: 66.93s
+[Epoch 872] train_loss: 0.000352, time: 66.87s
+[Epoch 873] train_loss: 0.000352, time: 66.81s
+[Epoch 874] train_loss: 0.000352, time: 67.61s
+[Epoch 875] train_loss: 0.000352, time: 66.76s
+[Epoch 876] train_loss: 0.000352, time: 66.77s
+[Epoch 877] train_loss: 0.000352, time: 66.82s
+[Epoch 878] train_loss: 0.000352, time: 66.81s
+[Epoch 879] train_loss: 0.000352, time: 66.81s
+[Epoch 879] val_loss: 0.000366
+[Epoch 880] train_loss: 0.000352, time: 66.81s
+[Epoch 881] train_loss: 0.000352, time: 66.68s
+[Epoch 882] train_loss: 0.000352, time: 66.70s
+[Epoch 883] train_loss: 0.000352, time: 66.78s
+[Epoch 884] train_loss: 0.000352, time: 66.78s
+[Epoch 885] train_loss: 0.000352, time: 66.72s
+[Epoch 886] train_loss: 0.000352, time: 66.60s
+[Epoch 887] train_loss: 0.000352, time: 66.56s
+[Epoch 888] train_loss: 0.000352, time: 66.55s
+[Epoch 889] train_loss: 0.000352, time: 66.65s
+[Epoch 890] train_loss: 0.000352, time: 66.67s
+[Epoch 891] train_loss: 0.000352, time: 66.75s
+[Epoch 892] train_loss: 0.000352, time: 66.80s
+[Epoch 893] train_loss: 0.000352, time: 66.66s
+[Epoch 894] train_loss: 0.000352, time: 66.74s
+[Epoch 895] train_loss: 0.000352, time: 66.65s
+[Epoch 896] train_loss: 0.000352, time: 66.55s
+[Epoch 897] train_loss: 0.000352, time: 66.37s
+[Epoch 898] train_loss: 0.000352, time: 66.41s
+[Epoch 899] train_loss: 0.000352, time: 66.41s
+[Epoch 899] val_loss: 0.000366
+[Epoch 900] train_loss: 0.000352, time: 66.36s
+[Epoch 901] train_loss: 0.000352, time: 66.46s
+[Epoch 902] train_loss: 0.000352, time: 66.36s
+[Epoch 903] train_loss: 0.000352, time: 66.47s
+[Epoch 904] train_loss: 0.000352, time: 66.57s
+[Epoch 905] train_loss: 0.000352, time: 66.39s
+[Epoch 906] train_loss: 0.000352, time: 66.53s
+[Epoch 907] train_loss: 0.000352, time: 66.63s
+[Epoch 908] train_loss: 0.000352, time: 66.55s
+[Epoch 909] train_loss: 0.000352, time: 66.47s
+[Epoch 910] train_loss: 0.000352, time: 66.64s
+[Epoch 911] train_loss: 0.000352, time: 66.59s
+[Epoch 912] train_loss: 0.000352, time: 66.72s
+[Epoch 913] train_loss: 0.000352, time: 66.71s
+[Epoch 914] train_loss: 0.000352, time: 66.66s
+[Epoch 915] train_loss: 0.000352, time: 66.78s
+[Epoch 916] train_loss: 0.000352, time: 66.63s
+[Epoch 917] train_loss: 0.000352, time: 66.51s
+[Epoch 918] train_loss: 0.000352, time: 66.63s
+[Epoch 919] train_loss: 0.000352, time: 66.63s
+[Epoch 919] val_loss: 0.000366
+[Epoch 920] train_loss: 0.000352, time: 66.60s
+[Epoch 921] train_loss: 0.000352, time: 66.71s
+[Epoch 922] train_loss: 0.000352, time: 66.50s
+[Epoch 923] train_loss: 0.000352, time: 66.45s
+[Epoch 924] train_loss: 0.000352, time: 66.48s
+[Epoch 925] train_loss: 0.000352, time: 66.42s
+[Epoch 926] train_loss: 0.000352, time: 66.47s
+[Epoch 927] train_loss: 0.000352, time: 66.48s
+[Epoch 928] train_loss: 0.000352, time: 66.51s
+[Epoch 929] train_loss: 0.000352, time: 66.52s
+[Epoch 930] train_loss: 0.000352, time: 66.58s
+[Epoch 931] train_loss: 0.000352, time: 66.51s
+[Epoch 932] train_loss: 0.000352, time: 66.59s
+[Epoch 933] train_loss: 0.000352, time: 66.52s
+[Epoch 934] train_loss: 0.000352, time: 66.56s
+[Epoch 935] train_loss: 0.000352, time: 66.71s
+[Epoch 936] train_loss: 0.000352, time: 66.68s
+[Epoch 937] train_loss: 0.000352, time: 67.42s
+[Epoch 938] train_loss: 0.000352, time: 66.88s
+[Epoch 939] train_loss: 0.000352, time: 66.86s
+[Epoch 939] val_loss: 0.000366
+[Epoch 940] train_loss: 0.000352, time: 66.76s
+[Epoch 941] train_loss: 0.000352, time: 66.73s
+[Epoch 942] train_loss: 0.000352, time: 66.74s
+[Epoch 943] train_loss: 0.000352, time: 66.70s
+[Epoch 944] train_loss: 0.000352, time: 66.73s
+[Epoch 945] train_loss: 0.000352, time: 66.66s
+[Epoch 946] train_loss: 0.000352, time: 66.64s
+[Epoch 947] train_loss: 0.000352, time: 66.69s
+[Epoch 948] train_loss: 0.000352, time: 66.64s
+[Epoch 949] train_loss: 0.000352, time: 66.71s
+[Epoch 950] train_loss: 0.000352, time: 66.71s
+[Epoch 951] train_loss: 0.000352, time: 66.71s
+[Epoch 952] train_loss: 0.000352, time: 66.53s
+[Epoch 953] train_loss: 0.000352, time: 66.61s
+[Epoch 954] train_loss: 0.000352, time: 66.48s
+[Epoch 955] train_loss: 0.000352, time: 66.25s
+[Epoch 956] train_loss: 0.000352, time: 66.21s
+[Epoch 957] train_loss: 0.000352, time: 66.20s
+[Epoch 958] train_loss: 0.000352, time: 66.24s
+[Epoch 959] train_loss: 0.000352, time: 66.37s
+[Epoch 959] val_loss: 0.000366
+[Epoch 960] train_loss: 0.000352, time: 66.24s
+[Epoch 961] train_loss: 0.000352, time: 66.11s
+[Epoch 962] train_loss: 0.000352, time: 66.20s
+[Epoch 963] train_loss: 0.000352, time: 66.17s
+[Epoch 964] train_loss: 0.000352, time: 66.15s
+[Epoch 965] train_loss: 0.000352, time: 66.32s
+[Epoch 966] train_loss: 0.000352, time: 66.10s
+[Epoch 967] train_loss: 0.000352, time: 66.08s
+[Epoch 968] train_loss: 0.000352, time: 66.94s
+[Epoch 969] train_loss: 0.000352, time: 66.20s
+[Epoch 970] train_loss: 0.000352, time: 66.32s
+[Epoch 971] train_loss: 0.000352, time: 66.37s
+[Epoch 972] train_loss: 0.000352, time: 66.23s
+[Epoch 973] train_loss: 0.000352, time: 66.04s
+[Epoch 974] train_loss: 0.000352, time: 66.20s
+[Epoch 975] train_loss: 0.000352, time: 66.28s
+[Epoch 976] train_loss: 0.000352, time: 66.36s
+[Epoch 977] train_loss: 0.000352, time: 66.13s
+[Epoch 978] train_loss: 0.000352, time: 66.18s
+[Epoch 979] train_loss: 0.000352, time: 66.00s
+[Epoch 979] val_loss: 0.000366
+[Epoch 980] train_loss: 0.000352, time: 66.13s
+[Epoch 981] train_loss: 0.000352, time: 66.30s
+[Epoch 982] train_loss: 0.000352, time: 66.16s
+[Epoch 983] train_loss: 0.000352, time: 66.24s
+[Epoch 984] train_loss: 0.000352, time: 66.17s
+[Epoch 985] train_loss: 0.000352, time: 66.13s
+[Epoch 986] train_loss: 0.000352, time: 66.22s
+[Epoch 987] train_loss: 0.000352, time: 66.06s
+[Epoch 988] train_loss: 0.000352, time: 66.05s
+[Epoch 989] train_loss: 0.000352, time: 65.94s
+[Epoch 990] train_loss: 0.000352, time: 66.09s
+[Epoch 991] train_loss: 0.000352, time: 66.01s
+[Epoch 992] train_loss: 0.000352, time: 66.05s
+[Epoch 993] train_loss: 0.000352, time: 66.23s
+[Epoch 994] train_loss: 0.000352, time: 66.22s
+[Epoch 995] train_loss: 0.000352, time: 66.47s
+[Epoch 996] train_loss: 0.000352, time: 66.27s
+[Epoch 997] train_loss: 0.000352, time: 66.29s
+[Epoch 998] train_loss: 0.000352, time: 66.35s
+[Epoch 999] train_loss: 0.000352, time: 66.38s
+[Epoch 999] val_loss: 0.000366
+Loading best model from /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E01_main/runs/2026-09-22-transolver-E01-plume2-corr-seed0/checkpoints/Transolver_lr0.0001_bs4-best.pt for final test...
+Start final testing...
+Average inference time per call: 0.099000 s
+{'MSE': tensor([2.9272e-05, 2.3836e-06, 5.3050e-05, 1.1271e-04, 4.6218e-06, 1.9302e-05],
+       device='cuda:0'), 'RMSE': tensor([0.0050, 0.0014, 0.0068, 0.0100, 0.0017, 0.0034], device='cuda:0'), 'L2RE': tensor([0.0056, 0.0025, 0.0098, 0.0110, 1.5572, 1.0697], device='cuda:0'), 'MaxError': tensor([0.2990, 0.0494, 0.2476, 0.1749, 0.2118, 0.4356], device='cuda:0'), 'avg_infer_time_s': 0.09900021743774413}
+MSE 	0.000029	0.000002	0.000053	0.000113	0.000005	0.000019	
+RMSE 	0.005025	0.001365	0.006808	0.010013	0.001690	0.003355	
+L2RE 	0.005611	0.002485	0.009793	0.010985	1.557179	1.069688	
+MaxError 	0.298999	0.049354	0.247635	0.174947	0.211823	0.435614	
+Done
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+end    : 2026-09-24T01:46:50+08:00

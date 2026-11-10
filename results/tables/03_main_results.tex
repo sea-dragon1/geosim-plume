@@ -1,0 +1,77 @@
+% Generated from the recorded evaluation metrics.
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{
+Short-window field-wise relative $L^2$ error (\%) on
+\pone\ under the common $10\!\to\!10$ prediction protocol.
+Learned-model results are mean $\pm$ SD over three prespecified
+training seeds; lower is better. Persistence is deterministic.
+Best learned result in each field is shown in bold. FNO, GNOT, and
+Transolver are external baselines; the independent-field MPNN is the
+existing graph baseline; MFGNO is the model proposed here. External
+baselines use their MSE objectives; graph models use the per-field relative
+$L^2$ objective (Sec.~\ref{sec:setup}).
+}
+\label{tab:main1}
+\setlength{\tabcolsep}{4.5pt}
+\fitwidth{\begin{tabular}{lrrrrrr}
+\toprule
+Model
+& $\rho$
+& $P$
+& $T$
+& $\log_{10}\eta$
+& $v_x$
+& $v_y$ \\
+\midrule
+Persistence
+& 0.035
+& 0.00651
+& 0.509
+& 0.812
+& 50.1
+& 45.2 \\
+
+FNO
+& $2.21{\pm}0.29$
+& $2.93{\pm}0.07$
+& $1.53{\pm}0.04$
+& $2.50{\pm}0.08$
+& $122{\pm}9$
+& $115{\pm}3$ \\
+
+GNOT
+& $0.167{\pm}0.017$
+& $0.318{\pm}0.017$
+& $0.242{\pm}0.041$
+& $0.492{\pm}0.022$
+& $90.2{\pm}19.8$
+& $40.6{\pm}4.7$ \\
+
+Independent MPNN
+& $\mathbf{0.0110{\pm}0.0004}$
+& $\mathbf{0.00399{\pm}0.00010}$
+& $\mathbf{0.0279{\pm}0.0011}$
+& $\mathbf{0.0740{\pm}0.0037}$
+& $11.9{\pm}1.0$
+& $5.64{\pm}0.33$ \\
+
+Transolver
+& $0.0982{\pm}0.0024$
+& $0.126{\pm}0.006$
+& $0.332{\pm}0.013$
+& $0.500{\pm}0.026$
+& $61.3{\pm}2.8$
+& $46.4{\pm}2.9$ \\
+
+\model
+& $0.0223{\pm}0.00007$
+& $0.00508{\pm}0.00004$
+& $0.0436{\pm}0.0003$
+& $0.138{\pm}0.001$
+& $\mathbf{4.95{\pm}0.04}$
+& $\mathbf{3.47{\pm}0.05}$ \\
+\bottomrule
+\end{tabular}}
+\end{table}

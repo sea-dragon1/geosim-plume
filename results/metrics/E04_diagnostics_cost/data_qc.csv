@@ -1,0 +1,53 @@
+subset,check,field,value,aux,verdict,note
+plume1d,invalid_values,ALL,0,0,pass,"value=NaN 计数, aux=Inf 计数, 扫了 8/97 条"
+plume1d,range,ro,0.00026119136600755155,0.9995418787002563,,kg/m^3 ; 扫了 8/97 条
+plume1d,range,pr,-1.5115193491510581e-05,0.9972120523452759,,Pa ; 扫了 8/97 条
+plume1d,range,tk,0.12920017540454865,0.9934110045433044,,K ; 扫了 8/97 条
+plume1d,range,nu,0.7499998807907104,1.000000238418579,,log10(Pa*s) ; 扫了 8/97 条
+plume1d,range,vx,-0.8048427104949951,0.8045023679733276,,m/s ; 扫了 8/97 条
+plume1d,range,vy,-3.6162922382354736,0.8481618165969849,,m/s ; 扫了 8/97 条
+plume1d,time_monotonic,t,0.23175303637981415,1.0000009536743164,pass,"value=min dt, aux=max dt (单位随文件); 首帧 t=0"
+plume1d,time_first_frame_zero,t,0.0,0.0,pass,"value=max|t[:,0]|"
+plume1d,coord_flatten_order,-,128.0,128.0,pass,"场的空间两维 (nx,ny)=(128,128) 与 x/y 轴长一致；节点 k=i*ny+j ↦ (x[i],y[j])，与训练 flatten+meshgrid 'ij' 同序"
+plume1d,coord_x_mirror_symmetry,"vx,vy",-0.8379053933863785,0.9156928961000392,pass,"value=corr(vx, mirror_x vx) 应<−0.3；aux=corr(vy, mirror_x vy) 应>+0.3。轴写反时这两个量会掉到 ~0（实测对照组 ±0.005），故用强阈值而非符号判据"
+plume1d,coord_y_mirror_symmetry,"vx,vy",-0.0033399267544301898,0.005294723660234303,,对照项：沿 y 镜像的相关。若把 x/y 弄反，x/y 两行会互换 —— 这就是这条检查要抓的失效模式
+plume1d,coord_tk_vertical_profile,tk,0.12920019077137113,0.990486647002399,,"value=tk 沿 x 平均后在 y 索引 0 处, aux=在 y 索引 -1 处；用于人工核对「哪端是地表」，脚本不自行判定"
+plume1d,field_alignment,ALL,1,1.0,pass,"value=不同 shape 的个数（应为 1）；六场 [(97, 97, 128, 128)] + t (97, 97) + x (128,) + y (128,)"
+plume1d,field_alignment_xy,ALL,128.0,128.0,pass,"场的内层两维 (ny,nx)=(128,128) 必须与 x/y 轴长一致"
+plume1d,remap_area_integral,ro,3391.2199224427986,4.873328105755469e-09,pass,aux=|∫(R·F)dA − ∫F dA| / ∫|F|dA；守恒式重映射应 ~1e-7(float32)。>1e-5 说明权重或轴序用错
+plume1d,remap_area_integral,pr,10162319626.005136,2.4040859787283114e-10,pass,aux=|∫(R·F)dA − ∫F dA| / ∫|F|dA；守恒式重映射应 ~1e-7(float32)。>1e-5 说明权重或轴序用错
+plume1d,remap_area_integral,tk,1508.2422728925917,3.201251721399597e-09,pass,aux=|∫(R·F)dA − ∫F dA| / ∫|F|dA；守恒式重映射应 ~1e-7(float32)。>1e-5 说明权重或轴序用错
+plume1d,remap_area_integral,nu,22.499283904365242,6.207972928434835e-09,pass,aux=|∫(R·F)dA − ∫F dA| / ∫|F|dA；守恒式重映射应 ~1e-7(float32)。>1e-5 说明权重或轴序用错
+plume1d,remap_area_integral,vx,4.804253859886524e-15,2.611887475362572e-09,pass,aux=|∫(R·F)dA − ∫F dA| / ∫|F|dA；守恒式重映射应 ~1e-7(float32)。>1e-5 说明权重或轴序用错
+plume1d,remap_area_integral,vy,3.465815226450831e-14,1.1681148445354146e-09,pass,aux=|∫(R·F)dA − ∫F dA| / ∫|F|dA；守恒式重映射应 ~1e-7(float32)。>1e-5 说明权重或轴序用错
+plume1d,remap_second_moment_ratio,tk,0.9999868776575747,0.33356616511031684,,value=二阶矩 目标/源，量化网格粗化的低通展宽
+plume1d,remap_second_moment_ratio,nu,0.9999861825156108,0.3351696211492763,,value=二阶矩 目标/源，量化网格粗化的低通展宽
+plume1d,remap_kinetic_energy_ratio,"vx,vy",0.9409876577338318,1.2184026010331195e-09,pass,帧 58 上取值；aux=|vx|max，若为 0 则该帧不可用于此项
+plume1d,remap_flux_product,vx*vy,-6.019665863765436e-22,-5.084619084016172e-22,,"value=∫(vx*vy)dA 源, aux=目标；二者不等正是「统一权重不保证非线性通量乘积守恒」的量化"
+plume1d,remap_reproduction,tk,0.00047326076673200035,3.885699786840814e-08,pass,value=最小二乘标尺 s，aux=相对残差；已发布 128 文件应≈s*(R·F)。这里比较的是**归一化后**的量，s 吸收了 max-normalization 常数
+plume2,invalid_values,ALL,0,0,pass,"value=NaN 计数, aux=Inf 计数, 扫了 8/103 条"
+plume2,range,ro,0.00026112719206139445,1.0000426769256592,,kg/m^3 ; 扫了 8/103 条
+plume2,range,pr,-0.0012864116579294205,0.9985793232917786,,Pa ; 扫了 8/103 条
+plume2,range,tk,0.12077850848436356,0.9945339560508728,,K ; 扫了 8/103 条
+plume2,range,nu,0.7499998211860657,1.0000001192092896,,log10(Pa*s) ; 扫了 8/103 条
+plume2,range,vx,-0.7022903561592102,0.7085070610046387,,m/s ; 扫了 8/103 条
+plume2,range,vy,-6.056924819946289,0.700732409954071,,m/s ; 扫了 8/103 条
+plume2,time_monotonic,t,0.013659872114658356,1.0000004768371582,pass,"value=min dt, aux=max dt (单位随文件); 首帧 t=0"
+plume2,time_first_frame_zero,t,0.0,0.0,pass,"value=max|t[:,0]|"
+plume2,coord_flatten_order,-,128.0,128.0,pass,"场的空间两维 (nx,ny)=(128,128) 与 x/y 轴长一致；节点 k=i*ny+j ↦ (x[i],y[j])，与训练 flatten+meshgrid 'ij' 同序"
+plume2,coord_x_mirror_symmetry,"vx,vy",-0.8491718078189945,0.9753403422603029,pass,"value=corr(vx, mirror_x vx) 应<−0.3；aux=corr(vy, mirror_x vy) 应>+0.3。轴写反时这两个量会掉到 ~0（实测对照组 ±0.005），故用强阈值而非符号判据"
+plume2,coord_y_mirror_symmetry,"vx,vy",-0.011271131436896703,0.17621510842618993,,对照项：沿 y 镜像的相关。若把 x/y 弄反，x/y 两行会互换 —— 这就是这条检查要抓的失效模式
+plume2,coord_tk_vertical_profile,tk,0.1207785505685024,0.9254617993719876,,"value=tk 沿 x 平均后在 y 索引 0 处, aux=在 y 索引 -1 处；用于人工核对「哪端是地表」，脚本不自行判定"
+plume2,field_alignment,ALL,1,1.0,pass,"value=不同 shape 的个数（应为 1）；六场 [(103, 131, 128, 128)] + t (103, 131) + x (128,) + y (128,)"
+plume2,field_alignment_xy,ALL,128.0,128.0,pass,"场的内层两维 (ny,nx)=(128,128) 必须与 x/y 轴长一致"
+plume2,remap_area_integral,ro,3389.942942706768,4.87281121864811e-09,pass,aux=|∫(R·F)dA − ∫F dA| / ∫|F|dA；守恒式重映射应 ~1e-7(float32)。>1e-5 说明权重或轴序用错
+plume2,remap_area_integral,pr,10158488959.367264,2.4255712987730076e-10,pass,aux=|∫(R·F)dA − ∫F dA| / ∫|F|dA；守恒式重映射应 ~1e-7(float32)。>1e-5 说明权重或轴序用错
+plume2,remap_area_integral,tk,1520.9638759265217,3.3030630301800483e-09,pass,aux=|∫(R·F)dA − ∫F dA| / ∫|F|dA；守恒式重映射应 ~1e-7(float32)。>1e-5 说明权重或轴序用错
+plume2,remap_area_integral,nu,22.140322492903042,6.200402939907616e-09,pass,aux=|∫(R·F)dA − ∫F dA| / ∫|F|dA；守恒式重映射应 ~1e-7(float32)。>1e-5 说明权重或轴序用错
+plume2,remap_area_integral,vx,-2.8328012273033452e-15,8.161126689896032e-10,pass,aux=|∫(R·F)dA − ∫F dA| / ∫|F|dA；守恒式重映射应 ~1e-7(float32)。>1e-5 说明权重或轴序用错
+plume2,remap_area_integral,vy,9.055892640523061e-15,3.733340171374916e-11,pass,aux=|∫(R·F)dA − ∫F dA| / ∫|F|dA；守恒式重映射应 ~1e-7(float32)。>1e-5 说明权重或轴序用错
+plume2,remap_second_moment_ratio,tk,0.9999869815254658,0.33324692550995233,,value=二阶矩 目标/源，量化网格粗化的低通展宽
+plume2,remap_second_moment_ratio,nu,0.9999857326013163,0.33528027789236553,,value=二阶矩 目标/源，量化网格粗化的低通展宽
+plume2,remap_kinetic_energy_ratio,"vx,vy",0.8548865515481912,8.116161076543449e-10,pass,帧 78 上取值；aux=|vx|max，若为 0 则该帧不可用于此项
+plume2,remap_flux_product,vx*vy,-1.6640594654031819e-22,-1.4506847658922836e-22,,"value=∫(vx*vy)dA 源, aux=目标；二者不等正是「统一权重不保证非线性通量乘积守恒」的量化"
+plume2,remap_reproduction,tk,0.00044241225763792395,4.07233918367375e-08,pass,value=最小二乘标尺 s，aux=相对残差；已发布 128 文件应≈s*(R·F)。这里比较的是**归一化后**的量，s 吸收了 max-normalization 常数

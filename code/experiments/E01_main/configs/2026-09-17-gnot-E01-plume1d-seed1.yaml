@@ -1,0 +1,55 @@
+# 由发布前配置生成器生成并冻结 —— 生成器未随包，请勿手改。
+# 模板: gnot_large.yaml   训练入口: GNOT-master/plume1/train.py
+# stage=E01 subset=plume1d model=gnot seed=1 variant=- loss_mode=None
+# 数据: plume1d_train_ds_128x128_phys1e6_first21.hdf5  (t 单位: Myr)
+# GNOT large — originA (conservative remapping 128×128)
+root_path: "/fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/geosim-plume/code/experiments/E01_main/runs"
+exp_id: "2026-09-17-gnot-E01-plume1d-seed1"
+model_id: "GNOT"
+pde_name: "2D_Mantle_Convection"
+# PDE Information
+temporal_domain: (0, 17.2433)
+resolution_t: 21
+spatial_domain: "[(0, 1), (0, 1)]"
+resolution: [128, 128]
+num_outputs: 6
+# training args
+if_training: True
+continue_training: False
+model_path: null
+save_period: 5
+seed: 1
+time_window: 10
+epochs: 2000
+# dataset args — 方案 B 保守重映射数据
+dataset:
+  single_file: True
+  file_name: "plume1d_train_ds_128x128_phys1e6_first21.hdf5"
+  saved_folder: "/fs1/home/USER/lhl/neuraloeprator-main/data/plume1d_corrected/"
+  test_ratio: 0.1
+# dataloader args
+dataloader:
+  batch_size: 4
+  num_workers: 4
+  pin_memory: True
+# model args
+model:
+  n_layers: 3
+  n_hidden: 128
+  n_head: 1
+  n_experts: 2
+  n_inner: 4
+  mlp_layers: 2
+  attn_type: "linear"
+  act: "gelu"
+  ffn_dropout: 0.0
+  attn_dropout: 0.0
+  horiz_fourier_dim: 0
+# optimizer args
+optimizer:
+  lr: 1.e-4
+  weight_decay: 1.e-8
+# scheduler args
+scheduler:
+  step_size: 250
+  gamma: 0.7

@@ -1,0 +1,23 @@
+{
+  "figure": "fig03_field_predictions.pdf",
+  "subset": "plume1d",
+  "example_traj": 0,
+  "failure_traj": 1,
+  "frame_in_window": 9,
+  "frame_semantics": "index into the 10-frame output window (0..9)",
+  "profile_x_star": 0.5,
+  "color_scale": {
+    "tk": "hot",
+    "speed(|vx,vy|)": "viridis",
+    "shared_per_row": true
+  },
+  "model_runs": {
+    "FNO": "E01_main/runs/2026-09-17-fno-E01-plume1d-seed0/eval/predictions.hdf5",
+    "GNOT": "E01_main/runs/2026-09-17-gnot-E01-plume1d-seed0/eval/predictions.hdf5",
+    "Independent MPNN": "E02_ablation/runs/2026-09-17-mpnn-E02-A-plume1d-seed0/eval/predictions.hdf5",
+    "Transolver": "E01_main/runs/2026-09-17-transolver-E01-plume1d-seed0/eval/predictions.hdf5",
+    "MFGNO": "E02_ablation/runs/2026-09-17-mfgno-E02-C-equal-plume1d-seed0/eval/predictions.hdf5"
+  },
+  "selection_rule": "example traj fixed a priori; failure traj = modal argmax of E_vx",
+  "generated_at": "2026-09-26T11:13:26"
+}

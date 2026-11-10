@@ -1,0 +1,74 @@
+% Generated from the recorded evaluation metrics.
+\begin{table}[H]
+\centering
+\small
+\caption{\ptwo\ short-window field-wise relative $L^2$ error (\%) under the
+common $10\!\to\!10$ prediction protocol; lower is better. Rows are
+single-seed runs and carry no seed standard deviation (FNO, GNOT,
+Independent MPNN, Transolver, \model). Persistence holds the last observed
+input frame (frame index 9) constant over the prediction window, and by
+protocol carries no seed variance. Best learned result in each field is
+shown in bold. External baselines use their MSE objectives; graph models
+use the per-field relative $L^2$ objective (Sec.~\ref{sec:setup}).}
+\label{tab:main2}
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular}{lcccccc}
+\toprule
+Model
+& $\rho$
+& $P$
+& $T$
+& $\log_{10}\eta$
+& $v_x$
+& $v_y$ \\
+\midrule
+Persistence
+& 1.03
+& 0.188
+& 2.58
+& 2.18
+& 213
+& 221 \\
+
+FNO
+& 2.68
+& 3.01
+& 4.16
+& 2.79
+& 356
+& 121 \\
+
+GNOT
+& 0.514
+& 0.389
+& 1.01
+& 1.04
+& 276
+& 133 \\
+
+Independent MPNN
+& $\mathbf{0.432}$
+& $\mathbf{0.131}$
+& $\mathbf{0.819}$
+& $\mathbf{0.938}$
+& 109
+& 94.0 \\
+
+Transolver
+& 0.579
+& 0.244
+& 1.02
+& 1.10
+& 175
+& 116 \\
+
+\model
+& 0.565
+& 0.151
+& 0.973
+& 1.08
+& $\mathbf{82.0}$
+& $\mathbf{78.0}$ \\
+\bottomrule
+\end{tabular}
+\end{table}

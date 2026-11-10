@@ -1,0 +1,21 @@
+{
+  "model": "transolver",
+  "model_id": "Transolver",
+  "family": "transolver",
+  "subset": "plume1d",
+  "exp_id": "2026-09-17-transolver-E01-plume1d-seed0",
+  "ckpt_epoch": 1000,
+  "params_M": 7.085,
+  "peak_alloc_GiB": 1.245,
+  "batch": 4,
+  "precision": "fp32",
+  "infer_latency_ms": 28.609,
+  "infer_latency_std_ms": 2.647,
+  "device": "cuda:0",
+  "train_hours_total": 17.28,
+  "train_segments": "[17.28]",
+  "gpu_hours": 17.28,
+  "oom_note": "",
+  "note": "",
+  "generated_at": "2026-09-24T15:58:56"
+}

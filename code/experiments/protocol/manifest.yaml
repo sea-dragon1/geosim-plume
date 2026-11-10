@@ -1,0 +1,223 @@
+# 数据清单：路径 / shape / 单位 / 变换
+#
+# 说明：本文件登记的是"已实测确认存在的文件"，实测手段为 h5py 只读探测
+# （记录 shape / dtype / attrs，不读 4D 数组）。文件级 sha256 留待 E00 审计
+# 脚本填充 —— 数据文件最大 19GB，全量哈希耗时较长，不在本轮静态交付中执行。
+version: 1
+frozen: false   # E00 核验后由审计脚本置 true
+
+subsets:
+
+  plume1d:
+    description: "2D 地幔对流，温度异常驱动（参数空间 1 维，空间仍是 2D）"
+    root: data/plume1d_corrected
+    fields: [ro, pr, tk, nu, vx, vy]        # 训练/评估代码使用的通道顺序
+    field_units:
+      ro: "kg/m^3"
+      pr: "Pa —— 总压力（含静岩分量）；由 I2VIS 动量方程保留重力体力项与 -∇P 并列确定，非动压力"
+      tk: "K"
+      nu: "log10(Pa·s)"
+      vx: "m/s"
+      vy: "m/s"
+    field_order_note: >
+      HDF5 内 dataset 按字母序存储（nu, pr, ro, tk, vx, vy）；训练代码按配置顺序
+      ro, pr, tk, nu, vx, vy 读取。两者不是同一顺序，引用时必须显式声明用的是哪一种。
+    normalization:
+      scheme: "max-normalization，常数取自训练集，train/test 共用"
+      constants: {ro: 3828.61, pr: 2.18068e10, tk: 2113.0, nu: 24.0, vx: 7.59748e-09, vy: 4.59946e-09}
+    remapping:
+      method: "separable first-order conservative remapping（面积重叠权重），非图像面积池化"
+      weights: data/plume1d_corrected/remap_weights_401x309_to_128x128.npz
+      target_grid: "物理空间等面积划分，128x128 上 x/y 间距略有不同（0.0078397 / 0.0078311）"
+      caveat: "统一权重不保证非线性通量乘积守恒；log 黏度不是守恒量"
+    files:
+      # ⚠ 训练主口径：**前 21 帧**（索引 0-20，覆盖 0 → ~17.24 Myr，连续）
+      #
+      # 为什么是 21 而不是 20：上游 train_loop:151 有
+      #   assert nt - tw - tw*unrolled > tw        (nt = pde.resolution_t)
+      # 取 unrolled=0、tw=10 需 nt >= 21；create_data 又要求 nt <= 数据帧数。
+      # 两者合起来 ⇒ 数据至少 21 帧。恰好 20 帧时 10 输入 + 10 输出正好用光，
+      # 严格大于不成立（实测 AssertionError）。
+      train_first21:
+        path: data/plume1d_corrected/plume1d_train_ds_128x128_phys1e6_first21.hdf5
+        shape: [97, 21, 128, 128]
+        time_unit: Myr
+        primary: true
+        built_by: data/plume1d_corrected/make_first20_data.py   # 脚本名沿用，内 N_FRAMES=21
+        note: "连续前 21 帧。与 *_20step（抽稀 20 帧铺满全长，时间外推基准）不是一回事"
+      test_first21:
+        path: data/plume1d_corrected/plume1d_test_ds_128x128_phys1e6_first21.hdf5
+        shape: [12, 21, 128, 128]
+        time_unit: Myr
+        primary: true
+        built_by: data/plume1d_corrected/make_first20_data.py
+      # 论文**发布**口径：全时间步（训练不用）
+      train_full:
+        path: data/plume1d_corrected/plume1d_train_ds_128x128_phys1e6.hdf5
+        shape: [97, 97, 128, 128]
+        time_unit: Myr
+        primary: false
+        release_only: true
+        note: "发布用全时程；训练只用 first21。两个口径不可混"
+      test_full:
+        path: data/plume1d_corrected/plume1d_test_ds_128x128_phys1e6.hdf5
+        shape: [12, 131, 128, 128]
+        time_unit: Myr
+        primary: false
+        release_only: true
+      train_10step:
+        path: data/plume1d_corrected/plume1d_train_ds_128x128_phys1e6_10step.hdf5
+        shape: [97, 10, 128, 128]
+        time_unit: Myr
+      test_10step:
+        path: data/plume1d_corrected/plume1d_test_ds_128x128_phys1e6_10step.hdf5
+        shape: [12, 10, 128, 128]
+        time_unit: Myr
+      train_10step_nd:
+        path: data/plume1d_corrected/plume1d_train_ds_128x128_phys1e6_10step_plus_nd.hdf5
+        shape: [97, 10, 128, 128]
+        extra_fields: [nd]
+        nd_note: "nd = log10(法向应力黏度)/24；六场与坐标与 base 文件精确一致（已由 phase01 交叉验证）"
+      test_10step_nd:
+        path: data/plume1d_corrected/plume1d_test_ds_128x128_phys1e6_10step_plus_nd.hdf5
+        shape: [12, 10, 128, 128]
+        extra_fields: [nd]
+      train_20step:
+        path: data/plume1d_corrected/plume1d_train_ds_128x128_phys1e6_20step.hdf5
+        shape: [97, 20, 128, 128]
+      test_20step:
+        path: data/plume1d_corrected/plume1d_test_ds_128x128_phys1e6_20step.hdf5
+        shape: [12, 20, 128, 128]
+    warnings:
+      - "同名陷阱：data/2D_Mantle_Convection/plume1d_{train,test}_ds_128x128_norm.hdf5 与
+         data/plume1d_corrected/ 下同名文件是两个不同文件（旧 area 插值 vs 保守重映射）。
+         引用必须写全路径。"
+      - "nd 只存在于 10step 版本；若需要全时间轴 + nd，必须重跑 make_prn_aux_data.py（当前硬限 10 步）。"
+      - "norm 版的 t 是 per-dataset 归一化，test 与 train 的尺度不一致；主实验使用 phys1e6 版。"
+
+  plume2:
+    description: "2D 地幔对流，温度异常 + 岩石圈厚度双参数（参数空间 2 维）"
+    root: data/plume2
+    fields: [ro, pr, tk, nu, vx, vy]
+    normalization:
+      scheme: "max-normalization，常数在 train/test 间**共享**（非 per-dataset）"
+      constants: {ro: 3829.55, pr: 2.17898e10, tk: 2260.34, nu: 24.0, vx: 1.91771e-07, vy: 9.36682e-08}
+      note: >
+        与 plume1d 是两组不同的常数。⚠ 与 plume1d 的 norm 版不同 —— plume1d 的 norm 版
+        t 是 per-dataset 归一化（train/test 尺度不一致，不可用），而 plume2 的 norm 版
+        经核实 train / test 的 ro 最小值完全相同（0.0002611），**共享同一组常数**，可用。
+    remapping:
+      method: "separable first-order conservative remapping（面积重叠权重），与 plume1d 同法"
+      weights: data/plume1d_corrected/remap_weights_401x309_to_128x128.npz
+      caveat: "两子集网格相同，故权重通用。统一权重不保证非线性通量乘积守恒；log 黏度不是守恒量"
+    files:
+      # ⚠ 训练主口径：**前 21 帧**（索引 0-20，覆盖 0 → ~12.99 Myr，连续），
+      #   并且 t 已从**年**换算为 **Myr**（÷1e6），与 plume1d 的 phys1e6 标尺对齐。
+      #   帧数与 plume1d 相同（都是 21），但**物理时长不同**，两子集不可混比：
+      #       plume1d first21: 0 → 17.2433 Myr，dt 均值 0.845 Myr
+      #       plume2  first21: 0 → 12.9913 Myr，dt 均值 0.471 Myr（分辨率更细）
+      train_first21:
+        path: data/plume2/plume2d_train_ds_128x128_phys1e6_first21_corrected.hdf5
+        shape: [103, 21, 128, 128]
+        time_unit: Myr
+        primary: true
+        built_by: data/plume2/make_first21_corrected.py  # ⚠ 原写 make_first21_data.py —— 那是**非修正版**的产出脚本
+        note: "连续前 21 帧，t ÷1e6 换算为 Myr。场值仍是 _norm 版的归一化值，未做二次变换"
+      test_first21:
+        path: data/plume2/plume2d_test_ds_128x128_phys1e6_first21_corrected.hdf5
+        shape: [25, 21, 128, 128]
+        time_unit: Myr
+        primary: true
+        built_by: data/plume2/make_first21_corrected.py  # ⚠ 原写 make_first21_data.py —— 那是**非修正版**的产出脚本
+      # **发布口径**（2026-09-21 起）：全时程 + Myr 标尺，与 plume1d 的 phys1e6 同构。
+      # 由 make_full_phys1e6_data.py 从 _norm 生成：只把 t ÷1e6，六个场值逐位不变
+      # （已比对通过）。前 21 帧与 *_phys1e6_first21.hdf5 逐位相同 —— 这是训练/发布
+      # 两个口径衔接的证据。
+      train_full:
+        path: data/plume2/plume2d_train_ds_128x128_norm_corrected.hdf5
+        shape: [103, 131, 128, 128]
+        time_unit: Myr
+        primary: false
+        release_only: true
+        built_by: data/plume2/make_corrected_128x128.py  # ⚠ 原写 make_full_phys1e6_data.py —— 该脚本读写的 `*_norm.hdf5` / `*_phys1e6.hdf5` 两个文件名在 data/plume2/ 下都不存在
+      test_full:
+        path: data/plume2/plume2d_test_ds_128x128_norm_corrected.hdf5
+        shape: [25, 131, 128, 128]
+        time_unit: Myr
+        primary: false
+        release_only: true
+        built_by: data/plume2/make_corrected_128x128.py  # ⚠ 原写 make_full_phys1e6_data.py —— 该脚本读写的 `*_norm.hdf5` / `*_phys1e6.hdf5` 两个文件名在 data/plume2/ 下都不存在
+      # 旧的 _norm（全时程、t 单位=年、面积池化降采样）—— **已从工作区移除**，
+      # 当前口径的全时程文件就是上面的 train_full / test_full。
+      # 保留此条仅为交代历史命名与"为何曾有两个全时程版本"。
+      train_norm:
+        path: null            # 文件已移除；全时程口径见 train_full
+        shape: [103, 131, 128, 128]
+        time_unit: year
+        primary: false
+        release_only: false
+        removed: true
+        note: "旧面积池化降采样版，已被 train_full 取代并从工作区删除"
+      test_norm:
+        path: null            # 文件已移除；全时程口径见 test_full
+        shape: [25, 131, 128, 128]
+        time_unit: year
+        primary: false
+        release_only: false
+        removed: true
+    warnings:
+      - "训练必须用 *_phys1e6_first21_corrected.hdf5（21 帧、Myr）。全时程文件
+         （*_norm_corrected.hdf5）帧数超出上游窗口，拿它训练会直接撞 assert。"
+      - "⚠ 后缀含义与 plume1d 相反：plume2 的 `_norm` **不代表** per-dataset 归一化 ——
+         其常数 train/test 共享，可用。引用时不要按 plume1d 的经验想当然。"
+      - "文件名前缀是 `plume2d_`（不是 `plume2_`），沿用 data/ 下的历史命名；不要为对称性改名。"
+      - "无 10step / 20step / nd 版本。"
+      - "x/y 坐标与 plume1d **完全一致**：x∈[0.002181,0.997819]、y∈[0.003158,0.997708]，
+         均为保守重映射的等面积目标网格边界，既不是 linspace(0,1) 采样点也不是单元中心
+         （单元中心首值应为 0.5/128=0.003906）。实测两子集四份文件逐位相同。"
+      - "两子集的**空间网格与坐标一致**，但**参数空间维度不同**（1D vs 2D）、样本数与
+         物理时域不同，因此协议仍不可直接合并：E01 必须分别报告，禁止混成一个六场平均分。"
+
+# ─────────────────────────────────────────────────────────────────────────
+# 逐轨迹物理参数
+#
+# 登记在 subsets 之外，因为它是**跨子集**的一张表（237 行 = 109 + 128），
+# 且来源不是 hdf5 而是各算例保留的 I2VIS 输入 init.t3c。
+# ─────────────────────────────────────────────────────────────────────────
+trajectory_parameters:
+  table: protocol/trajectory_parameters.csv
+  provenance: protocol/PARAMETERS.md
+  generator: protocol/export_trajectory_parameters.py    # --check 可复跑校验
+  rows: 237
+  columns: [subset, split, traj_id, h5_row, T_plume_K, H_lith_km, n_frame,
+            t_end_Myr, source_file]
+  source: >
+    每个算例的 init.t3c：行 240 列 10 = T_plume（/Plume_pipe），
+    行 202 列 6 = H_lith（米）。⚠ 不用行 242 的 /Plume_bottom ——
+    它恒为 pipe+100 K，会超出声明的 [2000, 2150]。
+  verified:
+    plume2_N: 128
+    plume2_T_mean_K: 2075.00
+    plume2_T_std_K: 43.30
+    plume2_H_mean_km: 190.00
+    plume2_H_std_km: 17.32
+    note: "与论文声明的统计量逐位吻合；范围 T[2000.86,2149.86]、H[160.45,219.60]"
+    index_mapping: >
+      h5 行号 ↔ 算例目录的对应已用终止时刻独立验证（h5 t-coordinate[i,-1] 与
+      run{i}.log 的 YEAR 值到 6-7 位有效数字吻合）
+  reproducibility:
+    plume1d: >
+      可复现：scipy.stats.qmc.LatinHypercube(d=1, seed=42)，T = 1600 + 200·s，
+      区间 [1600,1800] K。脚本 data/results/result/T_test/create_T_test.py 在库。
+    plume2: >
+      可复现：脚本 data/plume1d_corrected/i2vis_source/00_sobol_sample.py ——
+      qmc.Sobol(d=10, scramble=True, seed=42).random(128)，再线性映射到
+      T = 2000 + 150·p1 (K)、H = 160 + 60·p2 (km)；01_in2fast_pal.py 用
+      folder_name = f"run{i}"，i 即 Sample_ID，故 run{i} ↔ Sobol 第 i 行。
+    plume2_verified: >
+      export_trajectory_parameters.py --check 每次重算并与 init.t3c 实测值比对：
+      scipy 1.10.1 下最大偏差 T 0.0049 K / H 0.0050 km（即 2 位小数舍入）。
+      ⚠ 复现依赖 scipy.stats.qmc.Sobol 的 scramble 实现跨版本不变，复现包需钉住版本。
+  caveat: >
+    Plume_data/paper/generate_figures.py 里的 sobol_T/sobol_H 是 Halton 重画的
+    示意散点，不是真参数，引用时不要用。

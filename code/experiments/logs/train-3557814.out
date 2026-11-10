@@ -1,0 +1,214 @@
+config : /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E02_ablation/configs/RESUME-mpnn-E02-A-plume1d-seed2.yaml
+trainer: /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/common/vendor/train_tubor.py
+host   : gsn6
+start  : 2026-09-21T13:20:43+08:00
+{'root_path': '/fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E02_ablation/runs', 'model_id': 'MPNN', 'exp_id': '2026-09-17-mpnn-E02-A-plume1d-seed2', 'pde_name': '2D_Mantle_Convection', 'temporal_domain': '(0, 17.2433)', 'resolution_t': 21, 'spatial_domain': '[(0, 1), (0, 1)]', 'resolution': [128, 128], 'variables': {'m': 0.1, 'eta': 0.1, 'zeta': 0.1}, 'num_outputs': 6, 'if_training': True, 'continue_training': True, 'model_path': '/fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E02_ablation/runs/2026-09-17-mpnn-E02-A-plume1d-seed2/checkpoints/2026-09-17-mpnn-E02-A-plume1d-seed2-latest.pt', 'save_period': 20, 'tensorboard': False, 'log_dir': './logs/tensorboard/', 'seed': 2, 'time_window': 10, 'neighbors': 1, 'unrolling': 0, 'unroll_step': 20, 'epochs': 2000, 'if_physical_loss': 1, 'if_v_gradient_loss': 0, 'if_continuity_loss': 0, 'if_argument_v_loss': 0, 'if_continuity_loss_non_uniform': 0, 'if_l2re_loss': 0, 'if_weighted_l2re_loss': 0, 'loss_mode': 'equal', 'dataset': {'single_file': True, 'file_name': 'plume1d_train_ds_128x128_phys1e6_first21.hdf5', 'saved_folder': '/fs1/home/USER/lhl/neuraloeprator-main/data/plume1d_corrected/', 'reduced_resolution': 1, 'reduced_resolution_t': 1, 'reduced_batch': 1, 'test_ratio': 0.1}, 'dataloader': {'batch_size': 2, 'num_workers': 4, 'pin_memory': True}, 'model': {'hidden_features': 200, 'hidden_layer': 6}, 'optimizer': {'name': 'Adam', 'lr': 0.0001, 'weight_decay': 1e-08}, 'scheduler': {'name': 'StepLR', 'step_size': 100, 'gamma': 0.8}}
+Using device: cuda:0
+Loaded checkpoint from /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E02_ablation/runs/2026-09-17-mpnn-E02-A-plume1d-seed2/checkpoints/2026-09-17-mpnn-E02-A-plume1d-seed2-latest.pt
+SingleDataset
+Total trainable parameters: 9076662
+Continue training from checkpoint
+Start training from epoch 1861
+[Epoch 1861] MSELoss: 0.09880341909063811, time: 95.614s
+[Epoch 1862] MSELoss: 0.09377353517761962, time: 92.176s
+[Epoch 1863] MSELoss: 0.10241652805019509, time: 92.576s
+[Epoch 1864] MSELoss: 0.10151031742465089, time: 91.943s
+[Epoch 1865] MSELoss: 0.09480516460131515, time: 91.558s
+[Epoch 1866] MSELoss: 0.09741691569797695, time: 92.379s
+[Epoch 1867] MSELoss: 0.0984509253070097, time: 92.254s
+[Epoch 1868] MSELoss: 0.09761278284713626, time: 91.945s
+[Epoch 1869] MSELoss: 0.08823672832328489, time: 92.337s
+[Epoch 1870] MSELoss: 0.09449781018139963, time: 92.235s
+[Epoch 1871] MSELoss: 0.09483456833880732, time: 91.944s
+[Epoch 1872] MSELoss: 0.09480539125136353, time: 92.385s
+[Epoch 1873] MSELoss: 0.10121442676013845, time: 92.410s
+[Epoch 1874] MSELoss: 0.10590732578103515, time: 92.068s
+[Epoch 1875] MSELoss: 0.08990939137187194, time: 92.987s
+[Epoch 1876] MSELoss: 0.09612798982892523, time: 92.267s
+[Epoch 1877] MSELoss: 0.09476026230153034, time: 92.083s
+[Epoch 1878] MSELoss: 0.08704463455995376, time: 92.741s
+[Epoch 1879] MSELoss: 0.11045507265424187, time: 91.942s
+==================== Validation ====================
+[Epoch 1879] val_loss: 4.608064131161882e-07
+===================================================
+[Epoch 1880] MSELoss: 0.09835299036719583, time: 91.876s
+[Epoch 1881] MSELoss: 0.10764057544822042, time: 92.309s
+[Epoch 1882] MSELoss: 0.10030475955202497, time: 92.661s
+[Epoch 1883] MSELoss: 0.1028885963711549, time: 92.952s
+[Epoch 1884] MSELoss: 0.09399449378675358, time: 92.038s
+[Epoch 1885] MSELoss: 0.09505743706937542, time: 92.252s
+[Epoch 1886] MSELoss: 0.10480639181861823, time: 92.325s
+[Epoch 1887] MSELoss: 0.09946768083186312, time: 92.061s
+[Epoch 1888] MSELoss: 0.08947869256900792, time: 92.033s
+[Epoch 1889] MSELoss: 0.10580611669204451, time: 92.401s
+[Epoch 1890] MSELoss: 0.08678099568086592, time: 92.215s
+[Epoch 1891] MSELoss: 0.10030002149075948, time: 91.908s
+[Epoch 1892] MSELoss: 0.09108170651068742, time: 91.870s
+[Epoch 1893] MSELoss: 0.09699893920597705, time: 92.466s
+[Epoch 1894] MSELoss: 0.09780980392613195, time: 91.770s
+[Epoch 1895] MSELoss: 0.09449661690318449, time: 92.286s
+[Epoch 1896] MSELoss: 0.10280985810624604, time: 92.440s
+[Epoch 1897] MSELoss: 0.0930392433127219, time: 92.211s
+[Epoch 1898] MSELoss: 0.09348733958110891, time: 91.761s
+[Epoch 1899] MSELoss: 0.09316862404177134, time: 92.407s
+==================== Validation ====================
+[Epoch 1899] val_loss: 4.5917439024378836e-07
+===================================================
+[Epoch 1900] MSELoss: 0.10427598432976413, time: 92.160s
+[Epoch 1901] MSELoss: 0.09065613749606366, time: 92.196s
+[Epoch 1902] MSELoss: 0.10078757669014687, time: 92.043s
+[Epoch 1903] MSELoss: 0.08664009637538006, time: 92.461s
+[Epoch 1904] MSELoss: 0.09576212487776171, time: 92.389s
+[Epoch 1905] MSELoss: 0.09955953690223396, time: 92.234s
+[Epoch 1906] MSELoss: 0.10538063202561303, time: 91.813s
+[Epoch 1907] MSELoss: 0.09530354689129375, time: 92.570s
+[Epoch 1908] MSELoss: 0.10281669776040045, time: 92.729s
+[Epoch 1909] MSELoss: 0.0971780725627799, time: 92.376s
+[Epoch 1910] MSELoss: 0.09534208446910436, time: 92.388s
+[Epoch 1911] MSELoss: 0.09767545713111758, time: 92.227s
+[Epoch 1912] MSELoss: 0.10117546356791123, time: 92.306s
+[Epoch 1913] MSELoss: 0.10239244895902547, time: 92.167s
+[Epoch 1914] MSELoss: 0.11128639450974084, time: 91.818s
+[Epoch 1915] MSELoss: 0.090808357429606, time: 92.554s
+[Epoch 1916] MSELoss: 0.09506521359170703, time: 92.770s
+[Epoch 1917] MSELoss: 0.10231772073629228, time: 92.631s
+[Epoch 1918] MSELoss: 0.10369239550676534, time: 91.948s
+[Epoch 1919] MSELoss: 0.09049188883297823, time: 91.857s
+==================== Validation ====================
+[Epoch 1919] val_loss: 4.561156487170592e-07
+===================================================
+[Epoch 1920] MSELoss: 0.09716094875792888, time: 92.242s
+[Epoch 1921] MSELoss: 0.10489162083037876, time: 92.106s
+[Epoch 1922] MSELoss: 0.0939881247679957, time: 92.195s
+[Epoch 1923] MSELoss: 0.09586042345670814, time: 92.306s
+[Epoch 1924] MSELoss: 0.09524946136992762, time: 91.856s
+[Epoch 1925] MSELoss: 0.0944885277316313, time: 92.206s
+[Epoch 1926] MSELoss: 0.09959841989488764, time: 92.115s
+[Epoch 1927] MSELoss: 0.09485663395290347, time: 91.840s
+[Epoch 1928] MSELoss: 0.1054907687516375, time: 92.308s
+[Epoch 1929] MSELoss: 0.09530434947968884, time: 92.450s
+[Epoch 1930] MSELoss: 0.08565364157865671, time: 91.762s
+[Epoch 1931] MSELoss: 0.09844996816140007, time: 91.975s
+[Epoch 1932] MSELoss: 0.09239574964158237, time: 92.186s
+[Epoch 1933] MSELoss: 0.09688528872687709, time: 91.809s
+[Epoch 1934] MSELoss: 0.09125560359098017, time: 92.169s
+[Epoch 1935] MSELoss: 0.0970995314842598, time: 92.391s
+[Epoch 1936] MSELoss: 0.09418501467867331, time: 92.470s
+[Epoch 1937] MSELoss: 0.09172530817291277, time: 92.475s
+[Epoch 1938] MSELoss: 0.08989723327315666, time: 91.847s
+[Epoch 1939] MSELoss: 0.10175182522189888, time: 91.650s
+==================== Validation ====================
+[Epoch 1939] val_loss: 4.577323011289991e-07
+===================================================
+[Epoch 1940] MSELoss: 0.09932960053397852, time: 92.026s
+[Epoch 1941] MSELoss: 0.09932724621400915, time: 92.141s
+[Epoch 1942] MSELoss: 0.10724304455586456, time: 92.263s
+[Epoch 1943] MSELoss: 0.09504346536811102, time: 92.395s
+[Epoch 1944] MSELoss: 0.09955913366072558, time: 92.599s
+[Epoch 1945] MSELoss: 0.09159521100280638, time: 92.270s
+[Epoch 1946] MSELoss: 0.0879779648755423, time: 92.326s
+[Epoch 1947] MSELoss: 0.10188379799100486, time: 91.888s
+[Epoch 1948] MSELoss: 0.08677835095758465, time: 91.991s
+[Epoch 1949] MSELoss: 0.09770598920824175, time: 91.996s
+[Epoch 1950] MSELoss: 0.09251187892038037, time: 92.717s
+[Epoch 1951] MSELoss: 0.09964513251642612, time: 92.249s
+[Epoch 1952] MSELoss: 0.09367916529828851, time: 92.329s
+[Epoch 1953] MSELoss: 0.09777083669111811, time: 92.439s
+[Epoch 1954] MSELoss: 0.09811105325140737, time: 92.038s
+[Epoch 1955] MSELoss: 0.09663570162162863, time: 91.899s
+[Epoch 1956] MSELoss: 0.0987932276277041, time: 91.632s
+[Epoch 1957] MSELoss: 0.10294198843819852, time: 92.134s
+[Epoch 1958] MSELoss: 0.09749168720604344, time: 92.396s
+[Epoch 1959] MSELoss: 0.09230989719402384, time: 92.124s
+==================== Validation ====================
+[Epoch 1959] val_loss: 4.585143670965408e-07
+===================================================
+[Epoch 1960] MSELoss: 0.09509832064875148, time: 92.202s
+[Epoch 1961] MSELoss: 0.1033014021390541, time: 92.135s
+[Epoch 1962] MSELoss: 0.09473226680843667, time: 92.652s
+[Epoch 1963] MSELoss: 0.09580325356430627, time: 91.915s
+[Epoch 1964] MSELoss: 0.09444859107448296, time: 91.939s
+[Epoch 1965] MSELoss: 0.09618187706324864, time: 92.243s
+[Epoch 1966] MSELoss: 0.09718735818751156, time: 92.211s
+[Epoch 1967] MSELoss: 0.1022282606414096, time: 92.490s
+[Epoch 1968] MSELoss: 0.10237764340656047, time: 92.356s
+[Epoch 1969] MSELoss: 0.10456145309250464, time: 92.590s
+[Epoch 1970] MSELoss: 0.0997418075249615, time: 92.224s
+[Epoch 1971] MSELoss: 0.09126601905815981, time: 91.950s
+[Epoch 1972] MSELoss: 0.09941636222753335, time: 92.285s
+[Epoch 1973] MSELoss: 0.10073750499974597, time: 92.189s
+[Epoch 1974] MSELoss: 0.10221215853975578, time: 92.642s
+[Epoch 1975] MSELoss: 0.09626144721088084, time: 92.232s
+[Epoch 1976] MSELoss: 0.10195396254262463, time: 92.190s
+[Epoch 1977] MSELoss: 0.09566200854764742, time: 92.458s
+[Epoch 1978] MSELoss: 0.1073216360528022, time: 92.124s
+[Epoch 1979] MSELoss: 0.09962853679264133, time: 92.165s
+==================== Validation ====================
+[Epoch 1979] val_loss: 4.593016370790792e-07
+===================================================
+[Epoch 1980] MSELoss: 0.09674825929951938, time: 92.285s
+[Epoch 1981] MSELoss: 0.10406899687156759, time: 92.573s
+[Epoch 1982] MSELoss: 0.09896395357579671, time: 92.139s
+[Epoch 1983] MSELoss: 0.11334589521654628, time: 91.504s
+[Epoch 1984] MSELoss: 0.09744981509125368, time: 92.051s
+[Epoch 1985] MSELoss: 0.09828122381374918, time: 92.171s
+[Epoch 1986] MSELoss: 0.09723175441930917, time: 92.142s
+[Epoch 1987] MSELoss: 0.10394802437671884, time: 92.008s
+[Epoch 1988] MSELoss: 0.10257500065067275, time: 91.873s
+[Epoch 1989] MSELoss: 0.09434424141760576, time: 92.449s
+[Epoch 1990] MSELoss: 0.09914208385585384, time: 92.313s
+[Epoch 1991] MSELoss: 0.0917137608948079, time: 91.676s
+[Epoch 1992] MSELoss: 0.10185924284583465, time: 92.189s
+[Epoch 1993] MSELoss: 0.08732861995866353, time: 92.360s
+[Epoch 1994] MSELoss: 0.09674559810876168, time: 92.024s
+[Epoch 1995] MSELoss: 0.10327992198819463, time: 92.217s
+[Epoch 1996] MSELoss: 0.09252624988386576, time: 92.078s
+[Epoch 1997] MSELoss: 0.09485344231044027, time: 92.121s
+[Epoch 1998] MSELoss: 0.1038077904588797, time: 92.214s
+[Epoch 1999] MSELoss: 0.09501506701450456, time: 91.900s
+==================== Validation ====================
+[Epoch 1999] val_loss: 4.5571262603516515e-07
+===================================================
+Training completed.
+Total train time: 12819.40937590599s. Average per epoch: 92.22596673313662s
+Loss curve saved to /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E02_ablation/runs/2026-09-17-mpnn-E02-A-plume1d-seed2/logs/2026-09-17-mpnn-E02-A-plume1d-seed2_Training_Loss.png
+Loss curve saved to /fs1/home/USER/lhl/neuraloeprator-main/Plume_data/iclr2027/experiments/E02_ablation/runs/2026-09-17-mpnn-E02-A-plume1d-seed2/logs/2026-09-17-mpnn-E02-A-plume1d-seed2_Validation_Loss.png
+start testing...
+Average inference time per call: 0.400440 s in GPU
+pred_np shape: (2, 128, 128, 10, 6)
+pred_all shape: (2, 10, 128, 128, 6)
+{'MSE': tensor([1.1421e-08, 5.7463e-10, 8.3289e-08, 8.5907e-07, 5.7171e-07, 1.2082e-06],
+       device='cuda:0'), 'RMSE': tensor([1.0263e-04, 2.2473e-05, 2.2993e-04, 8.8113e-04, 5.3158e-04, 8.1866e-04],
+       device='cuda:0'), 'L2RE': tensor([1.1446e-04, 4.0897e-05, 3.1240e-04, 9.4195e-04, 1.2034e-01, 7.3513e-02],
+       device='cuda:0'), 'MaxError': tensor([0.0065, 0.0009, 0.0158, 0.0945, 0.0561, 0.0891], device='cuda:0'), 'SSIM': tensor([0.9997, 0.9962, 0.9999, 0.9987, 0.0334, 0.1579]), 'avg_infer_time_s': 0.4004397094726563}
+MSE 	0.000000	0.000000	0.000000	0.000001	0.000001	0.000001	
+RMSE 	0.000103	0.000022	0.000230	0.000881	0.000532	0.000819	
+L2RE 	0.000114	0.000041	0.000312	0.000942	0.120336	0.073513	
+MaxError 	0.006473	0.000942	0.015791	0.094507	0.056094	0.089131	
+SSIM 	0.999724	0.996237	0.999916	0.998733	0.033390	0.157937	
+Done
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+Saved ro.gif
+Saved pr.gif
+Saved tk.gif
+Saved nu.gif
+Saved vx.gif
+Saved vy.gif
+end    : 2026-09-21T16:57:22+08:00
